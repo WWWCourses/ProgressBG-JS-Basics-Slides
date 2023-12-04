@@ -56,10 +56,10 @@ header .logo{
   font-family: sans-serif;
   margin-top: 3em;
 }
-.syllabus>h1{
+.syllabus>h2{
 	margin: 0em 0 1em 0;
 	padding: 0;
-	font-size:2em;
+	font-size:1.8em;
 	text-align: center;
 	/*text-transform: uppercase;*/
 	color: #999;
@@ -132,7 +132,7 @@ header .logo{
 	content: counter(section) ". ";
 	color: #718EBA;
 	/*font-weight: 200;*/
-	font-size: .9em; */
+	font-size: .9em;
 }
 .themes>article>section{
 	position: relative;
