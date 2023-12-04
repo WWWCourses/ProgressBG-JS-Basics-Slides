@@ -1,0 +1,92 @@
+html, body{
+    height: 100%;
+    overflow: visible;
+}
+body{
+    font-family: sans-serif;
+    color: #565656;
+}
+header{
+     /*display: inline-block;*/
+    width: 100%;
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 3em;
+    color: #999;
+    /*border-bottom: 1px solid #326c9c;*/
+}
+header>h1{
+    font-size: 2em;
+}
+article{
+    line-height: 1.5em;
+    width: 100%;
+    margin: 0 auto;
+}
+article>h1{
+    /*text-align: center;*/
+    line-height: 1.3em;
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 4em;
+    text-align: center;
+    color: #AAA;
+}
+li{
+    margin: 1em 0 .5em 0;
+}
+code{
+    font-size: 1.2em;
+}
+.inline{
+    display: inline;
+    padding: .2em .3em;
+    font-size: 1em;
+
+}
+.inset{
+    border: 2px solid #666;
+}
+.note_block{
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    line-height: 2em;
+    margin-left: 2em;
+    font-size: .8em;
+}
+.note_block a{
+    vertical-align: middle;
+}
+.note_block a:hover{
+    font-size: 1.2em;
+    /*line-height: 1em;*/
+}
+.note_block:before, .note_block:after{
+    font-family: FontAwesome;
+    content: "\f103";
+    color: #44558b;
+}
+.note_block:before{
+    margin-right: .5em;
+}
+.note_block:after{
+    margin-left: .5em;
+}
+.dark_red{
+    color: #8b4455;
+}
+a{
+    color: #61ACC1;
+    text-decoration: none;
+}
+a.local{
+    color: inherit;
+    text-decoration: none;
+}
+i{
+    vertical-align: middle;
+}
+abbr{
+    cursor: pointer;
+}

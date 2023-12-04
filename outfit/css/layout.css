@@ -1,0 +1,102 @@
+header{
+    position: relative;
+    min-width: 80%;
+    min-height: 6em;
+    /*font-size: 1.5em;*/
+    margin: 1em auto 2em auto;
+    background-color: #333;
+    color: #999;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+header>h1{
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+    text-align: center;
+    font-family: 'Modern Antiqua', sans-serif;
+    line-height: 1.2;
+    /*color: #CD0027;*/
+    color: #718EBA;
+}
+header>h2{
+    position: absolute;
+    font-size: 1.2em;
+    top:1em;left: .8em;
+    color: #718EBA;
+}
+header>h3{
+    position: absolute;
+    font-size: 1em;
+    bottom: .5em; right:.8em;
+    color: #CDCDCD;
+}
+
+header a{
+    text-decoration: none;
+    color: inherit;
+    border-bottom: .1em solid #145878;
+}
+header a:visited{
+   color: inherit;
+}
+header a:hover{
+    text-decoration: none;
+    background-color: #239DD5;
+    color: inherit;
+}
+header a.active{
+    color: inherit;
+}
+header a.nonactive{
+    color: #BBB;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*MAIN*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+main{
+    margin: 0 auto;
+    min-height: 59vh;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*FOOTER*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+footer{
+    /*position: absolute;
+    left: 0; right: 0; bottom: 0;*/
+    /*display: inline-block;*/
+    margin: 5em 0 0 0;
+    padding: .4em 0 0 0;
+    height: 5em;
+    vertical-align: middle;
+    text-align: center;
+    border-top: 1px solid #AAA;
+    color: #718EBA;
+}
+ .license a{
+    font-size: 1em;
+    text-decoration: none;
+    border: none;
+    color: inherit;
+}
+.license a:hover{
+    text-decoration: none;
+    background: none;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+/*~~~~~~~~~~ images  ~~~~~~~~~~*/
+.license img{
+    margin-left: .5em;
+    border: none;
+    height: 1em;
+    vertical-align: middle;
+}

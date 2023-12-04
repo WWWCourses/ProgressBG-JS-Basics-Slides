@@ -1,0 +1,43 @@
+/*fonts*/
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,400italic);
+@import url(https://fonts.googleapis.com/css?family=Glass+Antiqua);
+@import url(https://fonts.googleapis.com/css?family=Modern+Antiqua);
+/*~~~~~~~~~~ minimal reset  ~~~~~~~~~~*/
+html, body, article,h1, h2, h3, h4, h5, h6{
+    margin: 0; padding: 0;
+    /*overflow: auto;*/
+    /*font-size: inherit;*/
+}
+/*~~~~~~~~~~ layout  ~~~~~~~~~~*/
+/* small */
+@media only screen and (min-width: 50px){
+    body {
+        width:  98%;
+        margin: 0 auto;
+        padding: 0 2%;
+    }
+}
+/* vary small */
+@media only screen and (min-width: 480px){
+    body {
+        width:  96%;
+        margin: 0 auto;
+        padding: 0 2%;
+    }
+}
+/* large */
+@media only screen and (min-width: 800px)  {
+    body {
+        width:  80%;
+        margin: 0 auto;
+        padding: 0 2%;
+    }
+}
+/* very large */
+@media only screen and (min-width: 1200px)  {
+    body {
+        width:  50%;
+        margin: 0 auto;
+        padding: 0 2%;
+    }
+}

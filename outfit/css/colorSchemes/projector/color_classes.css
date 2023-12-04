@@ -1,0 +1,30 @@
+/*font-colors*/
+.fg_blue{
+    color: #00D8FD
+}
+.fg_green{
+    color: #00FDD8
+}
+.fg_red{
+   color: #FD00D8
+}
+.fg_gray{
+   color: #686868
+}
+.fg_light_gray{
+   color: #D8D8D8
+}
+.fg_dark_gray{
+   color: #282828
+}
+
+/*backgrounds*/
+.bg_blue{
+    background: #00D8FD
+}
+.bg_green{
+    background: #00FDD8
+}
+.bg_red{
+   background: #FD00D8
+}

@@ -1,0 +1,60 @@
+        header{
+            position: relative;
+            width: 100%;
+            min-height: 6em;
+            margin: 1em 0 2em 0;
+            line-height: 1.5em;
+            text-align: center;
+            font-size: 1.5em;
+            background-color: #454547;
+            color: #999;
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.8);
+            overflow: hidden;
+        }
+        header>h1{
+            font-family: 'Modern Antiqua', sans-serif;
+            font-size: 1.5em;
+            line-height: 1.3em;
+            color: #FFB97C;
+        }
+        header>h2{
+            margin: .5em 0 .5em 0;
+            color: #ffde58;
+        }
+        header>h3{     
+            margin-top: 1em;       
+            text-align: center;
+            color: #326c9c;            
+        }
+        header>h4{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin: 0 .9em .4em 0;
+            overflow: hidden;
+            color: #326c9c;
+        }
+        header>h2>span{
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        header a{
+            text-decoration: none;
+            color: inherit;
+            border-bottom: .1em solid #145878;
+        }
+        header a:visited{
+           color: inherit;
+        }
+        header a:hover{
+            text-decoration: none;
+            background-color: #239DD5;
+            color: inherit;
+        }
+        header a.active{
+            color: inherit;
+        }
+        header a.nonactive{
+            color: #BBB;
+        }

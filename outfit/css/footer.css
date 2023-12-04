@@ -1,0 +1,34 @@
+footer{
+    /*position: absolute;
+    left: 0; right: 0; bottom: 0;*/
+    /*display: inline-block;*/
+    margin: 5em 0 0 0;
+    height: 5em;
+    vertical-align: middle;
+    text-align: center;
+    border-top: 1px solid #AAA;
+    /*border: 2px solid red;*/
+    color: #999;
+}
+ .license a{
+    font-size: 1em;
+    text-decoration: none;
+    border: none;
+    color: inherit;
+}
+.license a:hover{
+    text-decoration: none;
+    background: none;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+/*~~~~~~~~~~ images  ~~~~~~~~~~*/
+.license img{
+    border: none;
+    height: 1em;
+    vertical-align: middle;
+}

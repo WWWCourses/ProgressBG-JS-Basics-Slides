@@ -1,0 +1,49 @@
+.text_color_light{
+    color: #F0EDE3;
+}
+.text_color_dark{
+    color: #58595B;
+}
+.text_shadow_gray{
+    text-shadow:
+         0px 0px 0 #444444,
+        -1px 1px 0 #3e3e3e,
+        -2px 2px 0 #3b3b3b,
+        -3px 3px 0 #383838,
+        -4px 4px 0 #363636,
+        -5px 5px 0 #333333,
+        -6px 6px 0 #303030,
+        -7px 7px 0 #2d2d2d,
+        -8px 8px 0 #2a2a2a,
+        -9px 9px 0 #272727,
+      -10px 10px 0 #252525,
+      -11px 11px 0 #222222,
+      -12px 12px 0 #1f1f1f,
+      -13px 13px 12px rgba(0, 0, 0, 0.55),
+      -13px 13px  1px rgba(0, 0, 0, 0.5),
+        0px 10px 22px rgba(193, 209, 211, 0.5),
+      -10px 20px 20px rgba(193, 209, 211, 1);
+}
+.text_shadow_light_to_dark{
+    text-shadow:
+    -1px 1px 0 #DCDBD5,
+    -2px 2px 0 #CACAC7,
+    -3px 3px 0 #B8B9B9,
+    -4px 4px 0 #A7A9AC,
+    -5px 5px 0 #989A9D,
+    -6px 6px 0 #8A8C8E,
+    -7px 7px 0 #7C7E80,
+    ;
+}
+.text_shadow_dark_to_light{
+    text-shadow:
+    -1px 1px 0 #7C7E80,
+    -2px 2px 0 #8A8C8E,
+    -3px 3px 0 #989A9D,
+    -4px 4px 0 #A7A9AC,
+    -5px 5px 0 #B8B9B9,
+    -6px 6px 0 #CACAC7,
+    -7px 7px 0 #DCDBD5,
+    ;
+}
+

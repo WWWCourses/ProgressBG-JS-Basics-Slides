@@ -1,0 +1,100 @@
+/*~~~~~~~~~~ fonts  ~~~~~~~~~~*/
+/*@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,400italic,700,700italic,300italic&subset=latin,cyrillic);*/
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic&subset=latin,cyrillic);
+@import url(https://fonts.googleapis.com/css?family=Philosopher&subset=latin,cyrillic);
+@import url(https://fonts.googleapis.com/css?family=Play:400,700&subset=latin,cyrillic);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+/*~~~~~~~~~~ lazy reset  ~~~~~~~~~~*/
+html, body, p{
+    margin: 0;
+    padding: 0;
+}
+/*~~~~~~~~~~ page  ~~~~~~~~~~*/
+body{
+    line-height: 1.5em;
+    background-color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    /*font-family: 'Play', sans-serif;*/
+    font-weight: 400;
+    color: #555;
+}
+header{
+    height: 10vh;
+    border: 5px solid blue;
+    box-sizing: border-box;
+}
+main{
+    position: relative;
+    height: 90vh;
+    border:5px solid green;
+    box-sizing: border-box;
+}
+.slider{
+    position: relative;
+    width: 40rem;
+    height: 20rem;
+    margin: 5em auto;        
+    border:1px solid red;
+    background: #999;
+}
+.slider img{
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+}
+/*next button with checkbox*/
+.slider .next_btn{
+    position: absolute;
+    font-size: 2em;
+    right: .1em;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+.slider input{
+    display: none;
+}
+.slider .next_btn:hover{
+    cursor: pointer;
+}
+.slider input#next_check:checked{
+    width: 2em;
+    height: 1em;
+}
+.slider #next_check:checked~.images img{
+    margin-left: 100%; 
+    /*opacity: 0;*/
+    transition: 1s;
+}
+
+a{
+    font-size: 1.1em;
+    text-decoration: none;
+    font-family: 'Play', sans-serif;
+    color: #17A88F;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+ul,ol,li{
+    margin-left: .8em;
+    list-style-type: none;
+    list-style-position: outside;
+}
+.disclaimer{
+    font-size: 1.2em;
+    font-family: "Philosopher", sans-serif;
+    font-style: italic;
+    /*text-align: center;*/
+    /*color: #994A4A;*/
+    color: #ffde58;
+}
+li>span:before{
+    content: " - ";
+}
+.buzz_word{
+    color: #333;
+    font-style: italic;
+}

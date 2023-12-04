@@ -1,0 +1,16 @@
+/*********************************************
+ * LINKS
+ *********************************************/
+a.home_link{
+    display: inline-block;
+    z-index: 100;
+    margin: .5em;
+    /*background: green;*/
+}
+.theme_switch a{
+    opacity: 0.2;
+    font-size: 12px;
+}
+.theme_switch a:hover{
+  opacity: 1;
+}

@@ -1,0 +1,124 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+body{
+    max-width: 50em;
+    margin: 2em 1em;
+    background-color: #F7F6E6;
+    color: #443020;
+}
+h1{
+    margin: 0 0 1em 0;
+}
+p{
+    margin: .5em 0em 0em 0em;
+    padding: 0;
+}
+a{
+    color: blue;
+}
+.task{
+
+}
+.task_description{
+    padding: 0em 0em 2em 1em;
+    /*margin: 0 0 1em 0;*/
+    /*border-bottom: .1em dotted #999;*/
+}
+.results{
+    position: relative;
+    box-sizing: border-box;
+    width: 97%;
+    background-color: #FFF;
+    color: #000;
+    /*max-width: 50em;*/
+    margin: 1em 0em .2em 0em;
+    padding: 1em 0em 1em .5em;
+    border: .1em inset #D1D1D1;
+}
+.results>img{
+    display: block;
+    width: 100%;
+    margin: -1em 0em 0em -.5em;
+}
+.notes{
+    margin: 0em 0em 0em 2em;
+}
+.notes>ul{
+    margin: 0;
+}
+.notes>pre>code{
+    display: inline-block;
+    min-width: 21em;
+    margin: 1em 0 0 0;
+}
+/*.notes>ul>li>span{
+    margin: 0 0 0 1em;
+}*/
+.asterics{
+    list-style-type: none;
+    list-style-position: inside;
+}
+.asterics>li{
+    position: relative;
+    margin: 1em 0 0 0;
+}
+.asterics>li li{
+    margin: .5em 0 0 0;
+}
+.asterics>li:before{
+    position: absolute;
+    top: 0;
+    left: -2em;
+    font-family: 'FontAwesome';
+    content: '\f069';
+    font-size: .5em;
+    color: #E78989;
+
+
+}
+.title{
+    color: #A67455;
+    margin: 0em 0em .5em 0em;
+    font-style: italic;
+    font-weight: bold;
+}
+p.table_caption{
+    margin: 0em 0em 0em 0em;
+    font-style: italic;
+    font-size: 80%;
+}
+.kw{
+    font-family: DejaVu,sans-serif;;
+    font-weight: bold;
+}
+.red{
+    color: #8C1F28;
+}
+.main_list{
+    list-style-type: decimal;
+}
+.sub_list{
+    list-style-type: square;
+}
+.inline{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+}
+/*this is a workaround, until TODO_1 => DONE*/
+.notes>ul>li span.code{
+    font-family: monospace;
+    display: inline;
+    min-width: initial;
+    margin: 0;
+}
+@media print {
+    .page_break {page-break-after: always;}
+}
+
+/*common classes*/
+.center_text{
+    text-align: center;
+}
+.gray{
+    color: #666;
+}

@@ -1,0 +1,89 @@
+.reveal section .left{
+  display: inline-block;
+  float: left;
+}
+.reveal section .right{
+  display: inline-block;
+  float: right;
+  padding: 1em 0 !important;
+  line-height:2.5em !important;
+  text-align: left;
+}
+.reveal section .half{
+  width: 50%;
+}
+.reveal section .small_font{
+  font-size: 12px !important;
+}
+.reveal section .fontsize1{
+  font-size: 1em !important;
+  line-height: 1em !important;
+}
+.reveal section .fontsize_09{
+  font-size: 0.9em !important;
+  line-height: 0.9em !important;
+}
+.reveal section .fontsize_08{
+  font-size: 0.8em !important;
+  line-height: 0.8em !important;
+}
+.reveal section .fontsize_07{
+  font-size: 0.7em !important;
+  line-height: 0.7em !important;
+}
+.reveal section .fontsize_05{
+  font-size: 0.5em !important;
+  line-height: 0.5em !important;
+}
+.reveal section .inline{
+  display: inline-block;
+  width: auto;
+  box-shadow: none;
+}
+.reveal section .text_left{
+  text-align: left;
+}
+.reveal section .text_center{
+  text-align: center !important;
+}
+
+/* text styles { */
+.reveal section .i{
+  font-style: italic;
+}
+.reveal section .b{
+  font-weight: bold;
+}
+.reveal section .nb{
+  font-style: italic;
+}
+/* text styles } */
+/* text colors { */
+  .reveal section .red{
+    color: red;
+  }
+  .reveal section .blue{
+    color: blue;
+  }
+  .reveal section .green{
+    color: green;
+  }
+  .reveal section .darkred{
+    color: darkred;
+  }
+  .reveal section .darkblue{
+    color: darkblue;
+  }
+  .reveal section .darkgreen{
+    color: darkgreen;
+  }
+  .reveal section .lightred{
+    color: lightred;
+  }
+  .reveal section .lightblue{
+    color: lightblue;
+  }
+  .reveal section .lightgreen{
+    color: lightgreen;
+  }
+/* text colors } */

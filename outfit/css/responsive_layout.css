@@ -1,0 +1,33 @@
+/*~~~~~~~~~~ layout  ~~~~~~~~~~*/
+/* small */
+@media only screen and (min-width: 50px){
+    body {
+        width:  98%;
+        margin: 0 auto;
+        padding: 0 2%;
+    }
+}
+/* vary small */
+@media only screen and (min-width: 480px){
+    body {
+        width:  96%;
+        margin: 0 auto;
+        padding: 0 2%;
+    }
+}
+/* large */
+@media only screen and (min-width: 800px)  {
+    body {
+        width:  80%;
+        margin: 0 auto;
+        padding: 0 2%;
+    }
+}
+/* very large */
+@media only screen and (min-width: 1200px)  {
+    body {
+        width:  80%;
+        margin: 0 auto;
+        padding: 0 2%;
+    }
+}

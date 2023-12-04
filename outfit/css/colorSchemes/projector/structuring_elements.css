@@ -1,0 +1,100 @@
+/* common elements */
+.reveal section img{
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 .5em .1em rgba(150, 150, 150, 0.5);
+}
+.reveal section table{
+    color: #333;
+}
+
+
+/* results blocks */
+.reveal>.slides div.results_h{
+  width: 90%;
+  margin: 20px auto;
+  padding: 1em 0 0 0;
+  text-align: left;
+  font-size: .6em;
+  border: 3px inset #999;
+  background: #FFF;
+  color: #000;
+}
+.reveal>.slides div.results_h::before{
+    content: attr(rel);
+    display: block;
+    width: 100%;
+    margin-top: -1em;
+    overflow: auto;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'PT Serif',serif;
+    background: rgba(205, 134, 44, 0.5);
+    color: #666;
+}
+.reveal>.slides div.results_h h1{
+    display: block;
+    font-size: 2em;
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    font-weight: bold;
+    color: #000;
+}
+.reveal>.slides div.results_h h2{
+    display: block;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.83__qem;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    color: #000;
+}
+.reveal>.slides div.results_h h3{
+    display: block;
+    font-size: 1.17em;
+    -webkit-margin-before: 1__qem;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    color: #000;
+}
+.reveal>.slides div.results_h h4{
+    display: block;
+    /* font-size: 1em; */
+    -webkit-margin-before: 1.33__qem;
+    -webkit-margin-after: 1.33em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    color: #000;
+}
+.reveal>.slides div.results_h h5{
+    display: block;
+    font-size: .83em;
+    -webkit-margin-before: 1.67__qem;
+    -webkit-margin-after: 1.67em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    color: #000;
+}
+.reveal>.slides div.results_h h6{
+    display: block;
+    font-size: .67em;
+    -webkit-margin-before: 2.33__qem;
+    -webkit-margin-after: 2.33em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    color: #000;
+}
+
+/* tabs indent */
+.tabs1{ margin-left: -4em !important; }
+.tabs2{ margin-left: -8em !important; }
+.tabs3{ margin-left: -12em !important; }
+.tabs4{
+    padding: 0 !important;
+    margin-left: -16em !important;
+
+}
+.tabs5{ margin-left: -20em !important; }
+

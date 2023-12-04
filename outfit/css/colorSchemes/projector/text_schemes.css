@@ -1,0 +1,92 @@
+/*
+    Styling text-level page elements, like notes, abbreviations, keywords etc.
+    2016, Iva E.Popova
+*/
+.reveal section{
+    color: #333;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* abbreviations and their definitions/explanations
+   HTML: <abbr>DB</abbr><dfn id="DB"><span>Data</span><span>Base</span></dfn> */
+.reveal abbr{
+    font-weight: bolder;
+    color: #ef9a9a;
+}
+.reveal abbr+dfn:before{
+    content: " = ";
+}
+.reveal abbr+dfn>span{
+    display: inline-block; /* to apply :first-letter */
+    margin-right: .3em;
+}
+.reveal abbr+dfn>span:first-letter{
+    font-weight: bolder;
+    color: #ef9a9a;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* names */
+.reveal .name_product{
+    color: #C5CAE9;
+}
+.reveal .name_company{
+    color: #B2EBF2;
+}
+.reveal .name_person{
+    color: #B3E5FC;
+}
+.reveal .name_place{
+    color: #BBDEFB;
+}
+/* exclamation */
+.reveal .NB{
+    color: #FF5722;
+    font-weight: bold;
+}
+.reveal .important{
+    font-weight: bold;
+}
+.reveal .note{
+    font-style: italic;
+    color: #ef9a9a;
+}
+.reveal .keyconcept, .reveal .keyword{
+    color: #C5E1A5;
+    font-style: italic;
+}
+.reveal .newterm{
+    color: #C5E1A5;
+    font-weight: bold;
+}
+.reveal .code{
+    font-family: monospace;
+    font-weight: bold;
+}
+/* font sizes */
+.reveal .fs-smallest{
+    font-size: .4em;
+    line-height: 1m;
+}
+.reveal .fs-smaller{
+    font-size: .6em;
+    line-height: 1.2;
+}
+.reveal .fs-small{
+    font-size: .8em;
+    line-height: 1.2;
+}
+.reveal .fs-big{
+    font-size: 1.2em;
+    line-height: 1.2;
+}
+.reveal .fs-normal{
+    font-size: 1em;
+    line-height: 1.2;
+}
+.reveal .fs-biger{
+    font-size: 1.4em;
+    line-height: 1.2;
+}
+.reveal .fs-bigest{
+    font-size: 1.6em;
+    line-height: 1.2;
+}

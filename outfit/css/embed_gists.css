@@ -1,0 +1,10 @@
+.blob-num {
+    color: orange;
+    font-size: 3em;
+    border: none;
+    text-decoration: none;
+}
+
+.gist .blob-num:hover{
+    color: red;
+}

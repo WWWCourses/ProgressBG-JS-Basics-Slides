@@ -1,0 +1,50 @@
+@import "/ProgressBG-JS-Advanced_React/outfit/css/custom_hljs.css" screen, projection;
+/*reset {*/
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+/*reset }*/
+/*layout {*/
+    .page>section{
+        display: inline-block;
+        vertical-align: top;
+        width: 49vw;
+        min-height: 100vh;
+    }
+    .page>section.right{
+        margin-left: -4px;
+    }
+    /*responsive {*/
+        @media screen and (max-width: 680px) {
+            .page>section{
+                min-height: auto;
+                width: 100vw;
+            }
+        }
+    /*responsive {*/
+/*layout }*/
+/*page style {*/
+    .page>section{
+        padding: 1em;
+    }
+    .page>section.left{
+        border-right: 3px dotted #999;
+    }
+    .page>section>h2{
+        line-height: 2em;
+        text-align: center;
+        border-bottom: 2px solid #666;
+        margin-bottom: 1em;
+        color: #999;
+    }
+    pre{
+        margin-bottom: 1em;
+    }
+    iframe.stretch{
+        width: 100%;
+        min-height: 88vh;
+        border: none;
+    }
+/*page style }*/

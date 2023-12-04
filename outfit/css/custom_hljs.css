@@ -1,0 +1,71 @@
+/* ********************************************************************** */
+/* Fonts  */
+/* ********************************************************************** */
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+/* for highlight.js and my beautify_code_blocks {*/
+.reveal pre{
+	font-size: .6em;
+	line-height: 1;
+	white-space: pre-wrap;       /* css-3 */
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+.reveal pre>code{
+	font-family: 'Inconsolata', monospace;
+	/*font-weight: bold;*/
+	/*font-size: 0.8em;*/
+	padding-left: .3em;
+	padding-bottom: .3em;
+	padding-right: 0;
+	line-height: 1.1em;
+}
+code[rel]::before{
+	content: attr(rel);
+	display: block;
+	width: 100%;
+	margin-top: -0.5em;
+	margin-bottom: 0.5em;
+	margin-left: -.3em;
+	padding-top: .3em;
+	padding-bottom: .3em;
+	padding-left: 0.3em;
+	padding-right: 0;
+	overflow: auto;
+	text-align: center;
+	border-bottom-left-radius:  3px;
+	border-bottom-right-radius: 3px;
+	font-weight: bold;
+	font-family: 'PT Serif',serif;
+	background: #99D78E;
+	color: #000;
+}
+code[rel="HTML"]::before{
+	background: rgba(95, 24, 38, .5);
+}
+code[rel="css"]::before{
+	background: rgba(45, 141, 161,.8);
+}
+code[rel="JS"]::before{
+	background: rgba(240, 219, 79, .5);
+}
+code[rel="Terminal"]::before{
+	background: rgba(0,0,0, .6);
+	color: #FFF;
+}
+code:first-line{
+	line-height: 1em;
+}
+/*padding hack*/
+pre>code>div{
+	margin-top: -2.5em;
+	margin-bottom: -2.5em;
+}
+pre>code>div.tab3{ margin-left: -7em; }
+pre>code>div.tab4{ margin-left: -9.5em; }
+pre>code>div.tab5{ margin-left: -12em; }
+/* TODO: when in reveal.js: */
+
+/* for highlight.js and my beautify_code_blocks }*/
