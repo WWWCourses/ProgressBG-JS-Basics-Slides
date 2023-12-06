@@ -210,9 +210,18 @@ header .logo{
 
 .themes>article>section>ol{
 	margin: 0.1em 0 0.6em 2.4em;
+  max-height: 10em;
+  opacity: 1;
   transition: .2s;
-}
+  /* transition-timing-function: cubic-bezier(0, 0, 0, 1.1); */
+  transition-timing-function: ease-in-out;
 
+}
+.themes>article>section>ol.hidden{
+  margin: 0.1em 0 0em 2.4em;
+  max-height: 0 !important;
+  opacity: 0;
+}
 
 .themes>article>section>ol>li>ol{
 	/*list-style-type: disc;*/
