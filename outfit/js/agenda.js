@@ -154,11 +154,11 @@ function showHideAll( clicked_node, effected_nodes ){
 	if (effected_nodes.shown) {
 		hideAllNodes(effected_nodes);
 		effected_nodes.shown = false;
-		clicked_node.title = 'Hide Subtopics';
+		clicked_node.title = 'Show Subtopics';
 	}else{
 		showAllNodes(effected_nodes);
 		effected_nodes.shown = true;
-		clicked_node.title = 'Show Subtopics';
+		clicked_node.title = 'Hide Subtopics';
 	}
 }
 function showAllNodes ( effected_nodes){
@@ -179,10 +179,10 @@ function showHideNodes(effected_nodes){
 	effected_nodes.forEach( function(effected_node){
 		if ( effected_node.classList.contains("hidden") ){
 			showNode(effected_node);
-			effected_node.previousElementSibling.title = 'Hide Subtopics';
+			effected_node.previousElementSibling.title = 'Hide Subtopic';
 		}else {
 			hideNode(effected_node);
-			effected_node.previousElementSibling.title = 'Show Subtopics';
+			effected_node.previousElementSibling.title = 'Show Subtopic';
 		}
 	});
 }
@@ -190,7 +190,7 @@ function showNode(effected_node){
 	effected_node.classList.remove("hidden");
 
 	// change title of the H3 element
-	effected_node.parentElement.getElementsByTagName("h3")[0].title = 'Hide Subtopics';
+	effected_node.parentElement.getElementsByTagName("h3")[0].title = 'Hide Subtopic';
 	// change arrow
 	var arr_node = effected_node.parentElement.getElementsByTagName("h3")[0];
 	changeArrow( arr_node, 'up');
@@ -199,7 +199,7 @@ function hideNode (effected_node) {
 	effected_node.classList.add("hidden");
 
 	// change title of the H3 element
-	effected_node.parentElement.getElementsByTagName("h3")[0].title = 'Show Subtopics';
+	effected_node.parentElement.getElementsByTagName("h3")[0].title = 'Show Subtopic';
 	// change arrow
 	var arr_node = effected_node.parentElement.getElementsByTagName("h3")[0];
 	changeArrow( arr_node, 'down');

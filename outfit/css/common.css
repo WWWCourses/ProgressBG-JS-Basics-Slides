@@ -38,11 +38,9 @@ a.nonready{
 .hidden{
 	/*display: inline-block;*/
 	font-size: 0px;
-	line-height: 0;
-	visibility: hidden;
+	/* line-height: 0; */
 	height: 0;
-    max-height: 0;
-    display: none;
+    /* max-height: 0; */
 }
 code.kw:before, code.kw:after{content: "'"}
 
