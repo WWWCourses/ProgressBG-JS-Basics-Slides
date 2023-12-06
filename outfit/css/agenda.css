@@ -93,8 +93,8 @@ header .logo{
 }
 .syllabus .toggleButtons>.toggleSubThemes{
   text-align: right;
-  /* color: #718EBA; */
-  color: #CD0027;
+  color: #718EBA;
+  /* color: #CD0027; */
 }
 .syllabus .toggleButtons>span:hover{
     /*font-size:.9em;*/
