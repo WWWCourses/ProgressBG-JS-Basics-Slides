@@ -2,7 +2,7 @@
 
 function attachEvents(){
 	// onclick to themes/sub-themes titles:
-	const titleNodes = document.querySelectorAll('.themes>article>h1, .themes>article h3');
+	const titleNodes = document.querySelectorAll('.themes>article>h2, .themes>article h3');
 	for (let titleNode of titleNodes){
 		// do not add click on empty lists and remove the arrow class on that title:
 		if(titleNode.nextElementSibling && titleNode.nextElementSibling.tagName === "OL" && titleNode.nextElementSibling.children.length === 0){
@@ -19,7 +19,6 @@ function attachEvents(){
 	// onclick to toggleThemes
 	const toggleThemes = document.querySelector('.toggleThemes');
 	toggleThemes?.addEventListener( "click", ()=>showHideAll( toggleThemes, dom.themes ) );
-
 
 	// onclick to toggleSubThemes
 	const togglesubThemes = document.querySelector('.toggleSubThemes');
@@ -84,7 +83,6 @@ function setSubThemeHours(){
 	}
 
 }
-
 function setThemesHours(){
 	const hours_per_day = config.hours_per_day
 	let currentSectionHours = 0;
@@ -149,8 +147,10 @@ function calcTotalDays(){
 }
 
 function showHideAll( clicked_node, effected_nodes ){
-	// init static flag to show or hide all
-	// showHideAll.show = (typeof showHideAll.show == 'undefined' ) ? false : showHideAll.show;
+	// init shown flag
+	if(effected_nodes.shown===undefined && config.showSubThemes){
+		effected_nodes.shown = true
+	}
 	if (effected_nodes.shown) {
 		hideAllNodes(effected_nodes);
 		effected_nodes.shown = false;
@@ -162,9 +162,9 @@ function showHideAll( clicked_node, effected_nodes ){
 	}
 }
 function showAllNodes ( effected_nodes){
-	for (var i = 0; i < effected_nodes.length; i++) {
-		showNode(effected_nodes[i]);
-	};
+	for(let node of effected_nodes){
+		showNode(node)
+	}
 }
 function hideAllNodes ( effected_nodes){
 	for (var i = 0; i < effected_nodes.length; i++) {
