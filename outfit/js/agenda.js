@@ -17,16 +17,14 @@ function attachEvents(){
 	}
 
 	// onclick to toggleThemes
-	const toggleThemes = document.querySelectorAll('.toggleThemes');
-	for (let element of toggleThemes){
-		element.addEventListener( "click", ()=>showHideAll( element, dom.themes ) );
-	}
+	const toggleThemes = document.querySelector('.toggleThemes');
+	toggleThemes?.addEventListener( "click", ()=>showHideAll( toggleThemes, dom.themes ) );
+
 
 	// onclick to toggleSubThemes
-	const togglesubThemes = document.querySelectorAll('.toggleSubThemes');
-	for (let element of togglesubThemes){
-		element.addEventListener( "click", ()=>showHideAll( element, dom.subThemes ) );
-	}
+	const togglesubThemes = document.querySelector('.toggleSubThemes');
+	togglesubThemes.addEventListener( "click", ()=>showHideAll( togglesubThemes, dom.subThemes ) );
+
 
 	// on scroll => toggleButtons displayed as header:
 	window.addEventListener('scroll', function(e){
@@ -221,8 +219,13 @@ function init(){
 	attachEvents();
 	setThemeURL();
 
-	config.showThemes || hideAllNodes(dom.themes);
-	config.showSubThemes || hideAllNodes(dom.subThemes);
+	config.showThemes?
+		showAllNodes(dom.themes):
+		hideAllNodes(dom.themes);
+
+	config.showSubThemes?
+		showAllNodes(dom.subThemes):
+		hideAllNodes(dom.subThemes);
 
 	if(config.showSubThemesHours){
 		setSubThemeHours()
