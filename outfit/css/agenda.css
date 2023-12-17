@@ -32,7 +32,6 @@ header .logo{
 
 /* Course about */
 .course_about{
-  display: none;
   font-family: Roboto, sans-serif;
   margin-top:2em;
 }
@@ -41,7 +40,7 @@ header .logo{
   text-align: center;
   color: #999;
 }
-.course_about>p{
+.course_about p{
   margin: .7em 3.3em .3em 3.3em;
   line-height: 1.4em;
   text-align: justify;
