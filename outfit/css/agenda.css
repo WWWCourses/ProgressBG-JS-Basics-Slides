@@ -45,11 +45,11 @@ header .logo{
   line-height: 1.4em;
   text-align: justify;
 }
-.course_about>ul{
+.course_about ul{
   margin: 0 3em 0 5em;
   list-style-type: disc;
 }
-.course_about>ul>li{
+.course_about ul>li{
   margin: .8em;
 }
 
