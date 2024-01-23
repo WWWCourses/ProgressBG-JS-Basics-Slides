@@ -38,6 +38,7 @@ a.nonready{
 .hidden{
     max-height: 0;
     opacity: 0;
+    z-index: -100;
 
 }
 code.kw:before, code.kw:after{content: "'"}
