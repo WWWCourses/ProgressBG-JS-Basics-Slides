@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>quessTheNumber</title>
+    <link rel="stylesheet" type="text/css" href="css/buttons.css">
+    <style type="text/css">
+    	
+    </style>    
+</head>
+<body>
+	<div class="gameRules">
+		<p>Измислих си число между <b>1</b> и <b>100</b>. Трябва да го познаеш в рамките на 7 хода!</p>
+	</div>
+	<div class="gamePlay">
+		<label>Ход <span>1</span>: <input type="number" name=""></label>
+		<button onclick="checkGuess();">Провери</button>
+	</div>
+	<div class="gameStats">
+			
+	</div>
+</body>
+<script type="text/javascript">
+	// !!! не променяйте !!!
+	// намисленото от машината число (между 1 и 100):
+	var machineNumber = Math.floor(Math.random() * Math.floor(100));
+
+	// взимаме input елемента:
+	var userInputObj = document.querySelector('.gamePlay input[type="number"]');
+
+	// взимаме output елемента:
+	var gameStatsObj = document.querySelector('.gameStats');
+
+
+	function	checkGuess(){
+		// взимаме въведеното от потребителя число:
+		var userNumber = userInputObj.value*1;
+
+		// НАЧАЛО НА ВАШИЯТ КОД:
+		
+
+
+		// КРАЙ НА ВАШИЯТ КОД:
+	}
+</script>
+</html>

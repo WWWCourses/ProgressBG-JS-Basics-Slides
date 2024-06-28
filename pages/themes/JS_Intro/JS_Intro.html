@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>JS_Intro</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+	<link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+	<!-- Theme used for syntax highlighting of code -->
+	<!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+	<!-- custom -->
+	<link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+		<div class="top_links">
+			<a class="home_link" href="../../../index.html#JS_Intro" target="_top"><i class="fa fa-home"></i></a>
+			<span class="help_link"><i class="fa fa-question"></i></span>
+			<div class="help_text">
+				<div class="note">Keyboard shortcuts:</div>
+				<div><span>N/Спейс</span><span>Next Slide</span></div>
+				<div><span>P</span><span>Previous Slide</span></div>
+				<div><span>O</span><span>Slides Overview</span></div>
+				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+				<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+				Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+			</div>
+		</div>
+		<div class="footer theme_switch">
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+		</div>
+		<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section class="main-sesction-title"><h1>Introduction to JavaScript</h1></section>
+<section data-transition="zoom">
+	<section>
+		<div class="copyright">
+			<div class="note">
+				<p>Created for</p>
+			</div>
+			<div class="company">
+				<a href="https://progressbg.net/javascript-basic/">
+				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+				</a>
+			</div>
+		</div>
+	</section>
+	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+		<div class="note">
+			<p>Created by</p>
+		</div>
+		<div class="company">
+		   <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+		</div>
+		<!-- <div class="author">
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+		</div> -->
+	</section>
+</section>
+
+
+<!-- <section class="main-sesction-title"><h1>JavaScript - The most popular language</h1></section> -->
+<section><h2>JavaScript</h2>
+  <section><h3>The most popular language</h3>
+  	<a href="images/world_most_popular_language_javascript_on_become_millionaire.jpg"><img src="images/world_most_popular_language_javascript_on_become_millionaire.jpg" style="height:80vh;"></a>
+  </section>
+  <section><h3>Тhe language no one can escape :)</h3>
+	<iframe width="1280" height="720" src="https://www.youtube.com/embed/JEpY9C49sqU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="min-height:70vh" allowfullscreen></iframe>
+</section>
+</section>
+
+
+
+
+<section class="main-sesction-title"><h1>Какво е JavaScript?</h1></section>
+<section class="sub-sections"><h2>Какво е JavaScript?</h2>
+	<section><h3>В контекста на Front-End</h3>
+		<div class="fs-biger">
+			<p class="fg_gray">Web Page/App</p>
+			<p>=</p>
+			<p class="fg_blue">структура (HTML)</p>
+			<p>+</p>
+			<p class="fg_green">оформление (CSS)</p>
+			<p>+</p>
+			<p class="fg_red">поведение (JS)</p>
+		</div>
+	</section>
+	<section><h3>Характеристики на езика</h3>
+		<dl class="fa">
+			<dt>Създаден за да бъде лесен за ползване дори от неопитни програмисти.</dt>
+			<dt>Бурно развитие, което драстично промени първоначално заложените идеи.</dt>
+			<dt>Скриптов език (интерпретиран и слабо типизиран)</dt>
+		</dl>
+	</section>
+	<section><h3>Какво е общото между Java и JavaScript?</h3>
+		<p>Отговор: "Каквото е общото между Car и Carnaval"</p>
+		<!-- <p>Или:</p> -->
+		<!-- <blockquote class="reddit-card" data-card-created="1616444893"><a href="https://www.reddit.com/r/ProgrammerHumor/comments/marpbi/well_well_he_got_his_answer/">Well well, he got his answer...</a> from <a href="http://www.reddit.com/r/ProgrammerHumor">r/ProgrammerHumor</a></blockquote>
+		<script async src="//embed.redditmedia.com/widgets/platform.js" charset="UTF-8"></script> -->
+	</section>
+</section>
+
+<!-- <section class="sub-sections"><h2>Защо не бива да бъркаме JavaScript с Java.</h2>
+	<section><h3>sub_title</h3>
+
+	</section>
+</section> -->
+
+<section class="main-sesction-title"><h1>Какво можем да правим с JavaScript?</h1></section>
+<section class="sub-sections"><h2>Какво можем да правим с JavaScript?</h2>
+	<section><h3>Извън контекста на Front-End</h3>
+		<dl class="fa">
+			<dt>Може да създаваме <a href="https://www.makeuseof.com/tag/javascript-mobile-app-frameworks/">мобилни приложения за Android и iOS</a></dt>
+			<dt>Може да се използва за създаване на desktop приложения, посредством платформата <a href="https://electronjs.org/">Electron</a>. Такива са последните версии на Skype и много други: <a href="https://electronjs.org/#apps">Apps built on Electron</a></dt>
+		</dl>
+	</section>
+	<section><h3>Да създаваме и променяме динамично HTML елементи.
+		<span style="font-size: .8em">(press CTRL+F5 to refresh)</span></h3>
+		<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="html,result&embed-version=2" data-user="webdesigncourse" data-slug-hash="WXBpNb/" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="createDivsWithTimeout">
+		<span>See the Pen <a href='https://codepen.io/webdesigncourse/pen/WXBpNb/'>createDivsWithTimeout</a> by Iva Popova (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+		</span>
+		</p>
+	</section>
+	<section><h3>Да променяме динамично стила на елементите.<span style="font-size: .8em">(press CTRL+F5 to refresh)</span></h3>
+		<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="html,result&embed-version=2" data-user="webdesigncourse" data-slug-hash="yPWPpL/" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="changeCSSWithTimeout">
+		<span>See the Pen <a href='https://codepen.io/webdesigncourse/pen/yPWPpL/'>changeCSSWithTimeout</a> by Iva Popova (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+	</span>
+		</p>
+	</section>
+	<section><h3>Да променяме, до известна степен, поведението на браузера.</h3>
+		<button onclick="goBack()" style="font-size: 2em">back</button>
+		<script type="text/javascript">
+			function goBack() {
+			    window.history.go(-1)
+			}
+
+		</script>
+	</section>
+	<section><h3>Да взаимодействаме, до известна степен, с браузера.</h3>
+		<p id="userPlatformResult" style="font-size: 1.5em"></p>
+		<script type="text/javascript">
+			document.getElementById("userPlatformResult").innerHTML =
+"Вие използвате: <br> " + navigator.platform;
+
+		</script>
+	</section>
+	<section><h3>Да отчитаме действията на потребителя (клик, скрол и пр.)</h3>
+		<div id="userActionTest" style="padding: 1em; border: 2px dotted #999">
+			test zone - do something
+		</div>
+		<div id="userActionResult" style="color: red"></div>
+		<script type="text/javascript">
+			let testNode = document.getElementById("userActionTest");
+			let resultNode = document.getElementById("userActionResult");
+
+			testNode.addEventListener('click', function(){
+				var text=window.getSelection().toString();
+				console.log(text);
+    				if (text){
+    					resultNode.innerHTML = "You selected: " + text;
+    				}else{
+    					resultNode.innerHTML = "You've clicked!"
+    				}
+			});
+			testNode.addEventListener('mouseover', function(){
+				resultNode.innerHTML = "Your mouse is over!"
+			});
+			testNode.addEventListener('mouseout', function(){
+				resultNode.innerHTML = "Your mouse is out!"
+			});
+			testNode.addEventListener('keydown', function(){
+				resultNode.innerHTML = "You've pressed a key!"
+			});
+			testNode.addEventListener('mouseup', function(){
+				// alert("Maouse Up");
+
+			});
+			testNode.addEventListener('event', function(){
+				resultNode.innerHTML = "Your mouse is over!"
+			});
+			testNode.addEventListener('event', function(){
+				resultNode.innerHTML = "Your mouse is over!"
+			});
+		</script>
+	</section>
+	<section><h3>Да създаваме сложни и интерактивни анимации.</h3>
+		<dl class="fa">
+				<dt><a href="http://www.rleonardi.com/interactive-resume/">Interactive Resume - Robby Leonardi</a></dt>
+				<dt><a href="https://codepen.io/search/pens?q=Web%20Animations%20API&order=popularity&depth=everything&show_forks=false">Web Animations API examples on codepen</a></dt>
+				<dt><a href="https://codepen.io/search/pens?q=webGL&limit=all&type=type-pens">webGL examples on codepen</a></dt>
+				<dt><a href="https://codepen.io/search/pens?q=d3.js&order=popularity&depth=everything&show_forks=false">d3.js examples on codepen</a></dt>
+			</dl>
+	</section>
+	<section><h3>Да достъпваме множество API</h3>
+		<p><abbr>API</abbr><dfn id="API"><span>Application</span><span>Programming</span><span>Interface</span></dfn></p>
+		<dl class="fa">
+			<dt>APIs for manipulating documents</dt>
+			<dt>APIs that fetch data from the server</dt>
+			<dt>APIs for drawing and manipulating graphics</dt>
+			<dt>Audio and Video APIs</dt>
+			<dt>Geolocation API</dt>
+			<dt>Device APIs</dt>
+			<dt>Client-side storage APIs</dt>
+			<dt>Google Maps APIs, Facebook APIs, YouTube APIs</dt>
+		</dl>
+	</section>
+</section>
+
+<section class="main-sesction-title"><h1>Кратка история на JavaScript</h1></section>
+<section data-notes="20min"><h2>Защо и как се създава?</h2>
+	<section data-notes="3min/total 3"><h3>1995</h3>
+		<p><em>Първа война между браузерите</em></p>
+		<dl class="fa">
+			<dt>Брендан Айк (<a href="https://en.wikipedia.org/wiki/Brendan_Eich">Brendan Eich</a>) създава за <span class="note">10 дена</span> прототипа на JavaScript, за браузера  Netscape Navigator</dt>
+			<dt>Оригиналното име е <b>Mocha</b>, което кратко след това променили на  <b>LiveScript</b>. В последствие, поради предстоящия договор на Netscape със Sun Microsystems, се налага името <b>JavaScript</b>.</dt>
+		</dl>
+	</section>
+	<section><h3 class="advanced">Project Code Rush - The Beginnings of Netscape / Mozilla Documentary</h3>
+		<p>Ако ви е любопитно какво се случва с Netscape в следващите няколко години:</p>
+		<iframe src="https://www.youtube.com/embed/4Q7FTjhvZ7Y" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	</section>
+	<section data-notes="1min/total 4"><h3>1997</h3>
+		<p>JavaScript се стандартизира от Ecma International - ECMA-262 стандарт, под името <b><a href="https://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMAScript</a></b>.</p>
+	</section>
+	<section data-notes="1min/total 5"><h3>2000</h3>
+		<p><a href="https://en.wikipedia.org/wiki/Douglas_Crockford">Douglas Crockford</a> въвежда формат за обмен на данни - <abbr>JSON</abbr><dfn id="JSON"><span>Java</span><span>Script</span><span>Object</span><span>Notation</span></dfn></p>
+	</section>
+	<section data-notes="1min/total 5"><h3>2005</h3>
+		<dl class="fa">
+			<dt>Jesse James Garrett въвежда терминът <b>Ajax</b>, публикуван за пръв път в неговата статия "Ajax: A New Approach to Web Applications"</dt>
+			<dt>Това дава началото на множество JavaScript open source проекти: Prototype, jQuery, MooTools и мн.други.</dt>
+		</dl>
+	</section>
+	 <section data-notes="1min/total 5"><h3>2008</h3>
+		<dl class="fa">
+			<dt>Масирана конкуренция в разработката на <a href="https://en.wikipedia.org/wiki/JavaScript_engine">JavaScript enignes</a>.</dt>
+			<dt>Google публикуват техния JS engine - <b>V8</b>, който се използва в разработката на множество server-side проекти. </dt>
+		</dl>
+	</section>
+	<section data-notes="1min/total 5"><h3>2009</h3>
+		<dl class="fa">
+			<dt>Първа версия на Node.js (V8 базиран).</dt>
+			<dt>ECMAScript 5 (ES5) стандарт, съдържащ значителни подобрения на езика.</dt>
+		</dl>
+	</section>
+	<section data-notes="1min/total 5"><h3>2012</h3>
+		<dl class="fa">
+			<dt>Microsoft пускат <a href="https://www.typescriptlang.org/">TypeScript</a>.</dt>
+		</dl>
+	</section>
+	<section data-notes="1min/total 5"><h3>2014</h3>
+		<dl class="fa">
+			<dt>JavaScript е удостоен като "Програмен език на годината" за 2014, според индексът <a href="https://www.tiobe.com/tiobe-index/">Tiobe</a>.</dt>
+		</dl>
+	</section>
+	<section data-notes="1min/total 5"><h3>2015</h3>
+		<dl class="fa">
+			<dt>ECMAScript 6 (ES6) - с множество нововъведения, започнали от ES5, езика се превръща в "сериозен" език за програмиране.</dt>
+			<dt> След него, версиите започват да се именуват според годината. Например ES2015, ES2016 и т.н.</dt>
+			<dt>Започва да се използва терминът <b>ES.Next</b>, който касае текущите бъдещи версии на стандарта. Разработва се от комитета с име <b>tc33</b>, който публикуват работата си в github: <a href="https://github.com/tc39/proposals">tc39 - proposals</a></dt>
+		</dl>
+	</section>
+	<section><h3>JavaScript before ES6</h3>
+		<iframe id="reddit-embed" src="https://www.redditmedia.com/r/ProgrammerHumor/comments/621qrt/javascript_the_good_parts/?ref_source=embed&amp;ref=share&amp;embed=true" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;"  scrolling="no"></iframe>
+	</section>
+	<!--
+	<section><h3>Brendan Eich on designing JavaScript (Part of the JSConf EU 4ß Keynote)</h3>
+		<p style="font-size: .6em">В този клип, това наистина е създателя на JavaScript - Brendan Eich, но демонстриращ голямо чувство за хумор, като имитира <a href="https://www.youtube.com/watch?v=lJx6cF-H__I">Jonathan Ive explaining the Unibody-Design of MacBook</a>.</p>
+		<iframe src="https://www.youtube.com/embed/NJxB0Pp69IQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	</section> -->
+</section>
+
+
+<!-- <section class="sub-sections"><h2>Как и кога браузърът изпълнява JavaScript.</h2>
+	<section><h3>sub_title</h3>
+
+	</section>
+</section> -->
+
+<section class="main-sesction-title"><h1>Как да изпълним JS скрипт под браузъра?</h1></section>
+<section class="sub-sections"><h2>Как да изпълним JS скрипт под браузъра?</h2>
+	<section><h3>В HTML файла</h3>
+		<p>Като съдържание на елемента <code><b>script</b></code></p>
+		<pre><code rel="HTML" class="html">
+			&lt;script type=&quot;text/javascript&quot;&gt;
+				// тук пишем само на JS
+				alert(&quot;JS Welcomes You!&quot;);
+			&lt;/script&gt;
+		</code></pre>
+		<p class="note">Допустимо е да слагаме елемента script, както в HEAD секцията, така и в BODY елемента!</p>
+	</section>
+	<section><h3>В отделен, js файл</h3>
+		<p>Включваме външния .js файл отново чрез елемента  <code><b>script</b></code>, но задължително добавяме и <code><b>src</b></code> атрибут, в който указваме пътя до файла!</p>
+		<pre style="width: 110%; margin: 0 auto;font-size:.55em;"><code rel="HTML" class="html">
+			&lt;script type=&quot;text/javascript&quot; src=&quot;myFirstScript.js&quot;&gt;&lt;/script&gt;
+		</code></pre>
+	</section>
+	<section>
+		<p class="note">Когато присъства атрибута <code><b>src</b></code>, то браузера игнорира съдържанието на елемента <code><b>srcript</b></code></p>
+		<pre><code rel="HTML" class="html">
+			&lt;script type=&quot;text/javascript&quot; src=&quot;myFirstScript.js&quot;&gt;
+				// този код никога няма да се изпълни
+				alert(&quot;JS Welcomes You!&quot;);
+			&lt;/script&gt;
+		</code></pre>
+	</section>
+	<section><h3>Къде да сложим <code><b>script</b></code> елемента</h3>
+		<dl class="fa">
+			<dt>Можем да вмъкваме колкото желаем <code>script</code> елемента.</dt>
+			<dt>Допустимо е както в HEAD, така и в BODY секцията</dt>
+			<dt>Не забравяйте, че браузера "чете" последователно елементите в един HTML файл, и кода в скрипт елемента ще се изпълни от браузера веднага при неговото срещане (освен ако не са използвани атрибутите <code>defer</code> или <code>async</code> ).</dt>
+			<dt>Браузъра няма да продължи с оставащите HTML елементи докато кода в даден script елемент не приключи работата си.</dt>
+			<dt>Добри практики:</dt>
+			<dd>в HEAD секцията, ако скрипта не взаимодейства със елементите в BODY и не блокира изпълнението.</dd>
+			<dd>в края на BODY елемента, преди затварящият &lt;/body&gt; таг.</dd>
+		</dl>
+	</section>
+	<section><h3>Пример</h3>
+		<pre><code rel="HTML" class="html">
+			&lt;body&gt;
+&#x9;&#x9;&#x9;&#x9;&lt;script&gt;
+&#x9;&#x9;&#x9;&#x9;&#x9;alert(&apos;Where it the H1 element?&apos;)
+&#x9;&#x9;&#x9;&#x9;&lt;/script&gt;
+
+&#x9;&#x9;&#x9;&#x9;&lt;h1&gt;Welcome to my page!&lt;/h1&gt;
+&#x9;&#x9;&#x9;&lt;/body&gt;
+		</code></pre>
+	</section>
+</section>
+
+<section data-min="50"><h1>Как да изпълним JS скрипт под node.js чрез VSCode?</h1></section>
+<section class="sub-sections"><h2>Как да изпълним JS скрипт под node.js чрез VSCode?</h2>
+	<section id="runJSinVSCode"><h3></h3>
+		<dl class="fa" style="font-size: .8em;">
+			<dt>Инсталирайте <a href="https://nodejs.org/en/">node.js</a></dt>
+			<dt>Отворете VSCode със заредена папка WD_Course като workspace</dt>
+			<dt>В папката <code>WD_Course</code> създайте папка <code>.vscode</code> (ако такава не съществува).</dt>
+			<dt>В папка <code>.vscode</code> създайте файла <code>tasks.json</code> и в него поставете следното съдържание: <a href="https://raw.githubusercontent.com/WWWCourses/ProgressBG-Front-End-Dev-Beginners-Labs/master/.vscode/tasks.json">.vscode/tasks.json</a></dt>
+			<dt>Трябва да имате подобна структура:</dt>
+			<a href="./images/tasks.json_in_.png"><img src="./images/tasks.json_in_.png" alt="tasks.json_in_.png" style="height: 40vh;"></a>
+			<dt>Сега вече може да стартирате всеки един JS файл директно чрез VSCode, като използвате комбинацията <span class="note"><kbd>CTRL+SHIFT+B</kbd></span></dt>
+		</dl>
+	</section>
+</section>
+
+
+<section data-min="50"><h1>References</h1></section>
+<section class="sub-sections"><h2>References</h2>
+	<section><h3>Brendan Eich - A Brief History of JavaScript</h3>
+		<p>Ако искате да разберете повече за историята на езика от неговият създател - Brendan Eich (ще бъде по-разбираемо ако изгледате клипа след края на курса :) )</p>
+		<iframe width="793" height="446" src="https://www.youtube.com/embed/aX3ZABCdC38" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</section>
+	<!-- <section><h3>Web Development in 2020 - A complete roadmap</h3>
+		<iframe width="1280" height="721" src="https://www.youtube.com/embed/SBB1YtwODT0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</section> -->
+</section>
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+	 <p>These slides are based on</p>
+	 <p>customized version of </p>
+	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+	 <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="../../../outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="../../../lib/reveal.js/dist/reveal.js"></script>
+	<script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+	<script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+	<script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+	<script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		// var highlightjsTabSize = '  ';
+		Reveal.initialize({
+
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+			center: true,
+			width: 1280,
+			height: 1024,
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+			// shift+mousе click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+
+			plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+		});
+	</script>
+</body>
+</html>

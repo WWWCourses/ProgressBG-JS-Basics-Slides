@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>quessTheNumber</title>
+    <link rel="stylesheet" type="text/css" href="css/buttons.css">
+    <style type="text/css">
+    	html, body, p{
+    		margin: 0;
+    		padding: 0;
+    		height: 100%;
+    	}
+    	footer{
+    		display: none;
+    	}
+    	body{    		
+    		padding: 10vh 5vmax;
+    		background-color: #333;
+    		background-image: url("images/pay-1036469_1920.jpg");
+    		background-size: cover;
+    		background-position: center;
+    		box-sizing: border-box;
+    	}
+    	main{    		
+    		height: 80vh;
+    		background: #2f4c59;
+    		border-radius: 10%;
+    		box-sizing: border-box;
+    		box-shadow: 
+    			0 0 3vmax 1vmax #2f4c59;    			
+    	}
+    	.gameRules{
+    		padding: 3vmax 0 5px 0 ;
+    		text-align: center;
+    		font-size: 3vmax;
+    		border-bottom: 1px double red;
+    		color: #a4c6d4;    		
+    	}
+    	.gameRules>p:nth-of-type(2){
+    		padding-top: 1vmax;
+    		color: #CFD4A4; 
+    	}
+    	.gamePlay{
+    		font-size: 1em;
+    		/*width: calc( 80vmax - (100vmax - 100vmin) / 2);*/
+    		/*min-width: 20em;*/
+    		margin: 2em auto 0 auto;
+    		text-align: center;
+    		/*background: red;*/
+    	}
+    	.gamePlay input[type="number"]{
+    		/*height: 2em;*/
+    		font-size: 2em;
+    		width: 5em;    		
+    		border: none;
+    		border-radius: 5%;    		
+    		/*background: blue;*/
+    	}
+    	.gamePlay button{
+    		border: none;
+    		background: red;
+    	}
+    	.button{
+
+    	}
+    </style>    
+</head>
+<body>
+	<main>
+		<div class="gameRules">
+			<p>Намислих си число в интервала [1-100].</p>
+			<p>Трябва да го познаеш в рамиките на 7 хода!</p>
+		</div>
+		<div class="gamePlay">
+			<label>Ход <span class="tryCountOut">1</span>: <input type="number" name=""></label>
+			<a class="button">Button</a>
+		</div>
+	</main>
+	<footer>
+		<h2>resources used:</h2>
+		<ul>
+			<li><a href="https://codepen.io/joshnh/pen/KqzvG">Pressable CSS Buttons by  Joshua Hibbert </a></li>
+		</ul>
+	</footer>
+</body>
+<script type="text/javascript"></script>
+</html>

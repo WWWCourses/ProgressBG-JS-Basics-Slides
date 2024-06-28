@@ -1,0 +1,1439 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>JS_BasicSyntax</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+	<link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+	<!-- Theme used for syntax highlighting of code -->
+	<!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+	<!-- custom -->
+	<link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+		<div class="top_links">
+			<a class="home_link" href="../../../index.html#JS_BasicSyntax" target="_top"><i class="fa fa-home"></i></a>
+			<span class="help_link"><i class="fa fa-question"></i></span>
+			<div class="help_text">
+				<div class="note">Keyboard shortcuts:</div>
+				<div><span>N/Спейс</span><span>Next Slide</span></div>
+				<div><span>P</span><span>Previous Slide</span></div>
+				<div><span>O</span><span>Slides Overview</span></div>
+				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+				<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+				Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+			</div>
+		</div>
+		<div class="footer theme_switch">
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+		</div>
+		<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>JavaScript: basic syntactic elements</h1></section>
+<section data-transition="zoom">
+	<section>
+		<div class="copyright">
+			<div class="note">
+				<p>Created for</p>
+			</div>
+			<div class="company">
+				<a href="https://progressbg.net/javascript-basic/">
+				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+				</a>
+			</div>
+		</div>
+	</section>
+	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+		<div class="note">
+			<p>Created by</p>
+		</div>
+		<div class="company">
+		   <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+		</div>
+		<!-- <div class="author">
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+		</div> -->
+	</section>
+</section>
+
+
+<section class="main-sesction-title" id="whatsInAProgram"><h1>Как работи една компютърна програма</h1></section>
+<section class="sub-sections"><h2>Как работи една компютърна програма</h2>
+	<section>
+		<p>За да започнете с първият си език за програмиране, не е необходимо да сте запознати с понятията, дадени в следното видео, но все пак помага ;)</p>
+		<iframe  src="https://www.youtube.com/embed/QXjU9qTsYCc" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<p style="font-size: .8em;">Във видеото за илюстрация е използван езика C, но концепциите са валидни за всеки един език за програмиране.</p>
+	</section>
+	<section>
+		<a href="./images/how_a_program_works.png"><img src="./images/how_a_program_works.png" alt="./images/how_a_program_works.png"></a>
+	</section>
+	<section><h3>Компилатор и Интерпретатор</h3>
+		<dl class="fa">
+			<dt><span class="note">Компилатор:</span> - програма, която превежда целия сорс код до машинни инструкции и след това компилираната програма се изпълнява.</dt>
+			<dd>Може да си представите Компилатора като преводач, който първо ще прочете цялата книга, а след това ще започне с превода.</dd>
+			<dt><span class="note">Интерпретатор:</span> - програма, която превежда инструкция от сорс кода, подава за изпълнение преведената инструкция и продължава със следващата инструкция от програмата.</dt>
+			<dd>Може да си представите Интерпретатора, като преводач който превежда изречение след изречение.</dd>
+
+			<dt>JavaScript, така както Python, PHP, Ruby, Perl, е интерпретаторен език, но съвременните интерпретатори са значително оптимизирани.</dt>
+		</dl>
+	</section>
+	<section><h3 class="advanced">Как работи JS engin-a?</h3>
+		<a href="./images/how_JS_Engine_works.png"><img src="./images/how_JS_Engine_works.png" alt=""></a>
+		<dl class="fa">
+			<dt>Reference: <a href="https://www.digitalocean.com/community/tutorials/js-v8-engine">www.digitalocean.com/community/tutorials/js-v8-engine</a></dt>
+		</dl>
+	</section>
+</section>
+
+<section class="main-sesction-title" id="ProgramStrucutre"><h1>Структура на програмата</h1></section>
+<section class="sub-sections"><h2>Структура на програмата</h2>
+	<section>
+		<dl class="fa">
+			<dt>Една JavaScript програма е последователност от инструкции. Или по-точно от <span>declarations, statements и expressions.</span></dt>
+			<dt>Инструкциите се разделят една от друга с '<span class="code note">;</span>'</dt>
+			<dt>Последователност от инструкции, заградена в '<span class="code note">{</span>' и '<span class="code note">}</span>' се нарича блок.</dt>
+			<dt>Ако направим аналогия с естествените езици:
+				<table style="margin-left: 1em">
+					<tr>
+						<th>Български език</th>
+						<th></th>
+						<th>JavaScript</th>
+					</tr>
+					<tr>
+						<td>роман, разказ и пр</td>
+						<td>&lt;=&gt;</td>
+						<td>program/script</td>
+					</tr>
+					<tr>
+						<td>параграф, абзац</td>
+						<td>&lt;=&gt;</td>
+						<td>block</td>
+					</tr>
+					<tr>
+						<td>изречение</td>
+						<td>&lt;=&gt;</td>
+						<td>инструкция</td>
+					</tr>
+				</table>
+			</dt>
+		</dl>
+	</section>
+	<section><h3>Последователност на изпълнението</h3>
+		<p>Една JS програма се интерпретира последователно, ред по ред, освен в случаите, когато имаме условни оператори и функции, които ще бъдат детайлно разгледани в следващите теми.</p>
+	</section>
+	<section><h3>Примери</h3>
+		<pre><code rel="JS">
+			// това е коментар, който не се изпълнява от системата
+
+			// показва „изскачащо“ съобщение с текст „Welcome“
+			alert("Welcome");
+
+			// декларира променливата answer
+			let answer;
+
+			// записва числото 42 в променливата answer
+			answer = 42;
+
+			// изписва стойността на answer в конзолата
+			console.log( answer );
+
+			// задава червен фон на документа
+			document.body.style.backgroundColor = "red";
+		</code></pre>
+		<p class="note">Тук всички "инструкции" се разделят една от друга с '<b>;</b>'</p>
+	</section>
+</section>
+
+<section class="main-sesction-title" id="Variables" ><h1>Променливи (Variables)</h1></section>
+<section class="sub-sections"><h2>Променливи (Variables)</h2>
+	<section><h3>Какво е променлива в JavaScript?</h3>
+		<dl class="fa">
+			<dt>Може да си представим променливата като етикет на кутия, в която съхраняваме разни неща.</dt>
+			<dt>По-точно, <span class="note">променливата е "име" на част от паметта (RAM), в която съхраняваме данни, необходими за програмата</span>.</dt>
+			<dt>Програмиста задава това име, като следва определени правила.</dt>
+			<dt>След като променливата е създадена можем да записваме и четем стойности от нея, т.е.да ги използваме в програмата.</dt>
+		</dl>
+	</section>
+	<section><h3>Къде и как се създават променливите</h3>
+		<pre><code rel="JS">
+			let x = 1;
+			let y = 2;
+			let z;
+		</code></pre>
+		<a href="images/variables_in_RAM.png" title="click for bigger image"><img src="images/variables_in_RAM.png" alt="variables_in_RAM" style="height: 80vh"></a>
+	</section>
+	<section style="font-size: .9em"><h3>Деклариране/Дефиниране</h3>
+		<dl class="fa">
+			<dt>Създаването на една променлива се нарича <span class="note">деклариране</span> на променлива.
+			В JavaScript това става чрез запазената за езика дума <code class="note">var</code>.
+			</dt>
+			<dt>В ES 6, се въвеждат и нови думи за деклариране на променливи: <code class="note">let</code> и <code class="note">const</code>, които ще разгледаме след като изясним понятията "scope" и "hoisting".</dt>
+			<dt>Ако желаем, може при създаването на променливата, да запишем в нея конкретна стойност - т.е. да <span class="note">дефинираме</span>(<span>инициализираме</span>) променливата.</dt>
+			<dt>В JavaScript, една променлива винаги е дефинирана, тъй като ако не зададем експлицитно стойност при декларацията, то в променливата се записва стойността <span class="note">undefined</span>.</dt>
+		</dl>
+		<pre><code rel="JS">
+			let x;      // деклариране на променливата x
+			x = 10;     // записваме в x стойност 10
+			let y;      // деклариране на променливата y
+			let a,b;    // деклариране на променливите a и b
+			let x = 10; // деклариране и инициализиране на x със стойността 10
+		</code></pre>
+	</section>
+	<section><h3>Глобални променливи</h3>
+		<p>В JavaScript, променлива може да се създаде и без да се декларира явно с <code class="note">var</code>/<span class="note">let</span> или <span class="note">const</span>. Например:</p>
+		<pre><code rel="JS" class="js">
+			x = 10; // (Error in strict mode)
+			console.log(x);
+		</code></pre>
+		<p class="note">Това се счита за изключително лоша практика, тъй като се създава "<strong>глобална променлива</strong>" (в темата за <a href="../../../pages/themes/beginners/JS_Functions/JS_Functions.html#Scope">scope</a>, ще разгледаме защо), и в новите версии на езика (от ЕС5.1) при използването на strict mode, това би <strong>довело до грешка</strong>!</p>
+	</section>
+	<section><h3 class="advanced">Strict Mode</h3>
+		<pre><code rel="JS" class="js">
+			// global variable in  strict-mode:
+			'use strict';
+			x = 10; // Uncaught ReferenceError: x is not defined
+			console.log(x);
+		</code></pre>
+		<p>Повече информация: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode">Strict_mode @MDN</a></p>
+	</section>
+	<section><h3>Правила за имена на променливи</h3>
+		<dl class="fa">
+			<dt>Името (идентификатор) на променливата трябва да <span class="note">започва</span> с <span class="note">буква <sup><small>1</small></sup></span> или '<span class="code note">$</span>' или '<span class="code note">_</span>'</dt>
+			<dt>След това в името могат да се включат и <span class="note">цифри</span>, освен горепосочените символи.</dt>
+			<dt>Нищо друго, дори спейс или тире, не е допустимо да участва в името на променливата.</dt>
+			<dt>Не е препоръчително да започват с '$' или '_' (използват се за специфични случаи, например в JQuery и пр.)</dt>
+			<dt>Прави се разлика между малки/големи букви тъй като JavaScript е <span class="note">case–sensitive</span> език.</dt>
+		</dl>
+		<hr>
+		<small id="note1">1. Позволяват се латински букви и определени unicode символи: <span class="advanced"></span><a href="https://mathiasbynens.be/notes/javascript-identifiers-es6">Valid JavaScript variable names in ECMAScript 6</a></small>
+	</section>
+	<section><h3>Правила за имена на променливи</h3>
+		<dl class="fa">
+			<dt>Не може да използвате за имена на променливи някоя от запазените думи в JavaScript, като:</dt>
+			<pre><code class="html">
+				break     delete   for         let        super   void
+				case      do       function    new        switch  while
+				catch     else     if          package    this    with
+				class     enum     implements  private    throw   yield
+				const     export   import      protected  true
+				continue  extends  in          public     try
+				debugger  false    instanceof  return     typeof
+				default   finally  interface   static     let
+			</code></pre>
+			<dt>Пълен списък: <a href="http://www.w3schools.com/js/js_reserved.asp">http://www.w3schools.com/js/js_reserved.asp</a></dt>
+		</dl>
+	</section>
+	<section><h3>Конвенции за именуване на променливи</h3>
+		<p>Препоръчва се имената на променливите да описват данните, които възнамеряваме да съхраняваме в тях.</p>
+		<p>Не бихте искали програмата ви да изглежда така:</p>
+		<p><img src="images/Messy_storage_room_with_boxes.jpg" alt="Messy_storage_room_with_boxes" style="height: 60vh"><br><a class="resourseAttribution" href="https://upload.wikimedia.org/wikipedia/commons/3/39/Messy_storage_room_with_boxes.jpg">From Wikimedia Commons</a></p>
+	</section>
+	<section><h3>Конвенции за именуване на променливи</h3>
+		<p>А по-скоро така: </p>
+		<img src="images/archive-1850170_640.jpg" alt="archive-1850170_640" style="height: 70vh;">
+	</section>
+	<section><h3>Конвенции за именуване на променливи</h3>
+		<dl class="fa">
+			<dt>Ако е необходимо името да се състои от две или повече думи, то в JavaScript се препоръчва да се използва <span class="note">lowerCamelCase</span> - първата дума започва с малка буква, а следващите думи се залепват непосредствено като започват с голяма буква.</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			 camelCasedName = 'something';
+		</code></pre>
+	</section>
+	<section><h3>Примери:</h3>
+		<pre><code rel="JS">
+			let x;  // ок
+			let $x; // позволено, но не се препоръчва
+			let userName; // ок
+			let user name; // SyntaxError!
+			let username; //  ok, но е по-трудно четима и не е според конвенцията (lowerCamelCase)
+			let user-first-name; //SyntaxError
+			let user_first_name; //ok, но не е според конвенцията (lowerCamelCase)
+			let userFirstName; //ok
+			let x234AB$$53; // синтактично е ок, но какво ли означава?
+		</code></pre>
+	</section>
+</section>
+
+<section class="main-sesction-title" id="PrimitiveTypes" class="main-section-title"><h1>Прости типове данни (Primitive types)</h1></section>
+<section class="sub-sections"><h2>Прости типове данни (Primitive types)</h2>
+	<section>
+		<dl class="fa">
+			<dt>По същество, всяка една компютърна програма касае обработката на данни. Ето защо е изключително важно да се запознаем с типовете данни в JavaScript и операциите които може да извършваме над тях.</dt>
+			<dt>Най-общо, типовете данни се делят на:</dt>
+			<dd>"прости" ( наричат се още примитивни, атомарни)</dd>
+			<dd>"съставни " типове</dd>
+		</dl>
+	</section>
+	<section><h3>Число (number)</h3>
+		<pre><code rel="JS">
+			// цяло число, положително
+			let x = 10;
+
+			// цяло число, отрицателно
+			let y = ­-5;
+
+			// реално число
+			const pi = 3.14;
+
+			// реално число, експонентен запис:
+			let million = 1e6;
+		</code></pre>
+		<dl class="fa">
+			<dt>Експонентния запис: <code><i>x</i><b>e</b><i>y</i></code> се чете като  x*10<sup>y</sup></dt>
+		</dl>
+	</section>
+	<section><h3>numeric separator</h3>
+		<dl class="fa">
+			<dt class="note">numeric separator е все още в <a href="https://github.com/tc39/proposal-numeric-separator">Proposal Stage</a>. Преди да го използвате, се уверете че поддръжката му от браузърите ви удовлетворява: <a href="https://caniuse.com/#search=numeric%20separator">numeric separator @caniuse.com</a></dt>
+		</dl>
+		<pre><code rel="JS">
+			let budget = 1_234_000_000
+		</code></pre>
+	</section>
+	<section><h3>Низ (string):</h3>
+		<dl class="fa">
+			<dt>Последователност от символи, заградена в единични или двойни кавички</dt>
+			<dt>В JavaScript, за разлика от други езици, <span class="note">няма значение, дали ще използваме единични или двойни кавички</span>, но трябва да внимаваме ако такива символи ще присъстват в самия низ</dt>
+		</dl>
+		<pre><code rel="JS">
+			let userName = 'Ada Byron'; // ок
+			let nickName = "LadyLovelace"; //ок
+			let quotGood = 'И той отсече - "Ще вали!"'; //ок
+			let quotBad = "И той отсече - "Ще вали!""; //SyntaxError
+			let foo = "What's the time?" //ок
+		</code></pre>
+	</section>
+	<section><h3><code>\</code> escape character in string:</h3>
+		<p>Ако в низ използваме символа '<code>\</code>' (backslash), то той не се тълкува буквално, а заедно със непосредствено следващия го символ образуват т.нар. ескейп последователност, която има специално значение.</p>
+	</section>
+	<section><h3>Някои основни ескейп последователности:</h3>
+		<table style="font-size: .8em">
+			<tr><td><span class="note">\n</span>:</td><td>line feed</td><td>нов ред</td></tr>
+			<tr><td><span class="note">\t</span>:</td><td>horizontal tab</td><td>таб</td></tr>
+			<tr><td><span class="note">\"</span>:</td><td>Double quotation mark</td><td>двойни кавички, които не се тълкуват като специален символ</td></tr>
+			<tr><td><span class="note">\'</span>:</td><td>Single quotation mark</td><td>кавичка, която не се тълкува като специален символ</td></tr>
+			<tr><td><span class="note">\\</span>:</td><td>backslash</td><td>не се тълкува като специален символ</td></tr>
+		</table>
+	</section>
+	<section><h3>Някои основни ескейп последователности - пример:</h3>
+		<pre><code rel="JS" class="js">
+			console.log('1. Ето какво прави "\\n": --->\n<---');
+			console.log('2. Ето какво прави "\\t": --->\t<---');
+			console.log('3. Ето какво прави "\\"": --->\"<---');
+			console.log('4. Ето какво прави "\\\'": --->\'<---');
+		</code></pre>
+		<pre><code rel="Result" class="result">
+			1. Ето какво прави "\n": --->
+			<---
+			2. Ето какво прави "\t": ---> <---
+			3. Ето какво прави "\"": --->"<---
+			4. Ето какво прави "\'": --->'<---
+		</code></pre>
+	</section>
+	<section><h3>Multiline strings?</h3>
+		<dl class="fa" style="font-size: .8em;">
+			<dt>Забележете, че в низовете не може да използваме буквално символ за нов ред (клавиша enter)</dt>
+			<dt>Интерпретатора очаква затварящата кавичка ( " или ' ) да бъде на същия ред и ако не я намери ще даде грешка:</dt>
+			<pre style="font-size: .6em; width: 110%;"><code rel="JS" class="js">
+			let lyrics = "В късна нощ — преди години — сам над книгите старинни,
+						безотраден, вниквах, жаден, в знания незнайни тук; —
+						скръбен, търсех без сполука мир във тайната наука —
+						но оборен в сънна скука, чух внезапно бавен звук."
+			// Uncaught SyntaxError: Invalid or unexpected toke
+			</code></pre>
+			<dt>но можем да заместим 'enter' с "\n" в низа:</dt>
+			<pre style="font-size: .6em; width: 110%;"><code rel="JS" class="js">
+				let lyrics = "В късна нощ — преди години — сам над книгите старинни,\nбезотраден, вниквах, жаден, в знания незнайни тук; —\nскръбен, търсех без сполука мир във тайната наука —\nно оборен в сънна скука, чух внезапно бавен звук."
+			</code></pre>
+			<dt>или да изпозваме конкатениране (разгледано в следващите слайдове):</dt>
+			<pre style="font-size: .6em; width: 110%;"><code rel="JS" class="js">
+				let lyrics = "В късна нощ — преди години — сам над книгите старинни," +
+							 "безотраден, вниквах, жаден, в знания незнайни тук; —" +
+							 "скръбен, търсех без сполука мир във тайната наука —" +
+							 "но оборен в сънна скука, чух внезапно бавен звук.";
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>Template Strings</h3>
+		<dl class="fa" style="font-size: .8em;">
+			<dt>В ES6 се въвежда и така наречения "<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">template string</a>", където низа се огражда в <code><b class="note">`</b> и <span class="note">`</span></code> (<a href="https://superuser.com/questions/254076/how-do-i-type-the-tick-and-backtick-characters-on-windows" title="how-do-i-type-the-tick-and-backtick-characters-on-windows">backticks</a>).</dt>
+			<dt>Те добавят възможност в низ, да въвеждаме нов (enter) ред</dt>
+			<pre style="font-size: .6em; width: 110%;"><code rel="JS" class="js">
+				let lyrics = `В късна нощ — преди години — сам над книгите старинни,
+								безотраден, вниквах, жаден, в знания незнайни тук; —
+								скръбен, търсех без сполука мир във тайната наука —
+								но оборен в сънна скука, чух внезапно бавен звук.`
+			</code></pre>
+			<dt>както и да се изчисляват изрази и интерполират променливи:</dt>
+			<pre><code rel="JS" class="js">
+				console.log( `2 + 4 = ${2+4}` )
+				// 2 + 4 = 6
+
+				let firstName = "Ada";
+				console.log(`Hello, ${firstName}, how are you today?`)
+				// Hello, Ada, how are you today?
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>Template Strings - examples</h3>
+		<pre><code rel="JS" class="js">
+			console.log(`234 + 432 = ${234 + 432}`)
+			// 234 + 432 = 666
+
+			let x = 3, y = 4;
+			console.log(`x = ${x}, y = ${y}, x+y = ${x+y}`)
+			// x = 3, y = 4, x+y = 7
+		</code></pre>
+	</section>
+	<section><h3>Булев тип (boolean)</h3>
+		<p>Данните от този тип могат да приемат само 2 стойности: <span class="note">true</span> или <span class="note">false</span></p>
+		<p>Използват се предимно в условните оператори, които са разгледани по-нататък.</p>
+		<pre><code rel="JS" class="javascript">
+			let start = true;
+			let stop  = false;
+		</code></pre>
+	</section>
+	<section><h3>null</h3>
+		<p>Използва се при работа с обекти, които са разгледани по-нататък.</p>
+		<p class="advanced">null е примитивен тип, а не обект! Факта, че оператора <code>typeof null;</code> връща "object" се дължи на всеизвестен <span class="note">бъг в JavaScript</span> ( <i class="advanced"></i><a href="http://2ality.com/2013/10/typeof-null.html">The history of “typeof null” by Dr. Axel Rauschmayer</a>)</p>
+	</section>
+	<section><h3>undefined</h3>
+		<dl class="fa">
+			<dt>Обозначава, че променливата съществува (декларирана е), но в нея няма зададена стойност (не е дефинирана).</dt>
+			<dt>Това е стойността, която се записва по подразбиране, когато не зададем стойност при декларацията на променлива.</dt>
+			<dt>Разликата между <code>null</code> и <code>undefined</code> ще разгледаме след като се запознаем с обектите в JS.</dt>
+		</dl>
+	</section>
+	<section><h3>typeof оператор</h3>
+		<dl class="fa">
+			<dt>За да разберем какъв е типът данни на дадена стойност, може да използваме оператора <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof">typeof</a></code></dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			console.log( typeof 5 );
+			// number
+
+			console.log( typeof "Ada" );
+			// string
+
+			console.log( typeof true );
+			// boolean
+
+			console.log( typeof undefined );
+			// undefined
+
+			console.log( typeof null );
+			// object
+			// но това е споменатия вече бъг в JS
+
+		</code></pre>
+	</section>
+	<section><h3 class="advanced">стойността NaN</h3>
+		<dl class="fa">
+			<dt>В JavaScript, към типа number спада и стойността <span class="note">NaN (Not-a-Number)</span>.</dt>
+			<dt>Тя не се използва директно, а е дефинирана за да обозначи резултат от числова операция, която не е число.</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			let res = 0 / "a";
+			console.log( res );         // NaN
+			console.log( typeof(res) ); // number
+		</code></pre>
+	</section>
+</section>
+
+<section class="main-sesction-title" id="Comments"><h1>Коментари</h1></section>
+<section>
+	<dl class="fa">
+		<dt>Self learning section</dt>
+		<dd><a href="https://www.w3schools.com/js/js_comments.asp">JavaScript Comments</a></dd>
+	</dl>
+</section>
+
+<section class="main-sesction-title" id="ArithmeticOperators"><h1>Аритметични оператори (Arithmetic operators)</h1></section>
+<section class="sub-sections"><h2>Аритметични оператори (Arithmetic operators)</h2>
+	<section id="ArithmeticOperatorsBasics"><h3>basics</h3>
+		<ul class="fa">
+			<li>Събиране: '<code class="note">+</code>'
+				<pre><code rel="JS" class="js">
+					console.log(2 + 4); //6
+					console.log(2 + -4); //-2
+				</code></pre>
+			</li>
+			<li>Изваждане: '<code class="note">-</code>'
+				<pre><code rel="JS" class="js">
+					console.log(20 - 4); //16
+					console.log(20 - -4); //24
+				</code></pre>
+			</li>
+			<li>Умножаване: '<code class="note">*</code>'
+				<pre><code rel="JS" class="js">
+					console.log(2 * 4); //8
+					console.log(2 * -4); //-8
+				</code></pre>
+			</li>
+			<li>Делене: '<code class="note">/</code>'
+				<pre><code rel="JS" class="js">
+					console.log(100 / 5); //20
+					console.log(100 / -5); //-20
+					console.log(7 / 2); //3.5
+				</code></pre>
+			</li>
+		</ul>
+	</section>
+	<section><h3>Проблеми при аритметиката с реални числа</h3>
+		<dl class="fa">
+			<dt>Поради начина на представяне на реални числа в паметта, аритметичните операции с реални числа не работят с абсолютна точност.</dt>
+			<dt>Това не е специфично за JavaScript, a при всеки един език за програмиране.</dt>
+			<dt>Когато е необходима максимална точност при работа с реални числа се използват специално разработени за целта библиотеки.</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			console.log(0.1+0.2);
+
+			// 0.30000000000000004
+		</code></pre>
+	</section>
+	<section id="modulo"><h3>Делене по Модул (Modulo Operation): '<code class="note">%</code>'</h3>
+		<p>Връща остатъка от целочислено делене</p>
+		<pre><code rel="JS" class="js">
+			console.log( 0 % 3 ); // 0
+			console.log( 1 % 3 ); // 1
+			console.log( 2 % 3 ); // 2
+			console.log( 3 % 3 ); // 0
+			console.log( 4 % 3 ); // 1
+			console.log( 5 % 3 ); // 2
+			console.log( 6 % 3 ); // 0
+			console.log( 7 % 3 ); // 1
+			console.log( 8 % 3 ); // 2
+			console.log( 9 % 3 ); // 0
+		</code></pre>
+		<p>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder">Remainder @MDN</a></p>
+	</section>
+	<section id="exponention"><h3>Степенуване (Exponentiation): <code class="note">**</code></h3>
+		<p class="note">Въвежда се от 2016г. в <b>ES7</b>. Внимавайте, ако трябва да поддържате по-стари браузъри: <a href="https://caniuse.com/#search=**">caniuse **</a></p>
+		<pre><code rel="JS" class="js">
+			console.log(2**10); //1024
+		</code></pre>
+		<p>За по-стари браузери използваме Math.power()</p>
+		<pre><code rel="JS" class="js">
+				console.log(Math.pow(2,10)); //1024
+		</code></pre>
+		<p>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation">Степенуване</a> @MDN</p>
+	</section>
+	<section><h3>Increment и Decrement</h3>
+		<a href="https://www.reddit.com/r/ProgrammerHumor/comments/caj01i/you_know_you_updated_from_junior_to_senior/">:) You know you updated from Junior to Senior developer when:</a>
+		<img src="./images/increment_from_junior_to_denior.webp" alt="">
+	</section>
+	<section id="increment"><h3>Инкрементиране (Increment)</h3>
+		<dl class="fa">
+			<dt>Увеличава стойността на променлива с 1 и връща стойност.</dt>
+			<dt>Има 2 записа:</dt>
+			<dd><span class="note">префиксен (++i)</span>: <span>променливата се увеличава с 1. Стойността на израза е <span class="note">i+1</span></span>.</dd>
+			<dd><span class="note">суфиксен (i++)</span>: <span>променливата се увеличава с 1. Стойността на израза е <span class="note">i</span></span></dd>
+			<pre><code rel="JS" class="js">
+				let i = 2;
+
+				//postfix increment:
+				let j = i++; // j = 2, i = 3
+
+				//prefix increment:
+				let j = ++i; // j = 3, i = 3
+			</code></pre>
+			<dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Increment">Increment @MDN</a></dt>
+		</dl>
+	</section>
+	<section id="decrement"><h3>Декрементиране (Decrement)</h3>
+		<dl class="fa">
+			<dt>Намалява стойността на променлив с 1. Аналогичен на инкремента.</dt>
+			<pre><code rel="JS" class="js">
+				let i = 2;
+
+				//postfix decrement:
+				let j = i--; // j = 2, i = 1
+
+				//prefix decrement:
+				let j = --i; // j = 1, i = 1
+			</code></pre>
+			<dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Decrement">Increment @MDN</a></dt>
+		</dl>
+	</section>
+	<section id="incrementExamples1"><h3>Increment - examples</h3>
+		<pre><code rel="JS" class="js">
+			let x = 1;
+			console.log(x++); //1
+			console.log(x);   //2
+
+			let y = 1;
+			console.log(++y); //2
+			console.log(y);   //2
+		</code></pre>
+	</section>
+	<section id="incrementExamples2"><h3>Increment - examples</h3>
+			<pre><code rel="JS" class="js">
+				let x = 1;
+				let y = 1;
+
+				console.log( x++ + ++y); // 3
+
+				console.log(`x = ${x}`); // x = 2
+				console.log(`y = ${y}`); // y = 2
+			</code></pre>
+	</section>
+	<section id="MathObject"><h3>Math object methods</h3>
+		<p>За по-сложни математически операции, може да използвате методите на вградения в езика <a href="https://www.w3schools.com/js/js_math.asp">Math object</a> </p>
+		<pre><code rel="JS" class="js">
+			Math.round(3.65); //4
+			Math.pow(2,10);   // 1024
+			Math.min(1,2,3,4,5); // 1
+			Math.max(1,2,3,4,5); // 5
+		</code></pre>
+	</section>
+</section>
+
+<section class="main-sesction-title" id="concatenation"><h1>Слепване на низове (String concatenation)</h1></section>
+<section class="sub-sections"><h2>Слепване на низове (String concatenation)</h2>
+	<section id="concatenationBasics">
+		<ul class="fa">
+			<li>Конкатенация (слепване) на низове: '<code class="note">+</code>'
+				<pre><code>
+					let firstName = "Ada";
+					let surName = "Byron";
+					console.log (firstName + " " + surName); // "Ada Byron"
+				</code></pre>
+			</li>
+			<li>Ако от двете страни на '+' имаме различни типове, например number и string, то JavaScript преобразува числото до string и извършва concatenation, а не събиране!
+				<pre><code rel="JS" class="js">
+					console.log(2+"1"); // 21
+				</code></pre>
+			</li>
+			<li>Такова скрито преобразуване на типове се нарича <span class="note">type coercion</span>.</li>
+		</ul>
+	</section>
+	<section id="stringToNumber"><h3>Преобразуване на низ в число</h3>
+		<dl class="fa">
+			<dt>Често в практиката се налага да преобразуваме явно низ до число. За целта в JS съществуват различни подходи, но като най-бърз и лесен е варианта чрез <span class="note">умножение по 1</span></dt>
+			<pre><code rel="JS" class="js">
+				let x = "42";
+
+				console.log(x + 2);    // 422 защото в x имаме низ
+				console.log(typeof(x)) // string
+
+				console.log(x*1 + 2); // 44  защото x*1 е число
+				console.log(typeof(x*1)) // number
+
+
+			</code></pre>
+		</dl>
+	</section>
+</section>
+
+<section class="main-sesction-title" id="assignment"><h1>Оператор за присвояване (Assignment operator)</h1></section>
+<section class="sub-sections"><h2>Оператор за присвояване (Assignment operator)</h2>
+	<section id="AssignmentBasics">
+		<dl class="fa">
+			<dt>Assignment '<code class="note">=</code>'
+				<pre><code rel="Syntax" class="js">
+					LHS = RHS;
+				</code></pre></dt>
+			<dt style="font-size: .8em">LHS: Left Hand Side: трябва да бъде <span class="note">декларирана променлива</span>. Ако променливата не е декларирана ще се създаде <span class="note">глобална променлива</span>, което е изключително лоша практика.</dt>
+			<dt style="font-size: .8em">RHS: Right Hand Side: <strong><span class="note">израз</span>, който се изчислява</strong> и стойността му се записва в LHS променливата</dt>
+				<pre><code rel="JS" class="js" style="font-size: 1em">
+					// декларираме променливите x и y:
+					let x, y;
+
+					// записваме в паметта, сочена от x, числото 3:
+					x = 3;
+
+					// в x записваме стойността на x, повдигната на степен 2:
+					x = x ** 2; // след този израз в x имаме стойността 9
+				</code></pre>
+			</dt>
+		</dl>
+	</section>
+	<section id="LHS_vs_RHS">
+		<dl class="fa">
+			<dt>Понятията "LHS" и "RHS" се използват не само в контекста на assignment оператора.</dt>
+			<dt>Когато променлива се използва като <span class="note">LHS</span> то  тогава <span class="note">записваме</span> стойност в нея</dt>
+			<dt>Когато се използва като <span class="note">RHS</span> => <span class="note">четем</span> стойност от нея.</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			let x, y = 1;
+			x = y; // тук четем от y и записваме в x
+		</code></pre>
+	</section>
+	<section id="AssignmentValue"><h3>Резултат от операцията</h3>
+		<dl class="fa">
+			<dt>Операцията "присвояване" връща стойност! И това е стойността, която ще се запише в LHS променливата</dt>
+			<dt>Поради това, можем да имаме няколко оператора за присвояване в израз:</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			// декларираме променливите x и y
+			let x,y;
+
+			// присвояваме и на двете променливи стойността 1
+			y = x = 1;
+
+			console.log(`x = ${x}`); // x = 1
+			console.log(`y = ${y}`); // y = 1
+		</code></pre>
+	</section>
+	<section id="AssignmentShorthand"><h3>Съкратен запис</h3>
+		<dl class="fa">
+			<dt>Когато имаме една и съща променлива от двете страни на assignment оператора и знак за операция, то можем да запишем израза съкратено.</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			let x = 4;
+			x += 3; // x = x + 3;
+			x ­-= 3; // x = x - 3;
+			x *= 3; // x = x * 3;
+			x /= 3; // x = x / 3;
+			x %= 3; // x = x % 3;
+		</code></pre>
+	</section>
+</section>
+
+<section class="main-sesction-title" id="operatorPrecedence"><h1 class="advanced">Приоритет и асоциативност на операциите</h1></section>
+<section><h2 class="advanced">Приоритет и асоциативност на операциите</h2>
+	<section>
+		<dl class="fa">
+			<dt>Както в математиката, така всички операции в JS (не само разгледаните до момента) имат приоритет и асоциативност.</dt>
+			<dt>Операциите с по-висок приоритет се изпълняват първи.</dt>
+			<dt>Асоциативността определя посоката на изпълнение: от ляво-на дясно или от дясно на ляво.</dt>
+			<dt>Приоритета и асоциативност на всички операции в JS e даден в <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#table">Operator_Precedence Table @mdn</a></dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			console.log( 3+2**2**3/2 )
+
+			// резултата е 131, защото:
+
+
+			// '**' => приоритет 14, от дясно на ляво
+			// '/' => приоритет 13, от ляво на дясно
+			// '+' => приоритет 12, от ляво на дясно
+
+			// 3+2**(2**3)/2=>
+			// 3+(2**8)/2=>
+			// 3+(256/2)=>
+			// 3+128	=>
+			// 131
+		</code></pre>
+	</section>
+</section>
+
+
+<section class="main-sesction-title" id="simpleOperatorsDemosAndTasks"><h1>Примери и Задачи</h1></section>
+<section class="sub-sections"><h2>Примери и Задачи</h2>
+	<section>
+		<p>Създаване на променливи и основни операции с простите типове данни.</p>
+		<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result&embed-version=2" data-user="webdesigncourse" data-slug-hash="VeZrQE/" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Simple variables and operations">
+		<span>See the Pen <a href='https://codepen.io/webdesigncourse/pen/VeZrQE/'>Simple variables and operations</a> by Iva Popova (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.</span>
+		</p>
+	</section>
+	<section id="Task_BmiSimplestCalculation"><h3>Задача: Изчисляване на BMI (Индекс на телесната маса)</h3>
+		<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="zYwKMwo" data-user="webdesigncourse" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+			<span>See the Pen <a href="https://codepen.io/webdesigncourse/pen/zYwKMwo">
+			BMI simplest calculation</a> by Iva Popova (<a href="https://codepen.io/webdesigncourse">@webdesigncourse</a>)
+			on <a href="https://codepen.io">CodePen</a>.</span>
+		  </p>
+	</section>
+</section>
+
+<section class="main-sesction-title" id="comparisonOperators"><h1>Оператори за сравнение (Comparison Operators)</h1></section>
+<section class="sub-sections"><h2>Оператори за сравнение (Comparison Operators)</h2>
+	<section id="comparisonOperatorsBasics">
+		<dl class="fa">
+			<dt><a href="https://www.w3schools.com/js/js_comparisons.asp">JavaScript Comparison and Logical Operators (by w3schools)</a></dt>
+			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators">Comparison operators (by MDN)</a></dt>
+		</dl>
+	</section>
+	<section id="comparisonOperatorsExamples"><h3>примери</h3>
+		<pre><code rel="JS" class="js">
+			console.log(2 == 2);    // true
+			console.log(2 == "2");  // true (the string is coerced to a number value.)
+			console.log(2 === "2"); // false (no type coercion)
+
+			// the Boolean operand "true" is converted to 1; "false" is converted to 0
+			console.log(true == 1);     // true
+			console.log(false == 0);    // true
+			console.log(true > false);  // true
+
+			// lexicographic order, when both operands are strings
+			console.log( "2" > "19999" )  // true, as ("2" > "1") is true
+			console.log( "b" > "azzzz" )  // true, as ("b" > "a") is true
+		</code></pre>
+		<dl class="fa">
+			<dt class="note">Забележете, че всички оператори за сравнение винаги връщат Булев тип стойност (true/false)</dt>
+		</dl>
+	</section>
+	<section id="lexicographicOrdering"><h3>lexicographic ordering</h3>
+		<dl class="fa">
+			<dt>При сравняването на низове, се използва лексикографската им подредба (<a href="https://en.wikipedia.org/wiki/Lexicographical_order">Lexicographical_order @wikipedia</a>), базирана на кодовете на символите от използваната кодова таблица (unicode, по дефоулт).</dt>
+			<dt>При сравняване на низове с различна дължина, по-късият се попълва с "нулеви" символи до достигане на дължината на по-дългия. "Нулевите символи" са с възможно най-малък код.</dt>
+			<dt>Самото сравняване се извършва символ по символ. Ако символите са еднакви, се продължава със следващите символи.</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			console.log( "1" < "11"); // true, as "none symbol" code is smaller than "1" symbol code
+			console.log( "2" > "11"); // true, as "2" code is bigger than "1" code
+			console.log( 'a' > 'A'); // true, as 'a' code is bigger than 'A' code
+			console.log( "1199" > "12"); // false, as "11">"12" is false
+			console.log( "1" == "12");  // false, as "none symbol" is not == "2"
+		</code></pre>
+	</section>
+	<section><h3>Повече за операторите за сравнение и как работи с тях JS:</h3>
+		<dl class="fa">
+			<dt><a href="https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/get-started/ch2.md#equalish" class="advanced">Equal...ish @You don't know JS</a></dt>
+		</dl>
+	</section>
+</section>
+
+<section class="main-sesction-title" id="logicalOperators"><h1>логически оператори (Logical Operators)</h1></section>
+<section class="sub-sections"><h2>логически оператори (Logical Operators)</h2>
+	<section>
+		<dl class="fa">
+			<dt>Логическите оператори намират приложение предимно при условните изрази, разглеждани детайлно в следващата тема.</dt>
+			<dt>Обикновено, логическите оператори се използват над Булев тип операнди, за да съставим по-сложни изрази.</dt>
+			<dd>Например: "Вярно ли е, че потребителят е пълнолетен <span class="note">и</span> е от България"</dd>
+			<dt>Но логическите оператори могат да се използват и над друг тип данни. В такъв случай, <span class="note">те не връщат Булева стойност</span>.</dt>
+			<dt>Справочник:</dt>
+			<dd><a href="https://www.w3schools.com/js/js_comparisons.asp">JavaScript Comparison and Logical Operators (by w3schools)</a></dd>
+			<!-- <dd><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators">Logical Operators (by MDN)</a></dd> -->
+
+		</dl>
+	</section>
+	<section id="truethTable">
+		<dl class="fa">
+			<dt>Как работят логическите оператори и каква стойност връщат се вижда от следната "таблица на истинност" ( <b>T</b> - true; <b>F</b> - false)</dt>
+			<table  style="margin: 1em 0 0 0">
+				<colgroup>
+					<col style="background-color:#CCC; width: 10%;">
+					<col style="background-color:#ddd; width: 10%;">
+					<col style="background-color:#72BBBB; width: 30%;">
+					<col style="background-color:#BB72BB; width: 30%;">
+					<col style="background-color:#BBBB72; width: 20%;">
+				</colgroup>
+				<tr>
+					<th>expr1</th>
+					<th>expr2</th>
+					<th style="text-align: center;">AND<br>expr1 && expr2</th>
+					<th style="text-align: center;">OR<br>expr1 || expr2</th>
+					<th style="text-align: center;">NOT<br>!expr1</th>
+				</tr>
+				<tr>
+					<td><b>T</b></td>
+					<td><b>T</b></td>
+					<td><b>T</b> (expr2)</td>
+					<td><b>T</b> (expr1)</td>
+					<td><b>F</b></td>
+				</tr>
+				<tr>
+					<td><b>T</b></td>
+					<td><b>F</b></td>
+					<td><b>F</b> (expr2)</td>
+					<td><b>T</b> (expr1)</td>
+					<td><b>F</b></td>
+				</tr>
+				<tr>
+					<td><b>F</b></td>
+					<td><b>T</b></td>
+					<td><b>F</b> (expr1)</td>
+					<td><b>T</b> (expr2)</td>
+					<td><b>T</b></td>
+				</tr>
+				<tr>
+					<td><b>F</b></td>
+					<td><b>F</b></td>
+					<td><b>F</b> (expr1)</td>
+					<td><b>F</b> (expr2)</td>
+					<td><b>T</b></td>
+				</tr>
+			</table>
+			<dt>Забележете, че за разлика от AND и OR, логическото отрицание (NOT) е унарна операция (т.е. работи върху един операнд)</dt>
+			<dt>Примери</dt>
+			<pre><code rel="JS" class="js">
+				console.log( true && false );	// false
+				console.log( true || false );	// true
+				console.log( !true ); 			   // false
+
+				// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				let userAge = 19;
+				let userCountry = 'BG'
+
+				console.log( userAge>=18 && userCountry==='UK' );	// false ( true && false = false)
+
+				// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				// когато операндите не са boolean, то и резултата не е boolean
+				let userName;
+				console.log( userName || 'Anonymous' ) // 'Anonymous'
+			</code></pre>
+		</dl>
+
+	</section>
+
+	<section id="truthValueInterpretation"><h3>Изчисляване на истинностни стойности</h3>
+		<dl class="fa">
+			<dt>Логическите оператори в JS могат да работят върху различни типове данни.</dt>
+			<dt>За да се изчисли резултата, за всеки един от операндите трябва да се изчисли истинностната му стойност (true/false), като се следват правилата:</dt>
+		</dl>
+		<table>
+			<tr>
+				<th>Type:</th>
+				<th>=False</th>
+				<th>=True</th>
+			</tr>
+			<tr>
+				<td>number</td>
+				<td>0/NaN</td>
+				<td>всяко число, различно от 0/NaN</td>
+			</tr>
+			<tr>
+				<td>string</td>
+				<td>""</td>
+				<td>всеки низ, който не е празен</td>
+			</tr>
+			<tr>
+				<td>undefined</td>
+				<td>undefined</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>null</td>
+				<td>null</td>
+				<td>-</td>
+			</tr>
+		</table>
+	</section>
+	<section><h3>Изчисляване на истинностна стойност - примери</h3>
+		<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js" data-user="webdesigncourse" data-slug-hash="KZLpep/" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="JS: Truth Values Evaluation">
+		<span>See the Pen <a href='https://codepen.io/webdesigncourse/pen/KZLpep/'>JS: Truth Values Evaluation</a> by Iva Popova (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+		</span>
+		</p>
+	</section>
+	<!-- <section><h3 class="advanced">Short-circuit evaluation</h3>
+		<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#short-circuit_evaluation">Short-circuit_evaluation @MDN</a>
+		<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="rpgOxG/" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="JS: Short-circuit evaluation">
+		<span>See the Pen <a href='https://codepen.io/webdesigncourse/pen/rpgOxG/'>JS: Short-circuit evaluation</a> by Iva Popova (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+		</span>
+		</p>
+	</section> -->
+</section>
+
+<section id="conditionalStatements"><h1>Условни изрази (Conditional statements)</h1></section>
+<section class="sub-sections"><h2>Условни изрази (Conditional statements)</h2>
+	<section id="if"><h3><code>if</code> statement</h3>
+		<pre style=" font-size: .5em;"><code rel="Syntax">
+			if(условие){
+				изрази, които ще се изпълнят, ако условието е истина
+			}
+		</code></pre>
+		<pre><code rel="JS">
+			if( age > 18 ){
+				status = "adult";
+			}
+		</code></pre>
+	</section>
+	<section id="if-else"><h3><code>if-else</code> statement</h3>
+		<pre style=" font-size: .5em;"><code rel="Syntax">
+			if( условие ){
+				изрази, които ще се изпълнят, ако условието е истина
+			}else {
+				изрази, които ще се изпълнят, ако условието е лъжа
+			}
+		</code></pre>
+		<pre><code rel="JS">
+			if( age > 18 ){
+				status = "adult";
+			}else {
+				status = "child";
+			}
+		</code></pre>
+	</section>
+	<section id="if-else_examples"><h3>Примери</h3>
+		<pre><code rel="JS" class="js">
+			let x = 5;
+
+			if(x%2){
+				console.log(`Odd`);
+			}else{
+				console.log(`Even`);
+			}
+		</code></pre>
+	</section>
+	<section id="if-else-if"><h3><code>if-else-if</code> statement</h3>
+		<pre style=" font-size: .5em;"><code rel="Syntax" class="javascript">
+			if( условие1){
+				изрази, които ще се изпълнят, ако условие1 е истина
+			}else if (условие2) {
+				изрази, които ще се изпълнят, ако условие1 e лъжа,
+				а условие2 е истина
+			}else {
+				изрази, които ще се изпълнят, ако нито едно от
+				горните условия не е истина
+			}
+		</code></pre>
+		<dl class="fa note" style="font-size: .8em">
+			<dt>Задължително започваме с <code>if{}</code> блок</dt>
+			<dt>След него може да има 0 или повече <code>else if{}</code> блока</dt>
+			<dt><code>else{}</code> блока е винаги в края, като не е задължителен, но се препоръчва да присъства.</dt>
+		</dl>
+	</section>
+	<section id="if-else-if_examples"><h3><code>if-else-if</code> statement - пример</h3>
+		<pre><code rel="JS" class="javascript">
+			if( age > 18 ){
+				status = "adult";
+			}else if( age < 18 && age > 12){
+				status = "teen";
+			}else{
+				status = "child"
+			}
+		</code></pre>
+		<p><span class="note">В примера, който е коректен синтактично, има бъг - можете ли да го откриете?</span></p>
+	</section>
+	<section id="switch-statement"><h3>Switch Statement</h3>
+		<dl class="fa">
+			<dt><code>switch</code> statement е алтернатива на множество <code>else-if...else-if</code>, подходящ в случаите, когато трябва да се сравняват множество конкретни стойности на една променлива.</dt>
+			<dt>Self Learning: <a href="https://www.w3schools.com/js/js_switch.asp">JavaScript Switch Statement</a></dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			let fruit = "apple";
+
+			switch (fruit) {
+				case "apple":
+					console.log("Apple is red.");
+					break;
+				case "banana":
+					console.log("Banana is yellow.");
+					break;
+				default:
+					console.log("Unknown fruit.");
+			}
+
+			// Извежда: Apple is red.
+		</code></pre>
+		<dl class="fa" style="font-size: 0.65em;">
+			<dt><code>switch</code> изразът сравнява стойността на fruit със стойностите във всеки <code>case</code>.</dt>
+			<dt>Ако е намерено съответствие (напр. fruit е "apple"), изпълнява се кодът в този <code>case</code> блок.</dt>
+			<dt><code>break</code> прекратява <code>switch</code> блока и предотвратява изпълнението на следващите <code>case</code> блокове.</dt>
+			<dt><code>default</code> блокът се изпълнява, ако никой от <code>case</code> блоковете не съответства на стойността на fruit.</dt>
+		</dl>
+	</section>
+</section>
+
+<section class="main-sesction-title"><h1>Условен оператор (Conditional (ternary) Operator)</h1></section>
+<section class="sub-sections"><h2>Условен оператор (Conditional (ternary) Operator)</h2>
+	<section id="ternaryOperator">
+		<pre><code rel="Syntax" class="javascript">
+			Условие ? Израз1 : Израз2
+		</code></pre>
+		<dl class="fa">
+			<dt>ако Условие е <span class="note">истина</span> (израз, който се изчислява до true) оператора връща стойността на <span class="note">Израз1</span></dt>
+			<dt>ако Условие е <span class="note">лъжа</span> (израз, който се изчислява до false) оператора връща стойността на <span class="note">Израз2</span></dt>
+			<dt><span class="note">Забележете, че оператора връща стойност</span> (която можем да присвоим на променлива), за разлика от if..else стейтмънта.</dt>
+			<dt>Разгледайте следните 2 примера, които са фунцкционално еквиваленти, но показват удобството от използването на ternary operator.</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			let x = 42;
+
+			let numType = x%2===0 ? "even" : "odd";
+
+			console.log(numType); // "even"
+		</code></pre>
+		<pre><code rel="JS" class="js">
+			let x = 42, numType;
+
+			if(x%2===0){
+				numType = "even"
+			}else{
+				numType = "odd"
+			}
+
+			console.log(numType); // "even"
+		</code></pre>
+	</section>
+</section>
+
+<section id="loops"><h1>Цикли (Loops/Iteration Statements)</h1></section>
+<section class="sub-sections"><h2>Цикли (Loops/Iteration Statements)</h2>
+	<section><h3><code>for</code> Statement: синтаксис</h3>
+		<pre style="width: 70vw;"><code rel="Syntax">
+			for (init; condition; increment) {
+				блок, който се изпълнява, докато condition
+				е истина
+			}
+		</code></pre>
+		<pre><code rel="JS" class="js">
+			for(let i=0; i<5; i++){
+				console.log(i)
+			}
+		</code></pre>
+		<p>Стъпките, в един цикъл са:</p>
+		<dl class="fa">
+			<dt>1. <code>init</code>: изпълнява се първа и само веднъж</dt>
+			<dt>2. <code>condition</code>:</dt>
+				<dd>ако е истина => изпълнява се блока</dd>
+				<dd>ако е лъжа => излиза се от цикъла</dd>
+			<dt>3. <code>increment</code>: изпълнява се след блока. Обикновено тук се променят променливите, които контролират цикъла.</dt>
+			<dt>4. Преминава се към стъпка 2.</dt>
+		</dl>
+	</section>
+	<section><h3><code>for</code> Statement: блок-схема</h3>
+		<pre><code rel="Syntax">
+			for (init; condition; increment) {
+				block
+			}
+		</code></pre>
+
+		<img src="images/for_algorithm.png">
+	</section>
+	<section><h3><code>for</code> Statement: пример и program flow diagram</h3>
+		<a href="images/JS_Loops.png"><img src="images/JS_Loops.png"></a>
+	</section>
+	<section><h3><code>for</code> Statement: пример 1</h3>
+		<pre><code rel="JS">
+			for (let i = 0; i < 5; i++) {
+				console.log("i=" + i);
+			}
+		</code></pre>
+		<p>// резултата, видим в конзолата, е:</p>
+		<pre><code rel="Console">
+			i=0
+			i=1
+			i=2
+			i=3
+			i=4
+		</code></pre>
+	</section>
+	<section><h3><code>for</code> Statement: пример 2</h3>
+		<pre><code rel="JS">
+			// i е четно число, в интервала [0-10]
+			for (let i = 2; i <= 10; i = i+2){
+				console.log("i=", i);
+			}
+		</code></pre>
+		<p>// резултата, видим в конзолата, е:</p>
+		<pre><code rel="Console">
+			i=2
+			i=4
+			i=6
+			i=8
+			i=10
+		</code></pre>
+	</section>
+	<section><h3><code>for</code> Statement: пример 3</h3>
+		<pre><code rel="JS">
+			// create the list element
+			let listNode = document.createElement(listType);
+
+			//create list items
+			for (let i = 1; i <= listItemsCount; i++){
+				let listItem = document.createElement('li');
+				listItem.innerHTML = 'Item '+ i;
+				listNode.appendChild(listItem);
+			}
+
+			// attach to output node:
+			outputNode.appendChild( listNode );
+		</code></pre>
+		<p><a href="examples/slides/auto_list_generator.html">test it</a> or <a href="//codepen.io/webdesigncourse/pen/RoXNPb?editors=0010">play with it on codepen</a></p>
+	</section>
+	<section><h3><code>for</code> Statement: пример 4</h3>
+		<pre><code rel="JS">
+			// half tree print
+			let treeDeep = 5;
+			for (let i = 1; i <= treeDeep; i++) {
+				console.log("*".repeat(i));
+			}
+		</code></pre>
+		<p>// резултата, видим в конзолата, е:</p>
+		<pre><code rel="Console">
+			*
+			**
+			***
+			****
+			*****
+		</code></pre>
+		<p><a href="https://codepen.io/webdesigncourse/pen/boJwNQ">play with it on codepen</a></p>
+	</section>
+	<section><h3><code>for</code> Statement: пример 5</h3>
+		<p><a href="https://codepen.io/webdesigncourse/pen/veMXKd">play with it on codepen</a></p>
+		<pre><code rel="JS">
+			// full tree print
+			let crownHeight = 6;
+			let boleHeight = 2;
+			let boleWidth = 3;
+			let spaceCount;
+
+			// print the crown:
+			for (let i = 1; i <= crownHeight; i++) {
+				spaceCount = Math.floor(crownHeight) - i;
+				console.log(" ".repeat(spaceCount) + "*".repeat(i * 2 - 1));
+			}
+
+			// print the bole:
+			spaceCount = Math.floor((crownHeight * 2 - 1 - boleWidth) / 2);
+			for (let i = 1; i <= boleHeight; i++) {
+				console.log(" ".repeat(spaceCount) + "*".repeat(boleWidth));
+			}
+		</code></pre>
+		<p>резултата, видим в конзолата, е:</p>
+		<pre><code rel="Console" class="bash">
+
+					 *
+					***
+				 *****
+				*******
+			 *********
+			***********
+					***
+					***
+		</code></pre>
+	</section>
+	<section><h3><code>while</code> statement: синтаксис</h3>
+		<pre style="width: 75vw;"><code rel="Syntax">
+			while ( condition) {
+				блок, който се изпълнява, докато condition е истина
+			}
+		</code></pre>
+		<p>Стъпките, в един <code>while</code> цикъл са:</p>
+		<dl class="fa">
+			<dt>condition:</dt>
+				<dd>ако е истина => изпълнява се блока,</dd>
+				<dd>ако е лъжа => излиза се от цикъла</dd>
+		</dl>
+		<p class="note">За да се избегне безкраен цикъл, променливата в <code>condition</code> трябва да променя стойността си в тялото на цикъла!</p>
+	</section>
+	<section><h3><code>while</code> statement: алгоритъм</h3>
+		<img src="images/while_algorithm.png">
+	</section>
+	<section><h3><code>while</code> statement: пример 1</h3>
+		<pre><code rel="JS" class="js">
+			let userTries = 5;
+
+			while( userTries>0){
+				console.log(`Try: ${userTries}`);
+				userTries--; // ако този ред липсва, цикълът става безкраен!
+			}
+		</code></pre>
+		<p class="note">Забележете, че този пример, би било по-добре да бъде имплементиран чрез <code>for</code> statement</p>
+		<pre><code rel="JS" class="js">
+			for(let userTries = 5; userTries>0; userTries--){
+				console.log(`Try: ${userTries}`);
+			}
+		</code></pre>
+	</section>
+	<section><h3><code>while</code> statement: пример 2</h3>
+		<p>Но когато не знаем предварително колко пъти ще се повтори цикъла използваме <code>while</code></p>
+		<pre style="width: 70vw;"><code rel="JS" class="js">
+			// Машината си "намисля" число:
+			let machineNumber = Math.round(Math.random() * 10);
+			console.log(`machineNumber: ${machineNumber}`);
+
+			// Потребителя "въвежда" число:
+			let userNumber = Math.round(Math.random() * 10);
+			console.log(`userNumber: ${userNumber}`);
+
+			while(userNumber != machineNumber){
+				// Потребителя "въвежда" ново число:
+				userNumber = Math.round(Math.random() * 10);
+				console.log(`new userNumber: ${userNumber}`);
+			}
+		</code></pre>
+		<p>Бихте ли могли да реализирате същата логика чрез <code>for</code> цикъл?</p>
+	</section>
+	<section><h3><code>do-while</code> statement: синтаксис</h3>
+		<pre style="width: 80vw"><code rel="Syntax">
+			do{
+				блок, който се изпълнява, докато condition е истина
+			} while ( condition)
+		</code></pre>
+		<dl class="fa">
+			<dt><code>do-while</code> работи по същия начин както <code>while</code>, с единствената разлика, че блокът в тялото на цикъла ще се <span class="note">изпълни поне веднъж, независимо от истинностната стойност на условието.</span> </dt>
+		</dl>
+	</section>
+	<section><h3><code>do-while</code> statement: пример</h3>
+		<pre style="width: 75vw;"><code rel="JS" class="js">
+			// Машината си "намисля" число:
+			let machineNumber = Math.round(Math.random() * 10);
+			console.log(`machineNumber: ${machineNumber}`);
+
+			do{
+				// Потребителя "въвежда" число:
+				userNumber = Math.round(Math.random() * 10);
+				console.log(`userNumber: ${userNumber}`);
+			} while(userNumber != machineNumber)
+		</code></pre>
+	</section>
+	<section><h3><code>break</code> и <code>continue</code></h3>
+		<dl class="fa">
+			<dt>Self-learning section:</dt>
+			<dd><a href="https://www.w3schools.com/js/js_break.asp">JavaScript Break and Continue @w3schools</a></dd>
+		</dl>
+	</section>
+</section>
+
+
+<section id="StatementsVsExpressions"><h1>Statements vs. Expressions</h1></section>
+<section class="sub-sections"><h2>Statements vs. Expressions</h2>
+	<section>
+		<p>В JavaScript се прави разлика между <span class="note">Statement</span> и <span class="note">Expression</span></p>
+		<dl class="fa">
+			<dt><span class="note">Expression</span> е израз, който <span class="note">може да бъде изчислен до конкретна стойност</span>. Expression може да се сложи на всяко едно място, където бихме могли да зададем стойност.
+				<pre><code id="test" rel="JS" class="js">
+					2+3;    // 2+3 е Expresion
+					x = 5;    // x = 5 e Expresion
+					console.log(x**6-x) // x**6-x e Expresion
+					x = y = 5;  // тук имаме 2 Expresions: (y = 5) и (x = 5)
+				</code></pre>
+			</dt>
+		</dl>
+	</section>
+	<section>
+		<dl class="fa">
+			<dt><span class="note">Statement</span> е израз, който извършва действие, но <span class="note">не се изчислява до стойност</span>! Декларациите, циклите и <code>if()</code> са пример за Statements.
+				<pre><code rel="JS" class="js">
+					if(1){return 0};  // if Statement
+					while(x = 2){console.log(x)}; // while Statement
+					let x; // variable declaration Statement
+				</code></pre>
+			</dt>
+		</dl>
+	</section>
+</section>
+
+
+<section id="HWs"><h1>Задачи за упражнение</h1></section>
+<section class="sub-sections"><h2>Задачи за упражнение</h2>
+	<section id="TaskIncrementAndComparisonOperators"><h3>Task1: Increment and Comparison Operators</h3>
+		<dl class="fa">
+			<dt>Описанието на задачата е дадено като коментар в JS полето</dt>
+		</dl>
+		<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="oNgxJow" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="HW: JS  increment operatorss">
+		<span>
+			See the Pen <a href='https://codepen.io/webdesigncourse/pen/oNgxJow'>HW: JS  increment operatorss</a> by Iva Popova
+			(<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+		</span>
+		</p>
+	</section>
+	<section id="TaskComparisonOperatorsConditionalStatement_1"><h3>Task2: Comparison Operators & Conditional Statement</h3>
+		<dl class="fa">
+			<dt>Описанието на задачите е дадено като коментар в съответните HTML и JS полета.</dt>
+			<dt>Работете върху дадения код като добавите код, където е необходимо/указано.</p>
+		</dl>
+		<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result&embed-version=2" data-user="webdesigncourse" data-slug-hash="BLYJGJ/" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="HW2: Comparison Operators & Conditional Statement">
+		<span>See the Pen <a href='https://codepen.io/webdesigncourse/pen/BLYJGJ/'>HW2: Comparison Operators & Conditional Statement</a> by Iva Popova (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.</span>
+		</p>
+	</section>
+	<section><h3 id="TaskComparisonOperatorsConditionalStatement_2">Task3: Comparison Operators & Conditional Statement</h3>
+		<dl class="fa">
+			<dt>Описанието на задачите е дадено като коментар в JS полето.</dt>
+			<dt>Работете върху дадения код, в JS полето, където е указано.
+		</dl>
+			<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result&embed-version=2" data-user="webdesigncourse" data-slug-hash="ryLWzY/" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="HW1: Comparison Operators & Conditional Statement">
+		<span>See the Pen <a href='https://codepen.io/webdesigncourse/pen/ryLWzY/'>HW1: Comparison Operators & Conditional Statement</a> by Iva Popova (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+			</span>
+		</p>
+	</section>
+	<section id="TaskBmiInterpretation"><h3>Task4: BMI Interpretation</h3>
+		<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="YzVVBRo" data-user="webdesigncourse" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+		<span>See the Pen <a href="https://codepen.io/webdesigncourse/pen/YzVVBRo">
+		BMI Interpretation</a> by Iva Popova (<a href="https://codepen.io/webdesigncourse">@webdesigncourse</a>)
+		on <a href="https://codepen.io">CodePen</a>.</span>
+		</p>
+	</section>
+	<section><h3 id="TaskLoops_1">Task5: Loops</h3>
+		<dl class="fa">
+			<dt>Описанието на задачите е дадено като коментар в JS полето.</dt>
+			<dt>Изпратете линк на вашия Пен</dt>
+		</dl>
+		<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="YzPEgbq" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="HW: loops">
+		<span>
+			See the Pen <a href='https://codepen.io/webdesigncourse/pen/YzPEgbq'>HW: loops</a> by Iva Popova
+			(<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+		</span>
+		</p>
+	</section>
+
+	<!-- <a href="//codepen.io/collection/XOEQay/">codepen колекция с примери и задачи</a> -->
+</section>
+
+<!-- <section class="sub-sections"><h2>codepen examples</h2>
+	<p>Повече примери и задачи: <a href="https://codepen.io/collection/XOEQay">JS_Basic_Syntax</a></p>
+</section> -->
+
+<section class="sub-sections"><h2>допълнителни ресурси по темата</h2>
+	<dl class="fa">
+		<!-- <dt><a href="https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/get-started/README.md">You Don't Know JS Yet: Get Started - 2nd Edition by Kyle Simpson</a></dt> -->
+		<dt><a href="http://eloquentjavascript.net/01_values.html">"Values, Types, and Operators" from "Eloquent JavaScript" by Marijn Haverbeke</a></dt>
+		<dt><a href="http://eloquentjavascript.net/02_program_structure.html">"Program Structure" from "Eloquent JavaScript" by Marijn Haverbeke</a></dt>
+		<!-- <dt><a href="https://www.sitepoint.com/javascript-truthy-falsy/">Truthy and Falsy: When All is Not Equal in JavaScript @sitepoint</a></dt> -->
+	</dl>
+</section>
+
+
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+	 <p>These slides are based on</p>
+	 <p>customized version of </p>
+	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+	 <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="../../../outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="../../../lib/reveal.js/dist/reveal.js"></script>
+	<script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+	<script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+	<script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+	<script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		// var highlightjsTabSize = '  ';
+		Reveal.initialize({
+
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+			center: true,
+			width: 1280,
+			height: 1024,
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+			// shift+mousе click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+
+			plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+		});
+	</script>
+</body>
+</html>
