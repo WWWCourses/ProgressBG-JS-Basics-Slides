@@ -1,11 +1,11 @@
 /* ********************************************************************** */
 /* Reveal.js themes */
 /* ********************************************************************** */
-/* @import "../../../lib/reveal.js/css/theme/black.css" */
-/* @import "../../../lib/reveal.js/css/theme/blood.css" */
-/* @import "../../../lib/reveal.js/css/theme/league.css"; */
-@import "../../../lib/reveal.js/css/theme/moon.css";
-/* @import "../../../lib/reveal.js/css/theme/night.css" */
+/* @import "../../../lib/reveal.js/dist/theme/black.css" */
+/* @import "../../../lib/reveal.js/dist/theme/blood.css" */
+/* @import "../../../lib/reveal.js/dist/theme/league.css"; */
+@import "../../../lib/reveal.js/dist/theme/moon.css";
+/* @import "../../../lib/reveal.js/dist/theme/night.css" */
 /* Custom */
 @import "../../../outfit/css/reveal.js.css";
 /* ********************************************************************** */

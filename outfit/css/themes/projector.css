@@ -1,12 +1,12 @@
 /* ********************************************************************** */
 /* Reveal.js themes*/
 /* ********************************************************************** */
-@import "../../../lib/reveal.js/css/theme/beige.css";
-/* @import "../../../lib/reveal.js/css/theme/serif.css"; */
-/* @import "../../../lib/reveal.js/css/theme/simple.css" */
-/* @import "../../../lib/reveal.js/css/theme/sky.css"; */
-/* @import "../../../lib/reveal.js/css/theme/solarized.css";*/
-/* @import "../../../lib/reveal.js/css/theme/white.css"; */
+@import "../../../lib/reveal.js/dist/theme/beige.css";
+/* @import "../../../lib/reveal.js/dist/theme/serif.css"; */
+/* @import "../../../lib/reveal.js/dist/theme/simple.css" */
+/* @import "../../../lib/reveal.js/dist/theme/sky.css"; */
+/* @import "../../../lib/reveal.js/dist/theme/solarized.css";*/
+/* @import "../../../lib/reveal.js/dist/theme/white.css"; */
 /* Custom */
 @import "../../../outfit/css/reveal.js.css";
 /* ********************************************************************** */

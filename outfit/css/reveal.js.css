@@ -66,17 +66,24 @@
     box-shadow: 0 0 0.5em .1em;
 }
 .reveal section img.norm{
-    position: relative;
-    display: block;
-    margin: 1.5em auto 0 auto;
-    height: auto;
-    width: auto;
-    box-shadow: 0 0 .5em .1em rgba(150, 150, 150, 0.5);
+  position: relative;
+  display: block;
+  margin: 1.5em auto 0 auto;
+  height: auto;
+  width: auto;
+  box-shadow: 0 0 .5em .1em rgba(150, 150, 150, 0.5);
 }
 .reveal section img.the_end{
   border-radius: 20%;
   box-shadow: 0 0 5em 5em rgb(0, 43, 64);
   /*width: 100vmax;*/
+}
+.reveal section div.semioticWrapper img{
+  display: inline-block;
+	height: 2em;
+	margin: 1em 0 0 .5em;
+	border-radius: 10%;
+	/*box-shadow: none;*/
 }
 .reveal section dl.fa>dt{
   font-weight: normal;
