@@ -418,8 +418,12 @@ section.copyright>.license{
 }
 
 /*marked for advanced*/
+.reveal section h1.advanced{
+  font-size: 2em;
+}
+
 .reveal section .advanced{
-  font-size: .7em;
+  font-size: .8em;
 }
 .reveal section .advanced:before{
   /*fa style*/
