@@ -109,7 +109,7 @@
             </code></pre>
         </dl>
     </section>
-    <section id="Step2CreateQuestions"><h3>Step 2: Create Questions</h3>
+    <section id="Step2CreateQuestions"><h3>Step 2: Define Questions</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>Define the questions, options, and answers in your JavaScript file.</dt>
             <dd>Use arrays to store the questions, options, and correct answers.</dd>
@@ -119,7 +119,7 @@
                 // Array of questions
                 let questions = [
                     "What is the capital of France?",
-                    "Which language is used for web development?",
+                    "Which language is used for Front-end Web development?",
                     "What does CSS stand for?"
                 ];
 
@@ -144,30 +144,30 @@
             <dt>Display all the questions and options on the webpage at page load.</dt>
             <dd>Use loops and template strings to create the quiz interface.</dd>
             <pre><code rel="JS" class="js" style="min-height: 53vh;">
-                let quizContainer = document.getElementById('quiz-container');
-                quizContainer.innerHTML = '';
+                let quizContainer = document.getElementById(&#39;quiz-container&#39;);
+                quizContainer.innerHTML = &#39;&#39;;
 
-                for (let i = 0; i < questions.length; i++) {
+                for (let i = 0; i &lt; questions.length; i++) {
                     let questionHTML = `
-                        <div class="question">
-                            <h2>${questions[i]}</h2>
-                            <ul>
+                        &lt;div class=&quot;question&quot;&gt;
+                            &lt;h2&gt;${questions[i]}&lt;/h2&gt;
+                            &lt;ul&gt;
                     `;
 
-                    for (let j = 0; j < options[i].length; j++) {
+                    for (let j = 0; j &lt; options[i].length; j++) {
                         questionHTML += `
-                            <li>
-                                <label>
-                                    <input type="radio" name="question${i}" value="${options[i][j]}">
+                            &lt;li&gt;
+                                &lt;label&gt;
+                                    &lt;input type=&quot;radio&quot; name=&quot;question${i}&quot; value=&quot;${options[i][j]}&quot;&gt;
                                     ${options[i][j]}
-                                </label>
-                            </li>
+                                &lt;/label&gt;
+                            &lt;/li&gt;
                         `;
                     }
 
                     questionHTML += `
-                            </ul>
-                        </div>
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
                     `;
 
                     quizContainer.innerHTML += questionHTML;
@@ -180,23 +180,23 @@
             <dt>Check if the selected answers are correct when the user submits the quiz.</dt>
             <dd>Update the score and display the result once the quiz is submitted.</dd>
             <pre><code rel="JS" class="js" style="min-height: 1vh;">
-                let submitButton = document.getElementById('submit-quiz');
-                submitButton.addEventListener('click', function() {
+                let submitButton = document.getElementById(&#39;submit-quiz&#39;);
+                submitButton.addEventListener(&#39;click&#39;, function() {
                     let score = 0; // Initialize the score variable
 
                     // Loop through each question to check the selected answer
-                    for (let i = 0; i < questions.length; i++) {
-                        let selectedOption = document.querySelector('input[name="question' + i + '"]:checked');
+                    for (let i = 0; i &lt; questions.length; i++) {
+                        let selectedOption = document.querySelector(`input[name=&quot;question${i}&quot;]:checked`);
 
                         // Check if the selected option is correct
-                        if (selectedOption && selectedOption.value === answers[i]) {
+                        if (selectedOption &amp;&amp; selectedOption.value === answers[i]) {
                             score++;
                         }
                     }
 
                     // Display the final score
-                    let resultContainer = document.getElementById('result');
-                    resultContainer.innerHTML = '<h2>Your score is ' + score + ' out of ' + questions.length + '</h2>';
+                    let resultContainer = document.getElementById(&#39;result&#39;);
+                    resultContainer.innerHTML = &#39;&lt;h2&gt;Your score is &#39; + score + &#39; out of &#39; + questions.length + &#39;&lt;/h2&gt;&#39;;
                 });
             </code></pre>
         </dl>

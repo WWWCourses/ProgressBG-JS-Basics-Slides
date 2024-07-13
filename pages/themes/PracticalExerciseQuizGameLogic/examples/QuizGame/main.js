@@ -1,9 +1,10 @@
 // main.js
 
+/* ---------------------- Define Questions and answers ---------------------- */
 // Array of questions
 let questions = [
     "What is the capital of France?",
-    "Which language is used for web development?",
+    "Which language is used for Front-end Web development?",
     "What does CSS stand for?"
 ];
 
@@ -25,6 +26,7 @@ let answers = [
 let quizContainer = document.getElementById('quiz-container');
 quizContainer.innerHTML = '';
 
+/* ---------------------------- Display Questions --------------------------- */
 // Loop through each question
 for (let i = 0; i < questions.length; i++) {
     // Create HTML for the question and its options
@@ -56,6 +58,7 @@ for (let i = 0; i < questions.length; i++) {
     quizContainer.innerHTML += questionHTML;
 }
 
+/* ------------------------------ Check Answers ----------------------------- */
 // Get the submit button element
 let submitButton = document.getElementById('submit-quiz');
 
@@ -65,7 +68,6 @@ submitButton.addEventListener('click', function() {
 
     // Loop through each question to check the selected answer
     for (let i = 0; i < questions.length; i++) {
-        // let selectedOption = document.querySelector('input[name="question' + i + '"]:checked');
         let selectedOption = document.querySelector(`input[name="question${i}"]:checked`);
 
         // Check if the selected option is correct
