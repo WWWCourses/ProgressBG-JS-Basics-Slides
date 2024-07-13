@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HW_Loops</title>
+    <base target="_blank">
+    <link rel="stylesheet" type="text/css" href="../../../../outfit/css/homework_for_pdf.css">
+    <!-- highlight.js -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/monokai-sublime.min.css"> -->
+</head>
+<body>
+    <h1 class="center_text gray">HW_Loops</h1>
+    <div class="task">
+        <div class="task_description">
+            <p><em><strong>Задача 1: </strong></em>oddNumbers</p>
+            <p>Програма, която изписва в конзолата (фиг.1) всички нечетни числа в диапазона [1, 100], които се делят без остатък на 11.</p>
+            <div class="results">
+                <img src="images/oddNumbers.png">
+            </div>
+            <p class="table_caption">Фигура 1.</p>
+
+            <p><em><strong>Задача 2: </strong></em>sumInDiapason</p>
+            <p>Програма, която изписва в конзолата (фиг.2) сумата на числата от 1 до 100.</p>
+            <div class="results">
+                <img src="images/sumInDiapason.png">
+            </div>
+            <p class="table_caption">Фигура 2.</p>
+        </div>
+    </div>
+    <p class="title">Забележки: </p>
+
+    <script type="text/javascript">
+        oddNumbers();
+
+        function oddNumbers(){
+            for (var i = 0; i < 100; i++) {
+                if ( i % 2 != 0 && i % 11 == 0) {
+                    console.log(i)
+                }
+            }
+        }
+        function sumInDiapason(){
+            var sum = 0;
+            for (var i = 1; i <= 100; i++) {
+                sum += i;
+            };
+
+            console.log("sum:", sum);
+            console.log("\n\n\n");
+        }
+
+        function task_findOddNumbers(){
+            var numbers = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
+            for (var i = 0; i < numbers.length; i++) {
+                if ( numbers[i] % 2 != 0 ){
+                    console.log(numbers[i]);
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

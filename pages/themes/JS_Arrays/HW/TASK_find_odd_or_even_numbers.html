@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TASK_find_odd_or_even_numbers</title>
+    <base target="_blank">
+    <link rel="stylesheet" type="text/css" href="../../../../outfit/css/homework_for_pdf.css">
+    <!-- highlight.js -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/monokai-sublime.min.css"> -->
+</head>
+<body>
+    <div class="task">
+        <div class="task_description">
+            <p><em><strong>Задача 1: </strong></em>Намиране на четни и нечетни числа:</p>
+            <p>Даден е масив със следните числа: <code>0, 1, 2, 3, 4, 5, 6, 7, 8, 9. Да се състави JS програма, която изписва в конзолата нечетните числа на масива, които са различни от нула.</code></p>
+
+            <p><em><strong>Задача 2: </strong></em>Намиране на четни и нечетни числа:</p>
+            <p>Даден е масив със следните числа: <code>1, 2, 3, 4, 5, 6, 7, 8, 9. Да се състави JS програма, която изписва в конзолата нечетните числа на масива.</code></p>
+            <!-- <div class="results">
+                <img src="iep_find_odd_or_even_numbers.png">
+            </div> -->
+            <p class="table_caption">Фигура 1.</p>
+        </div>
+    </div>
+    <p class="title">Забележки: </p>
+    <div class="notes">
+        <p>Спазвайте следните изисквания при реализацията:</p>
+        <ul class="asterics">
+            <li>Работете в отделен js файл, с име <span class="kw code">prefix</span>_find_odd_or_even_numbers.js, като заместите <span class="kw code">prefix</span> частта с вашите инициали.</li>
+            <li>Нулата не бива да участва в списъка с четните числа.</li>
+            <li>За да принтирате в конзолата един таб, използвайте: <span class="code">"\t"</span></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        function task_findOddNumbers(){
+            var numbers = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
+            for (var i = 0; i < numbers.length; i++) {
+                if ( numbers[i] % 2 != 0 ){
+                    console.log(numbers[i]);
+                }
+            }
+        }
+
+        task_findOddNumbers();
+    </script>
+</body>
+</html>

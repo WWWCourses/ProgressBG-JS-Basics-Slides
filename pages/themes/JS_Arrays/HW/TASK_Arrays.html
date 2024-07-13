@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HW_Arrays</title>
+    <base target="_blank">
+    <link rel="stylesheet" type="text/css" href="../../../../outfit/css/homework_for_pdf.css">
+    <!-- highlight.js -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/monokai-sublime.min.css"> -->
+</head>
+<body>
+    <h1 class="center_text gray">HW_Arrays</h1>
+    <div class="task">
+        <div class="task_description">
+            <p><em><strong>Задача 1: </strong></em>findOddNumbers</p>
+            <p>Даден е масив със следните числа: <code><kbd>0, 2, 3, 41, 5, 60, 7, 80</kbd>.<br>Да се състави JS програма, която изписва в конзолата нечетните числа на масива.</code></p>
+            <div class="results">
+                <img src="images/findOddNumbers.png">
+            </div>
+            <p class="table_caption">Фигура 1.</p>
+
+            <p><em><strong>Задача 2: </strong></em>findOddPositiveNumbers</p>
+            <p>Даден е масив със следните числа: <code><kbd>0, 2, -3, 41, -5, -60, 7, 11, -80</kbd>.<br>Да се състави JS програма, която изписва в конзолата нечетните положителни числа на масива.</code></p>
+            <div class="results">
+                <img src="images/findOddPositiveNumbers.png">
+            </div>
+            <p class="table_caption">Фигура 2.</p>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        findOddNumbers();
+
+        function oddNumbers(){
+            for (var i = 0; i < 100; i++) {
+                if ( i % 2 != 0 && i % 11 == 0) {
+                    console.log(i)
+                }
+            }
+        }
+
+        function sumInDiapason(){
+            var sum = 0;
+            for (var i = 1; i <= 100; i++) {
+                sum += i;
+            };
+
+            console.log("sum:", sum);
+            console.log("\n\n\n");
+        }
+
+        function findOddNumbers(){
+            var numbers = [ 0, 2, 3, 41, 5, 60, 7, 80 ];
+            for (var i = 0; i < numbers.length; i++) {
+                if ( numbers[i] % 2 != 0 ){
+                    console.log(numbers[i]);
+                }
+            }
+        }
+
+        function findOddPositiveNumbers(){
+            var numbers = [ 0, 2, -3, 41, -5, -60, 7, 11, -80 ];
+            for (var i = 0; i < numbers.length; i++) {
+                if ( numbers[i] > 0 && numbers[i] % 2 != 0 ){
+                    console.log(numbers[i]);
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

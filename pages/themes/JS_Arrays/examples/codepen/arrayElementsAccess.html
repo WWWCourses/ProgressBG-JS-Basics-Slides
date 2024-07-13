@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>arrayElementsAccess</title>
+</head>
+<body>
+<h1>Примери за достъп до елементите на масив и прости операции с тях</h1>
+<p>Натиснете бутона 'console' в долния ляв ъгъл, за да видите конзолата в codepen.</p>
+<script type="text/javascript">
+	console.log("\nВсеки един елемент на масива:");
+	var numbers = [ 1, 2, 3, 4, 5];
+	var numbersLength = numbers.length;
+
+	for (var i = 0; i < numbersLength; i++) {
+		console.log("\t" + numbers[i]);
+	}
+
+	console.log("\nВсеки един елемент на масива, на степен 2:");
+	for (var i = 0; i < numbersLength; i++) {
+		console.log("\t" + numbers[i]**2);
+	}
+
+	console.log("\nСумата от елементите на масив:");
+	var sum = 0;
+	for (var i = 0; i < numbersLength; i++) {
+		sum += i;
+	}
+	console.log("\t" + sum);
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>globalVarsClash</title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript" src="myLib.js"></script>
+<script type="text/javascript" src="awasomeLib.js"></script>
+<script type="text/javascript">
+	function a(){
+		var base = 2;
+		var exp  =  10;
+
+		function passVars(){
+			return (base,exp);
+		}
+
+		console.log( power(base,exp) );
+	}
+
+	a();
+
+
+
+
+
+</script>
+
+
+</html>
