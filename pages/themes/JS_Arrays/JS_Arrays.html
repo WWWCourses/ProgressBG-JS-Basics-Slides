@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>JS_Arrays</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+	<link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+	<!-- Theme used for syntax highlighting of code -->
+	<!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+	<!-- custom -->
+	<link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+		<div class="top_links">
+			<a class="home_link" href="../../../index.html#JS_Arrays" target="_top"><i class="fa fa-home"></i></a>
+			<span class="help_link"><i class="fa fa-question"></i></span>
+			<div class="help_text">
+				<div class="note">Keyboard shortcuts:</div>
+				<div><span>N/Спейс</span><span>Next Slide</span></div>
+				<div><span>P</span><span>Previous Slide</span></div>
+				<div><span>O</span><span>Slides Overview</span></div>
+				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+				<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+				Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+			</div>
+		</div>
+		<div class="footer theme_switch">
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+		</div>
+		<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>JavaScript: масиви и операции с тях</h1></section>
+<section data-transition="zoom">
+	<section>
+		<div class="copyright">
+			<div class="note">
+				<p>Created for</p>
+			</div>
+			<div class="company">
+				<a href="https://progressbg.net/javascript-basic/">
+				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+				</a>
+			</div>
+		</div>
+	</section>
+	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+		<div class="note">
+			<p>Created by</p>
+		</div>
+		<div class="company">
+		   <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+		</div>
+		<!-- <div class="author">
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+		</div> -->
+	</section>
+</section>
+
+
+<section class="main-sesction-title" id="arrayOverview"><h1>Какво представлява масива?</h1></section>
+<section class="sub-sections"><h2>Какво представлява масива?</h2>
+    <section>
+        <dl class="fa">
+            <dt>Досега разгледаните типове данни (numbers, strings, boolean, null и undefined) бяха прости типове данни. <span class="note">Масивът е съставен тип данни</span>!</dt>
+            <dt>Масив (Array) - последователност (<span class="note">подредена</span> съвкупност) от данни (обикновено свързани концептуално) обединени в едно цяло.</dt>
+            <dt>В JavaScript елемент на масив може да бъде <span class="note">всеки един тип данни.</span></dt>
+        </dl>
+    </section>
+    <section>
+        <a href="images/JS_Arrays_Overview.png"><img src="images/JS_Arrays_Overview.png" style="height: 40vh;"></a>
+        <pre><code rel="JS" class="js" >
+            let fruits = ["apple", "banana", "strawberry", "banana", "orange"];
+        </code></pre>
+        <dl class="fa">
+            <dt>Данните в масива се наричат негови <span class="note">елементи</span>.</dt>
+            <dt>Поредните номера на елементите на масива се наричат <span class="note">индекси</span>.</dt>
+            <dt>В JS, както и при всички останали езици за програмиране, <span class="note">броенето на елементите започва от 0</span>.</dt>
+            <dt>Редът на елементите в масива е важен!</dt>
+        </dl>
+    </section>
+</section>
+
+<section class="main-sesction-title" id="arrayDefinition"><h1>Масиви - дефиниране (Arrays definition)</h1></section>
+<section class="sub-sections"><h2>Масиви - дефиниране (Arrays definition)</h2>
+    <section>
+        <p>Елементите на масива се задават в квадратни скоби '[' и ']' и се разделят със запетайка.</p>
+        <pre><code rel="JS">
+            //  масив ,  чиито   елементи   са   низове :
+            let colors = ["red", "orange", "yellow", "green", "blue"];
+
+            //  масив ,  чиито   елементи   са   различни   типове :
+            let user= ["Ada", 34, true];
+
+            //  празен   масив :
+            let arr= [];
+        </code></pre>
+    </section>
+    <section><h3>Представяне в паметта</h3>
+        <pre><code rel="JS">
+            let fruits = ['apple', 'banana', 'strawberry'];
+        </code></pre>
+        <a href="images/arrayInRAM_1.png"><img src="images/arrayInRAM_1.png" style="background: #FFF;"></a>
+    </section>
+</section>
+
+<section class="main-sesction-title" id="arrayIndexing"><h1>Масиви - достъп до елементите (Array indexing)</h1></section>
+<section class="sub-sections"><h2>Масиви - достъп до елементите (Array indexing)</h2>
+    <section>
+        <dl class="fa">
+            <dt>Даден елемент от масива достъпваме като след <span class="note">името на масива в квадратни скоби поставяме индексът на дадения елемент</span>.</dt>
+            <pre><code rel="Syntax" class="js">
+                arrayName[i]
+            </code></pre>
+            <dt>Операцията <code>arrayName[i]</code> се нарича индексиране</dt>
+        </dl>
+        <pre><code rel="JS">
+            // дефинираме масива fruits:
+            var fruits = ['apple', 'banana', 'strawberry'];
+
+            // достъп до 1-я елемент (четене):
+            console.log("first fruit is: ", fruits[0]);
+
+            // достъп до 3-я елемент (запис):
+            fruits[2] = 'orange';
+
+            // принтиране на целия масив:
+            console.log("fruits=", fruits);
+            // fruits=['apple', 'banana', 'orange']
+        </code></pre>
+    </section>
+    <section>
+        <dl class="fa">
+            <dt>Индексът на елемент на масива може да бъде единствено <span class="note">цяло положително число и 0</span>.</dt>
+            <dt>Ако се опитаме да <span class="note">четем</span> от масив с несъществуващ индекс, то JS ще върне <span class="note">undefined</span>
+                <pre><code rel="JS" class="js">
+                    let arr = [2,4,6];
+                    console.log( arr[4] )
+                    // undefined
+                </code></pre>
+            </dt>
+            <dt>Ако се опитаме да <span class="note">пишем</span> в масив с несъществуващ индекс, то елементът ще се запише в посочения индекс, а междинните стойностите ще се попълнат с празни (empty) елементи:
+                <pre><code rel="JS" class="js">
+                    let arr = [2,4,6];
+                    arr[4] = 8;
+                    console.log(arr);
+                    // [ 2, 4, 6, empty, 8 ]
+                </code></pre>
+            </dt>
+        </dl>
+    </section>
+</section>
+
+<section class="main-sesction-title" id="arrayAsObject"><h1 class="advanced">Масива като обект</h1></section>
+<section class="sub-sections"><h2 class="advanced">Масива като обект</h2>
+    <section>
+        <dl class="fa">
+            <dt>В JavaScript <span class="note">масивите са имплементирани като обекти</span>.
+                <pre><code rel="JS" class="js">
+                    let arr = [2,4,6];
+                    console.log(typeof(arr));
+                    // object
+                </code></pre>
+            </dt>
+            <dt>Поради тази причина, ако опитаме да използваме невалидни индекси няма да възникне грешка, а тези индекси ще се интерпретират като пропъртита на обекти (по-детайлно са разгледани в следващите теми).
+                <pre><code rel="JS" class="js">
+                    let arr = [2,4,6];
+                    arr[-1] = 0;   // невалиден индекс (но се интерпретира като пропърти на обект)
+                    arr['a'] = 10; // невалиден индекс (но се интерпретира като пропърти на обект)
+                    // [ 2, 4, 6, '-1': 0, a: 10 ]
+                </code></pre>
+            </dt>
+        </dl>
+    </section>
+    <section>
+        <dl class="fa">
+            <dt>Върху масивите са дефинирани някои специални пропъртита и методи, които може да използваме за най-често срещаните операции с масиви. <br>Например:</dt>
+            <pre><code rel="JS">
+                var fruits = ['apple', 'banana', 'strawberry'];
+
+                // брой на елементите на масив:
+                fruits.length; // 3
+
+                //добавяне на елемент в началото на масива:
+                fruits.unshift('orange');
+                // ["orange", "apple", "banana", "strawberry"]
+
+                //добавяне на елемент в края на масива:
+                fruits.push('lemon');
+                // ["orange", "apple", "banana", "strawberry", "lemon"]
+
+                // премахване на елемент от началото на масива:
+                fruits.shift();
+                // ["apple", "banana", "strawberry", "lemon"]
+
+                // премахване на елемент от края на масива:
+                fruits.pop();
+                // ["apple", "banana", "strawberry"]
+            </code></pre>
+            <dt>Тези, както и останалите вградени методи на масивите ще разгледаме детайлно след темата за Обекти в JS, но те са добре документирани (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array @mdn</a> ) и не е нужно да се запаметяват на изуст!</dt>
+        </dl>
+
+    </section>
+    <section><h3>lenght property</h3>
+        <dl class="fa">
+            <pre><code rel="Syntax" class="js">
+                arrayName.length
+            </code></pre>
+            <dt>Свойството <span class="note">length</span> съдържа броя на елементите на масива.</dt>
+            <dt>То е динамично, и ако се промени, то тази промяна ще рефлектира върху самият масив:
+                <pre><code rel="JS" class="js">
+                    let arr = [2,4,6];
+
+                    // показваме броя на елементите на масива:
+                    console.log( arr.length );
+
+                    // увеличаваме броя на елементите на масива:
+                    arr.length = 5;
+                    console.log(arr);
+                    // [ 2, 4, 6, <2 empty items> ]
+
+                    // изтриваме елементите на масива:
+                    arr.length = 0;
+                    console.log(arr);
+                    // []
+                </code></pre>
+            </dt>
+        </dl>
+    </section>
+    <section><h3>lenght property</h3>
+        <dl class="fa">
+            <dt>Чрез length пропъртито лесно можем да достъпим последния елемент на масива, тъй като <span class="note">индекса на последния елемент е равен на броя на елементите минус 1</span>:
+                <pre><code rel="JS" class="js">
+                    let arr = [2,4,6];
+                    console.log( arr[arr.length - 1]);
+                    // 6
+                </code></pre>
+            </dt>
+        </dl>
+    </section>
+    <section><h3>Често срещани грешки (бъгове)</h3>
+        <dl class="fa">
+            <dt>Неправилна проверка за празен масив:
+                <pre><code rel="JS">
+                    let arr = [2,4,6];
+                    if ( arr.length = 0 ){
+                        console.log( "Empty array!")
+                    }
+                    // но без да желаем сме изтрили всички елементи на масива:
+                    console.log( arr );
+                    // []
+                </code></pre>
+            </dt>
+            <dd>В примера, вместо сравнение (<code class="note">==</code> или <span class="note">===</span>) погрешно е използван оператор за присвояване (<code class="note">=</code>), което води до изтриване на всички елементи на масива!</dd>
+            <dt>Правилният код би бил:
+                <pre><code rel="JS" class="js">
+                    let arr = [2,4,6];
+                    if ( arr.length === 0 ){
+                        console.log( "Empty array!")
+                    }
+                    console.log( arr );
+                    // [2,4,6]
+                </code></pre>
+            </dt>
+        </dl>
+    </section>
+    <section><h3>Често срещани грешки (бъгове)</h3>
+        <dl class="fa">
+            <dt>Ако погрешно изпишете length, то JS няма да върне грешка, a undefined (ще видим защо, като стигнем до обекти), и би било потенциален бъг:
+                <pre><code rel="JS" class="js">
+                    let arr = [2,4,6];
+
+                    if( arr.lenght){
+                        console.log(`Non empty array`);
+                    }else{
+                        console.log(`Empty array`);
+                    }
+                    // Empty array
+                </code></pre>
+                <dd>Проблемът тук, е че arr.leng<b>ht</b> връща undefined, вместо желаното от нас arr.leng<b>th</b>, което би върнало 3</dd>
+                <dt>Правилната проверка би била:
+                    <pre><code rel="JS" class="js">
+                        let arr = [2,4,6];
+
+                        if( arr.length){
+                            console.log(`Non empty array`);
+                        }else{
+                            console.log(`Empty array`);
+                        }
+                        // Non empty array
+                    </code></pre>
+                </dt>
+            </dt>
+        </dl>
+    </section>
+</section>
+
+<section class="main-sesction-title" id="loopOverArrayElements"><h1>Обхождане на елементите на масив (loop over array elements)</h1></section>
+<section class="sub-sections"><h2>Обхождане на елементите на масив (loop over array elements)</h2>
+    <section>
+        <dl class="fa">
+            <dt>Често в практиката се налага <span class="note">да изпълняваме едни и същи действия върху всички елементи на масива</span>.</dt>
+            <dt>За целта може да използваме for(){} цъкъл по индексите на масива:
+                <pre><code rel="JS" class="js">
+                    var fruits = ['apple', 'banana', 'strawberry'];
+
+                    for (var i = 0; i < fruits.length; i++) {
+                        console.log(`Елемент ${i}: ${fruits[i]}`);
+                    }
+                    // Елемент 0: apple
+                    // Елемент 1: banana
+                    // Елемент 2: strawberry
+                </code></pre>
+            </dt>
+        </dl>
+    </section>
+    <section><h3>Обхождане на елементите на масив в обратен ред</h3>
+        <pre><code rel="JS">
+            var fruits = ['apple', 'banana', 'strawberry'];
+
+            for (var i = fruits.length-1; i >= 0; i--) {
+                console.log(`Елемент ${i}: ${fruits[i]}`);
+            }
+            // Елемент 2: strawberry
+            // Елемент 1: banana
+            // Елемент 0: apple
+        </code></pre>
+    </section>
+</section>
+
+<section class="main-sesction-title" id="arrayOfArrays"><h1>"Двумерни" масиви</h1></section>
+<section class="sub-sections"><h2>"Двумерни" масиви</h2>
+    <section>
+        <dl class="fa">
+            <dt>В JavaScript не са имплементирани двумерни(или многомерни) масиви, но тъй като елементите на един масив могат да са всеки един тип данни, включително и масиви, то можем да симулираме двумерен масив като <span class="note">масив, чийто елементи са масиви</span>:
+                <pre><code rel="JS" class="js">
+                    var matrix = [
+                        [ 'а', 'б', 'в' ],
+                        [ 'г', 'д', 'е' ],
+                        [ 'ж', 'з', 'и' ]
+                    ];
+                    console.log("matrix:", matrix);
+                    // matrix: [ [ 'а', 'б', 'в' ], [ 'г', 'д', 'е' ], [ 'ж', 'з', 'и' ] ]
+                </code></pre>
+            </dt>
+        </dl>
+    </section>
+    <section><h3>Достъп до елемент от "двумерен масив"</h3>`
+        <pre><code rel="JS" class="js">
+            var matrix = [
+                [ 'а', 'б', 'в' ],
+                [ 'г', 'д', 'е' ],
+                [ 'ж', 'з', 'и' ]
+            ];
+
+            console.log("row 0, col 2: ", matrix[0][2]); // 'в'
+            console.log("row 1, col 1: ", matrix[1][1]); // 'д'
+            console.log("row 2, col 0: ", matrix[2][0]); // 'ж'
+        </code></pre>
+    </section>
+    <section><h3>обхождане на елементите на двумерен масив (по редове и колони)</h3>
+        <pre><code rel="JS" class="javascript">
+            var matrix = [
+                [ 'а', 'б', 'в' ],
+                [ 'г', 'д', 'е' ],
+                [ 'ж', 'з', 'и' ]
+            ];
+
+            var rows = matrix.length;
+            var cols = matrix[0].length;
+
+            for (var i = 0; i < rows; i++) {
+                console.log("row:", i);
+                for (var j = 0; j < cols; j++) {
+                    console.log( matrix[i][j] + ',');
+                }
+            }
+            // row: 0
+            // а,
+            // б,
+            // в,
+            // row: 1
+            // г,
+            // д,
+            // е,
+            // row: 2
+            // ж,
+            // з,
+            // и,
+        </code></pre>
+    </section>
+</section>
+
+<section class="main-sesction-title" id="hw"><h1>Примери и задачи</h1></section>
+<section class="sub-sections"><h2 id="hw">Примери и задачи</h2>
+    <section><h3>arrayAsObject - example</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="qqepxG" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="arrayAsObject">
+		<span>
+          See the Pen <a href='https://codepen.io/webdesigncourse/pen/qqepxG'>arrayAsObject</a> by Iva Popova
+          (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section>
+    <section><h3>sumArrayElements -examples and task</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="owyBrG" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="sumArrayElements">
+		<span>
+          See the Pen <a href='https://codepen.io/webdesigncourse/pen/owyBrG'>sumArrayElements</a> by Iva Popova
+          (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section>
+    <section><h3>find Max array element - example</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="XWjPbWy" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="find Max array element - algorithm demo">
+		<span>
+          See the Pen <a href='https://codepen.io/webdesigncourse/pen/XWjPbWy'>find Max array element - algorithm demo</a> by Iva Popova
+          (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section>
+    <section><h3>negativeOddArrayNumbers - example</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="NjvKde" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="negativeOddArrayNumbers">
+		<span>
+          See the Pen <a href='https://codepen.io/webdesigncourse/pen/NjvKde'>negativeOddArrayNumbers</a> by Iva Popova
+          (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section>
+    <section><h3>separateArrayElementsInNewArrays- task</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="XgYNzy" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="separateArrayElementsInNewArrays">
+		<span>
+          See the Pen <a href='https://codepen.io/webdesigncourse/pen/XgYNzy'>separateArrayElementsInNewArrays</a> by Iva Popova
+          (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section>
+    <section><h3>studentsDataAsArrays</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="LLgrQm" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="studentsDataAsArrays">
+		<span>
+          See the Pen <a href='https://codepen.io/webdesigncourse/pen/LLgrQm'>studentsDataAsArrays</a> by Iva Popova
+          (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section>
+    <section><h3>BulgarianRulersStat</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="yXEVMv" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="HW: Bulgarian Rulers Stat">
+		<span>
+          See the Pen <a href='https://codepen.io/webdesigncourse/pen/yXEVMv'>HW: Bulgarian Rulers Stat</a> by Iva Popova
+          (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section>
+    <!-- <section><h3>twoDimensionalArray</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="awKJEE" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="twoDimensionalArray">
+		<span>
+          See the Pen <a href='https://codepen.io/webdesigncourse/pen/awKJEE'>twoDimensionalArray</a> by Iva Popova
+          (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section> -->
+    <section><h3>JS_Loops_and_Arrays codepen колекция</h3>
+        <p><a href="https://codepen.io/collection/DObLNy/">JS_Loops_and_Arrays codepen колекция</a></p>
+    </section>
+</section>
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+	 <p>These slides are based on</p>
+	 <p>customized version of </p>
+	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+	 <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="../../../outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="../../../lib/reveal.js/dist/reveal.js"></script>
+	<script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+	<script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+	<script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+	<script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		// var highlightjsTabSize = '  ';
+		Reveal.initialize({
+
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+			center: true,
+			width: 1280,
+			height: 1024,
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+			// shift+mousе click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+
+			plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+		});
+	</script>
+</body>
+</html>
