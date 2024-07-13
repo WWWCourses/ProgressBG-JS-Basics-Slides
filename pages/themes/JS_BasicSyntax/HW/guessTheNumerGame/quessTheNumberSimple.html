@@ -5,8 +5,8 @@
     <title>quessTheNumber</title>
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
     <style type="text/css">
-    	
-    </style>    
+
+    </style>
 </head>
 <body>
 	<div class="gameRules">
@@ -17,27 +17,31 @@
 		<button onclick="checkGuess();">Провери</button>
 	</div>
 	<div class="gameStats">
-			
+
 	</div>
 </body>
 <script type="text/javascript">
 	// !!! не променяйте !!!
 	// намисленото от машината число (между 1 и 100):
-	var machineNumber = Math.floor(Math.random() * Math.floor(100));
+	const machineNumber = Math.floor(Math.random() * Math.floor(100));
+
+	// дефинираме числото на потребителя
+	let userNumber;
 
 	// взимаме input елемента:
-	var userInputObj = document.querySelector('.gamePlay input[type="number"]');
+	const userInputObj = document.querySelector('.gamePlay input[type="number"]');
 
 	// взимаме output елемента:
-	var gameStatsObj = document.querySelector('.gameStats');
+	const gameStatsObj = document.querySelector('.gameStats');
+
 
 
 	function	checkGuess(){
 		// взимаме въведеното от потребителя число:
-		var userNumber = userInputObj.value*1;
+		userNumber = userInputObj.value*1;
 
 		// НАЧАЛО НА ВАШИЯТ КОД:
-		
+
 
 
 		// КРАЙ НА ВАШИЯТ КОД:
