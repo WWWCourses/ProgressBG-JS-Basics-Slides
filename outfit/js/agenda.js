@@ -45,8 +45,9 @@ function setThemeURL(){
 	// <h3><a title="slides" href="/ProgressBG-JS-Advanced_React/pages/themes/__themeTitle__/__themeTitle__.html">__themeTitle__</a></h3>
 
 	for(let theme of dom.themes){
+		// do not set link for elements in WIP mode:
 		if( theme.hasAttribute("data-wip") ){
-			return;
+			continue;
 		}
 
 		const h3Node = theme.querySelector("h3");
