@@ -529,5 +529,5 @@ section.copyright>.license{
 .gist-data {
   max-height: 60vh !important;
   max-width: 80vw;
-  margin: 0 auto;
+  margin: 1em auto;
 }
