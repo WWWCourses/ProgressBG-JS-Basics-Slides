@@ -476,6 +476,9 @@ section.copyright>.license{
   transition: 3s;
 }
 
+.downloadButton{
+  vertical-align: middle;
+}
 
 /*********************************************
  * PRINT

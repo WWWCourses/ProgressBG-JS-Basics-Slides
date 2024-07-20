@@ -52,5 +52,47 @@ function  PrettyPreCodeOld(){
     }
 }
 
+function addDownloadButton_old() {
+    document.querySelectorAll('.downloadButton').forEach(button => {
+        button.addEventListener('click', function() {
+            const fileName = this.getAttribute('data-filename');
+            const gistId = this.getAttribute('data-gistid');
+            const link = document.createElement('a');
+            link.href = `https://gist.githubusercontent.com/WWWCourses/${gistId}/raw/${fileName}`;
+            link.setAttribute('download', fileName); // Force download
+            link.style.display = 'none';
+            this.appendChild(link);
+            link.click();
+            // document.body.removeChild(link);
+        });
+    });
+}
+
+function addDownloadButton() {
+    document.querySelectorAll('.downloadButton').forEach(button => {
+        button.addEventListener('click', async function(event) {
+            event.preventDefault();
+            const fileName = this.getAttribute('data-filename');
+            const gistId = this.getAttribute('data-gistid');
+            const url = `https://gist.githubusercontent.com/WWWCourses/${gistId}/raw/${fileName}`;
+
+            try {
+                const response = await fetch(url);
+                const blob = await response.blob();
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.setAttribute('download', fileName);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(link.href);
+            } catch (error) {
+                console.error('Error downloading the file:', error);
+            }
+        });
+    });
+}
+
+addDownloadButton()
 PrettyPreCode();
 
