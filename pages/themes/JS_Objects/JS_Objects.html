@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JS_Objects</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+    <!-- custom -->
+    <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="../../../index.html#JS_Objects" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Спейс</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>JavaScript: Objects</h1></section>
+<section data-transition="zoom">
+    <section>
+        <div class="copyright">
+            <div class="note">
+                <p>Created for</p>
+            </div>
+            <div class="company">
+                <a href="https://progressbg.net/javascript-basic/">
+                <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+        <div class="note">
+            <p>Created by</p>
+        </div>
+        <div class="company">
+           <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+        </div>
+        <!-- <div class="author">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div> -->
+    </section>
+</section>
+
+
+
+<section><h1>Въведение</h1></section>
+<section><h2>Въведение</h2>
+    <section><h3>Основни понятия</h3>
+        <p class="note newterm bigestFont">Object = {properties + methods}</p><br>
+        <dl class="fa">
+            <dt><span class="note">Обект:</span>  В класическото ООП програмиране (Java, C#, C++), обекта е структура от данни, която обединява в едно цяло данните и действията (функциите), които могат да се извършват върху тях.</dt>
+            <dt>Данните в един обект се наричат <span class="note">свойства</span> (<span class="note">properties</span>), а функциите - <span class="note">методи</span> (<span class="note">methods</span>).</dt>
+            <dt>За разлика от масивите, които са <span class="note">подредена</span> структура от данни, то обектите са <span class="note">неподредена</span> структура. Т.е. при обектите не разграничаваме първи, втори и пр. елемент.</dt>
+        </dl>
+        <pre><code rel="JS" class="js">
+            // пример за обект, съхраняващ информация за 1 студент::
+            let student1 = {
+                // properties:
+                "firstName" : "Pesho",
+                "surName" : "Petrov",
+
+                // methods
+                "greet": function() {
+                    console.log(`Hello, I'm ${this.firstName}`);
+                }
+            };
+        </code></pre>
+    </section>
+    <section id="objectConceptualDiagram">
+        <dl class="fa">
+            <dt>Пример за обект:</dt>
+            <pre><code rel="JS" class="js">
+                // define student1 object:
+                let student1 = {
+                    "firstName" : "Pesho",
+                    "surName" : "Petrov",
+                    "greet": function() {
+                        console.log(`Hello, I'm ${this.firstName}`);
+                    }
+                };
+            </code></pre>
+            <dt>Който може да си преставим като:</dt>
+            <a href="images/objectConceptualDiagram.png"><img src="images/objectConceptualDiagram.png" style="height: 50vh; align:left;"></a>
+            <dt class="note">Редът на създаване на свойствата няма никакво значение, тъй като данните в обектите не са подредени! Те си имат имена, т.е. property names.</dt>
+        </dl>
+    </section>
+    <section>
+        <dl class="fa">
+            <dt>За разлика от класическото ООП, в JavaScript обект може да бъде и само съвкупност от данни (без функции), обединени в едно цяло. В другите езици подобна структура се нарича <code>dictionary</code> (Python), <code>associative array</code> (Perl, PHP, ...)</dt>
+            <pre><code rel="JS" class="js">
+                let dictionary = {
+                    // съвкупност от 'key':'value' двойки
+                    'apple': 'ябълка',
+                    'banana': 'банан',
+                    'orange': 'портокал'
+                }
+            </code></pre>
+            <dt>Всяко едно свойство на обект съдържа данни - може да бъде всеки един тип данни, но за разлика от масива, данните тук се асоциират с имена (property names, keys) а не с цифрови индекси.</dt>
+            <dt>Когато в дадено свойство имаме функция, тогава това свойство се нарича <span class="note">метод</span> на обекта</dt>
+        </dl>
+        <pre><code rel="JS" class="js">
+            // пример за обект, съхраняващ информация за 1 студент::
+            let student1 = {
+                // properties:
+                "name":"Pesho",
+                "address":{
+                    "town":"Sofia",
+                    "zip": 1508
+                }
+                "scores": [3,4,5],
+
+
+                // methods
+                "greet": function() {
+                    console.log(`Hello, I'm ${this.name}`);
+                }
+            };
+        </code></pre>
+    </section>
+    <section>
+        <p>Ето как, съвсем обобщено, изглежда един обект в паметта:</p>
+        <a href="images/JS_ObjectInRAM_1.png" title="click for bigger image"><img src="images/JS_ObjectInRAM_1.png"></a>
+    </section>
+</section>
+
+<section><h1>Създаване на единичен обект</h1></section>
+<section><h2>Създаване на единичен обект</h2>
+    <section><h3>Чрез литерал - предпочитания вариант</h3>
+        <dl class="fa">
+            <dt>Когато е необходимо да създадем един обект, то в къдрави скоби изброяваме двойките property:value, разделени със запетая.</dt>
+            <pre><code rel="Syntax" class="js">
+                const obj = {
+                    propName1:propValue1,
+                    propName2:propValue2,
+                    ...
+                    propNameN:propValueN,
+                }
+            </code></pre>
+            <pre><code rel="JS" class="js">
+                // създаване празен обект:
+                var obj = {};
+
+                // създаване на обект с 4 свойства (properties):
+                var car1 = {
+                    "brand" : "ford",
+                    "year"  : 2016,
+                    "color" : "red",
+                    "doors" : 3
+                }
+            </code></pre>
+            <dt class="note">Забележете, че след последния елемент на обекта не се слага запетайка!</dt>
+        </dl>
+    </section>
+    <section><h3 class="advanced">Чрез глобалния обект Object</h3>
+        <dl class="fa">
+            <dt>Този начин за създаване на обект, се използва изключително рядко:</dt>
+            <pre><code rel="JS" class="js">
+                var obj = new Object();
+            </code></pre>
+            <dt>Но внимавайте да не объркате този вариант с използването на конструктор на обекти, който ще бъде разгледан по-нататък:</dt>
+            <pre><code rel="JS" class="js">
+                var obj = new Car();
+            </code></pre>
+        </dl>
+
+    </section>
+</section>
+
+<section><h1>Достъп до свойствата на обект</h1></section>
+<section><h2>Достъп до свойствата на обект</h2>
+    <section><h3>Чрез точка (Dot Notation)</h3>
+        <dl class="fa">
+            <dt>Когато знаем името на пропъртито, което искаме да достъпим, използваме точковата нотация:</dt>
+            <pre><code rel="Syntax" class="js">
+                object_name.property_name
+            </code></pre>
+            <dt>Нека е даден следния обект:</dt>
+            <pre><code rel="JS" class="js">
+                const developer1 = {
+                    "firstName" : "Ivan",
+                    "surName"   : "Ivanov",
+                    "skills"     : ["HTML", "CSS", "JavaScript"],
+
+                    "applyForJob": function(){
+                        const skillsStr = this.skills.toString();
+                        console.log(`Hi, I'm ${this.firstName} ${this.surName}. My strongest skills are ${skillsStr}.`);
+                    }
+                }
+            </code></pre>
+            <dt>Можем да достъпим данните в него:</dt>
+            <pre><code rel="JS" class="js">
+                console.log( developer1.firstName ); //Ivan
+                console.log( developer1.surName );   //Ivanov
+
+                console.log( developer1.skills );
+                // ["HTML", "CSS", "JavaScript"]
+
+                console.log( developer1.skills[0] ); //"HTML"
+
+                console.log( developer1.applyForJob() );
+                // Ivan is applying for job!
+
+                developer1.firstName = "Stoyan";
+                // промяна на свойството "firstName"
+            </code></pre>
+            <dt>Забележете, че това което пишем след точката, се интерпретира от JS буквално като име на пропърти.</dt>
+        </dl>
+
+    </section>
+    <section><h3>Чрез квадратни скоби (Square-bracket Notation)</h3>
+        <dl class="fa" style="font-size: 0.75em;">
+            <dt>Когато <span class="note">не знаем</span> името на пропъртито, което искаме да достъпим (например, то е в променлива), то тогава използваме нотацията с квадратни скоби:</dt>
+            <pre><code rel="Syntax" class="js">
+                object_name[variable_holding_property_name]
+            </code></pre>
+            <dt>Нека е даден обект представящ цени на плодове, и трябва да достъпим цената на плод, която е зададена в променлива:</dt>
+            <pre><code rel="JS" class="js">
+                const prices = {
+                    'apples': 2.50,
+                    'oranges': 3.45,
+                    'bananas': 2.80
+                }
+
+                // името на пропъртито, което искаме да достъпим е дадено в променлива:
+                const fruitName = 'apples'
+
+                // използваме записът с квадратни скоби:
+                console.log( prices[fruitName] );
+
+                // следният запис е еквивалентен:
+            </code></pre>
+            <dt>Забележете, че когато знаем името на пропъртито, следните 2 записа са еквивалентни:</dt>
+            <pre><code rel="JS" class="js">
+                console.log( prices['apples'] ); // 2.50
+                console.log( prices.apples ); // 2.50
+
+                // естествено, предпочитаме да използваме вторият вариант
+            </code></pre>
+            <dt>Но следните  2 записа не са:</dt>
+            <pre><code rel="JS" class="js">
+                const fruitName = 'apples';
+
+                console.log( prices[fruitName] ); // 2.50
+                console.log( prices.fruitName ); // undefined, защото се търси пропърти с име 'fruitName' в обекта prices, а такова пропърти няма.
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<section data-min="50"><h1>Няколко думи за <code>this</code></h1></section>
+<section><h2>Няколко думи за <code>this</code> </h2>
+    <section id="developerObjectByLiteralExample">
+        <dl class="fa">
+            <dt>В следния пример е даден обект, който съдържа пропъртита (данни) и методи (функции, работещи върху тези данни)</dt>
+            <dt>В примера е използвана автоматичната променлива <code>this</code>, в която имаме самия обект: student1</dt>
+            <dt>В зависимост от контекста, в който използваме <code>this</code>, може да имаме различни обекти, но темата се разглежда по-подробно в курсовете на напреднали. Това, което е важно, е че когато използваме <span class="note">this</span> в обект литерал (т.е. в {...}), то в <code>this</code> винаги имаме същия този обект.</dt>
+            <pre><code rel="JS" class="js">
+                let student1 = {
+                    // properties:
+                    "name":"Pesho",
+                    "address":{
+                        "town":"Sofia",
+                        "zip": 1508
+                    },
+                    "scores": [3,4,5],
+
+                    // methods
+                    "greet": function() {
+                        console.log(`Hello, I'm ${this.name}. My max sore is: ${this.findMaxScore()}`);
+                    },
+                    "findMaxScore": function () {
+                        let maxScore = 0;
+                        for (let i = 0; i < this.scores.length; i++) {
+                            const currentScore = this.scores[i];
+                            if(currentScore>=maxScore){
+                                maxScore=currentScore
+                            }
+                        }
+                        return maxScore;
+                    }
+                };
+
+                student1.greet()
+            </code></pre>
+            <dt>Бихте могли да използвате директно името на обекта, т.е. вместо <code>this</code> да напишете <code>student1</code>, но това не е добра практика, тъй като кода не би бил гъвкав и лесно преносим. Представете си, ако трябва да използвате методите <code>greet()</code> и <code>findMaxScore()</code> в други обекти... </dt>
+        </dl>
+    </section>
+</section>
+
+
+<section><h1>Създаване на множество еднотипни обекти</h1></section>
+<section><h2 class="advanced">Създаване на множество еднотипни обекти</h2>
+    <section><h3>Чрез литерали (неефективен вариант):</h3>
+        <dl class="fa" style="font-size: .8em">
+            <dt>В реалните приложения често се налага да работим с множество <span class="note">еднотипни обекти</span> - обекти, който имат еднаква структура, т.е. един и същ брой и имена на пропъртита и методи, които ще се различават само по стойностите.</dt>
+            <dt>Например, ако искаме да представим информацията за два (или повече) обекта от тип developer, то бихме имали доста повтарящ се код (имената на пропъртитата) - крайно неефективен вариант:</dt>
+            <pre><code rel="JS" class="js">
+                var developer1 = {
+                    "firstName" : "Ivan",
+                    "surName"   : "Ivanov",
+                    "skills"     : ["HTML", "CSS", "JavaScript"],
+
+                    "applyForJob": function(){
+                        var skillsStr = this.skills.toString();
+
+                        console.log(`Hi, I'm ${this.firstName} ${this.surName}. My strongest skills are ${skillsStr}.`);
+                    }
+                }
+                var developer2 = {
+                    "firstName" : "Maria",
+                    "surName"   : "Mineva",
+                    "skills"     : ["Python", "Machine Learning", "Data Science"],
+
+                    "applyForJob": function(){
+                        var skillsStr = this.skills.toString();
+
+                        console.log(`Hi, I'm ${this.firstName} ${this.surName}. My strongest skills are ${skillsStr}.`);
+                    }
+                }
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Чрез Factory function</h3>
+        <dl class="fa" style="font-size: .8em">
+            <dt>По-ефективно е да създадем функция, която да генерира нашите обекти. Освен, че ще намали кода, този вариант има и предимството, че всички конструирани обекти гарантирано ще имат <span class="note">еднаква структура</span>.</dt>
+            <pre><code rel="JS" class="js" style="min-height: 50vh;">
+                // функция, създаваща обекти от тип developer:
+                function developerFactory(firstName, surName, skills){
+                    var obj = {};
+
+                    obj.firstName = firstName;
+                    obj.surName = surName;
+                    obj.skills = skills;
+
+                    obj.applyForJob = function(){
+                        var skillsStr = this.skills.toString();
+                        console.log(`Hi, I'm ${obj.firstName} ${obj.surName}. My strongest skills are ${skillsStr}.`);
+                    }
+
+                    return obj;
+                }
+
+                //сега лесно създаваме обектите от тип developer:
+                var developer1 = developerFactory("Ivan", "Ivanov",
+                ["HTML", "CSS", "JavaScript"]
+                );
+                var developer2 = developerFactory("Maria", "Mineva",
+                ["Python", "Machine Learning", "Data Science"],
+                );
+
+                // и сме сигурни, че всеки обект има пропърти 'firstName':
+
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Чрез Constructor functuon</h3>
+        <dl class="fa" style="font-size: .8em">
+            <dt>За да бъде синтаксисът в JavaScript по-близък до този в класическите ООП езици (C++, Java, C# и пр.) в JavaScript може да използваме и Конструктор на обекти:</dt>
+            <pre><code rel="JS" class="js">
+                // Конструктор за обекти от тип Developer. Важно е да бъде извикан с "new"! Поради това конвенцията е името да започва с главна буква.
+                function Developer(firstName, surName, skills){
+                    this.firstName = firstName;
+                    this.surName = surName;
+                    this.skills = skills;
+
+                    this.applyForJob = function(){
+                        var skillsStr = this.skills.toString();
+
+                        console.log(`Hi, I'm ${this.firstName} ${this.surName}. My strongest skills are ${skillsStr}.`);
+                    }
+                }
+
+                //сега лесно създаваме обектите от тип Developer:
+                var developer1 = new Developer("Ivan", "Ivanov",
+                ["HTML", "CSS", "JavaScript"]
+                );
+
+                var developer2 = new Developer("Maria", "Mineva",
+                ["Python", "Machine Learning", "Data Science"],
+                );
+            </code></pre>
+            <dt>В ES6 се добавя и синтаксис за класове (class). По-подробно тези теми се разглеждат в Advanced модула на курса.</dt>
+        </dl>
+    </section>
+</section>
+
+<section><h1 id="hw">Примери и задачи</h1></section>
+<section><h2>Примери и задачи</h2>
+        <section><h3>Object Definition Example</h3>
+                <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="qqRPxy" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Object Definition Example">
+                    <span>See the Pen <a href="https://codepen.io/webdesigncourse/pen/qqRPxy">
+                    Object Definition Example</a> by Iva Popova (<a href="https://codepen.io/webdesigncourse">@webdesigncourse</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+        </section>
+        <section><h3>Square braces notation example</h3>
+                <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="xdLKpg" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Square braces notation example">
+                        <span>See the Pen <a href="https://codepen.io/webdesigncourse/pen/xdLKpg">
+                        Square braces notation example</a> by Iva Popova (<a href="https://codepen.io/webdesigncourse">@webdesigncourse</a>)
+                        on <a href="https://codepen.io">CodePen</a>.</span>
+                    </p>
+        </section>
+        <section><h3>Three ways of creating (students) objects - example</h3>
+                <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="VQpVOz" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Three ways of creating (students) objects">
+                    <span>See the Pen <a href="https://codepen.io/webdesigncourse/pen/VQpVOz">
+                    Three ways of creating (students) objects</a> by Iva Popova (<a href="https://codepen.io/webdesigncourse">@webdesigncourse</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+        </section>
+        <section><h3>Object Constructor Example &amp; HW</h3>
+                <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="RRBEbG" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Object Constructor Example &amp;amp; HW_1">
+                        <span>See the Pen <a href="https://codepen.io/webdesigncourse/pen/RRBEbG">
+                        Object Constructor Example &amp; HW_1</a> by Iva Popova (<a href="https://codepen.io/webdesigncourse">@webdesigncourse</a>)
+                        on <a href="https://codepen.io">CodePen</a>.</span>
+                    </p>
+        </section>
+        <section><h3>findYoungestPerson - example</h3>
+                <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="OgBExY" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="findYoungestPerson - example">
+                    <span>See the Pen <a href="https://codepen.io/webdesigncourse/pen/OgBExY">
+                    findYoungestPerson - example</a> by Iva Popova (<a href="https://codepen.io/webdesigncourse">@webdesigncourse</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+        </section>
+        <section><h3>Array of objects example &amp; HW</h3>
+                <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="YZxWvE" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Array of objects example &amp;amp; HW">
+                        <span>See the Pen <a href="https://codepen.io/webdesigncourse/pen/YZxWvE">
+                        Array of objects example &amp; HW</a> by Iva Popova (<a href="https://codepen.io/webdesigncourse">@webdesigncourse</a>)
+                        on <a href="https://codepen.io">CodePen</a>.</span>
+                    </p>
+        </section>
+        <section><h3>Calculate Rectangle Area - Task</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="JjXZKKe" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Calculate Rectangle Area - Task">
+        <span>
+        See the Pen <a href='https://codepen.io/webdesigncourse/pen/JjXZKKe'>Calculate Rectangle Area - Task</a> by Iva Popova
+        (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+        </p>
+        </section>
+        <section><h3>Functions as properties values - Example</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="ZEWROVq" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Functions as properties values - Example">
+        <span>
+            See the Pen <a href='https://codepen.io/webdesigncourse/pen/ZEWROVq'>Functions as properties values - Example</a> by Iva Popova
+            (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+            </span>
+        </p>
+    </section>
+    <section><h3>Functions as properties values - Task</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="YzqvWvX" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Calculator object Task">
+        <span>
+        See the Pen <a href='https://codepen.io/webdesigncourse/pen/YzqvWvX'>Calculator object Task</a> by Iva Popova
+        (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+        </p>
+    </section>
+
+        <section><h3>Всички примери</h3>
+                <dl class="fa">
+                        <dt>Повече примери и задачи по темата:</dt>
+                        <dd><a href="https://codepen.io/collection/XPMQxY/">JS_Objects</a> @codepen</dd>
+                </dl>
+        </section>
+</section>
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are based on</p>
+     <p>customized version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="../../../outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="../../../lib/reveal.js/dist/reveal.js"></script>
+    <script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+    <script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+    <script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        // var highlightjsTabSize = '  ';
+        Reveal.initialize({
+
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1280,
+            height: 1024,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mousе click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+
+            plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+        });
+    </script>
+</body>
+</html>
