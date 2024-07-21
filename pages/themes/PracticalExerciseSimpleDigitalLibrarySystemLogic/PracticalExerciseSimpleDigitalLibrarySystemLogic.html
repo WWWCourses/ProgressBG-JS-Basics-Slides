@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>PracticalExerciseSimpleDigitalLibrarySystemLogic</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+	<link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+	<!-- Theme used for syntax highlighting of code -->
+	<!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+	<!-- custom -->
+	<link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+		<div class="top_links">
+			<a class="home_link" href="../../../index.html#PracticalExerciseSimpleDigitalLibrarySystemLogic" target="_top"><i class="fa fa-home"></i></a>
+			<span class="help_link"><i class="fa fa-question"></i></span>
+			<div class="help_text">
+				<div class="note">Keyboard shortcuts:</div>
+				<div><span>N/Спейс</span><span>Next Slide</span></div>
+				<div><span>P</span><span>Previous Slide</span></div>
+				<div><span>O</span><span>Slides Overview</span></div>
+				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+				<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+				Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+			</div>
+		</div>
+		<div class="footer theme_switch">
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+		</div>
+		<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>Practical Exercise: code "Simple Digital library System" logic</h1></section>
+<section data-transition="zoom">
+	<section>
+		<div class="copyright">
+			<div class="note">
+				<p>Created for</p>
+			</div>
+			<div class="company">
+				<a href="https://progressbg.net/javascript-basic/">
+				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+				</a>
+			</div>
+		</div>
+	</section>
+	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+		<div class="note">
+			<p>Created by</p>
+		</div>
+		<div class="company">
+		   <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+		</div>
+		<!-- <div class="author">
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+		</div> -->
+	</section>
+</section>
+
+
+<section class="main-section-title" id="PracticalExerciseCodeSimpleDigitalLibrarySystem"><h1>Practical Exercise: Code "Simple Digital Library System" Logic</h1></section>
+<section class="sub-sections"><h2>Practical Exercise: Code "Simple Digital Library System" Logic</h2>
+    <section id="Introduction"><h3>Introduction</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>In this exercise, we'll create the logic for a simple digital library system using JavaScript.</dt>
+            <dd>The digital library system will allow users to add books, display the list of books, and search for books by title or author.</dd>
+        </dl>
+    </section>
+    <section id="Step1SetupProject"><h3>Step 1: Setup Project</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Create a new folder for your project (DigitalLibrary) and 2 files: <code>index.html</code> and <code>main.js</code> </dt>
+            <dd>Make sure you have the following structure:</dd>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                DigitalLibrary/
+                ├── index.html
+                └── main.js
+            </code></pre>
+            <dt>Set up the basic HTML structure.</dt>
+            <pre><code rel="index.html" class="HTML" style="min-height: 1vh;">
+                &lt;!-- index.html --&gt;
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang=&quot;en&quot;&gt;
+                &lt;head&gt;
+                    &lt;meta charset=&quot;UTF-8&quot;&gt;
+                    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+                    &lt;title&gt;Digital Library&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;div id=&quot;library-container&quot;&gt;&lt;/div&gt;
+                    &lt;input type=&quot;text&quot; id=&quot;book-title&quot; placeholder=&quot;Book Title&quot;&gt;
+                    &lt;input type=&quot;text&quot; id=&quot;book-author&quot; placeholder=&quot;Book Author&quot;&gt;
+                    &lt;button id=&quot;add-book&quot;&gt;Add Book&lt;/button&gt;
+                    &lt;input type=&quot;text&quot; id=&quot;search-term&quot; placeholder=&quot;Search by Title or Author&quot;&gt;
+                    &lt;button id=&quot;search-book&quot;&gt;Search&lt;/button&gt;
+                    &lt;div id=&quot;search-results&quot;&gt;&lt;/div&gt;
+                    &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+            </code></pre>
+        </dl>
+    </section>
+    <section id="Step2DefineBookStructure"><h3>Step 2: Define Book Structure</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Define the book structure in your JavaScript file.</dt>
+            <dd>Use an array to store book objects, where each object contains a title and an author.</dd>
+            <pre><code rel="main.js" class="js" style="min-height: 1vh;">
+                // main.js
+
+                // Array to store books
+                let books = [];
+
+                // Book constructor
+                function Book(title, author) {
+                    this.title = title;
+                    this.author = author;
+                }
+            </code></pre>
+        </dl>
+    </section>
+    <section id="Step3AddBooks"><h3>Step 3: Add Books</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Add functionality to add books to the library.</dt>
+            <dd>Use event listeners to capture user input and add new book objects to the books array.</dd>
+            <pre><code rel="JS" class="js" style="min-height: 1vh;">
+                let addBookButton = document.getElementById('add-book');
+
+                addBookButton.addEventListener('click', function() {
+                    let title = document.getElementById('book-title').value;
+                    let author = document.getElementById('book-author').value;
+
+                    if (title && author) {
+                        let newBook = new Book(title, author);
+                        books.push(newBook);
+                        displayBooks();
+                    }
+                });
+
+                function displayBooks() {
+                    let libraryContainer = document.getElementById('library-container');
+                    libraryContainer.innerHTML = '';
+
+                    for (let i = 0; i < books.length; i++) {
+                        libraryContainer.innerHTML += `
+                            <div class="book">
+                                <h2>${books[i].title}</h2>
+                                <p>${books[i].author}</p>
+                            </div>
+                        `;
+                    }
+                }
+            </code></pre>
+        </dl>
+    </section>
+    <section id="Step4SearchBooks"><h3>Step 4: Search Books</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Add functionality to search for books by title or author.</dt>
+            <dd>Filter the books array based on the search term and display the results.</dd>
+            <pre><code rel="JS" class="js" style="min-height: 1vh;">
+                let searchButton = document.getElementById('search-book');
+
+                searchButton.addEventListener('click', function() {
+                    let searchTerm = document.getElementById('search-term').value.toLowerCase();
+                    let searchResults = document.getElementById('search-results');
+                    searchResults.innerHTML = '';
+
+                    let filteredBooks = books.filter(book =>
+                        book.title.toLowerCase().includes(searchTerm) ||
+                        book.author.toLowerCase().includes(searchTerm)
+                    );
+
+                    for (let i = 0; i < filteredBooks.length; i++) {
+                        searchResults.innerHTML += `
+                            <div class="book">
+                                <h2>${filteredBooks[i].title}</h2>
+                                <p>${filteredBooks[i].author}</p>
+                            </div>
+                        `;
+                    }
+                });
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+	 <p>These slides are based on</p>
+	 <p>customized version of </p>
+	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+	 <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="../../../outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="../../../lib/reveal.js/dist/reveal.js"></script>
+	<script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+	<script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+	<script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+	<script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		// var highlightjsTabSize = '  ';
+		Reveal.initialize({
+
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+			center: true,
+			width: 1280,
+			height: 1024,
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+			// shift+mousе click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+
+			plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+		});
+	</script>
+</body>
+</html>
