@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>set_or_cancle_change_on_user_input</title>
+    <style type="text/css">
+    	label{
+    		display: block;
+    	}
+    </style>
+</head>
+<body>
+	<label>Set timeout (in miliseconds) to change the body background: <input type="number" name="" size="3" autofocus></label>
+	<label>Select color: <input type="color" name=""></label>
+	<hr>
+	<button type="button" class="start">Start Timer</button>
+	<button type="button" class="cancel">Cancel Timer</button>
+<script type="text/javascript">
+	let nodes = {
+		'userDelay': document.querySelector('input[type="number"]'),
+		'userColor': document.querySelector('input[type="color"]'),
+		'btnStart': document.querySelector('.start'),
+		'btnCancel': document.querySelector('.cancel'),
+	}
+
+	function getInputValue(inputNode){
+		return inputNode.value;
+	}
+	function changeBodyBackground(color){
+		document.body.style.background = color;
+	}
+
+	var timerID; // should it be global?
+
+	// attach events:
+	nodes.btnStart.addEventListener('click', function(){
+		// we need a number type ('4'*1 = 4):
+		let userDelay = getInputValue(nodes.userDelay)*1;
+		console.log(`userDelay=${userDelay}`);
+
+		let userColor = getInputValue(nodes.userColor);
+		console.log(`userColor=${userColor}`);
+
+		// set userColor as body background, after userDelay:
+		timerID = setTimeout(changeBodyBackground, userDelay, userColor);
+	})
+
+	nodes.btnCancel.addEventListener('click', function(){
+		console.log(`Timer canceled!`);
+		clearTimeout(timerID);
+	})
+</script>
+</body>
+</html>

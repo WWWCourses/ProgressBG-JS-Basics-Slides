@@ -73,14 +73,169 @@
 </section>
 
 
-<section class="main-sesction-title"><h1>___MainSectionTitle___</h1></section>
-<section class="sub-sections"><h2>___MainSectionTitle___</h2>
-	<section><h3>___MainSectionSubTitle___</h3>
-		<dl class="fa">
-			<dt></dt>
-		</dl>
-	</section>
+
+<section><h2>Въведение</h2>
+    <section>
+        <dl class="fa">
+            <dt>В JavaScript разполагаме с 2 метода, които позволяват да изпълним код след/през определен интервал от време</dt>
+            <dt>Това са методите (дефинирани в глобалния обект): <code>setTimeout()</code> и <code>setInterval()</code></dt>
+            <dt>Тези методи изпълняват кода <span class="note">асинхронно</span>!</dt>
+
+        </dl>
+    </section>
+    <section><h3>Синхронен и асинхронен JavaScript</h3>
+        <dl class="fa">
+            <dt>Синхронно изпълнение на програма</dt>
+            <dd>Когато всяка инструкция се изпълнява <span class="note">след</span> като предходната инструкция завърши изпълнението си.</dd>
+            <dt>А-синхронно изпълнение на програма</dt>
+            <dd>Всяка следваща инструкция се изпълнява <span class="note">веднага</span> след предходната, независимо дали предходната инструкция е приключила работата си или не.</dd>
+        </dl>
+    </section>
+    <section><h3>Пример за синхронно изпълнение</h3>
+        <pre><code rel="JS" class="js">
+            // докато функцията alert() не приключи изпълнението си, нито един ред след нея няма да се изпълни:
+            alert(`1`);
+
+            console.log(`2`);
+        </code></pre>
+    </section>
+    <section><h3>Пример за асинхронно изпълнение</h3>
+        <pre><code rel="JS" class="js">
+            //функцията setTimeout() се извиква веднага, но кода в нея - едва след 1000ms
+            setTimeout(function(){
+                console.log(`1`);
+            },1000)
+
+            console.log(`2`);
+        </code></pre>
+        <pre><code rel="OUTPUT" class="js" data-noescape>
+            2
+            1 // след 1 секунда
+        </code></pre>
+        <dl class="fa">
+            <dt>Забележете, че кода <code>console.log(`2`)</code> <span class="note">не изчаква</span> предходната инструкция да завърши изпълнението си, а се изпълнява веднага.</dt>
+        </dl>
+    </section>
 </section>
+
+<section><h2>setTimeout()</h2>
+    <section><h3>Syntax</h3>
+        <pre><code rel="Syntax" class="js">
+            var timeoutID = setTimeout(function, milliseconds[, arg1, arg2, ...])
+        </code></pre>
+        <dl class="fa">
+            <dt>Метода setTimeout() изпълнява <b>еднократно</b> подадената функция (<span class="note">декларация на функция, анонимна или не</span>) след определен интервал от време, зададен в <span class="note">милисекунди</span>.</dt>
+            <dt>Ако функцията е дефинирана с параметри, то можем да подадем съответните аргументи (<span class="note">arg1, arg2, ...</span>)</dt>
+            <dt>timeoutID - число, което идентифицира таймера. Можем да използваме тази стойност, за да прекратим изпълнението на setTimeout().</dt>
+        </dl>
+    </section>
+    <section><h3>Example: change body background after 2 seconds</h3>
+        <pre><code rel="JS" class="js">
+            var color = "#DAA371";
+
+            function changeBodyBG(){
+                console.log(`changeBodyBG() will change the body background!`);
+                document.body.style.backgroundColor = color;
+            }
+
+            setTimeout(changeBodyBG, 2000);
+
+            console.log(`After setTimeout()`);
+        </code></pre>
+        <pre><code rel="OUTPUT" class="js">
+            After setTimeout()
+            changeBodyBG() will change the body background!
+        </code></pre>
+    </section>
+    <section><h3>Example: createDivsWithTimeout</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result&embed-version=2" data-user="webdesigncourse" data-slug-hash="WXBpNb/" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="createDivsWithTimeout">
+		<span>See the Pen <a href='https://codepen.io/webdesigncourse/pen/WXBpNb/'>createDivsWithTimeout</a> by Iva Popova (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section>
+    <section><h3>Reference</h3>
+        <dl class="fa">
+            <dt><a href="https://www.w3schools.com/jsref/met_win_settimeout.asp">setTimeout() @w3schools</a></dt>
+            <dt><a href="https://developer.mozilla.org/ro/docs/Web/API/window.setTimeout">setTimeout() @MDN</a></dt>
+        </dl>
+    </section>
+</section>
+
+<section><h2>setInterval()</h2>
+    <section><h3>Syntax</h3>
+        <pre><code rel="Syntax" class="js">
+            var intervalID = setInterval(function, milliseconds[, arg1, arg2, ...])
+        </code></pre>
+        <dl class="fa">
+            <dt>Метода setInterval() изпълнява <b>през зададения интервал от време</b> подадената дефиниция на функция.</dt>
+            <dt>Функцията ще се извиква непрекъснато, докато действието на setInterval() не се прекрати чрез <strong><code>clearInterval()</code></strong> или до затваряне на прозореца на браузъра.</dt>
+            <dt><span class="note">function</span> трябва да бъде дефиниция на функция: анонимна или променлива, в която е дефиницията.</dt>
+            <dt>Ако функция е дефинирана с параметри, то можем да подадем съответните аргументи (<span class="note">arg1, arg2, ...</span>) </dt>
+        </dl>
+    </section>
+    <section><h3>Example: changeColorWithSetInterval</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result&embed-version=2" data-user="webdesigncourse" data-slug-hash="VQByBr/" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="changeColorWithSetInterval">
+		<span>See the Pen <a href='https://codepen.io/webdesigncourse/pen/VQByBr/'>changeColorWithSetInterval</a> by Iva Popova (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section>
+    <section><h3>Reference</h3>
+        <dl class="fa">
+            <dt><a href="https://www.w3schools.com/jsref/met_win_setinterval.asp">setInterval() @w3schools</a></dt>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval">setInterval() @MDN</a></dt>
+        </dl>
+    </section>
+</section>
+
+<section><h2>Clearing Timers</h2>
+    <section><h3>clearInterval() - Syntax</h3>
+        <pre><code rel="Syntax" class="js">
+            clearInterval(intervalID)
+        </code></pre>
+        <dl class="fa">
+            <dt>Прекратява изпълнението на даден setInterval()</dt>
+            <dt><span class="note">intervalID</span> е стойността върната при извикването на setInterval()</dt>
+        </dl>
+        <pre><code rel="Example" class="js">
+            // взимаме ID на setInterval():
+            var intervalID = setInterval(foo, 1000);
+
+            // прекратяваме изпълнението на съответния интервал:
+            clearInterval(intervalID);
+        </code></pre>
+    </section>
+    <section><h3>Example: clearInterval()</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result&embed-version=2" data-user="webdesigncourse" data-slug-hash="yvqvRb/" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Example: clearInterval()">
+		<span>See the Pen <a href='https://codepen.io/webdesigncourse/pen/yvqvRb/'>Example: clearInterval()</a> by Iva Popova (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section>
+    <section><h3>clearTimeout() - Syntax</h3>
+        <pre><code rel="Syntax" class="js">
+            clearTimeout(timeoutID)
+        </code></pre>
+        <dl class="fa">
+            <dt>Прекратява изпълнението на даден setTimeout()</dt>
+            <dt><span class="note">timeoutID</span> е стойността върната при извикването на setTimeout()</dt>
+            <dt>Технически погледнато, <code>clearInterval()</code> и <code>clearTimeout()</code> могат да се използват взаимозаменяемо. Но кодът би бил по чист, ако се придържаме към дадените правила.</dt>
+        </dl>
+    </section>
+    <section><h3>clearTimeout() - Example</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result&embed-version=2" data-user="webdesigncourse" data-slug-hash="zmOaKY/" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="set_or_cancle_bodyBGchange_on_user_input">
+		<span>See the Pen <a href='https://codepen.io/webdesigncourse/pen/zmOaKY/'>set_or_cancle_bodyBGchange_on_user_input</a> by Iva Popova (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section>
+
+    <section><h3>Reference</h3>
+        <dl class="fa">
+            <dt><a href="https://www.w3schools.com/jsref/met_win_clearinterval.asp">clearInterval() @w3schools</a></dt>
+            <dt><a href="https://www.w3schools.com/jsref/met_win_cleartimeout.asp">clearTimeout() @w3schools</a></dt>
+        </dl>
+    </section>
+
+</section>
+
 
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">

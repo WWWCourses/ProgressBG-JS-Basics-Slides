@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>clearInterval</title>
+</head>
+<body>
+	<div class="counter">1</div>
+	<button class="stopCounter">Stop Counter</button>
+	<style type="text/css">
+		.counter{
+			font-size: 5em;
+		}
+	</style>
+</body>
+<script type="text/javascript">
+	var counterNode = document.querySelector(".counter");
+	var stopCounterNode = document.querySelector(".stopCounter");
+	var count = 1;
+
+	function doCounting(){
+		counterNode.innerHTML = count++;
+	}
+
+	function stopCounting(){
+		clearInterval(counterID);
+	}
+
+	stopCounterNode.addEventListener('click', stopCounting);
+
+	var counterID = setInterval(doCounting, 1000);
+</script>
+</html>

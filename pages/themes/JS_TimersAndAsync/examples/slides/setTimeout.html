@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>setTimeout</title>
+    <style type="text/css">
+    	.box {
+				width: 100px;
+				height: 100px;
+				border: 1px solid #999;
+			}
+
+    </style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+<script type="text/javascript">
+	var colors = ["#9400D3","#4B0082","#0000FF","#00FF00","#FFFF00","#FF7F00","#FF0000"];
+	var i = 0;
+	var divNode = document.querySelector('.box');
+
+	function changeBodyBG(){
+		// console.log(`changeBodyBG() will change the body background!`);
+		divNode.style.backgroundColor = colors[i++ % colors.length];
+	}
+
+	setInterval(changeBodyBG, 2000);
+	console.log(`After setTimeout()`);
+</script>
+</html>

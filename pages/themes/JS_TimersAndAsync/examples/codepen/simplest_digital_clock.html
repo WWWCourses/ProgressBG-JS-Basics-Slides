@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>digital_clock_with_Date_Objects</title>
+    <style type="text/css">
+    	body{
+    		margin: 0;
+    	}
+    	h1{
+    		text-align: center;
+    	}
+    	.clockArea{
+    		font-size: 4em;
+    		display: block;
+    		/*width: 5.2em;*/
+    		text-align: center;
+    		padding: .4em .2em;
+    		margin: 1em auto;
+    		background: #333;
+    		color: #EEE;
+    		/*border-radius: 50%;*/
+    	}
+    </style>
+</head>
+<body>
+	<h1>Simple digital clock:</h1>
+	<div class="clockArea"></div>
+	<script type="text/javascript">
+		function displayTime(){
+			var clockArea = document.querySelector('.clockArea');
+
+			// първо изобразяваме часа незабавно:
+			clockArea.innerHTML = getCurentTimeFormated();
+
+			// а след това, на всеки 800ms:
+			setInterval(function(){
+				clockArea.innerHTML = getCurentTimeFormated()
+			}, 800);
+		}
+
+		function getCurentTimeFormated(){
+			// създаваме обект от тип Date, който да съдържа информация за текущата дата и време:
+			var currentDateTime = new Date();
+
+			// "взимаме" часа:
+			var currentHour = currentDateTime.getHours();
+			// ако е едноцифрено число, добавяме '0' в началото:
+			currentHour = currentHour<10 ? "0"+currentHour : currentHour;
+
+			// "взимаме" минутите:
+			var currentMinutes = currentDateTime.getMinutes();
+			// ако е едноцифрено число, добавяме '0' в началото:
+			currentMinutes = currentMinutes<10 ? "0"+currentMinutes : currentMinutes;
+
+			// "взимаме" секундите:
+			var currentSeconds = currentDateTime.getSeconds();
+			// ако е едноцифрено число, добавяме '0' в началото:
+			currentSeconds = currentSeconds<10 ? "0"+currentSeconds : currentSeconds;
+
+
+			// връшаме низ, отразяващ времето, така както искаме да го покажем в страницата:
+			return `${currentHour}:${currentMinutes}:${currentSeconds}`
+		}
+
+
+		document.addEventListener("DOMContentLoaded", displayTime);
+	</script>
+</body>
+</html>
