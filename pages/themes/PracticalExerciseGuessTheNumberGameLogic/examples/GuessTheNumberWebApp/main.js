@@ -1,16 +1,20 @@
 // Step 1: Initialize Variables
 const randomNumber = Math.floor(Math.random() * 100) + 1;
+console.log(`randomNumber=${randomNumber}`);
 let attempts = 0;
 
-// Get form and result elements
+// Get DOM elements
 const form = document.getElementById('guessForm');
 const resultDiv = document.getElementById('result');
 const historyList = document.getElementById('historyList');
+const userGuessInput = document.getElementById('guess');
+const gameContainer = document.querySelector('#game-container');
 
 // Function to handle form submission
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', function(event){
     event.preventDefault();
-    const userGuess = parseInt(document.getElementById('guess').value);
+
+    const userGuess = parseInt(userGuessInput.value);
     attempts++;
 
     let message = '';
@@ -25,6 +29,16 @@ form.addEventListener('submit', (event) => {
         message = `Congratulations! You guessed the number in ${attempts} attempts.`;
         historyMessage += 'Correct!';
         form.remove();  // Remove form after correct guess
+
+        // add "New Game" button at the end of #game-container
+        const newGameBtn = document.createElement('button');
+        newGameBtn.innerHTML='New Game';
+        newGameBtn.id = 'btn-new-game';
+        newGameBtn.addEventListener('click', function(event) {
+            // reload page on "New Game" button click
+            window.location.reload();
+        })
+        gameContainer.appendChild(newGameBtn)
     } else {
         message = 'Invalid input! Please enter a number.';
         historyMessage += 'Invalid input';

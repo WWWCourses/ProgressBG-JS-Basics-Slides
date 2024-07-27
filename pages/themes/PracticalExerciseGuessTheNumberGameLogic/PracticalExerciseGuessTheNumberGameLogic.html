@@ -144,8 +144,8 @@
     </section>
 </section>
 
-<section class="main-section-title"><h1>"Guess the number" with HTML interface</h1></section>
-<section class="sub-sections"><h2>"Guess the number" with HTML interface</h2>
+<section class="main-section-title"><h1>Demo: "Guess the number" Web Game</h1></section>
+<section class="sub-sections"><h2>Demo: "Guess the number" Web Game</h2>
     <section><h3>Create the page structure</h3>
         <p>Create the page structure in <code>index.html</code> file:</p>
         <pre><code rel="index.html" class="html5" style="min-height: 50vh;">
@@ -158,11 +158,21 @@
                 &lt;link rel=&quot;stylesheet&quot; href=&quot;./style.css&quot;&gt;
             &lt;/head&gt;
             &lt;body&gt;
-                &lt;h1&gt;Guess the number&lt;/h1&gt;
-                &lt;p&gt;Please guess a number [1-10], enter it, and press Guess:&lt;/p&gt;
-                &lt;input type=&quot;number&quot; id=&quot;inputNumber&quot; autofocus&gt;
-                &lt;button id=&quot;guessButton&quot;&gt;Guess&lt;/button&gt;
-                &lt;div class=&quot;output&quot;&gt;&lt;/div&gt;
+                &lt;div id=&quot;game-container&quot;&gt;
+                    &lt;section&gt;
+                        &lt;h3&gt;Guess the Number Game&lt;/h3&gt;
+                        &lt;form id=&quot;guessForm&quot;&gt;
+                            &lt;label for=&quot;guess&quot;&gt;Guess the number between 1 and 100:&lt;/label&gt;
+                            &lt;input type=&quot;number&quot; id=&quot;guess&quot; required&gt;
+                            &lt;button type=&quot;submit&quot;&gt;Submit Guess&lt;/button&gt;
+                        &lt;/form&gt;
+                        &lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
+                        &lt;div id=&quot;history&quot;&gt;
+                            &lt;h4&gt;Guess History:&lt;/h4&gt;
+                            &lt;ul id=&quot;historyList&quot;&gt;&lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/section&gt;
+                &lt;/div&gt;
 
                 &lt;script src=&quot;./main.js&quot;&gt;&lt;/script&gt;
             &lt;/body&gt;
@@ -171,45 +181,111 @@
     </section>
     <section><h3>Add simple style</h3>
         <p>Add some css to style the page a bit, in <code>style.css</code> file:</p>
-        <pre><code rel="style.css" class="css">
-            .output{
-                width: 15em;
-                min-height: 5em;
-                margin-top: 1em;
-                border: 2px solid gray;
+        <pre><code rel="style.css" class="css" style="min-height: 80vh;">
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+            #game-container {
+                display: flex;
+                flex-direction: column;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 300px;
+                text-align: center;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            input[type="number"] {
+                padding: 10px;
+                font-size: 16px;
+            }
+            button {
+                padding: 10px;
+                font-size: 16px;
+                background-color: #007BFF;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            button:hover {
+                background-color: #0056b3;
+            }
+            #result, #history {
+                margin-top: 20px;
+            }
+            #history {
+                text-align: left;
             }
         </code></pre>
     </section>
     <section><h3>Add JavaScript</h3>
         <p>Add JavaScript in <code>main.js</code> to implement program logic:</p>
-        <pre><code rel="main.js" class="js">
-            // Generate machine number
-            // Initialize Variables
-            let machineNumber = Math.round(Math.random()*10);
-            let userNumber;
+        <pre><code rel="main.js" class="js" style="min-height: 80vh;">
+            // Step 1: Initialize Variables
+            const randomNumber = Math.floor(Math.random() * 100) + 1;
+            console.log(&grave;randomNumber=${randomNumber}&grave;);
             let attempts = 0;
 
-            // Get DOM elements:
-            let numberInput = document.querySelector('#inputNumber');
-            let guessButton = document.querySelector('#guessButton');
-            let output = document.querySelector('.output');
+            // Get DOM elements
+            const form = document.getElementById(&apos;guessForm&apos;);
+            const resultDiv = document.getElementById(&apos;result&apos;);
+            const historyList = document.getElementById(&apos;historyList&apos;);
+            const userGuessInput = document.getElementById(&apos;guess&apos;);
+            const gameContainer = document.querySelector(&apos;#game-container&apos;);
 
+            // Function to handle form submission
+            form.addEventListener(&apos;submit&apos;, function(event){
+                event.preventDefault();
 
-            // On Guess button click start Game Logic:
-            guessButton.addEventListener('click', function(e) {
-                // Get user number:
-                userNumber = numberInput.value;
+                const userGuess = parseInt(userGuessInput.value);
                 attempts++;
 
-                // Compare the Guess to the Random Number and output the Feedback
-                if(machineNumber>userNumber){
-                    output.innerText += `${userNumber}-> too low!\n`;
-                }else if(machineNumber<userNumber){
-                    output.innerText += `${userNumber}-> too hight!\n`;
-                }else{
-                    output.innerText += `\nCongratulations! You guessed the number in ${attempts} attempts!\n`;
+                let message = &apos;&apos;;
+                let historyMessage = &grave;Guess ${attempts}: ${userGuess} - &grave;;
+                if (userGuess &gt; randomNumber) {
+                    message = &apos;Too high! Try again.&apos;;
+                    historyMessage += &apos;Too high&apos;;
+                } else if (userGuess &lt; randomNumber) {
+                    message = &apos;Too low! Try again.&apos;;
+                    historyMessage += &apos;Too low&apos;;
+                } else if (userGuess === randomNumber) {
+                    message = &grave;Congratulations! You guessed the number in ${attempts} attempts.&grave;;
+                    historyMessage += &apos;Correct!&apos;;
+                    form.remove();  // Remove form after correct guess
+
+                    // add &quot;New Game&quot; button at the end of #game-container
+                    const newGameBtn = document.createElement(&apos;button&apos;);
+                    newGameBtn.innerHTML=&apos;New Game&apos;;
+                    newGameBtn.id = &apos;btn-new-game&apos;;
+                    newGameBtn.addEventListener(&apos;click&apos;, function(event) {
+                        // reload page on &quot;New Game&quot; button click
+                        window.location.reload();
+                    })
+                    gameContainer.appendChild(newGameBtn)
+                } else {
+                    message = &apos;Invalid input! Please enter a number.&apos;;
+                    historyMessage += &apos;Invalid input&apos;;
                 }
-            })
+                resultDiv.textContent = message;
+
+                // Add guess to history
+                const listItem = document.createElement(&apos;li&apos;);
+                listItem.textContent = historyMessage;
+                historyList.appendChild(listItem);
+            });
         </code></pre>
     </section>
 </section>
