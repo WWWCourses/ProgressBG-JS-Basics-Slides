@@ -107,25 +107,9 @@
             <dt class="note">Write your code in a Browser Environment, as prompt() and alert() functions works only there, not in node.</dt>
         </dl>
     </section>
-    <section><h3>HTML Code template</h3>
-        <pre><code rel="HTML" class="html5">
-            &lt;!DOCTYPE html&gt;
-            &lt;html lang=&quot;en&quot;&gt;
-            &lt;head&gt;
-                &lt;meta charset=&quot;UTF-8&quot;&gt;
-                &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-                &lt;title&gt;Guess the Number Game&lt;/title&gt;
-            &lt;/head&gt;
-            &lt;body&gt;
-                &lt;script&gt;
-                    // YOUR CODE HERE
-                &lt;/script&gt;
-            &lt;/body&gt;
-            &lt;/html&gt;
-        </code></pre>
-    </section>
 
-    <!-- <section><h3>Code Implementation</h3>
+
+    <section><h3>Code Implementation</h3>
         <pre><code rel="HTML" class="html5" style="min-height: 80vh; min-width: 70vw;">
             &lt;!DOCTYPE html&gt;
             &lt;html lang=&quot;en&quot;&gt;
@@ -136,19 +120,18 @@
             &lt;/head&gt;
             &lt;body&gt;
                 &lt;script&gt;
-                    // Step 1: Initialize Variables
-                    let randomNumber = Math.floor(Math.random() * 100) + 1;
+                    // Initialize Variables
+                    let randomNumber = Math.floor(Math.random() * 100) + 1; // Generate a Random Number
                     let userGuess = null;
                     let attempts = 0;
 
-                    // Step 2: Generate a Random Number
-                    // (already done in the initialization)
-
-                    // Step 3: Prompt the User for Input and Step 4: Compare the Guess
+                    // Game Logic
                     while (userGuess !== randomNumber) {
+                        // Prompt the User for Input
                         userGuess = parseInt(prompt("Guess the number between 1 and 100:"));
                         attempts++;
 
+                        // Compare the Guess to the Random Number and Provide Feedback
                         if (userGuess > randomNumber) {
                             alert("Too high! Try again.");
                         } else if (userGuess < randomNumber) {
@@ -163,7 +146,7 @@
             &lt;/body&gt;
             &lt;/html&gt;
         </code></pre>
-    </section> -->
+    </section>
 </section>
 
 
