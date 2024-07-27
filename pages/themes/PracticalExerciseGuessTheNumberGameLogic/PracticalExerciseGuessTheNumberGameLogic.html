@@ -80,8 +80,7 @@
             <dt>Create a simple "Guess the Number" game where the computer randomly selects a number between 1 and 100, and the user has to guess it. The game will provide feedback if the guess is too high or too low, and it will keep running until the user guesses the correct number.</dt>
         </dl>
     </section>
-    <section>
-        <h3>Algorithm (Steps)</h3>
+    <section><h3>Algorithm (Steps)</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>Initialize Variables</dt>
             <dd>Use a variable to store the randomly generated number.</dd>
@@ -107,8 +106,6 @@
             <dt class="note">Write your code in a Browser Environment, as prompt() and alert() functions works only there, not in node.</dt>
         </dl>
     </section>
-
-
     <section><h3>Code Implementation</h3>
         <pre><code rel="HTML" class="html5" style="min-height: 80vh; min-width: 70vw;">
             &lt;!DOCTYPE html&gt;
@@ -136,15 +133,83 @@
                             alert("Too high! Try again.");
                         } else if (userGuess < randomNumber) {
                             alert("Too low! Try again.");
-                        } else if (userGuess === randomNumber) {
-                            alert("Congratulations! You guessed the number in " + attempts + " attempts.");
                         } else {
-                            alert("Invalid input! Please enter a number.");
+                            alert(`Congratulations! You guessed the number in ${attempts} attempts!`);
                         }
                     }
                 &lt;/script&gt;
             &lt;/body&gt;
             &lt;/html&gt;
+        </code></pre>
+    </section>
+</section>
+
+<section class="main-section-title"><h1>"Guess the number" with HTML interface</h1></section>
+<section class="sub-sections"><h2>"Guess the number" with HTML interface</h2>
+    <section><h3>Create the page structure</h3>
+        <p>Create the page structure in <code>index.html</code> file:</p>
+        <pre><code rel="index.html" class="html5" style="min-height: 50vh;">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang=&quot;en&quot;&gt;
+            &lt;head&gt;
+                &lt;meta charset=&quot;UTF-8&quot;&gt;
+                &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+                &lt;title&gt;Guess the Number Game&lt;/title&gt;
+                &lt;link rel=&quot;stylesheet&quot; href=&quot;./style.css&quot;&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;h1&gt;Guess the number&lt;/h1&gt;
+                &lt;p&gt;Please guess a number [1-10], enter it, and press Guess:&lt;/p&gt;
+                &lt;input type=&quot;number&quot; id=&quot;inputNumber&quot; autofocus&gt;
+                &lt;button id=&quot;guessButton&quot;&gt;Guess&lt;/button&gt;
+                &lt;div class=&quot;output&quot;&gt;&lt;/div&gt;
+
+                &lt;script src=&quot;./main.js&quot;&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code></pre>
+    </section>
+    <section><h3>Add simple style</h3>
+        <p>Add some css to style the page a bit, in <code>style.css</code> file:</p>
+        <pre><code rel="style.css" class="css">
+            .output{
+                width: 15em;
+                min-height: 5em;
+                margin-top: 1em;
+                border: 2px solid gray;
+            }
+        </code></pre>
+    </section>
+    <section><h3>Add JavaScript</h3>
+        <p>Add JavaScript in <code>main.js</code> to implement program logic:</p>
+        <pre><code rel="main.js" class="js">
+            // Generate machine number
+            // Initialize Variables
+            let machineNumber = Math.round(Math.random()*10);
+            let userNumber;
+            let attempts = 0;
+
+            // Get DOM elements:
+            let numberInput = document.querySelector('#inputNumber');
+            let guessButton = document.querySelector('#guessButton');
+            let output = document.querySelector('.output');
+
+
+            // On Guess button click start Game Logic:
+            guessButton.addEventListener('click', function(e) {
+                // Get user number:
+                userNumber = numberInput.value;
+                attempts++;
+
+                // Compare the Guess to the Random Number and output the Feedback
+                if(machineNumber>userNumber){
+                    output.innerText += `${userNumber}-> too low!\n`;
+                }else if(machineNumber<userNumber){
+                    output.innerText += `${userNumber}-> too hight!\n`;
+                }else{
+                    output.innerText += `\nCongratulations! You guessed the number in ${attempts} attempts!\n`;
+                }
+            })
         </code></pre>
     </section>
 </section>
