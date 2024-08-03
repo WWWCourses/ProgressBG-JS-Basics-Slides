@@ -125,13 +125,12 @@
             <dt><span class="note">платформено-независима</span> и <span class="note">езиково-независима</span> конвенция за представяне и взаимодействие с обектите в <span class="code">HTML</span>, <span class="code">XHTML</span> и <span class="code">XML</span> документи.</dt>
             <dt>Стандарта се публикува в <a href="https://dom.spec.whatwg.org/">WHATWG DOM</a>.</dt>
             <dt>Освен обектите в DOM, браузърите имплементират и собствени обекти известни като <abbr><a href="https://en.wikipedia.org/wiki/Browser_Object_Model">BOM</a></abbr><dfn><span>Browser</span><span>Object</span><span>Model</span></dfn>.</dt>
-
         </dl>
     </section>
     <section>
         <dl class="fa">
             <dt>DOM е йерархична структура</dt>
-            <dt>В DOM са дефинирани следните видове обекти/възли (<span class="note code">node</span>), до които браузерите ни предоставят достъп посредством JavaScript.</dt>
+            <dt>В DOM са дефинирани следните видове обекти/възли (<span class="note code">node</span>), до които браузърите ни предоставят достъп посредством JavaScript.</dt>
             <dd>Самият html документ е възел: <span class="note code">document node</span>.</dd>
             <dd>Всички HTML елементи са възли: <span class="note code">elements nodes</span></dd>
             <dd>Всички HTML атрибути са възли: <span class="note code">attribute nodes</span></dd>
@@ -147,12 +146,48 @@
     </section>
 </section>
 
+<section class="main-section-title"><h1>Как се конструира DOM</h1></section>
+<section class="sub-sections"><h2>Как се конструира DOM</h2>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <dt>HTML DOM се конструира автоматично от браузъра, когато той зарежда и парсва HTML документа.</dt>
+            <dt>Браузърът прочита HTML документа ред по ред и го превръща в DOM дърво.</dt>
+            <dt>HTML елементите, атрибутите и текстовото съдържание на HTML документа се превръщат във обекти - възли (nodes) в DOM дървото.</dt>
+            <dd>Всеки HTML елемент става елементен възел (element node).</dd>
+            <dd>Атрибутите на елементите стават атрибутни възли (attribute nodes).</dd>
+            <dd>Текстовото съдържание става текстови възел (text node).</dd>
+            <dd>Коментари стават коментарни възли (comment nodes).</dd>
+            <dt>Възлите се подреждат в йерархична структура, която отразява вложеността на HTML елементите.</dt>
+        </dl>
+    </section>
+    <section><h3>Пример</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Ако имаме следната HTML структура:</dt>
+            <pre><code rel="HTML" class="html5">
+                &lt;html&gt;
+                    &lt;body&gt;
+                        &lt;h1 id=&quot;heading1&quot;&gt;Hello World&lt;/h1&gt;
+                    &lt;/body&gt;
+                &lt;/html&gt;
+            </code></pre>
+            <dt>тя ще бъде превърната в DOM дърво със следната структура:</dt>
+            <pre><code rel="Terminal" class="bash">
+                document
+                └── html
+                    └── body
+                        └── h1 (id="heading1")
+                            └── Text: "Hello World"
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
 <section><h2>The Document Object</h2>
     <section>
         <dl class="fa">
             <dt>Когато браузъра зареди една Уеб страница, той създава кореспондиращият й обектен модел.</dt>
             <dt>Целият HTML документ се представя чрез обекта: <span class="note code">document object</span>.</dt>
-            <dt>В <span class="note code">document object</span> се съдържа всичката информация, касаеща дадения HTML документ. В него са дефинирани и множество методи за достъпване на всички възли в документа чрез JavaScript.</dt>
+            <dt>В <span class="note code">document object</span> се съдържа всичката информация, касаеща дадения HTML документ. В него са дефинирани и множество методи за достъпване на всички възли в документа чрез JavaScript (DOM API).</dt>
             <dd><a href="http://www.w3schools.com/jsref/dom_obj_document.asp">w3schools: The HTML DOM Document Object</a></dd>
             <pre><code rel="HTML" style="font-size: 1.2em; min-height: 60vh;">
                 &lt;body&gt;
@@ -476,12 +511,22 @@
     </section>
 </section>
 
-<section><h2>References</h2>
-    <dl class="fa">
-        <dt><a href="http://www.w3schools.com/jsref/dom_obj_document.asp">w3schools: The HTML DOM Document Object</a></dt>
-        <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">Introduction to the DOM @MDN</a></dt>
-    </dl>
+
+<section class="main-section-title" id="References"><h1>References</h1></section>
+<section class="sub-sections"><h2>Readings</h2>
+    <section>
+        <dl class="fa">
+            <dt><a href="http://www.w3schools.com/jsref/dom_obj_document.asp">w3schools: The HTML DOM Document Object</a></dt>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">Introduction to the DOM @MDN</a></dt>
+        </dl>
+    </section>
 </section>
+<section><h2>Videos</h2>
+    <section><h3>The JavaScript DOM explained in 5 minutes! 🌳</h3>
+        <iframe width="1028" height="578" src="https://www.youtube.com/embed/NO5kUNxGIu0" title="The JavaScript DOM explained in 5 minutes! 🌳" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </section>
+</section>
+
 
 <section><h1>Примери и задачи</h1></section>
 <section><h2>Примери и задачи</h2>
@@ -493,13 +538,20 @@
         </span>
 		</p>
     </section>
-    <section><h3>Create HTML elements</h3>
+    <section><h3>Create HTML elements - simple example</h3>
         <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="XRejwG" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Create elements">
 		<span>
           See the Pen <a href='https://codepen.io/webdesigncourse/pen/XRejwG'>Create elements</a> by Iva Popova
           (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
         </span>
 		</p>
+    </section>
+    <section><h3>Auto create list and list items</h3>
+        <p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="result" data-slug-hash="RoXNPb" data-pen-title="auto_list_generator" data-user="webdesigncourse" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/webdesigncourse/pen/RoXNPb">
+            auto_list_generator</a> by Iva Popova (<a href="https://codepen.io/webdesigncourse">@webdesigncourse</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
     </section>
     <!-- <section><h3>Simplest Todo App - Vanila JS</h3>
         <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="LYEqZoo" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Simplest Todo App - Vanila JS">
@@ -509,13 +561,13 @@
         </span>
 		</p>
     </section> -->
-    <section><h3>Codepen Examples</h3>
+    <!-- <section><h3>Codepen Examples</h3>
         <p>Колекция с примери по темата:</p>
         <dl class="fa">
             <dt><a href="https://codepen.io/collection/XqagmP/">DOM_Intro</a></dt>
             <dt><a href="https://codepen.io/collection/DbrLQV/">JS_HTML_DOM</a></dt>
         </dl>
-    </section>
+    </section> -->
 </section>
 
 
@@ -549,7 +601,6 @@
 		// https://github.com/hakimel/reveal.js#configuration
 		// var highlightjsTabSize = '  ';
 		Reveal.initialize({
-
 			slideNumber: 'c/t',
 			keyboard: true,
 			history: true,
@@ -568,5 +619,6 @@
 			plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
 		});
 	</script>
+    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 </body>
 </html>
