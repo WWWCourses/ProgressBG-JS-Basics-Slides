@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>DOM_Intro</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+	<link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+	<!-- Theme used for syntax highlighting of code -->
+	<!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+	<!-- custom -->
+	<link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+		<div class="top_links">
+			<a class="home_link" href="../../../index.html#DOM_Intro" target="_top"><i class="fa fa-home"></i></a>
+			<span class="help_link"><i class="fa fa-question"></i></span>
+			<div class="help_text">
+				<div class="note">Keyboard shortcuts:</div>
+				<div><span>N/Спейс</span><span>Next Slide</span></div>
+				<div><span>P</span><span>Previous Slide</span></div>
+				<div><span>O</span><span>Slides Overview</span></div>
+				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+				<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+				Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+			</div>
+		</div>
+		<div class="footer theme_switch">
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+		</div>
+		<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>JS interaction with Browser (HTML DOM, BOM)</h1></section>
+<section data-transition="zoom">
+	<section>
+		<div class="copyright">
+			<div class="note">
+				<p>Created for</p>
+			</div>
+			<div class="company">
+				<a href="https://progressbg.net/javascript-basic/">
+				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+				</a>
+			</div>
+		</div>
+	</section>
+	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+		<div class="note">
+			<p>Created by</p>
+		</div>
+		<div class="company">
+		   <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+		</div>
+		<!-- <div class="author">
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+		</div> -->
+	</section>
+</section>
+
+
+
+<section><h1>JS host environments</h1></section>
+<section><h2>JS host environments</h2>
+    <dl class="fa">
+        <dt>JavaScript може да се изпълнява в различни среди:</dt>
+        <dd>Browsers</dd>
+        <dd>Node.js</dd>
+        <dd>Windows Script Host</dd>
+        <dd>Adobe Products</dd>
+        <dd>Open Office/Libre Office</dd>
+        <dd>many others</dd>
+        <dt>Средата, в която се изпълнява дадено JS приложение се нарича <span class="note">host environment</span>.</dt>
+        <dt>Всяка host environment добавя платформено-специфични функции и обекти към стандартните, дефинирани в езика. Например, браузърите предоставят <code>window</code> обекта, докато node.js предоставя <code>global</code> обекта.</dt>
+    </dl>
+</section>
+
+<section><h1>the Global Object</h1></section>
+<section><h2>the Global Object</h2>
+    <section>
+        <dl class="fa">
+            <dt>Във всяка една JS Host Environment е дефиниран един <span class="note">глобален обект</span>, към който са дефинирани като свойства останалите обекти на средата.</dt>
+            <dt>За браузърите, този глобален обект е <code>window</code></dt>
+            <dt>За node.js, глобалният обект е <code>global</code></dt>
+        </dl>
+    </section>
+    <section><h3>window object structure</h3>
+        <a href="images/windowObjects.png"><img src="images/windowObjects.png" height="400"></a>
+    </section>
+    <section><h3>window object demo</h3>
+        <pre><code rel="JS" class="js">
+            console.dir(window);
+        </code></pre>
+        <a href="images/theWindowObjectInConsole.png"><img src="images/theWindowObjectInConsole.png"></a>
+    </section>
+    <section>
+        <p>Свойствата на глобалния обект <code>window</code> са достъпни и самостоятелно (т.е. без да ги префексираме с "window."), тъй като глобалния обект се асоциира с глобалния <code>scope</code></p>
+        <a href="images/directAccessToGlobalObjectProperties.png"><img src="images/directAccessToGlobalObjectProperties.png"></a>
+    </section>
+    <section><h3>Reference</h3>
+        <dl class="fa">
+            <dt><a href="https://www.w3schools.com/js/js_window.asp">The Window Object @w3schools</a></dt>
+        </dl>
+    </section>
+</section>
+
+<section><h2>Какво е HTML DOM?</h2>
+    <section>
+       <dl class="fa">
+            <dt><abbr>DOM</abbr><dfn><span>Document</span><span>Object</span><span>Model</span></dfn></dt>
+            <dt><span class="note">платформено-независима</span> и <span class="note">езиково-независима</span> конвенция за представяне и взаимодействие с обектите в <span class="code">HTML</span>, <span class="code">XHTML</span> и <span class="code">XML</span> документи.</dt>
+            <dt>Стандарта се публикува в <a href="https://dom.spec.whatwg.org/">WHATWG DOM</a>.</dt>
+            <dt>Освен обектите в DOM, браузърите имплементират и собствени обекти известни като <abbr><a href="https://en.wikipedia.org/wiki/Browser_Object_Model">BOM</a></abbr><dfn><span>Browser</span><span>Object</span><span>Model</span></dfn>.</dt>
+
+        </dl>
+    </section>
+    <section>
+        <dl class="fa">
+            <dt>DOM е йерархична структура</dt>
+            <dt>В DOM са дефинирани следните видове обекти/възли (<span class="note code">node</span>), до които браузерите ни предоставят достъп посредством JavaScript.</dt>
+            <dd>Самият html документ е възел: <span class="note code">document node</span>.</dd>
+            <dd>Всички HTML елементи са възли: <span class="note code">elements nodes</span></dd>
+            <dd>Всички HTML атрибути са възли: <span class="note code">attribute nodes</span></dd>
+            <dd>Текстовото съдържание на един елемент също е възел: <span class="note code">text node</span></dd>
+            <dd>Коментарите са възли: <span class="note code">comment node</span></dd>
+        </dl>
+    </section>
+    <section><h3>DOM - йерархична структура от обекти</h3>
+        <a href="images/DOM_tree.png"><img src="images/DOM_tree.png"></a>
+    </section>
+    <section><h3>Връзка между обектите в DOM дървото</h3>
+        <a href="./images/DOMTree_nodes_relations.png"><img src="./images/DOMTree_nodes_relations.png" alt="DOMTree_nodes_relations.png"></a>
+    </section>
+</section>
+
+<section><h2>The Document Object</h2>
+    <section>
+        <dl class="fa">
+            <dt>Когато браузъра зареди една Уеб страница, той създава кореспондиращият й обектен модел.</dt>
+            <dt>Целият HTML документ се представя чрез обекта: <span class="note code">document object</span>.</dt>
+            <dt>В <span class="note code">document object</span> се съдържа всичката информация, касаеща дадения HTML документ. В него са дефинирани и множество методи за достъпване на всички възли в документа чрез JavaScript.</dt>
+            <dd><a href="http://www.w3schools.com/jsref/dom_obj_document.asp">w3schools: The HTML DOM Document Object</a></dd>
+            <pre><code rel="HTML" style="font-size: 1.2em; min-height: 60vh;">
+                &lt;body&gt;
+                    <p id="p1">Paragraph <b>1</b>!</p>
+
+                    <script type="text/javascript">
+                        console.log("The Document node object:");
+                        console.dir(document);
+
+                        console.log( document.lastModified );
+
+                        console.log(document.doctype);
+
+                        // "взимаме" елемента с id="p1":
+                        const p = document.getElementById('p1');
+                        console.dir( p );
+
+                        // "взимаме" всички обекти (от тип HTML element) деца на body:
+                        const bodyChildren = document.body.children;
+                        console.dir(bodyChildren);
+
+                        // "взимаме" всички обекти (от всеки тип) деца на body:
+                        const childNodes = document.body.childNodes;
+                        console.dir(childNodes);
+
+                    </script>
+                &lt;/body&gt;
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<section><h2>The Element Object</h2>
+    <section>
+        <dl class="fa">
+            <dt>В HTML DOM, на всеки един HTML елемент се съпоставя един обект от тип <span class="code note">element object</span>, който е възел в DOM.</dt>
+            <dt>Всеки един <span class="code note">element node</span> може да бъде родител на: element nodes, text nodes или comment nodes</dt>
+            <dt>element nodes притежават следните методи и свойства: <a href="http://www.w3schools.com/jsref/dom_obj_all.asp">The HTML DOM Element Object</a></dt>
+            <pre><code rel="HTML">
+                &lt;body&gt;
+                    <p id="p1">Paragraph <b>1</b>!</p>
+
+                    <script type="text/javascript">
+                        const elementNode = document.getElementById("p1");
+
+                        console.log("The p Element node object:");
+                        console.dir(elementNode);
+
+                        console.log( elementNode.innerHTML );
+                    </script>
+                &lt;/body&gt;
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<section><h2>The Attribute Object</h2>
+    <section>
+        <dl class="fa">
+            <dt>Всеки един HTMl атрибут в DOM се предсавя като <span class="note code">attribute object</span></dt>
+            <dt>attribute object винаги се разглежда като част от element object.</dt>
+            <dt>attribute objects притежават следните методи и свойства: <a href="http://www.w3schools.com/jsref/dom_obj_attributes.asp">The HTML DOM Attribute Object</a></dt>
+            <pre><code rel="HTML">
+                &lt;body&gt;
+                    <p id="p1">Paragraph <b>1</b>!</p>
+
+                    <script type="text/javascript">
+                        const p = document.querySelector('p');
+
+                        const pID = p.getAttributeNode('id');
+
+                        console.log("The id Attribute node object:");
+                        console.dir( pID );
+                    </script>
+                &lt;/body&gt;
+            </code></pre>
+            <dt class="note">Стойностите на повечето стандартни HTML атрибути, като src, href, id, style, title и пр., могат да се достъпят директно като пропъртита на съответния обект чрез: <code>element.attributeName</code></dt>
+            <pre><code rel="HTML" class="html">
+                &lt;body&gt;
+                    <p id="p1">Paragraph <b>1</b>!</p>
+                    <img src="" alt="demo img">
+
+                    <script type="text/javascript">
+                        // "взимаме" елементите, които ни трябват:
+                        const p = document.querySelector('p');
+                        const img = document.querySelector('img');
+
+                        // "четем" от стойността на пропъртито id:
+                        console.log(p.id);
+
+                        // "записваме" в стойността на пропъртито src:
+                        img.src = 'https://picsum.photos/200/300'
+                    </script>
+                &lt;/body&gt;
+            </code></pre>
+            <dt>Забележете, че промяната на DOM пропърти, което съответства на HTML атрибут, води до динамична промяна на дадения HTML атрибут!</dt>
+        </dl>
+    </section>
+</section>
+
+<section><h2>The Text Object</h2>
+    <section>
+        <dl class="fa">
+            <dt class="note">Текстът е отделен възел в DOM!</dt>
+            <dt>Text Object представя текстовото съдържание на елемент или атрибут.</dt>
+            <dt>Text елементите притежават следните методи и свойства: <a href="https://www.w3schools.com/xml/dom_text.asp">XML DOM - The Text Object</a></dt>
+            <pre><code rel="HTML">
+                &lt;body&gt;
+                    <p id="p1">Paragraph <b>1</b>!</p>
+
+                    <script type="text/javascript">
+                        // "взимаме" обекта представящ p елемента:
+                                const p = document.getElementById('p1');
+
+                        // нека видим колко обекта-деца има в параграфа:
+                        console.dir( p.childNodes );
+
+                        // NodeList(3)
+                        // 0: text
+                        // 1: b
+                        // 2: text
+
+                        // нека достъпим и логнем обекта, представящ текста "Paragraph ":
+                        const textNode = p.childNodes[0];
+                        console.dir( textNode );
+                    </script>
+                &lt;/body&gt;
+            </code></pre>
+            <dt>На практика, рядко се налага да работим с Text Object. Когато искаме да достъпим текстовото съдържание на даден HTML елемент използваме <a href="https://www.w3schools.com/jsref/prop_html_innerhtml.asp">element.innerHTML</a> или <a href="https://www.w3schools.com/jsref/prop_node_innertext.asp">element.innerText</a> пропъртитата.</dt>
+            <pre><code rel="HTML" class="html">
+                <p id="p1">Paragraph <b>1</b>!</p>
+
+                <script>
+                    // "взимаме" обекта представящ p елемента:
+                    const p = document.getElementById('p1');
+
+                    // логваме пропъртитата innerHTML и innerText:
+                    console.log(p.innerHTML); // Paragraph <b>1</b>!
+                    console.log(p.innerText); // Paragraph 1!
+                </script>
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<section><h2>The Comment Object</h2>
+    <section>
+        <dl class="fa">
+            <dt class="note">Коментарите са отделни възли в DOM!</dt>
+            <dt>Comment Object представя съдържанието в HTML коментар</dt>
+            <dt><a href="https://www.w3schools.com/xml/dom_comment.asp">XML DOM - The Comment Object</a></dt>
+            <pre><code rel="HTML">
+                &lt;body&gt;
+                    <p id="p1">Paragraph <b>1</b>!</p>
+                    <!-- коментар -->
+
+                    <script type="text/javascript">
+                        console.log("The Comment node object:");
+                        var commentNode = document.body.childNodes[3];
+                        console.dir( commentNode );
+                    </script>
+                &lt;/body&gt;
+            </code></pre>
+            <dt>В практиката, рядко се налага манипулирането на HTML коментари чрез JS!</dt>
+        </dl>
+    </section>
+</section>
+
+<section><h2>Numerical Node Types</h2>
+    <section>
+        <dl class="fa">
+            <dt>На всеки тип възел/обект в DOM съответства число. Така лесно динамично можем да определим типът на дадения възел/обект.</dt>
+            <dt><a href="https://www.w3schools.com/xml/dom_nodetype.asp">XML DOM Node Types</a></dt>
+            <pre><code rel="HTML" class="html">
+                &lt;body&gt;
+                    &lt;p id=&quot;p1&quot;&gt;Paragraph &lt;b&gt;1&lt;/b&gt;!&lt;/p&gt;
+                    &lt;!-- just an HTML comment, but it's a node. --&gt;
+                    &lt;script type=&quot;text/javascript&quot;&gt;
+                        const allNodes = document.body.childNodes;
+                        // console.dir(allNodes);
+                        for (let i = 0; i &lt; allNodes.length; i++) {
+                            const node = allNodes[i];
+                            console.log(`nodeName: ${node.nodeName}, nodeType: ${node.nodeType}`);
+                        }
+                    &lt;/script&gt;
+                &lt;/body&gt;
+            </code></pre>
+            <pre><code rel="Output" class="ascii">
+                nodeName: #text, nodeType: 3
+                nodeName: P, nodeType: 1
+                nodeName: #text, nodeType: 3
+                nodeName: #comment, nodeType: 8
+                nodeName: #text, nodeType: 3
+                nodeName: SCRIPT, nodeType: 1
+            </code></pre>
+            <dt>Забележете, че докато <code>element.childNodes</code>  връща децата обекти от всички типове, то <code>element.children</code> връща само децата от тип Element Object</dt>
+        </dl>
+    </section>
+</section>
+
+<section><h2>Методи за достъпване на Element Objects</h2>
+    <section><h3><a href="https://www.w3schools.com/jsref/met_document_getelementbyid.asp"></a>getElementById()</h3>
+        <dl class="fa">
+            <dt>Връща обект, представящ елемент с id = elementID</dt>
+            <dt>elementID трябва да бъде string</dt>
+        </dl>
+        <pre><code rel="Syntax">
+            document.getElementById(elementID);
+        </code></pre>
+        <pre><code rel="HTML">
+            <ul>
+                <li id="test">Item 1</li>
+                <li>Item 2</li>
+            </ul>
+
+            <script>
+                const liTest = document.getElementById('test');
+            </script>
+        </code></pre>
+    </section>
+    <section><h3><a href="https://www.w3schools.com/jsref/met_document_getelementsbyclassname.asp"></a>getElementsByClassName()</h3>
+        <dl class="fa">
+            <dt>Връща обект от тип NodeList, съдържащ подобно на <span class="note">масив</span> всички елементи с class = classname</dt>
+            <dt>classname трябва да бъде string</dt>
+            <dt>За да работим с конкретен елемент, от дадения клас, трябва да използваме <span class="note">[]</span> нотацията.</dt>
+        </dl>
+        <pre><code rel="Syntax">
+            document.getElementsByClassName(classname)
+        </code></pre>
+        <pre><code rel="HTML">
+            <h2 class="red">Heading 2</h2>
+            <ul>
+                <li class="red">Item 1</li>
+                <li class="blue">Item 2</li>
+            </ul>
+            <script>
+                const allRedNodes = document.getElementsByClassName('red');
+
+                for (let i = 0; i < allRedNodes.length; i++) {
+                    console.log( allRedNodes[i].innerHTML );
+                }
+            </script>
+        </code></pre>
+    </section>
+    <section><h3><a href="https://www.w3schools.com/jsref/met_document_getelementsbytagname.asp">getElementsByTagName()</a></h3>
+        <dl class="fa">
+            <dt>Връща обект от тип NodeList, съдържащ подобно на <span class="note">масив</span> всички HTML елементи от тип tagName</dt>
+            <dt>tagName трябва да бъде string</dt>
+            <dt>За да работим с конкретен елемент, то трябва да използваме <span class="note">[]</span> нотацията.</dt>
+        </dl>
+        <pre><code rel="Syntax">
+            document.getElementsByTagName(tagName)
+        </code></pre>
+        <pre><code rel="JS">
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+            </ul>
+            <script>
+                const liNodes = document.getElementsByTagName('li');
+
+                for (let i = 0; i < liNodes.length; i++) {
+                    console.log( liNodes[i].innerHTML );
+                }
+            </script>
+        </code></pre>
+    </section>
+    <section><h3><a href="https://www.w3schools.com/jsref/met_document_queryselector.asp">querySelector()</a></h3>
+        <dl class="fa">
+            <dt>Връща <strong>първия елемент</strong>, който отговаря на зададения селектор (sel).</dt>
+            <dt>sel трябва да бъде string и да е валиден CSS селектор</dt>
+        </dl>
+        <pre><code rel="Syntax">
+            document.querySelector(sel)
+        </code></pre>
+        <pre><code rel="HTML">
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+            <script>
+                const firstLi = document.querySelector('li');
+                console.log( firstLi.innerText );
+
+                const secondLi = document.querySelector("ul>li:nth-child(2)");
+                console.log( secondLi.innerText );
+            </script>
+        </code></pre>
+    </section>
+    <section><h3><a href="https://www.w3schools.com/jsref/met_document_queryselectorall.asp">querySelectorAll()</a></h3>
+        <dl class="fa">
+            <dt>Връща обект от тип NodeList, съдържащ подобно на <span class="note">масив</span> всички HTML елементи които отговарят на зададения селектор</dt>
+            <dt>sel трябва да бъде string и да е валиден CSS селектор</dt>
+            <dt>За да работим с конкретен елемент, то трябва да използваме <span class="note">[]</span> нотацията.</dt>
+        </dl>
+        <pre><code rel="Syntax">
+            document.querySelectorAll(sel)
+        </code></pre>
+        <pre><code rel="HTML" style="min-height: 50vh;">
+            <header>
+                <ul>
+                    <li>Header Item 1</li>
+                </ul>
+            </header>
+            <footer>
+                <ul>
+                    <li>Footer Item 1</li>
+                    <li>Footer Item 2</li>
+                </ul>
+            </footer>
+
+            <script>
+                const allFooterLiNodes = document.querySelectorAll('footer>ul>li');
+                for (let i = 0; i < allFooterLiNodes.length; i++) {
+                    const li = allFooterLiNodes[i];
+                    console.log(li.innerHTML);
+                }
+            </script>
+        </code></pre>
+    </section>
+</section>
+
+<section><h2>References</h2>
+    <dl class="fa">
+        <dt><a href="http://www.w3schools.com/jsref/dom_obj_document.asp">w3schools: The HTML DOM Document Object</a></dt>
+        <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">Introduction to the DOM @MDN</a></dt>
+    </dl>
+</section>
+
+<section><h1>Примери и задачи</h1></section>
+<section><h2>Примери и задачи</h2>
+    <section><h3>Get and Show an Input Value</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="wogNMb" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Get Input Value">
+		<span>
+          See the Pen <a href='https://codepen.io/webdesigncourse/pen/wogNMb'>Get Input Value</a> by Iva Popova
+          (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section>
+    <section><h3>Create HTML elements</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="XRejwG" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Create elements">
+		<span>
+          See the Pen <a href='https://codepen.io/webdesigncourse/pen/XRejwG'>Create elements</a> by Iva Popova
+          (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section>
+    <!-- <section><h3>Simplest Todo App - Vanila JS</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="LYEqZoo" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Simplest Todo App - Vanila JS">
+		<span>
+          See the Pen <a href='https://codepen.io/webdesigncourse/pen/LYEqZoo'>Simplest Todo App - Vanila JS</a> by Iva Popova
+          (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section> -->
+    <section><h3>Codepen Examples</h3>
+        <p>Колекция с примери по темата:</p>
+        <dl class="fa">
+            <dt><a href="https://codepen.io/collection/XqagmP/">DOM_Intro</a></dt>
+            <dt><a href="https://codepen.io/collection/DbrLQV/">JS_HTML_DOM</a></dt>
+        </dl>
+    </section>
+</section>
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+	 <p>These slides are based on</p>
+	 <p>customized version of </p>
+	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+	 <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="../../../outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="../../../lib/reveal.js/dist/reveal.js"></script>
+	<script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+	<script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+	<script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+	<script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		// var highlightjsTabSize = '  ';
+		Reveal.initialize({
+
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+			center: true,
+			width: 1280,
+			height: 1024,
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+			// shift+mousе click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+
+			plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+		});
+	</script>
+</body>
+</html>
