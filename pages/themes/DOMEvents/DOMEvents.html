@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>DOMEvents</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+	<link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+	<!-- Theme used for syntax highlighting of code -->
+	<!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+	<!-- custom -->
+	<link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+		<div class="top_links">
+			<a class="home_link" href="../../../index.html#DOMEvents" target="_top"><i class="fa fa-home"></i></a>
+			<span class="help_link"><i class="fa fa-question"></i></span>
+			<div class="help_text">
+				<div class="note">Keyboard shortcuts:</div>
+				<div><span>N/Спейс</span><span>Next Slide</span></div>
+				<div><span>P</span><span>Previous Slide</span></div>
+				<div><span>O</span><span>Slides Overview</span></div>
+				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+				<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+				Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+			</div>
+		</div>
+		<div class="footer theme_switch">
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+		</div>
+		<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>Handling HTML DOM Events</h1></section>
+<section data-transition="zoom">
+	<section>
+		<div class="copyright">
+			<div class="note">
+				<p>Created for</p>
+			</div>
+			<div class="company">
+				<a href="https://progressbg.net/javascript-basic/">
+				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+				</a>
+			</div>
+		</div>
+	</section>
+	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+		<div class="note">
+			<p>Created by</p>
+		</div>
+		<div class="company">
+		   <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+		</div>
+		<!-- <div class="author">
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+		</div> -->
+	</section>
+</section>
+
+
+
+<section id="eventsOverview"><h1>Въведение</h1></section>
+<section><h2>Въведение</h2>
+    <section class="normalFont">
+        <dl class="fa">
+            <dt>Потребителят може да взаимодейства с HTML елементите в страницата - клик с мишката, въвеждане на текст, скрол и пр.</dt>
+            <dt>По-същество при всяко взаимодействие на потребителя с елементите се генерира така нареченото "събитие"(<code>DOM Event</code>).</dt>
+            <dd>Например: <code>onclick</code>, <code>oncopy</code>, <code>onscroll</code></dd>
+            <dt>Ние можем да дефинираме функция (<span class="note">event handler callback</span>), която да се извиква след като даденото събитие настъпи и така да направим нашата страница интерактивна.</dt>
+            <dt><a href="https://www.w3.org/TR/uievents/">DOM Events / UI Events</a> е "жива" спецификация, като непрекъснато се добавят нови възможности (Touch Events, VR Events и пр.).</dt>
+        </dl>
+    </section>
+    <section><h3>Пример - onclick</h3>
+        <pre><code rel="HTML" class="html">
+            <p class="test" onclick="clickHandler();">test your mouse on me</p>
+            <div class="output"></div>
+        </code></pre>
+        <pre><code rel="JS" class="js">
+            var btnNode = document.querySelector('.test');
+            var outputNode = document.querySelector('.output');
+
+            function clickHandler(){
+                outputNode.innerHTML += "You have clicked with left mouse button<br>"
+            }
+        </code></pre>
+    </section>
+    <section><h3>Test it on codepen</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result&embed-version=2" data-user="webdesigncourse" data-slug-hash="xYpzXG/" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Example - onclickHandler">
+		<span>See the Pen <a href='https://codepen.io/webdesigncourse/pen/xYpzXG/'>Example - onclickHandler</a> by Iva Popova (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section>
+    <section>
+        <dl class="fa">
+            <dt>Разбира се, освен генерирани от потребителя събития, в DOM са специфицирани и други събития, като <em>Network Events</em>, <em>Progress Events</em>, <em>Storage events</em> и пр.</dt>
+        </dl>
+    </section>
+    <section><h3>Example - Network Events in codepen</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result&embed-version=2" data-user="webdesigncourse" data-slug-hash="rJpKRV/" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Example - Network Events">
+		<span>See the Pen <a href='https://codepen.io/webdesigncourse/pen/rJpKRV/'>Example - Network Events</a> by Iva Popova (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section>
+</section>
+
+<section id="htmlEventAttributes"><h1>Обработка на събития с HTML Event Attributes</h1></section>
+<section><h2>Обработка на събития с HTML Event Attributes</h2>
+    <section>
+        <dl class="fa">
+            <dt>Можем да асоциираме събитие с JavaScript код, като използваме HTML Event атрибути</dt>
+        </dl>
+        <pre><code rel="Syntax" class="javascript">
+            &lt;tagname eventAttribute = &quot;JavaScript code&quot;&gt;
+        </code></pre>
+        <dl class="fa">
+            <dt>където <strong>eventAttribute</strong> е някой от HTML Event атрибутите, посочени тук: <a href="https://www.w3schools.com/tags/ref_eventattributes.asp">HTML Event Attributes</a></dt>
+            <dt>A <strong>JavaScript code</strong> е кодът, който ще се изпълни автоматично при настъпване на даденото събитие</dt>
+            <dt class="note">Този начин за асоцииране на събитие към елемент е лесен за използване (и подходящ за навлизане в темата), но както ще видим в следващите слайдове има и доста ограничения, поради това не се препоръчва да се използва в реални приложения. </dt>
+        </dl>
+    </section>
+    <section><h3>Пример</h3>
+        <pre><code rel="HTML" class="html">
+            // асоциираме 'onclick' event с P елемента:
+            <p class="test" onclick="this.innerHTML='Bravo, you have clicked!'">click me</p>
+
+            // асоциираме 'ondblclick' event с P елемента:
+            <p class="test" ondblclick="this.innerHTML='Bravo, you have double clicked!'">double click me</p>
+        </code></pre>
+        <dl class="fa">
+            <dt class="note">Когато използваме <code>this</code> в стойността на ивент атрибут, то в <code>this</code> имаме обекта, представят съответния елемент.</dt>
+        </dl>
+    </section>
+    <section>
+        <dl class="fa">
+            <dt>Естествено, много по-удобно и ефективно е вместо да пишем JavaScript код в HTML атрибут, да го обособим като функция</dt>
+            <dt>В практиката, функции, които дефинираме, за да бъдат извикани при настъпване на даден ивент, наричаме <span class="note">event handlers</span></dt>
+        </dl>
+        <pre><code rel="HTML" class="html">
+            <p class="test" onclick="clickHandler(this);">double click me</p>
+        </code></pre>
+        <pre><code rel="JS" class="js">
+            function clickHandler( node ){
+                node.innerHTML = "Bravo, you have clicked!"
+            }
+        </code></pre>
+        <dl class="fa">
+            <dt>Тук трябва да извикаме функцията експлицитно, тъй като единственото, което ще направи браузера е да <span class="note">изпълни</span> JavaScript кода подаден в атрибута 'onclick', когато даденото събитие настъпи.</dt>
+        </dl>
+    </section>
+    <section id="changeImageOnSelectChange_EventAttributesDemo"><h3>Пример за промяна на изображение, при промяна на опция</h3>
+        <dl class="fa">
+            <dt>В примера са използвани следните пропъртита за навигиране в DOM  дървото. Забележете, че те работят с Еlement Object, като не включват Text и Comment обекти:</dt>
+            <dd><a href="https://www.w3schools.com/jsref/prop_node_parentelement.asp">parentElement</a></dd>
+            <dd><a href="https://www.w3schools.com/jsref/prop_element_previouselementsibling.asp">previousElementSibling</a></dd>
+            <dd><a href="https://www.w3schools.com/jsref/prop_element_children.asp">children</a></dd>
+            <dt>Разгледайте примера локално, на вашата машина под VSCоde, за да може лесно да следите HTML структурата и операциите с JS върху нея.</dt>
+        </dl>
+        <p class="codepen" data-height="300" data-default-tab="js,result" data-slug-hash="JjObPEM" data-user="webdesigncourse" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/webdesigncourse/pen/JjObPEM">
+            changeImageOnSelectChange_EventAttributesDemo</a> by Iva Popova (<a href="https://codepen.io/webdesigncourse">@webdesigncourse</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+    </section>
+</section>
+
+<section id="elementAddEventListenerMethod"><h1>Обработка на събития с HTML с <code>element.addEventListener()</code> метода</h1></section>
+<section><h2>Обработка на събития с HTML с <code>element.addEventListener()</code> метода</h2>
+    <section>
+        <dl class="fa">
+            <dt>Обработването на събития в самия HTML, макар и лесно за разбиране и използване има няколко недостатъка:</dt>
+            <dd>нарушава принципа на "разделяне на отговорностите" (<a href="https://en.wikipedia.org/wiki/Separation_of_concerns">separation of concerns</a>)</dd>
+            <dd>Не позволява да асоццираме динамично събитие</dd>
+            <dd>Не позволява да премахнем динамично дадено събитие, коеото в дадени ситуации е необходимо за да увеличим бързодействието на сайта.</dd>
+            <dt class="note">Предпочитания метод за асоцииране на събитие е чрез DOM метода <code>addEventListener()</code>, разгледан в следващите слайдове.</dt>
+        </dl>
+    </section>
+    <section>
+        <pre style="width: 130%;"><code rel="Syntax" class="javascript">
+            element.addEventListener(eventName, functionDefinition [, options])
+        </code></pre>
+        <dl class="fa">
+            <dt>където <strong>eventName</strong> e име на събитие (<span class="note">без "on" префикс</span>)</dt>
+            <dd><a href="https://www.w3schools.com/jsref/dom_obj_event.asp">DOM Events @w3schools</a></dd>
+            <dt><strong>functionDefinition</strong> <span class="note">е дефиниция</span> на функцията (нарича се оше  "callback функция"), която ще се изпълни при настъпване на събитието. Много често се използва анонимна функция.</dt>
+            <dt><strong>options</strong> не е задължителен параметър. Чрез него задаваме допълнителни характеристики за самото събитие</dt>
+        </dl>
+    </section>
+    <section><h3>Example - addEventListener() method on codepen</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result&embed-version=2" data-user="webdesigncourse" data-slug-hash="papZxb/" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Example - addEventListener() method">
+		<span>See the Pen <a href='https://codepen.io/webdesigncourse/pen/papZxb/'>Example - addEventListener() method</a> by Iva Popova (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section>
+    <section>
+        <dl class="fa">
+            <dt>Важно е да се разбере, че функцията (анонимна или не), <span class="note">чиято дефиниция поддаваме като аргумент</span> на метода addEventListener ще се извика от този метод едва при настъпването на събитието!</dt>
+            <dt>Честа грешка е ние да извикваме функцията:</dt>
+            <pre><code rel="JS" class="js">
+                var clickHandler = function() {
+                    console.log('click')
+                };
+
+                // тук ще подадем на addEventListener не нашата функция - clickHandler, а резултата от нея (в случая - undefined), а самата функция clickHandler() ще бъде извикана моментално:
+                document.body.addEventListener( "click", clickHandler() );
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<section data-min="5"><h1>TASK: Create Items on click</h1></section>
+<section><h2>TASK: Create Itemes on click</h2>
+    <section id="HW_create_items_on_click"><h3>Задача</h3>
+        <dl class="fa">
+            <dt>Направете следната страница, с посочената функционалност:</dt>
+            <dt>Забележете, че LI елементите се добавят в началото на списъка. За целта може да използвате DOM метода: <a href="https://www.w3schools.com/jsref/met_node_insertbefore.asp">insertBefore()</a>  </dt>
+            <a href="./HW/HW_create_element.gif"><img src="./HW/HW_create_element.gif" alt="HW_create_element"></a>
+
+        </dl>
+    </section>
+</section>
+
+<section><h2 class="advanced">the Event Object</h2>
+    <section>
+        <dl class="fa">
+            <dt>Информацията за настъпилото събитие се съхранява в обект от тип <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event Object</a></dt>
+            <dt>Event обекта се подава като аргумент на handler функцията</dt>
+        </dl>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="ZEWPQvW" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="simpleEventObjectDemo">
+		<span>
+            See the Pen <a href='https://codepen.io/webdesigncourse/pen/ZEWPQvW'>simpleEventObjectDemo</a> by Iva Popova
+            (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+          </span>
+		</p>
+    </section>
+    <section><h3>Event objects properties</h3>
+        <dl class="fa">
+            <dt>Event обектите от различните групи (mouse events, keyboard events, etc) имат различни, специфични за ивента, свойства, но има и такива свойства, които са общи за всички ивенти.</dt>
+        </dl>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="yLOwOBV" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="simpleEventPropertiesDemo">
+		<span>
+            See the Pen <a href='https://codepen.io/webdesigncourse/pen/yLOwOBV'>simpleEventPropertiesDemo</a> by Iva Popova
+            (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+          </span>
+		</p>
+    </section>
+    <section><h3>target vs. currentTarget</h3>
+        <dl class="fa">
+            <dt>Някои от най-често използваните свойства, присъщи на всички event обекти са: <a href="https://www.w3schools.com/jsref/event_target.asp">target</a> и <a href="https://www.w3schools.com/jsref/event_currenttarget.asp">currentTarget</a></dt>
+        </dl>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result&embed-version=2" data-user="webdesigncourse" data-slug-hash="jZYvWy/" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="target vs. currentTarget">
+		<span>See the Pen <a href='https://codepen.io/webdesigncourse/pen/jZYvWy/'>target vs. currentTarget</a> by Iva Popova (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section>
+    <section><h3>Пример за ефективен код, чрез използване на event.target</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result&embed-version=2" data-user="webdesigncourse" data-slug-hash="BOXJyp/" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Using event.target on parent  for child actions">
+		<span>See the Pen <a href='https://codepen.io/webdesigncourse/pen/BOXJyp/'>Using event.target on parent  for child actions</a> by Iva Popova (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+		</p>
+    </section>
+    <section><h3>Пример за промяна на изображение, при промяна на опция</h3>
+        <dl class="fa">
+            <dt>Това е по-добър вариант на разгледания вече пример: <a href="#changeImageOnSelectChange_EventAttributesDemo">changeImageOnSelectChange_EventAttributesDemo</a>, тъй като тук използваме addEventListener()</dt>
+        </dl>
+        <p class="codepen" data-height="300" data-default-tab="js,result" data-slug-hash="KKyNdJe" data-user="webdesigncourse" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/webdesigncourse/pen/KKyNdJe">
+            Untitled</a> by Iva Popova (<a href="https://codepen.io/webdesigncourse">@webdesigncourse</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+    </section>
+</section>
+
+<section><h2>Codepen Examples</h2>
+    <a href="https://codepen.io/collection/XBMYGy/">codepen колекция с примери и задачи по темата</a>
+</section>
+
+<section><h2>References</h2>
+    <dl class="fa">
+        <dt><a href="https://www.w3schools.com/js/js_htmldom_events.asp">JavaScript HTML DOM Events @w3schools</a></dt>
+        <dt><a href="https://www.w3schools.com/jsref/dom_obj_event.asp">DOM Events @w3schools</a></dt>
+        <dt><a href="https://developer.mozilla.org/en-US/docs/Web/Events">Event reference @MDN</a></dt>
+        <dt class="advanced"><a href="https://eloquentjavascript.net/3rd_edition/15_event.html">Handling Events</a> - <span>Chapter 15 from the book "Eloquent JavaScript" by Marijn Haverbeke.</span></dt>
+    </dl>
+</section>
+
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+	 <p>These slides are based on</p>
+	 <p>customized version of </p>
+	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+	 <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="../../../outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="../../../lib/reveal.js/dist/reveal.js"></script>
+	<script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+	<script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+	<script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+	<script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		// var highlightjsTabSize = '  ';
+		Reveal.initialize({
+
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+			center: true,
+			width: 1280,
+			height: 1024,
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+			// shift+mousе click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+
+			plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+		});
+	</script>
+</body>
+</html>

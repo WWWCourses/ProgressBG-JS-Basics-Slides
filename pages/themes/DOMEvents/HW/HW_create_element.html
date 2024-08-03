@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HW_create_element </title>
+</head>
+<body>
+	<input type="text" placeholder="task_title">
+	<button>Add</button>
+	<hr>
+	<h2>Current Tasks</h2>
+	<ul>
+		<li>Task1</li>
+	</ul>
+
+
+	<script>
+		function clickHandler(){
+			const title = dom.input.value;
+			const firstLi = dom.ul.children[0];
+
+			const li = document.createElement('LI')
+			li.innerHTML = title;
+			dom.ul.insertBefore(li, firstLi)
+		}
+		const dom = {
+			ul : document.querySelector('ul'),
+			btn : document.querySelector('button'),
+			input : document.querySelector('input'),
+		}
+
+		dom.btn.addEventListener('click', clickHandler)
+
+
+	</script>
+</body>
+</html>
