@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>PracticalExerciseToDoList</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+    <!-- custom -->
+    <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="../../../index.html#PracticalExerciseToDoList" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Спейс</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>Practical Exercise: "Create Todo List Application"</h1></section>
+<section data-transition="zoom">
+    <section>
+        <div class="copyright">
+            <div class="note">
+                <p>Created for</p>
+            </div>
+            <div class="company">
+                <a href="https://progressbg.net/javascript-basic/">
+                <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+        <div class="note">
+            <p>Created by</p>
+        </div>
+        <div class="company">
+           <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+        </div>
+        <!-- <div class="author">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div> -->
+    </section>
+</section>
+
+
+<section class="main-section-title" id="PracticalExerciseCreateTodoListProject"><h1>Practical Exercise: "Create a Todo List Project"</h1></section>
+<section class="sub-sections"><h2>Practical Exercise: "Create a Todo List Project"</h2>
+    <section id="Introduction"><h3>Introduction</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>In this exercise, we'll create a simple Todo List application using JavaScript.</dt>
+            <dd>The Todo List will allow users to add, delete, and mark tasks as completed, providing an interactive way to manage tasks.</dd>
+        </dl>
+    </section>
+    <section id="SetupProject"><h3>Setup Project</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Create a new folder for your project (TodoList) and 3 files: <code>index.html</code>, <code>main.js</code>, and <code>style.css</code> </dt>
+            <dd>Make sure you have the following structure:</dd>
+            <pre><code rel="Terminal" class="bash" data-noescape style="font-size: 1.2em;">
+                TodoList/
+                ├── index.html
+                ├── main.js
+                └── style.css
+            </code></pre>
+            <dt>Set up the basic HTML structure.</dt>
+            <pre><code rel="index.html" class="HTML" style="min-height: 23em;">
+                &lt;!-- index.html --&gt;
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang=&quot;en&quot;&gt;
+                &lt;head&gt;
+                    &lt;meta charset=&quot;UTF-8&quot;&gt;
+                    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+                    &lt;title&gt;Todo List&lt;/title&gt;
+                    &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;div id=&quot;todo-container&quot;&gt;
+                        &lt;h1&gt;Todo List&lt;/h1&gt;
+                        &lt;input type=&quot;text&quot; id=&quot;todo-input&quot; placeholder=&quot;Enter a new task&quot;&gt;
+                        &lt;button id=&quot;add-todo&quot;&gt;Add Task&lt;/button&gt;
+                        &lt;ul id=&quot;todo-list&quot;&gt;&lt;/ul&gt;
+                    &lt;/div&gt;
+                    &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+            </code></pre>
+        </dl>
+    </section>
+    <section id="AddStyling"><h3>Add Styling</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Create a <code>style.css</code> file and add the following styles to enhance the appearance of the Todo List.</dt>
+            <pre><code rel="style.css" class="css" style="min-height: 48em;">
+                /* General body styles */
+                body {
+                    font-family: Arial, sans-serif;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100vh;
+                    background-color: #f0f0f0;
+                    margin: 0;
+                }
+
+                /* Container for the todo list */
+                #todo-list-container {
+                    width: 300px;
+                    background-color: #fff;
+                    border-radius: 8px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    padding: 20px;
+                    box-sizing: border-box;
+                }
+
+                /* Input field for new todos */
+                #todo-input {
+                    box-sizing: border-box;
+                    padding: 10px;
+                    font-size: 16px;
+                    width: 100%;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    margin-bottom: 10px;
+                }
+
+                /* Button to add a new todo */
+                #add-todo {
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    width: 100%;
+                    background-color: #28a745;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    margin-bottom: 20px;
+                }
+
+                #add-todo:hover {
+                    background-color: #218838;
+                }
+
+                /* Style for each todo item */
+                .todo-item {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px;
+                    margin-bottom: 10px;
+                    background-color: #fff;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                }
+
+                /* Style for completed todo items */
+                .completed {
+                    text-decoration: line-through;
+                    color: #888;
+                }
+
+                /* Style for the complete button */
+                .complete-btn {
+                    background-color: #007bff;
+                    color: #fff;
+                    border: none;
+                    border-radius: 4px;
+                    padding: 5px 10px;
+                    cursor: pointer;
+                    margin-right: 5px;
+                }
+
+                .complete-btn:hover {
+                    background-color: #0056b3;
+                }
+
+                /* Style for the delete button */
+                .delete-btn {
+                    background-color: #dc3545;
+                    color: #fff;
+                    border: none;
+                    border-radius: 4px;
+                    padding: 5px 10px;
+                    cursor: pointer;
+                }
+
+                .delete-btn:hover {
+                    background-color: #c82333;
+                }
+            </code></pre>
+        </dl>
+    </section>
+    <section id="DataRepresentation"><h3>Data Representation</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The todo list application will use a list of objects to represent the todos data.</dt>
+            <dt>Each todo item is represented by an object with the following properties:</dt>
+            <pre><code rel="" class="js">
+                // Todo object structure
+                {
+                    task: "Task description",  // The description of the todo
+                    completed: false           // The completion status (false for incomplete, true for complete)
+                }
+            </code></pre>
+        </dl>
+    </section>
+    <section id="BasicAlgorithm"><h3>Basic Algorithm</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><strong>Add Todo:</strong> Create a new todo object and push it to the todos array. Then, update the UI.</dt>
+            <dt><strong>Toggle Completion:</strong> Toggle the <code>completed</code> property of the todo object at the specified index and update the UI.</dt>
+            <dt><strong>Delete Todo:</strong> Remove the todo object from the todos array at the specified index and update the UI.</dt>
+            <dt><strong>Render Todos:</strong> Clear the current list of displayed todos, then iterate over the todos array to create and display list items. Attach event listeners to handle completion and deletion.</dt>
+        </dl>
+    </section>
+    <section id="Step3DefineTodoLogic"><h3>Define Todo Logic</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Define the logic in your JavaScript file to add, delete, and mark tasks as completed.</dt>
+            <dd>Set up functions to add, toggle completion, and delete todo items, and update the UI.</dd>
+            <pre><code rel="main.js" class="js" style="min-height: 40em;">
+                // Function to add a new todo item
+                function addTodo(task) {
+                    todos.push({ task: task, completed: false });
+                    renderTodos();
+                }
+
+                // Function to toggle the completion status of a todo item
+                function toggleTodoCompletion(index) {
+                    todos[index].completed = !todos[index].completed;
+                    renderTodos();
+                }
+
+                // Function to delete a todo item
+                function deleteTodo(index) {
+                    todos.splice(index, 1);
+                    renderTodos();
+                }
+
+                // Function to render the todo list
+                function renderTodos() {
+                    console.dir(todos);
+                    // Clear the current list
+                    todoList.innerHTML = '';
+
+                    // Iterate over the todos array and create list items for each todo
+                    for (let i = 0; i < todos.length; i++) {
+                        const todo = todos[i];
+                        const index = i;
+
+                        // Create a new list item
+                        const listItem = document.createElement('li');
+                        listItem.className = 'todo-item';
+                        if (todo.completed) {
+                            listItem.innerHTML = `<span class="completed">${todo.task}</span>`
+                        }else{
+                            listItem.innerHTML = `<span>${todo.task}</span>`
+                        }
+                        // listItem.textContent = todo.task;
+                        listItem.dataset.index = index; // Set dataset index for identification
+
+                        // Create the complete button
+                        const completeBtn = document.createElement('button');
+                        completeBtn.className = 'complete-btn';
+                        completeBtn.textContent = todo.completed ? 'Undo' : 'Complete';
+
+                        // Create the delete button
+                        const deleteBtn = document.createElement('button');
+                        deleteBtn.className = 'delete-btn';
+                        deleteBtn.textContent = 'Delete';
+
+                        // Append buttons to the list item
+                        listItem.appendChild(completeBtn);
+                        listItem.appendChild(deleteBtn);
+
+                        // Append the list item to the todo list
+                        todoList.appendChild(listItem);
+
+                        // Event listener to toggle completed status
+                        completeBtn.addEventListener('click', function (event) {
+                            toggleTodoCompletion(index);
+                        });
+
+                        // Event listener to delete the todo
+                        deleteBtn.addEventListener('click', function (event) {
+                            deleteTodo(index);
+                        });
+                    }
+                }
+
+                // Initialize an empty array to store todo objects
+                let todos = [];
+
+                // Get DOM elements
+                const todoInput = document.getElementById('todo-input');
+                const addTodoButton = document.getElementById('add-todo');
+                const todoList = document.getElementById('todo-list');
+
+                // Add a click event listener to the add todo button
+                addTodoButton.addEventListener('click', () => {
+                    const todoInputValue = todoInput.value;
+
+                    if (todoInputValue.trim() !== '') {
+                        addTodo(todoInputValue);
+                        todoInput.value = '';
+                    } else {
+                        alert('Please enter a task.');
+                    }
+                });
+
+                // Initial render to ensure the list is empty on load
+                renderTodos();
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are based on</p>
+     <p>customized version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="../../../outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="../../../lib/reveal.js/dist/reveal.js"></script>
+    <script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+    <script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+    <script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        // var highlightjsTabSize = '  ';
+        Reveal.initialize({
+
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1280,
+            height: 1024,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mousе click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+
+            plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+        });
+    </script>
+</body>
+</html>
