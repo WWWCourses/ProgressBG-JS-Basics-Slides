@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQueryIntro</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+    <!-- custom -->
+    <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="../../../index.html#jQueryIntro" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Спейс</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>__presentation_title__</h1></section>
+<section data-transition="zoom">
+    <section>
+        <div class="copyright">
+            <div class="note">
+                <p>Created for</p>
+            </div>
+            <div class="company">
+                <a href="https://progressbg.net/javascript-basic/">
+                <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+        <div class="note">
+            <p>Created by</p>
+        </div>
+        <div class="company">
+           <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+        </div>
+        <!-- <div class="author">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div> -->
+    </section>
+</section>
+
+
+<section data-min="5"><h1>Въведение в jQuery</h1></section>
+<section><h2>Въведение в jQuery</h2>
+    <section>
+        <dl class="fa">
+            <dt>jQuery е JavaScript библиотека, която улеснява манипулацията на HTML документи и събития.</dt>
+            <dt>Тя предоставя прости API-та за извличане на елементи от DOM дървото, манипулиране на техните атрибути и стилове, добавяне на нови елементи и обработка на събития. Тези API-та
+            </dt>
+            <dt>Използването на jQuery API улеснява разработката на <a href="https://en.wikipedia.org/wiki/Cross-browser_compatibility">Cross-browser Compatible </a> сайтове.</dt>
+        </dl>
+    </section>
+    <section><h3>Изтегляне и изполване на jQuery</h3>
+        <dl class="fa">
+            <dt>Можете да изтеглите последната версия на jQuery от <a href="https://jquery.com/download/">официалния сайт на проекта</a>.</dt>
+            <dt>или да я включите чрез CDN (Content Delivery Network)</dt>
+            <dd><a href="https://code.jquery.com/">jQuery @jQuery CDN</a></dd>
+            <dd><a href="https://developers.google.com/speed/libraries#jquery">jQuery @Google CDN</a></dd>
+            <dd>or just search in google: <a href="">jQuery CDN</a></dd>
+            <dt>За да включите jQuery в страницата си, поставете следния код в &lt;head&gt; секцията:</dt>
+            <pre><code rel="HTML" class="html">
+                &lt;script src=&quot;https://code.jquery.com/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+            </code></pre>
+        </dl>
+        <!-- <p>jQuery CDNs</p> -->
+    </section>
+    <section><h3>Предимства при използване на CDN</h3>
+        <dl class="fa">
+            <dt><b>По-бързо зареждане на страницата</b>: Когато използвате CDN, браузърът на потребителя ще зареди библиотеката от най-близкия сървър на CDN клауд мрежата.
+            </dt>
+            <dt><b>Кеш на браузъра</b>: Ако потребителят е посетил друг сайт, който използва същата версия на библиотеката, тя вече ще бъде кеширана в браузъра му. Това означава, че не е нужно да се зарежда отново и може да се използва от кеша на браузъра, което пак води до по-бързо зареждане на страницата.</dt>
+            <dt><b>По-малко натоварване на сървъра</b>: Използването на CDN може да намали натоварването на сървъра на уебсайта, тъй като библиотеката ще бъде заредена от CDN, а не от сървъра на уебсайта.</dt>
+            <dt><b>Актуализации и поддръжка</b>: Библиотеките, качени на CDN са обикновено актуализирани и поддържани от екипите на CDN доставчиците, което означава, че ще получавате последните версии и поправки на бъгове без да трябва да ги инсталирате ръчно.</dt>
+        </dl>
+    </section>
+</section>
+
+<section data-min="20"><h1>jQuery Syntax</h1></section>
+<section><h2>Синтаксис на jQuery</h2>
+    <section>
+        <dl class="fa">
+            <dt>В основата на работа с jQuery е концепцията да "<span class="note">изберете някои елементи и направете нещо с тях</span>".</dt>
+            <dt>Синтаксисът на jQuery е персонализиран за <span class="note">избор на HTML елементи</span> и <span class="note">извършване на манипулация</span> върху елемент(ите).</dt>
+        </dl>
+        <pre><code rel="Syntax" class="js">
+            $(selector).manipulation()
+        </code></pre>
+        <pre><code rel="JS" class="js">
+            $(&quot;div&quot;).hide() - скрива всички DIV елементи &lt;div&gt;.
+
+            $(&quot;.red&quot;).hide() - скрива всички елементи с клас=&quot;red&quot;
+
+            $(&quot;#vip&quot;).hide() - скрива елемента с id=&quot;vip&quot;
+
+            $(this).hide() - скрива текущия елемент.
+        </code></pre>
+    </section>
+</section>
+
+<section data-min="10"><h1>Селектиране на елементи</h1></section>
+<section><h2>Селектиране на елементи</h2>
+    <section>
+        <dl class="fa">
+            <dt>Библиотеката jQuery излага своите методи и свойства чрез функцията <code>jQuery()</code>, или  <code>$()</code>, като <code>$</code> е просто псевдоним за <code>jQuery</code> и често се използва, защото е по-кратък и по-бърз за писане. Т.е. <code>$(selector)</code> е еквивалетно на <code>jQuery(selector)</code></dt>
+            <dt>Като аргумент на <code>$(selector)</code> можем да подадем CSS селектор, например:</dt>
+            <pre><code rel="HTML" class="html">
+                &lt;ul id=&quot;shoppint-list&quot;&gt;
+                    &lt;li&gt;Item 1&lt;/li&gt;
+                    &lt;li&gt;Item 2&lt;/li&gt;
+                    &lt;li&gt;Item 3&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;script&gt;
+                    $(&quot;li:nth-of-type(2)&quot;).css(&#39;background-color&#39;, &#39;#F00&#39;);
+                &lt;/script&gt;
+            </code></pre>
+            <dt>jQuery поддържа повечето CSS3 селектори,както и някои нестандартни такива (Reference: <a href="https://api.jquery.com/category/selectors/">Selectors @jquery.com</a>) </dt>
+        </dl>
+    </section>
+</section>
+
+<section data-min="10"><h1>Манипулиране на елементи</h1></section>
+<section><h2>Манипулиране на елементи</h2>
+    <section>
+        <dl class="fa">
+            <dt>С помощта на jQuery можете лесно да манипулирате елементите на страницата. </dt>
+            <dt>Например, за да промените текста на елемент, използвайте функцията `text()`:</dt>
+            <pre><code rel="JS" class="js">
+                $('.my-class').text('Нов текст');
+            </code></pre>
+            <dt>За да добавите нов елемент в DOM дървото, използвайте функцията `append()`:</dt>
+            <pre><code rel="JS" class="js">
+                $('body').append('<div>Нов елемент</div>');
+            </code></pre>
+            <dt>Reference: <a href="https://api.jquery.com/category/manipulation/">jQuery DOM manipulations</a></dt>
+        </dl>
+    </section>
+    <section><h3>Промяна на стила на елементите</h3>
+        <dl class="fa">
+            <dt>Можем да променяме стила на елементите чрез метода <code>css(property, value)</code> </dt>
+            <dt>Ако искате да промените фона на елемента div на червен цвят, можете да напишете следния код:</dt>
+            <pre><code rel="JS" class="js">
+                $("div").css("background-color", "red");
+            </code></pre>
+            <dt>За да промените повече от едно CSS свойство на елемент, можете да използвате обект, който да съдържа свойствата, които искате да промените. Например, ако искате да промените както фона, така и цвета на шрифта на елементите div, можете да напишете следното:</dt>
+            <pre><code rel="JS" class="js">
+                $("div").css({
+                    "background-color": "red",
+                    "color": "white"
+                });
+
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+<section data-min="10"><h1>jQuery Events</h1></section>
+<section><h2>jQuery Events</h2>
+    <section>
+        <dl class="fa">
+            <dt>jQuery предоставя прости методи за свързване на event handlers към елементи.</dt>
+            <dt>В jQuery повечето DOM събития имат еквивалентен метод в jQuery. Например:</dt>
+        </dl>
+        <pre><code rel="JS" class="js">
+            $(".title").click();
+            $(".title").dblclick();
+        </code></pre>
+    </section>
+    <section><h3>Синтаксис</h3>
+        <pre><code rel="Syntax" class="js">
+            $( 'selector' ).eventMethod( eventHandlerFunction );
+        </code></pre>
+        <dl class="fa">
+            <dt><span class="note">eventMethd</span> е някой от <a href="https://api.jquery.com/category/events/">jQuery Event Methods</a></dt>
+            <dt><span class="note">eventHandlerFunction</span> - дефиниция на функцията, която ще бъде изпълнена, когато събитието се стартира.</dt>
+            <pre><code rel="JS" class="js">
+                $('.title').click(function (e) {
+                    $(this).css('color','red');
+                })
+            </code></pre>
+            <dd>$(this) избира елемента, който е бил кликнат</dd>
+        </dl>
+
+    </section>
+    <section><h3>Методът on()</h3>
+        <dl class="fa">
+            <dt>Свързва функция за обработка на събития (event-handler function) за едно или повече събития към избраните елементи.</dt>
+            <pre><code rel="JS" class="js">
+                $('.item').on('click', function (e) {
+                    $(this).css('color','red');
+                })
+            </code></pre>
+            <dt>Референция: <a href="https://api.jquery.com/on/">on() @jquery</a></dt>
+        </dl>
+    </section>
+    <section><h3>Event Object</h3>
+        <dl class="fa">
+            <dt>Функцията за обработка на събития може да получи обект за събитие (event object), когато събитието се активира.</dt>
+            <dt>Event object представлява обект, който съдържа информация за текущото събитие, като например типа на събитието и координатите на курсора в момента на кликване. Например:</dt>
+            <pre><code rel="JS" class="js">
+                $(".title").on("click", function(event) {
+                    console.log("Кликнахте върху елемент с клас 'title'");
+                    console.log("Тип на събитието: " + event.type);
+                    console.log("Координати на курсора: " + event.pageX + ", " + event.pageY);
+                });
+            </code></pre>
+            <dt>Референция: <a href="https://api.jquery.com/category/events/event-object/">event object @jquery</a></dt>
+
+
+        </dl>
+    </section>
+    <section><h3>Събитието Document Ready</h3>
+        <dl class="fa">
+            <dt>Добра практика е да стартирате кода си веднага след като документът е готов за манипулиране, а не преди това.</dt>
+        </dl>
+        <pre><code rel="JS" class="js">
+            $( document ).ready(function() {
+
+                // Вашият код тук.
+
+            });
+        </code></pre>
+        <pre><code rel="JS" class="js">
+            // Съкращение на $( document ).ready()
+            $(function() {
+
+                // Вашият код тук.
+
+            });
+        </code></pre>
+    </section>
+    <!-- <section><h3>Live Demo</h3></section> -->
+</section>
+
+<section data-min="10"><h1>jQuery Traversing</h1></section>
+<section><h2>jQuery Traversing</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>jQuery Traversing е процесът на движение напред и назад в DOM дървото, като се използват методи на jQuery за манипулация на елементите. Тези методи ви позволяват да намирате, манипулирате и избирате елементи на базата на тяхната позиция в DOM дървото, на техния тип, атрибути и много други.</dt>
+            <dt>Reference: <a href="https://www.w3schools.com/jquery/jquery_traversing.asp">jQuery Traversing</a></dt>
+        </dl>
+    </section>
+    <section><h3>find()</h3>
+        <dl class="fa">
+            <dt><code>find()</code> методa намира всички деца на елемента, които отговарят на даден селектор. Например, ако имате HTML код с множество елементи div, и искате да намерите всички p елементи в тези div-ове, можете да използвате метода .find():</dt>
+            <pre><code rel="JS" class="js">
+                $('div').find('p');
+            </code></pre>
+        </dl>
+
+    </section>
+    <section><h3>siblings()</h3>
+        <dl class="fa">
+            <dt>Tози метод връща всички съседни елементи на даден елемент. Например, ако имате HTML код с множество елементи div, искате да намерите всички съседни елементи на div с клас "selected", можете да използвате метода .siblings():</dt>
+            <pre><code rel="JS" class="js">
+                $('.selected').siblings();
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>next()</h3>
+        <dl class="fa">
+            <dt>Този метод връща следващия елемент в DOM дървото. Например, ако имате HTML код с множество елементи div, искате да намерите следващия елемент след div с клас "selected", можете да използвате метода .next():</dt>
+            <pre><code rel="JS" class="js">
+                $('.selected').prev();
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>prev()</h3>
+        <dl class="fa">
+            <dt>Този метод връща предходния елемент в DOM дървото. Например, ако имате HTML код с множество елементи div, искате да намерите предходния елемент преди div с клас "selected", можете да използвате метода .prev():</dt>
+            <pre><code rel="JS" class="js">
+                $('.selected').prev();
+            </code></pre>
+        </dl>
+    </section>
+
+</section>
+
+<section data-min="10"><h1>jQuery Plugins</h1></section>
+<section><h2>jQuery Plugins</h2>
+    <section>
+        <dl class="fa">
+            <dt>jQuery Plugins са допълнителни библиотеки, които може да използвате с jQuery, за да разширите функционалността на вашата уеб страница. Тези плъгини са най-често създадени от други потребители на jQuery и са налични безплатно в мрежата.</dt>
+            <dt>Te включват набор от методи, функции и CSS стилове, които могат да бъдат лесно добавени към вашето jQuery приложение.</dt>
+            <dt>jQuery Plugins предлагат готови решения на общи проблеми, като например анимации, валидация на форми, карусели, галерии и много други. Например, ако имате нужда от слайдшоу на вашата уеб страница, можете да използвате плъгин като Cycle2, за да добавите карусел с минимални усилия. Вместо да създавате слайдшоу от самото начало, вие можете да използвате плъгина и да го персонализирате според нуждите си.</dt>
+            <dt>Всеки плъгин за jQuery има своя документация, която обяснява как се използва и конфигурира. За да използвате плъгин, трябва да добавите референция към него в HTML файл и да активирате метода на плъгина върху елементите, към които желаете да се приложи. Когато използвате плъгин, е важно да проверите дали той е съвместим с версията на jQuery, която използвате в своето приложение.
+            </dt>
+        </dl>
+    </section>
+    <section><h3>Demo - Cycle2 (slideshow plugin)</h3>
+        <iframe height="300" style="width: 100%;" scrolling="no" title="jQuery and Cycle2 Demo" src="https://codepen.io/ProgressWWWCourses/embed/BaqYydx?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+        See the Pen <a href="https://codepen.io/ProgressWWWCourses/pen/BaqYydx">
+        jQuery and Cycle2 Demo</a> by Iva E. Popova (<a href="https://codepen.io/ProgressWWWCourses">@ProgressWWWCourses</a>)
+        on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+        <dl class="fa">
+            <dt>Docs: <a href="https://jquery.malsup.com/cycle2/">Cycle2</a></dt>
+        </dl>
+    </section>
+    <section><h3>Demo - DataTables</h3>
+        <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/ProgressWWWCourses/embed/OJBQVyr?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/ProgressWWWCourses/pen/OJBQVyr">
+            Untitled</a> by Iva E. Popova (<a href="https://codepen.io/ProgressWWWCourses">@ProgressWWWCourses</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+          </iframe>
+        <dl class="fa">
+            <dt>Docs: <a href="https://datatables.net/">datatables.net</a></dt>
+        </dl>
+    </section>
+</section>
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are based on</p>
+     <p>customized version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="../../../outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="../../../lib/reveal.js/dist/reveal.js"></script>
+    <script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+    <script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+    <script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        // var highlightjsTabSize = '  ';
+        Reveal.initialize({
+
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1280,
+            height: 1024,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mousе click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+
+            plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+        });
+    </script>
+</body>
+</html>
