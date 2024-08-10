@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>GitAndGitHub_Overview</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+    <!-- custom -->
+    <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="../../../index.html#GitAndGitHub_Overview" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Спейс</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>Working with Git and GitHub - an overview</h1></section>
+<section data-transition="zoom">
+    <section>
+        <div class="copyright">
+            <div class="note">
+                <p>Created for</p>
+            </div>
+            <div class="company">
+                <a href="https://progressbg.net/javascript-basic/">
+                <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+        <div class="note">
+            <p>Created by</p>
+        </div>
+        <div class="company">
+           <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+        </div>
+        <!-- <div class="author">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div> -->
+    </section>
+</section>
+
+
+<section class="main-section-title"><h1>What are Git and GitHub</h1></section>
+<section class="sub-sections"><h2>What are Git and GitHub</h2>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <dt><span class="note">Git</span> is a distributed Version Control System (VCS) that tracks changes in source code during software development. It allows multiple developers to work on a project simultaneously without overwriting each other's changes.</dt>
+            <dt><span class="note">GitHub</span> is a web-based platform that hosts Git repositories. It provides additional tools and features to facilitate collaboration, such as pull requests, issue tracking, code reviews, and project management. GitHub also enables developers to share code publicly or privately, contributing to open-source projects or working on private repositories.</dt>
+            <dd>There are many GitHub alternatives, like GitLab and Bitbucket.</dd>
+            <dt><span class="note">Git vs Github</span>: while Git is the underlying technology for version control, GitHub adds a layer of collaboration and cloud storage.</dt>
+        </dl>
+
+    </section>
+</section>
+
+<section data-min="5"><h1>What is a VCS and how it makes life easier?</h1></section>
+<section><h2>What is a VCS and how it makes life easier?</h2>
+    <section>
+        <dl class="fa">
+            <dt><abbr>VCS</abbr><dfn id="DB"><span>Version</span><span>Control</span><span>System</span></dfn></dt>
+            <dd>a system that records changes in a project (files and directories) over time so that you can recall specific versions later</dd>
+            <dt>You can version control any files, all kind of work you do: writing, programming, images. </dt>
+            <dd>But VCS are extremely helpful in software development</dd>
+        </dl>
+    </section>
+    <section><h3 id="VCSAdvantagesInSoftwareDevelopment">VCS Advantages in Software Development</h3>
+        <dl class="fa">
+            <dt><b>Track Changes Over Time:</b> VCS allows developers to keep a history of changes made to the codebase. This feature is invaluable for understanding how a project has evolved and for analyzing the impact of specific changes.</dt>
+            <dt><b>Facilitate Collaboration:</b> In modern software development, teams often work on the same projects simultaneously. VCS supports multiple developers working on the same codebase without overwriting each other's changes, merging contributions seamlessly.</dt>
+            <dt><b>Error Recovery:</b> When errors are introduced into the code, VCS makes it easy to revert to earlier, error-free versions. This capability significantly reduces the risk associated with new deployments.</dt>
+            <dt><b>Branching and Merging:</b> VCS enables developers to create branches, allowing them to work on new features or fixes independently from the main codebase. Once ready, these changes can be merged back into the main project, facilitating continuous integration and delivery.</dt>
+            <dt><b>Track Who Made Changes:</b> VCS provides transparency over who made specific changes, adding an accountability layer to the development process. This feature is crucial for coordinating team efforts and resolving issues.</dt>
+        </dl>
+    </section>
+</section>
+
+<section data-min="50"><h1>Types of VSC</h1></section>
+<section><h2>Types of VSC</h2>
+    <section><h3>Local VCS</h3>
+        <dl class="fa">
+            <dt>Local version control systems store tracking information on the local computer only.</dt>
+            <dt>While it's a simple method, it's not commonly used by companies due to the lack of collaboration features and increased risk of data loss.</dt>
+            <a href="images/local_vcs.png"><img src="images/local_vcs.png"></a>
+        </dl>
+    </section>
+    <section><h3>Centralized VCS</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Centralized version control systems, like <a href="http://subversion.tigris.org/">Subversion (SVN)</a>, use a single server repository and client workstations that check out files from that repository.</dt>
+            <dt>Centralized VCSs simplify collaboration but introduce a single point of failure that can compromise the entire project's history if not properly backed up.</dt>
+            <a href="images/centralized_vcs.png"><img src="images/centralized_vcs.png"></a>
+        </dl>
+    </section>
+    <section><h3>Decentralized (Distributed) VCS</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Distributed version control systems, like <a href="https://git-scm.com/">Git</a>, allow each user to have a full copy of the entire repository history, enhancing collaboration and security.</dt>
+            <dt>This model supports distributed development, allows for multiple backup points, and facilitates complex merging and branching strategies.</dt>
+            <a href="images/distributed_vcs.png"><img src="images/distributed_vcs.png" style="width: 30vw; height: 53vh;"></a>
+        </dl>
+    </section>
+</section>
+
+<section data-min="50" class="main-section-title"><h1>Distributed VCS Concepts</h1></section>
+<section class="sub-sections"><h2>Distributed VCS Concepts</h2>
+    <section><h3>Overview</h3>
+        <a href="images/distributed_concepts_overview.png"><img src="images/distributed_concepts_overview.png"></a>
+    </section>
+    <section>
+        <dl class="fa">
+            <dt><b>Working Copy (Working Directory):</b></dt>
+            <dd>The actual files a developer works on. Changes made here can be saved (committed) to their local repository.</dd>
+            <dt><b>Repository</b></dt>
+            <dd>It's a place where all the project's files live and where you can see the history of what's been done, who did it, and when. Repositories can be local or remote</dd>
+            <dt><b>Local Repository:</b></dt>
+            <dd>Local repositories reside on the computer of each developer, allowing for individual work on the project's codebase. Each contributor has their own local repository with the full history of the project.</dd>
+            <dt><b>Remote Repository:</b></dt>
+            <dd>Remote repositories are hosted on the internet or a network, enabling multiple developers to push and pull changes, thus supporting collaborative work across teams.</dd>
+            <dt><b>Commit (Local):</b></dt>
+            <dd>Saving changes to the local repository. It's a snapshot of the working copy at a given time.</dd>
+            <dd>Developers must commit their work locally before sharing it with others.</dd>
+            <dt><b>Pull:</b></dt>
+            <dd>Bringing in changes from the server repository to the local repository to keep it up-to-date.</dd>
+            <dt><b>Push:</b></dt>
+            <dd>Transferring local changes (commits_ to the server repository. This is how changes are shared with other team members.</dd>
+        </dl>
+    </section>
+</section>
+
+
+<section class="main-section-title" id="GitBasics"><h1>Setting Up Git</h1></section>
+<section class="sub-sections"><h2>Setting Up Git</h2>
+    <section><h3>Installing Git</h3>
+        <dl class="fa">
+            <dt>Visit the official Git website (<a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a> ) to download the Git installer for your operating system.</dt>
+            <dt>Follow the installation wizard, which will guide you through the setup process, including selecting the right options for your environment.</dt>
+            <dt>To verify the installation, open your terminal (Command Prompt, PowerShell, or Terminal) and type:</dt>
+            <pre><code rel="Terminal" class="bash">
+                git -v
+
+                # git version 2.43.0
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Setting up user name and email</h3>
+        <dl class="fa">
+            <dt>Before your first git commit, you have to provide your user name and email.</dt>
+            <dt>This information will be stamped in each of you commits and other git activities you make.</dt>
+            <dt>You are not obliged to put your GitHub account email, but keep in mind that GitHub relies on the email address associated with commits to attribute contributions to user profiles. If the email address in your Git configuration does not match the one associated with your GitHub account, your contributions will not be reflected on your GitHub profile activity and contribution graphs.</dt>
+            <pre><code rel="Terminal" class="bash">
+                #Global:  if you wish to setup your git identity on global level, you can use the --global option:
+                git config --global user.email "your_mail@mail.com"
+                git config --global user.name "User Name"
+
+                # Local: per project - make sure you type next commands while you are in the root git folder
+                git config user.email "your_mail@mail.com"
+                git config user.name "User Name"
+            </code></pre>
+            <dt>Check your configuration by typing:</dt>
+            <pre><code rel="Terminal" class="bash">
+                git config user.name
+                git config user.email
+            </code></pre>
+
+        </dl>
+    </section>
+    <section><h3>Set VSCode as default git editor</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>If you want to configure Git to use VSCode as the default editor for commit messages and other interactive Git commands:</dt>
+            <pre><code rel="Terminal" class="bash">
+                git config --global core.editor "code --wait"
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<section><h1>Initialize a Git repository</h1></section>
+<section><h2>Initialize a Git repository</h2>
+    <section><h3><code>git init</code></h3>
+        <dl class="fa">
+            <dt>To create a new Git repository open a terminal and navigate to the root project folder and then execute the git init command.:</dt>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                cd /path/to/your/project
+
+                git init
+            </code></pre>
+            <dt>git will start to track all the files and <b>non empty folders</b> in CWD.</dt>
+            <dt>A hidden <code>.git</code> folder is created.</dt>
+            <pre><code rel="Terminal" class="bash">
+                ### list all files:
+                # Linux/MacOS:
+                pwd
+                # CommandPrompt:
+                dir /a
+
+                # output
+                .git
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<section><h1>Saving changes in Git</h1></section>
+<section><h2>The Three States</h2>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Understanding the three states in Git - working directory, staging area, and repository - is crucial for effectively managing and saving changes.</dt>
+            <dt>By comprehending these states, developers gain clarity on the status and progression of their code modifications</dt>
+            <a href="images/git_areas.png"><img src="images/git_areas.png"></a>
+        </dl>
+    </section>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <dt>In Git, there are three main states that files can reside in within a Git repository:</dt>
+            <dt><b>Working Directory</b> (Untracked files): This is the state where files exist in your project directory but have not yet been tracked by Git. Git is unaware of any changes made to these files, and they are considered untracked.</dt>
+            <dt><b>Staging Area</b> (Staged files): After modifying files in the working directory, you can stage them for the next commit by adding them to the staging area using the git add command. Files in the staging area are ready to be committed, and Git is aware of the changes made to these files.</dt>
+            <dt><b>Repository</b> (Committed files): When you commit changes in the staging area using the git commit command, Git creates a snapshot of the staged changes and permanently stores them in the repository. These committed changes are now part of the project's history and can be accessed and referenced in the future.</dt>
+        </dl>
+    </section>
+</section>
+<section><h2>The Staging Area</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>The staging area, also known as the index, is a crucial concept in Git that serves as a middle ground between your working directory and the repository. It acts as a temporary storage area where changes are prepared before being committed to the repository.</dt>
+            <dd>Imagine the staging area as a preparation zone where you carefully select and organize items (changes) before packing them into a box (commit) for shipping (pushing to the repository).</dd>
+            <dt>Before committing changes to the repository, files must be added to the staging area. This allows you to selectively choose which changes to include in the next commit, providing finer control over the commit process.</dt>
+            <dt>The staging area allows for the separation of logical changes into smaller, more manageable commits.</dt>
+            <dt>Common Git commands related to the staging area include:
+                <ul>
+                    <li><code>git add</code>: Adds changes from the working directory to the staging area.</li>
+                    <li><code>git reset</code>: Removes changes from the staging area, but keeps them in the working directory.</li>
+                    <li><code>git status</code>: Displays the status of files in the working directory and staging area.</li>
+                </ul>
+            </dt>
+        </dl>
+    </section>
+    <section><h3>Add changes to stage (index): <code>git add</code></h3>
+        <dl class="fa">
+            <dt>To stage changes only in certain file/directory:</dt>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                git add <i>path</i>
+            </code></pre>
+            <dt>To stage all changes in the working directory, including new, modified, and deleted files (including untracked files and directories):</dt>
+            <pre><code rel="Terminal" class="bash">
+                git add -A
+
+                # or the shortcut:
+                git add .
+            </code></pre>
+            <!-- <dt>To stage modifications and deletions, but not to add new untracked files to the staging area:</dt>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                git add -a
+            </code></pre> -->
+
+        </dl>
+    </section>
+    <section><h3>Remove files from the staging area: <code>git reset</code></h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>To remove files from the staging area in Git, you can use the "git reset" command with the "--" option followed by the filenames of the files you want to unstage.</dt>
+            <pre><code rel="Terminal" class="bash">
+                git reset HEAD -- &lt;filename&gt;
+            </code></pre>
+            <dt>After running the "git reset" command, the specified files will be removed from the staging area, but their changes will still be present in your working directory.</dt>
+            <dt><span class="note">Use this command cautiously. Make sure you understand the consequences before using it.</span></dt>
+        </dl>
+    </section>
+</section>
+<section><h2>Commit changes: <code>git commit</code></h2>
+    <section><h3>Git Commit Command</h3>
+        <dl class="fa">
+            <dt>The "git commit" command is used to save snapshot of the staged changes and adds them to the repository's history.</dt>
+            <pre><code rel="plaintext">
+                git commit -m "commit message"
+            </code></pre>
+            <dd>The "-m" flag is used to specify a commit message, which provides a brief description of the changes made in the commit.</dd>
+            <dt>Commit Best Practices:</dt>
+            <dd>Write clear and concise commit messages that describe the purpose of the changes.</dd>
+            <dd>Commit small, focused changes rather than large, sweeping modifications.</dd>
+            <dd>Review changes before committing to ensure that only intended modifications are included.</dd>
+            <dd>Use present tense in commit messages and avoid unnecessary details.</dd>
+            <dd>Examples:</dd>
+            <pre><code rel="git commit messsages" class="bash">
+                "Fix typo in user registration form" #GOOD
+                "Changed registration form"          #BAD
+
+                "Add validation for email address in registration form"  #GOOD
+                "Update registration form functionality"                 #BAD
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<section><h1>Git Status and Repository History</h1></section>
+<section><h2><code>git status</code></h2>
+    <section><h3>Overview</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><code>git status</code> is a command in Git that displays the current state of the working directory and staging area. When you run "git status", Git provides information about which files have been modified, which files are staged for the next commit, and which files are untracked. Here's what "git status" typically shows:</dt>
+            <dd><b>Modified Files</b>: Files that have been modified in the working directory but have not yet been staged for commit. Git informs you of changes that have been made since the last commit.</dd>
+            <dd><b>Staged Files</b>: Files that have been modified and staged using "git add" for the next commit. These changes are ready to be included in the next commit.</dd>
+            <dd><b>Untracked Files</b>: Files that are present in the working directory but have not been added to the Git repository. Git does not track changes to these files unless they are explicitly staged using "git add".</dd>
+            <dd><b>Branch Information</b>: Git also displays information about the current branch and whether there are any commits ahead or behind the remote branch, if you're working with a remote repository.</dd>
+        </dl>
+    </section>
+    <section><h3>Example</h3>
+        <dl class="fa" style="min-width:80vw">
+            <pre><code rel="Terminal" class="bash">
+                git status
+
+                # Output:
+                On branch main
+                Your branch is up to date with &#39;origin/main&#39;.
+
+                Changes not staged for commit:
+                  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+                  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+                        modified:   index.html
+
+                Untracked files:
+                  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+                        newfile.txt
+
+                no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+            </code></pre>
+            <dt>The status tell us that:</dt>
+            <dd>The branch is "main" and it's up to date with the remote branch.</dd>
+            <dd>There is one modified file ("index.html") that has changes not staged for commit.</dd>
+            <dd>There is one untracked file ("newfile.txt") that Git has not yet recognized.</dd>
+            <dd>Git provides suggestions on how to stage changes for commit ("git add") or discard changes ("git restore").</dd>
+        </dl>
+    </section>
+</section>
+<section><h2><code>View Repository History</code></h2>
+    <section><h3><code>git log</code></h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The "git log" command is used to view the commit history of a Git repository.</dt>
+            <dt>When you run "git log", Git displays a chronological list of commits, <span class="note">starting with the most recent commit at the top</span>.</dt>
+            <dt>The output of "git log" includes details such as the commit hash (unique identifier assigned to each commit in a Git repository), author, date and time of the commit, and the commit message.</dt>
+            <dt>There are various options you can use with "git log" to customize the output, such as "--oneline" for a concise view, "--graph" for a graphical representation of branches, and "--since" or "--until" to filter commits by date.</dt>
+            <dt>"git log" is a valuable tool for understanding the history of a project, tracking changes, and collaborating with team members. It provides insight into who made changes, when they were made, and the purpose of each commit.</dt>
+            <dt>Example:</dt>
+            <pre><code rel="Terminal" class="bash">
+                git log
+
+                # output
+                commit 3e2f0a7f8eaa1e6b9282cb108de41a62aefa1253 (HEAD -&gt; main)
+                Author: John Doe &lt;johndoe@example.com&gt;
+                Date:   Mon Feb 14 10:00:00 2024 +0100
+
+                    Update index.html
+
+                commit 7c34d95b19378036b850a08b58b384dd4ce3aa12
+                Author: Jane Smith &lt;janesmith@example.com&gt;
+                Date:   Sun Feb 13 15:30:00 2024 +0100
+
+                    Add newfile.txt
+
+                commit ac1d9e8d0737f07bde8b34d824d8a8c11bcf87d7
+                Author: John Doe &lt;johndoe@example.com&gt;
+                Date:   Sat Feb 12 09:45:00 2024 +0100
+
+                    Initial commit
+
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title"><h1>the <code>.gitignore</code> file</h1></section>
+<section class="sub-sections"><h2>the <code>.gitignore</code> file</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The .gitignore file is used in Git to specify intentionally untracked files that Git should ignore. These files are typically generated as part of the build process or contain sensitive information and you do not want them to be in the repository.</dt>
+            <dt>Examples of files often included in .gitignore are compiled binaries, log files, temporary files, and configuration files containing sensitive information like API keys or passwords.</dt>
+            <dt>By creating a .gitignore file in the root directory of the repository and listing patterns for files or directories to ignore, Git will automatically disregard those files when tracking changes.</dt>
+            <dt>.gitignore uses simple pattern matching rules to specify which files or directories to ignore. Patterns can include wildcards such as "*" to match multiple files or directories, and "!" to negate patterns.</dt>
+            <pre><code rel=".gitignore" class="bash">
+                # Ignore all .txt files in the repository
+                *.txt
+
+                # Ignore all files in the "logs" directory
+                logs/*
+
+                # Ignore all files with the .log extension, except "important.log"
+                *.log
+                !important.log
+
+                # Ignore the "config" directory and its contents
+                /config/
+
+                # Ignore all files with the .tmp extension in any directory
+                **/*.tmp
+
+                # Exclude all files in the "docs" directory, including subdirectories
+                /docs/
+            </code></pre>
+            <dt>For popular programming languages and frameworks you can find in internet .gitignore templates:</dt>
+            <dd><a href="https://github.com/github/gitignore">A collection of .gitignore templates</a></dd>
+            <dd><a href="https://github.com/facebook/react/blob/main/.gitignore">React .gitignore</a></dd>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title"><h1>Adding a local repository to GitHub using Git <br>(uploading your project to GitHub)</h1></section>
+<section class="sub-sections"><h2>Adding a local repository to GitHub using Git</h2>
+    <section><h3>Authenticating to GitHub</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>When you want to push/pull to GtiHub repo, you must authenticate yourself.</dt>
+            <dt>If you'll use git to push/pull - check on next slide "Authenticating to GitHub with the command line by Personal Access Token (PAT)"</dt>
+            <dt>If you use VSCode, as of November 2023, VS Code introduced automatic GitHub authentication for public and private repositories. It uses your logged-in GitHub account for authentication. No PAT or SSH setup is required.</dt>
+        </dl>
+    </section>
+    <section><h3>Authenticating to GitHub with the command line by Personal Access Token (PAT)</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Go to your GitHub profile settings (https://github.com/settings/tokens)</dt>
+            <dd>click on "Settings=>Developer Settings"</dd>
+            <dt>Click on "Personal access tokens=>Tokens (classic)=>New personal access token (classic)".</dt>
+            <dt>Give your token a descriptive name (e.g., "push-to-MyProject").</dt>
+            <dt>Select the scopes that the token will need</dt>
+            <dd>for pushes you need only the "workflows" scope.</dd>
+            <dt>Click "Generate token" and copy the generated token securely.</dt>
+            <dd class="note">Never share this token publicly.</dd>
+            <dt>Now what git asks you for GitHub login give the token instead of a password</dt>
+            <dt>Reference: <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#authenticating-with-the-command-line">Authenticating with the command line</a></dt>
+        </dl>
+    </section>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <dt>1. Create a GitHub repository online (Go to your GitHub profile and click on "New repository").</dt>
+            <dd>Do NOT initialize the repository with a README, license, or gitignore file</dd>
+            <dt>2. Initialize a local Git repository or navigate to an existing one.</dt>
+            <dt>3. Link your local repository to the remote GitHub repository using:</dt>
+            <pre><code rel="Terminal" class="bash">
+                git remote add origin &lt;repository_URL&gt;
+            </code></pre>
+            <dt>4. Commit your changes (if you have not done that):</dt>
+            <pre><code rel="Terminal" class="bash">
+                git add .
+                git commit -m "Initial commit"
+            </code></pre>
+            <dt>5. Push your changes to GitHub:</dt>
+            <pre><code rel="Terminal" class="bash">
+                git push -u origin main
+            </code></pre>
+            <dt><b>Authentication:</b>You may need to authenticate with your GitHub username and password or use SSH keys for authentication.</dt>
+            <dt>Reference: <a href="https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#adding-a-local-repository-to-github-using-git">Adding a local repository to GitHub using Git
+            </a></dt>
+        </dl>
+    </section>
+    <section><h3>Hands on</h3>
+        <dl class="fa">
+            <dt>1. Navigate to your project directory and open a terminal.</dt>
+            <dt>2. Initialize a new Git repository: <code>git init</code>.</dt>
+            <dt>3. Add a file to the repository: <code>git add README.md</code>.</dt>
+            <dt>4. Commit the file: <code>git commit -m "Initial commit"</code>.</dt>
+            <dt>5. Connect your repository to a remote server: <code>git remote add origin https://github.com/yourusername/yourrepository.git</code>.</dt>
+            <dt>6. Push your commits: <code>git push -u origin main</code>.</dt>
+            <dd>This sequence of commands sets up a new Git repository, tracks changes to a file, and pushes those changes to a remote repository hosted on GitHub.</dd>
+        </dl>
+    </section>
+</section>
+
+<section data-min="5"><h1>Using GitHub Pages for Free Project Hosting</h1></section>
+<section><h2>How to Host Your Project for Free with GitHub Pages</h2>
+    <section>
+        <dl class="fa">
+            <dt>GitHub Pages offers free hosting for static websites directly from your GitHub repository, making it an ideal solution for showcasing projects.</dt>
+            <dt>Follow these straightforward steps to get started:</dt>
+            <dd>1. Sign in to your GitHub account.</dd>
+            <dd>2. Go to your repository and click on 'Settings'.</dd>
+            <dd>3. Scroll down to the 'GitHub Pages' section.</dd>
+            <dd>4. Select a source branch for your site and (optionally) a theme.</dd>
+            <dd>5. Follow the provided instructions to finalize the setup.</dd>
+            <dt>For detailed guidance and advanced configurations, visit the official GitHub Pages documentation:</dt>
+            <dd>Reference: <a href="https://pages.github.com/" target="_blank">pages.github.com</a></dd>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="GitClone"><h1>Git Clone: How to Copy a Repository</h1></section>
+<section class="sub-sections"><h2>Git Clone: How to Copy a Repository</h2>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The <code>git clone</code> command is used to create a local copy of a remote repository.</dt>
+            <dd>This allows you to work on your project locally, with all the files and history from the remote repository.</dd>
+            <dt>To clone a repository, use the following syntax in your terminal:</dt>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                git clone [repository URL]
+            </code></pre>
+            <dt>Example:</dt>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                git clone https://github.com/exampleuser/example-repo.git
+            </code></pre>
+            <dd>After executing the command, a new directory will be created with the name of the repository, containing all its files and history.</dd>
+        </dl>
+    </section>
+</section>
+
+<section class="main-sesction-title" id="IntroductionToGitBranches"><h1>Introduction to Git Branches</h1></section>
+<section class="sub-sections"><h2>Introduction to Git Branches</h2>
+    <section><h3>What are branches?</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Imagine you're working on a group project, and you want to try out new ideas without affecting the main project. Git branches let you do just that.</dt>
+            <dt>Each branch in Git represents a separate line of development. Think of them as parallel versions of the project that you can work on simultaneously. This way, you can experiment, develop new features, or fix bugs in isolation from the main project (often referred to as the 'main' or 'master' branch).</dt>
+            <dt>Once you're satisfied with the changes on a branch, you can merge them back into the main project, ensuring that all improvements are incorporated seamlessly. This approach not only simplifies development but also minimizes the risk of disrupting the main codebase.</dt>
+            <a href="./images/branches_diagram.png"><img src="./images/branches_diagram.png" alt="branches_diagram" style="height: 40vh;"></a>
+        </dl>
+    </section>
+    <section><h3>Creating and Switching Branches</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>To create a new branch, use the <code>git branch</code> command followed by the name of the new branch.</dt>
+            <dd>This creates a new branch but does not switch to it.</dd>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                git branch new-feature
+            </code></pre>
+            <dt>To switch to an existing branch, use the <code>git checkout</code> command.</dt>
+            <dd>This command changes the current working directory to the specified branch.</dd>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                git checkout new-feature
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Merging Branches</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Merging is a fundamental Git operation that integrates changes from one branch into another.</dt>
+            <dd>Think of merging like combining the ingredients of two recipes into one. In Git, merging takes the changes from one branch (like a list of ingredients) and adds them to another, making your project up-to-date with all the changes.</dd>
+            <dt>How to Merge</dt>
+            <dd>1. Switch to the branch you want to add changes to. This is usually your main project branch, often called <code>main</code>.</dd>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                git checkout main
+            </code></pre>
+            <dd>2. Bring in the changes from another branch, say <code>feature</code>, into your main branch.</dd>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                git merge feature
+            </code></pre>
+            <dd>This tells Git: "Take everything from <code>feature</code> and add it to <code>main</code>."</dd>
+        </dl>
+    </section>
+    <section><h3>Conflict Resolution</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Merge conflicts occurs when changes in one branch clash with changes in another.</dt>
+            <dd>It's like when two recipes suggest different oven temperatures - you have to decide which one to follow.</dd>
+            <dt>Git will highlight conflicts during a merge, and you'll have to edit the files to fix them. After that, you tell Git you've resolved the conflicts by adding and committing the changes.</dt>
+        </dl>
+    </section>
+    <section><h3>Best Practices for Branch Management</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Regularly merge changes from the main branch into your feature branches.</dt>
+            <dd>This helps minimize merge conflicts and keeps the branch up to date.</dd>
+            <dt>Delete branches after their changes have been merged into the main branch.</dt>
+            <dd>This helps to keep the repository clean and manageable.</dd>
+        </dl>
+    </section>
+</section>
+
+<section id="ConflictResolutionExample"><h3>Conflict Resolution: A Simple Scenario</h3>
+    <dl class="fa" style="min-width:80vw;">
+        <dt>You and a teammate have made different changes to the same part of a file named <code>index.html</code>. Your work involved adding a new H2 element to <code>index.html</code>, while your teammate has modified the text of an existing H1 element in the same file.</dt>
+        <dt>You try to merge your teammate's branch feature into your current branch main:</dt>
+        <pre><code rel="Terminal" class="bash">
+            git checkout main
+            git merge feature
+        </code></pre>
+        <dt>and a conflict occurs. Here is the output</dt>
+        <pre><code rel="Terminal" class="bash">
+            # Auto-merging index.html
+            # CONFLICT (content): Merge conflict in index.html
+            # Automatic merge failed; fix conflicts and then commit the result.
+        </code></pre>
+        <dt>To fix the conflict, you open <code>index.html</code>, and will see the conflicting changes marked by Git:</dt>
+        <pre><code rel="HTML" class="html" style="min-height: 1vh;">
+            &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+            &lt;h1>Original H1 Title&lt;/h1>
+            &lt;h2>Your New H2&lt;/h2>
+            =======
+            &lt;h1>Teammate's Modified H1&lt;/h1>
+            &gt;&gt;&gt;&gt;&gt;&gt;&gt; feature
+        </code></pre>
+        <dt>You decide to keep both the modified H1 and your new H2, thus editing the file to reflect both sets of changes.</dt>
+            <pre><code rel="HTML" class="html" style="min-height: 1vh;">
+                &lt;h1>Teammate's Modified H1&lt;/h1>
+                &lt;h2>Your New H2&lt;/h2>
+            </code></pre>
+        <dt>After editing the file, you add it to the staging area to indicate that the conflict has been resolved:</dt>
+        <pre><code rel="Terminal" class="bash" data-noescape>
+            git add index.html
+        </code></pre>
+        <dt>Finally, you commit the changes to finalize the resolution and complete the merge:</dt>
+        <pre><code rel="Terminal" class="bash" data-noescape>
+            git commit -m "Resolved merge conflict by incorporating both header and title changes"
+        </code></pre>
+        <dt>Now, the <code>main</code> branch includes both your and your teammate's contributions, and the project moves forward without any hitches.</dt>
+    </dl>
+</section>
+
+<section data-min="5"><h1>Resources</h1></section>
+<section><h2>Recommended Videos</h2>
+  <!-- <section>
+      <p>Git Tutorial for Beginners: Command-Line Fundamentals</p>
+      <iframe width="736" height="414" src="https://www.youtube.com/embed/HVsySz-h9r4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </section> -->
+  <section>
+      <p>Github Tutorial For Beginners - Github Basics for Mac or Windows & Source Control Basics</p>
+      <iframe width="736" height="414" src="https://www.youtube.com/embed/0fKg7e37bQE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </section>
+</section>
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are based on</p>
+     <p>customized version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="../../../outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="../../../lib/reveal.js/dist/reveal.js"></script>
+    <script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+    <script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+    <script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        // var highlightjsTabSize = '  ';
+        Reveal.initialize({
+
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1280,
+            height: 1024,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mousе click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+
+            plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+        });
+    </script>
+</body>
+</html>

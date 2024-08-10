@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CLI_Overview</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+	<link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+	<!-- Theme used for syntax highlighting of code -->
+	<!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+	<!-- custom -->
+	<link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+		<div class="top_links">
+			<a class="home_link" href="../../../index.html#CLI_Overview" target="_top"><i class="fa fa-home"></i></a>
+			<span class="help_link"><i class="fa fa-question"></i></span>
+			<div class="help_text">
+				<div class="note">Keyboard shortcuts:</div>
+				<div><span>N/Спейс</span><span>Next Slide</span></div>
+				<div><span>P</span><span>Previous Slide</span></div>
+				<div><span>O</span><span>Slides Overview</span></div>
+				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+				<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+				Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+			</div>
+		</div>
+		<div class="footer theme_switch">
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+		</div>
+		<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>Introduction to CLI</h1></section>
+<section data-transition="zoom">
+	<section>
+		<div class="copyright">
+			<div class="note">
+				<p>Created for</p>
+			</div>
+			<div class="company">
+				<a href="https://progressbg.net/javascript-basic/">
+				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+				</a>
+			</div>
+		</div>
+	</section>
+	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+		<div class="note">
+			<p>Created by</p>
+		</div>
+		<div class="company">
+		   <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+		</div>
+		<!-- <div class="author">
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+		</div> -->
+	</section>
+</section>
+
+
+<section class="main-section-title"><h1>CLI and "terminal" overview</h1></section>
+<section class="sub-sections"><h2>CLI and "terminal" overview</h2>
+	<section><h3>Framing the concepts</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt><span class="note">CLI (Command-Line Interface)</span> is a text-based interface where users type commands to interact with the computer's operating system. Unlike graphical user interfaces (GUIs), the CLI requires users to type specific commands, which are then interpreted by the system to perform the requested actions.</dt>
+			<dt><span class="note">"terminal"</span> is an application, which acts as an interface to acces CLI. In "terminal" you type commands to perform actions on your computer. Instead of clicking, you type text and press Enter to execute actions (executing programs, managing files and directories, configuring system settings, and troubleshooting issues).</dt>
+			<dt>"terminal" allows users to execute commands directly, providing more control and flexibility compared to graphical user interfaces (GUIs). It supports a wide range of commands and utilities, making it suitable for both basic and advanced users.</dt>
+            <dt>"terminal" is commonly used by system administrators, developers, and power users for tasks such as system maintenance, batch processing, automation, package management and more.</dt>
+            <dt>"terminal" is a generic term used to describe command-line interfaces on various operating systems, including Windows, macOS, and Linux.</dt>
+			<dd>On Windows, examples of terminals are: Command Prompt and PowerShell</dd>
+			<dd>On Linux based OS: GNOME Terminal</dd>
+			<dd>On MacOS: Terminal</dd>
+		</dl>
+	</section>
+</section>
+
+<section class="main-section-title" id="CommandPromptBasics"><h1>Command Prompt Basics</h1></section>
+<section class="sub-sections"><h2>Command Prompt Basics</h2>
+    <section><h3>Opening Command Prompt</h3>
+        <dl class="fa">
+            <dt><b>How to Open:</b></dt>
+            <dd>Press <code>Windows + R</code>, type <code>cmd</code>, and press Enter. Alternatively, search for "Command Prompt" in the Start menu.</dd>
+            <dd>This opens Command Prompt, starting in your user profile directory.</dd>
+        </dl>
+    </section>
+
+    <section><h3>Current Working Directory (CWD)</h3>
+        <dl class="fa">
+            <dt>The Current Working Directory is your active directory in the Command Prompt, acting as the reference point for all file and directory commands. It determines the context for executing commands and scripts.</dt>
+            <dt>Think of it as your home base. If you tell your computer to do something, it starts here and looks around in this spot</dt>
+            <dd>If you're in a folder named "Music" and look for a file, your computer only searches in "Music," not the whole computer</dd>
+            <dt>Example Scenario:</dt>
+            <dd>If your CWD is <code>C:\Users\YourUsername\Documents</code> and you run a command like <code>dir Projects</code>, it will list contents of <code>C:\Users\YourUsername\Documents\Projects</code>.</dd>
+            <dt><b>Viewing Current Directory:</b> Type <code>cd</code> without arguments to see CWD:</dt>
+            <pre><code rel="Terminal" class="bash">
+                # Assuming CWD is C:\Users\UserName
+                cd
+                # Output: C:\Users\UserName
+            </code></pre>
+            <dt>Best Practices:</dt>
+            <dd>Always verify your CWD with <code>cd</code> before executing commands to avoid unintended consequences, such as file deletions or incorrect script executions.</dd>
+        </dl>
+    </section>
+
+    <section><h3>Viewing Folder Contents</h3>
+        <dl class="fa">
+            <dt>Type <code>dir</code> to list all the files and folders  within your current directory.</dt>
+            <dd>This command provides information like file size and the date last modified.</dd>
+            <dt>To view hidden files and folders you can use <code>dir /a</code></dt>
+            <pre><code rel="Terminal" class="bash">
+                # Assuming CWD is C:\Users\UserName\Documents
+                dir /a
+                # Output:
+                Volume in drive C has no label.
+                Volume Serial Number is 1234-5678
+
+                Directory of C:\Users\UserName\Documents
+
+                02/15/2024  10:00 AM    &lt;DIR&gt;          .
+                02/15/2024  10:00 AM    &lt;DIR&gt;          ..
+                02/15/2024  10:00 AM    &lt;DIR&gt;          Projects
+                02/15/2024  10:00 AM    &lt;DIR&gt;          Reports
+                02/15/2024  10:00 AM    &lt;DIR&gt;          Presentations
+                02/15/2024  10:00 AM    &lt;DIR&gt;          .hidden_folder
+                            0 File(s)              0 bytes
+                            6 Dir(s)  100,000,000,000 bytes free
+            </code></pre>
+        </dl>
+    </section>
+
+    <section><h3>Navigating Through Folders</h3>
+        <dl class="fa">
+            <dt><b>Changing Directories:</b> Use <code>cd [FolderName]</code> to move into a specific folder.</dt>
+            <pre><code rel="Terminal" class="bash">
+                # Assuming CWD is C:\Users\UserName
+                cd Documents
+                # New CWD: C:\Users\UserName\Documents
+            </code></pre>
+            <dd>If you want to move to a folder deep within several layers of directories, you can chain them together with backslashes.</dd>
+            <pre><code rel="Terminal" class="bash">
+                # Assuming CWD is C:\Users\UserName
+                cd Documents\Projects\Cources
+                # New CWD: C:\Users\UserName\Documents\Projects\Cources
+            </code></pre>
+            <dt><b>Going Up:</b> type <code>cd ..</code> to move up one directory level. This command takes you to the parent directory of your current location.</dt>
+            <pre><code rel="Terminal" class="bash">
+                # Assuming CWD is C:\Users\UserName\Documents
+                cd ..
+                # New CWD: C:\Users\UserName
+            </code></pre>
+            <dd>You can move several levels up by chaining <code>..</code> with backslashes.</dd>
+            <pre><code rel="Terminal" class="bash">
+                # Assuming CWD is C:\Users\UserName\Documents
+                cd ..\..
+                # New CWD: C:\Users
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+	 <p>These slides are based on</p>
+	 <p>customized version of </p>
+	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+	 <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="../../../outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="../../../lib/reveal.js/dist/reveal.js"></script>
+	<script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+	<script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+	<script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+	<script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		// var highlightjsTabSize = '  ';
+		Reveal.initialize({
+
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+			center: true,
+			width: 1280,
+			height: 1024,
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+			// shift+mousе click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+
+			plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+		});
+	</script>
+</body>
+</html>
