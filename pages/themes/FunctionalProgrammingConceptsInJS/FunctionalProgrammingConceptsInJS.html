@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>FunctionalProgrammingConceptsInJS</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+    <!-- custom -->
+    <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="../../../index.html#FunctionalProgrammingConceptsInJS" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Спейс</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>Functional programming concepts in JavaScript</h1></section>
+<section data-transition="zoom">
+    <section>
+        <div class="copyright">
+            <div class="note">
+                <p>Created for</p>
+            </div>
+            <div class="company">
+                <a href="https://progressbg.net/javascript-basic/">
+                <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+        <div class="note">
+            <p>Created by</p>
+        </div>
+        <div class="company">
+           <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+        </div>
+        <!-- <div class="author">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div> -->
+    </section>
+</section>
+
+
+<section><h1>Map/Filter/Reduce Array methods</h1></section>
+<section><h2>map()</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>The <code>map()</code> method creates a <span class="note">new array</span> with the results of calling a <span class="note">provided function on every element</span> in the calling array.</dt>
+        </dl>
+        <a href="images/map_function.png"><img src="images/map_function.png"></a>
+    </section>
+    <section><h3>Syntax 1</h3>
+        <pre><code rel="Syntax" class="js">
+            newArr = arr.map( callbackFn )
+        </code></pre>
+        <dl class="fa">
+            <dt>callbackFn can be defined with arrow or with classic syntax</dt>
+            <dt>callbackFn is called for every element of arr. Each time callbackFn executes it's returned value is added to newArray</dt>
+            <dt>The callbackFn function accepts the following arguments:</dt>
+            <dd><span class="note">element</span>: The current element being processed in the array.</dd>
+            <dd><span class="note">index</span>: <i>Optional</i>. The index of the current element being processed in the array.</dd>
+            <dd><span class="note">array</span>: <i>Optional</i>The array map was called upon.</dd>
+            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">map @mdn</a></dt>
+        </dl>
+        <pre><code rel="JS" class="js">
+            let input = ['a', 'b', 'c'];
+
+            let output = input.map((e,i,arr)=>{console.log(e, i, arr)})
+
+            //a 0 [ 'a', 'b', 'c' ]
+            //b 1 [ 'a', 'b', 'c' ]
+            //c 2 [ 'a', 'b', 'c' ]
+        </code></pre>
+    </section>
+    <section><h3>Examples</h3>
+        <pre><code rel="Example - Arrow Syntax" class="js">
+            let input = ['a', 'b', 'c', 'd'];
+
+            let output = input.map( e=>e.toUpperCase() )
+
+            console.log(`input: ${input}`);
+            console.log(`output: ${output}`);
+
+            //input: a,b,c,d
+            //output: A,B,C,D
+        </code></pre>
+        <pre><code rel="Example - Classic Syntax" class="js">
+            let input = ['a', 'b', 'c', 'd'];
+
+            let output = input.map( function(e){
+                return e.toUpperCase()
+            } )
+
+            console.log(`input: ${input}`);
+            console.log(`output: ${output}`);
+
+            //input: a,b,c,d
+            //output: A,B,C,D
+        </code></pre>
+    </section>
+    <section><h3>Example - using array index in callbackFn</h3>
+        <pre><code rel="JS" class="js">
+            let input = ['a', 'b', 'c'];
+
+            let output = input.map((e,i)=>e.toUpperCase()+i)
+
+            console.log(output);
+
+            // [ 'A0', 'B1', 'C2' ]
+        </code></pre>
+    </section>
+    <section><h3>TASK_1:</h3>
+        <pre><code rel="JS" class="js">
+            // TASK: from 'cities' array generate a new array 'cityNames' which will contain only the names of the cities
+            let cities = [
+                        {name: 'Sofia', population: 1_236_000},
+                        {name: 'Plovdiv', population: 343_424 },
+                        {name: 'Burgas', population: 202_766},
+                        {name: 'Varna', population: 335_177},
+            ];
+
+            // YOUR CODE HERE:
+
+            // TEST:
+            console.log(cityNames);
+
+            // EXPECTED OUTPUT:
+            // [ 'Sofia', 'Plovdiv', 'Burgas', 'Varna' ]
+        </code></pre>
+    </section>
+    <section><h3>TASK_2</h3>
+        <pre><code rel="JS" class="js">
+            // TASK: from 'cities' array generate a new array 'bgCityNames' which will contain only the names
+            // of the cities, but mapped to their Bulgarian equivalent
+
+            let dict = {
+                'Sofia' : 'София',
+                'Plovdiv' : 'Пловдив',
+                'Burgas' : 'Бургас',
+                'Varna' : 'Варна'
+            }
+            let cities = [
+                        {name: 'Sofia', population: 1_236_000},
+                        {name: 'Plovdiv', population: 343_424 },
+                        {name: 'Burgas', population: 202_766},
+                        {name: 'Varna', population: 335_177},
+            ];
+
+            // YOUR CODE HERE:
+
+
+            // TEST:
+            console.log(bgCityNames);
+
+            // EXPECTED OUTPUT:
+            // [ 'София', 'Пловдив', 'Бургас', 'Варна' ]
+
+
+        </code></pre>
+    </section>
+</section>
+<section><h2>filter()</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>The <code>filter()</code> method creates <span class="note">a new array</span> with all elements that <span class="note">pass the test implemented by the provided function</span>.</dt>
+            <dt>I.e. the resulting array will contain only the input elements, for each the <span class="note">provided function</span> will return <code><strong>true</strong></code> value.</dt>
+            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter @mdn</a></dt>
+        </dl>
+        <a href="images/filter.png"><img src="images/filter.png"></a>
+    </section>
+    <section><h3>Example</h3>
+        <pre><code rel="JS" class="js">
+            let input = [0,1,2,3,4];
+            let output = input.filter( x=>x%2);
+
+            console.log(`input: ${input}`);
+            console.log(`output: ${output}`);
+        </code></pre>
+    </section>
+    <section><h3>Task</h3>
+        <pre><code rel="JS" class="js">
+            // TASK: filter only cities which population is greater than 340_000
+            let cities = [
+                        {name: 'Sofia', population: 1_236_000},
+                        {name: 'Plovdiv', population: 343_424 },
+                        {name: 'Burgas', population: 202_766},
+                        {name: 'Varna', population: 335_177},
+            ];
+
+            // YOUR CODE HERE:
+
+            // TEST:
+            console.log(filtered);
+
+            // EXPECTED OUTPUT:
+            // [
+            // 	{ name: 'Sofia', population: 1236000 },
+            // 	{ name: 'Plovdiv', population: 343424 }
+            // ]
+        </code></pre>
+    </section>
+</section>
+<section><h2>reduce()</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>The <code>reduce()</code> method executes the provided reducer function on each element of the array, resulting in a <span class="note">single output value</span>.</dt>
+			<dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">reduce @mdn</a></dt>
+		</dl>
+		<pre><code rel="Syntax" class="js">
+			let value = arr.reduce(callbackFn)
+		</code></pre>
+		<a href="images/reduce.png"><img src="images/reduce.png" style="height: 40vh; display: inline-block; margin-left: 0;"></a>
+		<pre style="display: inline-block; width: 50vw; margin: 0 0 0 2em;"><code rel="JS" class="js" style="height: 39vh; width: 50vw; margin: 0;">
+			let input = [1,2,3,4];
+
+			let output = input.reduce( (acc, curr)=> {
+				console.log(acc,curr)
+				return acc+curr;
+			} );
+
+			console.log(`output: ${output}`);
+
+			// OUTPUT
+			// 1 2
+			// 3 3
+			// 6 4
+			// output: 10
+		</code></pre>
+	</section>
+	<section><h3>A note for <code>acc</code> initial value</h3>
+		<pre><code rel="Syntax" class="js">
+			let value = arr.reduce( (acc, curr)=>{...}, initialValue );
+		</code></pre>
+		<dl class="fa">
+			<dt><span class="note">initialValue</span>: <i>Optional</i>. A value to which <code>acc</code> is initialized the first time the callback is called.</dt>
+			<dt>If initialValue is specified, that also causes <code>curr</code> to be initialized to the first value in the array.</dt>
+			<dt>If initialValue is not specified, <code>acc</code> is initialized to the first value in the array, and <code>curr</code> is initialized to the second value in the array.</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			let input = [1,2,3,4];
+
+			let output = input.reduce( (acc, curr)=> {
+				console.log(acc,curr)
+				return acc+curr;
+			}, 0 );
+
+			console.log(`output: ${output}`);
+			// OUTPUT:
+			// 0 1
+			// 1 2
+			// 3 3
+			// 6 4
+			// output: 10
+		</code></pre>
+	</section>
+	<section><h3>Example: sum of array's even numbers</h3>
+		<dl class="fa">
+			<dt>Using reduce() only - difficult to read and write.</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			let input = [1,2,3,4];
+
+			let output = input.reduce( (acc, curr)=> curr%2==0?acc+curr:acc, 0);
+
+			console.log(`output: ${output}`);
+		</code></pre>
+		<dl class="fa">
+			<dt>Using filter().reduce() - <span class="note">better approach</span>:</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			let input = [1,2,3,4];
+
+			let output = input.filter(el=>el%2==0).reduce((acc,curr)=>acc+curr)
+
+			console.log(`output: ${output}`);
+		</code></pre>
+	</section>
+</section>
+
+
+
+<section class="main-section-title"><h1>forEach Array method</h1></section>
+<section class="sub-sections"><h2>forEach Array method</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The forEach method in JavaScript is used to execute a provided function once for each element in an array.</dt>
+            <dt>It is a simple and effective way to iterate over array elements without needing a traditional for loop.</dt>
+            <pre><code rel="Syntax" class="bash">
+                array.forEach(callback(currentValue, index, array) {
+                    // Code to execute for each element
+                }, thisArg);
+            </code></pre>
+            <dt><span class="note">callback</span>: A function that will be executed for each element in the array.
+            <dd><span class="note">currentValue</span>: The value of the current element being processed.</dd>
+            <dd><span class="note">index (Optional)</span>: The index of the current element being processed.</dd>
+            <dd><span class="note">array (Optional)</span>: The array that forEach is iterating over.</dt></dd>
+            <dt>Note that forEach does not return a new array; <span class="note">it returns undefined.</span></dt>
+        </dl>
+    </section>
+    <section><h3>Example</h3>
+        <pre><code rel="JS" class="js">
+            const numbers = [1, 2, 3, 4, 5];
+
+            // Using forEach to log each number
+            numbers.forEach(function(number, index) {
+                console.log(`Index ${index}: ${number}`);
+            });
+
+            // Using an arrow function
+            numbers.forEach((number, index) => {
+                console.log(`Index ${index}: ${number}`);
+            });
+        </code></pre>
+    </section>
+
+</section>
+
+<section data-min="1" id='hw'><h1>Exercises</h1></section>
+<section><h2>Task: filterWordsStartingWithLetter</h2>
+	<section id="filterWordsStartingWithLetter"><h3>description</h3>
+		<dl class="fa">
+			<dt>Given is the next Douglas Adams quote: <blockquote>A common mistake that people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.</blockquote> </dt>
+			<dt>Make a program, which will write in the console <span class="note">only </span> the words that starts with letter 't' and are longer than 2 symbols</dt>
+		</dl>
+		<pre><code rel="expected output" class="js">
+			that
+			trying
+			the
+		</code></pre>
+		<dl class="fa">
+			<dt><span class="note">Hint:</span> to split a string into array of words you can use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split">String.prototype.split()</a> method</dt>
+		</dl>
+	</section>
+</section>
+<section><h2>Task:  sumOfSquaresOfEvenNumbers</h2>
+	<section id="sumOfSquaresOfEvenNumbers"><h3>description</h3>
+		<dl class="fa">
+			<dt>Given is the next array of numbers: <code>[1,2,3,4,5,6,7,8,9,10]</code></dt>
+			<dt>Write a program which will output in the console the sum of the squares of even numbers</dt>
+		</dl>
+		<pre><code rel="expected output" class="js">
+			220
+		</code></pre>
+	</section>
+</section>
+<section><h2>Task: calcProductsPrices</h2>
+	<section id="calcProductsPrices">
+		<dl class="fa">
+			<br>
+			<dt>The task is given in next template file. You can view the  raw code by clicking on "view raw" in bottom-right corner</dt>
+		</dl>
+		<br><br>
+		<script src="https://gist.github.com/WWWCourses/5e9d7d4c7d27587261ded8018a562d43.js"></script>
+	</section>
+</section>
+<section><h2>Task: mapArrayOfObjects</h2>
+	<section id="mapArrayOfObjects">
+		<dl class="fa">
+			<br>
+			<dt>The task is given in next template file. You can view the  raw code by clicking on "view raw" in bottom-right corner</dt>
+		</dl>
+		<script src="https://gist.github.com/WWWCourses/9fae7212defb4d27ec5e9f26957ef5f2.js"></script>
+	</section>
+</section>
+<section><h2>Task: getCityNameWithMinimalPopulation</h2>
+	<section id="getCityNameWithMinimalPopulation">
+		<dl class="fa">
+			<br>
+			<dt>The task is given in next template file. You can view the  raw code by clicking on "view raw" in bottom-right corner</dt>
+		</dl>
+		<br><br>
+		<script src="https://gist.github.com/WWWCourses/5a9da27f43f61bdadf1ff672b90a1af5.js"></script>
+	</section>
+</section>
+<section><h2>Task: analyze groupProductsByCategory</h2>
+	<section id="analyseGroupProductsByCategory">
+		<dl class="fa">
+			<dt>Analyze next approaches used to group products by category.</dt>
+			<dt>Make sure you understand all of them.</dt>
+		</dl>
+		<script src="https://gist.github.com/WWWCourses/acbda006475936a6904c0a35bb369666.js"></script>
+	</section>
+</section>
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are based on</p>
+     <p>customized version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="../../../outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="../../../lib/reveal.js/dist/reveal.js"></script>
+    <script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+    <script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+    <script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        // var highlightjsTabSize = '  ';
+        Reveal.initialize({
+
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1280,
+            height: 1024,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mousе click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+
+            plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>PracticalExerciseTodoListAppOnGitHubAndGitHubPages</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+    <!-- custom -->
+    <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="../../../index.html#PracticalExerciseTodoListAppOnGitHubAndGitHubPages" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Спейс</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>Practical Exercise: "Collaborate on Todo List Project in GitHub. Deployment on GitHub Pages.</h1></section>
+<section data-transition="zoom">
+    <section>
+        <div class="copyright">
+            <div class="note">
+                <p>Created for</p>
+            </div>
+            <div class="company">
+                <a href="https://progressbg.net/javascript-basic/">
+                <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+        <div class="note">
+            <p>Created by</p>
+        </div>
+        <div class="company">
+           <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+        </div>
+        <!-- <div class="author">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div> -->
+    </section>
+</section>
+
+
+
+<section class="main-section-title"><h1>Collaborate on Todo List Project in GitHub</h1>
+</section>
+<section class="sub-sections"><h2>Collaborate on Todo List Project in GitHub</h2>
+    <section id="Introduction"><h3>Introduction</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>This exercise will guide you through collaborating on a Todo List project using GitHub and deploying it on Vercel.</dt>
+        </dl>
+    </section>
+    <section id="CreateGitHubRepository"><h3>Create GitHub Repository</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Create a new repository on GitHub to host the project code.</dt>
+            <dd>Make sure to add a README file, and optionally a .gitignore file</dd>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                git init
+                git add README.md
+                git commit -m "Initial commit"
+                git branch -M main
+                git remote add origin <your-repo-url>
+                git push -u origin main
+            </code></pre>
+        </dl>
+    </section>
+    <section id="CollaborateUsingBranches"><h3>Collaborate Using Branches</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Create branches for different features or tasks.</dt>
+            <dd>Team members should work on separate branches to avoid conflicts.</dd>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                git checkout -b feature/add-todo
+                git checkout -b feature/style-todo-list
+            </code></pre>
+            <dt>Once a feature is completed, merge the branch into the main branch.</dt>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                git checkout main
+                git merge feature/add-todo
+                git push origin main
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+<section class="main-section-title"><h1>Deploy on GitHub Pages</h1></section>
+<section class="sub-sections"><h2>Deploy on GitHub Pages</h2>
+    <section><h3>Configure GitHub Pages</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Go to Repository Settings</dt>
+            <dt>Scroll down to the GitHub Pages section under the Code and automation section</dt>
+            <dt>Under <b>Source</b>, select the branch you want to deploy from. Typically, this is <code>main</code> or <code>master</code>, and you may select <code>/root</code> to deploy from the root directory or <code>/docs</code> if you have a docs folder.</dt>
+            <dt>Click Save to update the settings</dt>
+        </dl>
+    </section>
+    <section><h3>Access Your Deployed Site</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>GitHub Pages will take a few moments to build and deploy your site</dt>
+            <dt>After deployment, GitHub Pages will provide a URL for your site, typically in the format: <code>https://&lt;username&gt;.github.io/&lt;repository-name&gt;/</code></dt>
+        </dl>
+    </section>
+    <section><h3>Troubleshooting</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Check Build Logs:</dt>
+            <dd>If your site isn't deploying, check the build logs in the GitHub Pages section under Settings.</dd>
+            <dt>Verify File Paths</dt>
+            <dd>Ensure that your file paths are correct and that your HTML, CSS, and JS files are properly referenced.</dd>
+        </dl>
+    </section>
+</section>
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are based on</p>
+     <p>customized version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="../../../outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="../../../lib/reveal.js/dist/reveal.js"></script>
+    <script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+    <script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+    <script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        // var highlightjsTabSize = '  ';
+        Reveal.initialize({
+
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1280,
+            height: 1024,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mousе click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+
+            plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+        });
+    </script>
+</body>
+</html>
