@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>JSON_Overview</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+	<link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+	<!-- Theme used for syntax highlighting of code -->
+	<!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+	<!-- custom -->
+	<link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+		<div class="top_links">
+			<a class="home_link" href="../../../index.html#JSON_Overview" target="_top"><i class="fa fa-home"></i></a>
+			<span class="help_link"><i class="fa fa-question"></i></span>
+			<div class="help_text">
+				<div class="note">Keyboard shortcuts:</div>
+				<div><span>N/Спейс</span><span>Next Slide</span></div>
+				<div><span>P</span><span>Previous Slide</span></div>
+				<div><span>O</span><span>Slides Overview</span></div>
+				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+				<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+				Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+			</div>
+		</div>
+		<div class="footer theme_switch">
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+		</div>
+		<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>JSON (JavaScript Object Notation)</h1></section>
+<section data-transition="zoom">
+	<section>
+		<div class="copyright">
+			<div class="note">
+				<p>Created for</p>
+			</div>
+			<div class="company">
+				<a href="https://progressbg.net/javascript-basic/">
+				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+				</a>
+			</div>
+		</div>
+	</section>
+	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+		<div class="note">
+			<p>Created by</p>
+		</div>
+		<div class="company">
+		   <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+		</div>
+		<!-- <div class="author">
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+		</div> -->
+	</section>
+</section>
+
+
+<section class="main-sesction-title"><h1>JSON Overview</h1></section>
+<section class="sub-sections"><h2>JSON Overview</h2>
+	<section>
+		<dl class="fa">
+			<dt>JSON = <b>J</b>ava<b>S</b>cript <b>O</b>bject <b>N</b>otation</dt>
+			<dt>A <span class="note">data-interchange format</span></dt>
+			<dt>Language agnostic</dt>
+			<dt>Proposed by <a href="https://en.wikipedia.org/wiki/Douglas_Crockford">Douglas Crockford</a> in early 2000s</dt>
+		</dl>
+	</section>
+	<section><h3>Why JSON</h3>
+		<dl class="fa">
+			<dt>Easy for humans (and the machines) to read and write</dt>
+			<dt>Minimalistic syntax</dt>
+			<dt>A strict subset of JavaScript (could be passed directly to <code>eval()</code>)</dt>
+			<dt><a href="https://json-schema.org/learn/miscellaneous-examples.html">JSON Schema</a> is also  defined</dt>
+		</dl>
+	</section>
+	<section><h3>JSON vs XML</h3>
+		<pre><code rel="JSON" class="js">
+			{
+				'fruits': ['apple', 'orange', 'banana'],
+			}
+		</code></pre>
+		<pre><code rel="XML" class="js">
+			<fruits>
+				<fruit>apple</fruit>
+				<fruit>orange</fruit>
+				<fruit>banane</fruit>
+			</fruits>
+		</code></pre>
+		<dl class="fa">
+			<dt>Useful resources:</dt>
+			<dd><a href="http://json.org/example.html">JSON Example</a></dd>
+			<dd><a href="https://www.convertjson.com/">JSON Conversions and Tools</a></dd>
+		</dl>
+	</section>
+</section>
+
+<section class="main-sesction-title"><h1>Syntax</h1></section>
+<section style="font-size: 0.7em"><h2>Syntax</h2>
+	<section><h3>JSON's basic data types</h3>
+		<dl class="fa">
+			<dt class="note">Number</dt>
+			<dd>a signed decimal number that may contain a fractional part</dd>
+			<dt class="note">String</dt>
+			<dd>a sequence of zero or more Unicode characters, delimited by <span class="note">double quotation mark</span></dd>
+			<dt class="note">Boolean</dt>
+			<dd>either of the values true or false</dd>
+			<dt class="note">Array</dt>
+			<dd>an ordered list of zero or more values (may be of any type). Comma-separated elements in square brackets</dd>
+			<dt class="note">Object</dt>
+			<dd>an unordered collection of <code>name:value</code> pairs, delimited by curly braces, where the names (also called keys) are strings. Pairs are separated by comma (<span class="note">trailing comma is not allowed</span>)</dd>
+		</dl>
+	</section>
+	<section><h3>JSON - example</h3>
+		<pre><code rel="JSON" class="json">
+			{
+				"todos": [
+					{
+						"title": "Learn HTML",
+						"completed": true,
+						"id": 1
+					},
+					{
+						"title": "Learn CSS",
+						"completed": true,
+						"id": 2
+					},
+					{
+						"title": "Learn JS",
+						"completed": true,
+						"id": 3
+					}
+				]
+			}
+		</code></pre>
+	</section>
+	<section><h3>JSON Validators</h3>
+		<dl class="fa">
+			<dt><a href="https://jsonlint.com/">JSONLint</a> - online JSON Validator</dt>
+			<dt>VSCode has built-in JSON support, including IntelliSense and validation</dt>
+		</dl>
+	</section>
+</section>
+
+<section class="main-sesction-title"><h1>Parse and Stringify JSON</h1></section>
+<section class="sub-sections"><h2>Parse and Stringify JSON</h2>
+	<section><h3>JSON to JS object (Parse JSON)</h3>
+		<dl class="fa">
+			<dt>It's important to understand that JSON is just a text format, not a JS data structure</dt>
+			<dt>If we need to extract the information in a JSON string into respective JS data strucure, we <span class="note">must parse JSON string</span></dt>
+		</dl>
+		<pre><code rel="Syntax" class="js">
+			const data = JSON.parse(jsonString);
+		</code></pre>
+		<pre><code rel="JS" class="js">
+			// this is NOT a JS object, it's JUST a string
+			const jsonData = ` {
+				"title": "Learn HTML",
+				"completed": true,
+				"id": 1
+			}`;
+			console.log(typeof jsonData);
+
+			// parse json in rder to get the js object:
+			const data = JSON.parse(jsonData)
+			console.log(typeof data);
+		</code></pre>
+	</section>
+	<section><h3>JS obj to JSON (stringify JSON)</h3>
+		<dl class="fa">
+			<dt>If we need to pass our JS data to some other program/server, we must convert the JS data into respective JSON string</dt>
+		</dl>
+		<pre><code rel="Syntax" class="js">
+			var json = JSON.stringify(obj);
+		</code></pre>
+		<pre><code rel="JS" class="js">
+			// this is a JS object
+			const data = {
+				"title": "Learn HTML",
+				"completed": true,
+				"id": 1
+			};
+			console.log(typeof data);
+
+			// let's convert it into JSON string:
+			const dataJSON = JSON.stringify(data)
+			console.log(typeof dataJSON);
+		</code></pre>
+	</section>
+	<section><h3>Parse JSON from fetch()</h3>
+		<dl class="fa">
+			<dt>The <code>response.json()</code> method returns a promise which resolves with the result of parsing the body text as JSON.</dt>
+			<dt>Note that despite the method being named json(), the result is not JSON but is instead the result of taking JSON as input and parsing it to produce a JavaScript object.</dt>
+		</dl>
+	</section>
+	<section><h3>Parse JSON from fetch() - example</h3>
+		<pre><code rel="JS" class="js">
+			const url = 'https://jsonplaceholder.typicode.com/todos/1';
+
+			fetch(url)
+				.then( response => response.json() )
+				.then( todoObj => console.log(todoObj.title) )
+		</code></pre>
+	</section>
+</section>
+
+<section><h1 class="main-sesction-title">Public APIs returning JSON</h1></section>
+<section class="sub-sections"><h2>Public APIs returning JSON</h2>
+	<dl class="fa">
+		<dt>List of public APIs</dt>
+		<dd><a href="https://github.com/toddmotto/public-apis">Public APIs list on GitHub</a></dd>
+		<dt><a href="http://www.icndb.com/api/">The Internet Chuck Norris Database API</a></dt>
+		<dt><a href="https://opentdb.com/api_config.php">Open Trivia Database API</a></dt>
+	</dl>
+</section>
+
+<section class="main-sesction-title"><h1>Exercises</h1></section>
+<section class="sub-sections"><h2>Simple Jokes App</h2>
+	<section><h3>Task</h3>
+		<dl class="fa">
+			<dt>Create a page which shows random jokes on each button click, as shown in gif bellow. <br>
+			Use the <code><a href="http://api.icndb.com/jokes/random">http://api.icndb.com/jokes/random</a></code> URL to fetch the joke data.
+			</dt>
+		</dl>
+		<a href="examples/jokesApp/jokeAppWoringDemo.gif"><img src="examples/jokesApp/jokeAppWoringDemo.gif" alt="jokeAppWoringDemo.gif"></a>
+	</section>
+</section>
+
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+	 <p>These slides are based on</p>
+	 <p>customized version of </p>
+	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+	 <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="../../../outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="../../../lib/reveal.js/dist/reveal.js"></script>
+	<script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+	<script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+	<script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+	<script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		// var highlightjsTabSize = '  ';
+		Reveal.initialize({
+
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+			center: true,
+			width: 1280,
+			height: 1024,
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+			// shift+mousе click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+
+			plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+		});
+	</script>
+</body>
+</html>

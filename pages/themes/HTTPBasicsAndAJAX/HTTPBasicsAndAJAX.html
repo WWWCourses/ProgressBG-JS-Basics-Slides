@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>HTTPBasicsAndAJAX</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+    <!-- custom -->
+    <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="../../../index.html#HTTPBasicsAndAJAX" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Спейс</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>HTTP Basics and AJAX</h1></section>
+<section data-transition="zoom">
+    <section>
+        <div class="copyright">
+            <div class="note">
+                <p>Created for</p>
+            </div>
+            <div class="company">
+                <a href="https://progressbg.net/javascript-basic/">
+                <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+        <div class="note">
+            <p>Created by</p>
+        </div>
+        <div class="company">
+           <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+        </div>
+        <!-- <div class="author">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div> -->
+    </section>
+</section>
+
+
+
+<section><h1>Client-Server Communications on HTTP</h1></section>
+<section><h2>Client-Server Communications on HTTP</h2>
+    <section id="overview"><h3>Overview</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>HTTP (Hypertext Transfer Protocol) is a protocol used for transferring data over the web.</dt>
+            <dt>It defines how messages are formatted and transmitted, and how web servers and browsers should respond to various commands</dt>
+        </dl>
+        <a href="images/Client-ServerComunications.png"><img src="images/Client-ServerComunications.png"></a>
+    </section>
+    <section id="HTTP_ClientServer_Deep"><h3 class="advanced">The internals of HTTP Client Server Communications</h3>
+        <a href="images/big/HTTP_ClientServerSystem.png"><img src="images/big/HTTP_ClientServerSystem.png"></a>
+    </section>
+</section>
+
+<section id="staticVsDynamicWebsites"><h1>Static vs Dynamic websites (rendering)</h1></section>
+<section><h2>Static vs Dynamic websites (rendering)</h2>
+    <section><h3></h3>
+        <a href="./images/SSR_vs_DSR.png"><img src="./images/SSR_vs_DSR.png" alt="SSR_vs_DSR.png"></a>
+    </section>
+</section>
+<section data-min="50" id="clientSideVsServerSideRendering"><h1>Client-side vs Server-side rendering</h1></section>
+<section><h2>Client-side vs Server-side rendering</h2>
+    <section>
+        <dl class="fa">
+            <dt>Server-Side Rendering (SSR)</dt>
+            <dd>Client makes a request to the server</dd>
+            <dd>The server prepares the HTML page (being statically or dynamically) and returns it</dd>
+            <dd>Client displays the returned HTML page</dd>
+
+            <dt>Client-side Rendering (CSR)</dt>
+            <dd>Client makes a request to the server</dd>
+            <dd>Server get data form a database and returns it in some format (JSON/XML/...)</dd>
+            <dd>Client gets data and Javascript program renders the retrieved data</dd>
+        </dl>
+    </section>
+</section>
+
+<section data-notes="5" id="httpProtocolOverview"><h1>HTTP protocol overview</h1></section>
+<section><h2>HTTP protocol overview</h2>
+    <section><h3>in brief</h3>
+        <dl class="fa">
+            <dt>HTTP = HyperText Transfer Protocol</dt>
+            <dt>HTTP is a <span class="note">request-response</span> protocol.</dt>
+            <dt>the client sends a <span class="note">request message</span> to the server</dt>
+            <dt>the server returns a <span class="note">response message</span></dt>
+        </dl>
+    </section>
+    <section><h3>message format</h3>
+        <img src="images/small/HTTP_MessageFormat.png">
+        <br>
+        <dl class="fa">
+            <dt>each message consists of two parts:</dt>
+            <dd><span class="note">Header</span> - information about the message</dd>
+            <dd><span class="note">Body</span> - message content</dd>
+        </dl>
+    </section>
+</section>
+
+<section data-notes="5" id="requestMessageFormat"><h1>Request Message Format</h1></section>
+<section><h2>Request Message Format</h2>
+    <section>
+        <img src="images/small/HTTP_RequestMessage.png">
+    </section>
+    <section><h3>Request Line</h3>
+        <pre><code rel="Syntax" class="ascii">
+            request-method-name request-URI HTTP-version
+        </code></pre>
+        <dl class="fa">
+            <dt><span class="note">request-method</span>: defines how to send the request (GET, POST, HEAD etc)</dt>
+            <dt><span class="note">request-URI</span>: the URI of the resource requested</dt>
+            <dt><span class="note">HTTP-version</span>: latest version is <a href="https://en.wikipedia.org/wiki/HTTP/2">HTTP/2</a></dt>
+        </dl>
+        <pre><code rel="JS" class="js">
+            GET /search?q=apple HTTP/1.1
+            HEAD /query.html HTTP/1.1
+            POST /index.html HTTP/1.1
+        </code></pre>
+    </section>
+    <section><h3>Request Headers</h3>
+        <pre><code rel="Syntax" class="ascii">
+            field-name: field-value1[, field-value2, ...]
+        </code></pre>
+        <p>The request-header fields allow the client to pass additional information about the request, and about the client itself, to the server</p>
+        <pre><code rel="Examples" class="js">
+            Host: google.com
+            User-Agent: curl/7.47.0
+            Accept: */*
+        </code></pre>
+    </section>
+    <section><h3>Request Body</h3>
+        <p>Optional</p>
+    </section>
+</section>
+
+<section data-notes="5" id="responseMessageFormat"><h1>Response Message Format</h1></section>
+<section><h2>Response Message Format</h2>
+    <section>
+        <a href="images/small/HTTP_ResponseMessage.png"><img src="images/small/HTTP_ResponseMessage.png"></a>
+    </section>
+    <section><h3>Status Line</h3>
+        <pre><code rel="Syntax" class="ascii">
+            HTTP-version status-code reason-phrase
+        </code></pre>
+        <dl class="fa">
+            <dt><span class="note">HTTP-version</span>: The HTTP version used in this session.</dt>
+            <dt><span class="note">status-code</span>: a 3-digit number generated by the server to reflect the outcome of the request</dt>
+            <dt><span class="note">reason-phrase</span>: gives a short explanation to the status code.</dt>
+        </dl>
+        <pre><code rel="Examples" class="ascii">
+            HTTP/1.1 200 OK
+            HTTP/1.1 301 Moved Permanently
+            HTTP/1.1 404 Not Found
+        </code></pre>
+        <p><a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">List of HTTP status codes</a></p>
+    </section>
+    <section><h3>Response Headers</h3>
+        <pre><code rel="Syntax" class="http">
+            field-name: field-value1[, field-value2, ...]
+        </code></pre>
+        <p></p>
+        <pre><code rel="Examples" class="ascii">
+            HTTP/1.1 200 OK
+            Server: nginx
+            Date: Sun, 11 Jun 2017 14:05:01 GMT
+            Content-Type: text/html; charset=UTF-8
+            Connection: keep-alive
+            Keep-Alive: timeout=20
+            X-Pingback: http://www.javelingroup.com/xmlrpc.php
+            Link: &lt;http://www.javelingroup.com/wp-json/&gt;; rel=&quot;https://api.w.org/&quot;
+            Link: &lt;http://www.javelingroup.com/&gt;; rel=shortlink
+            X-Cacheable: SHORT
+            Vary: Accept-Encoding,Cookie
+            Cache-Control: max-age=600, must-revalidate
+            X-Cache: HIT: 4
+            X-Pass-Why:
+            X-Cache-Group: normal
+            X-Type: default
+
+        </code></pre>
+    </section>
+    <section><h3>Response Body</h3>
+        <p>The response message body contains the resource data requested</p>
+    </section>
+</section>
+
+<section data-notes="5" id="httpRequestMethods"><h1>HTTP Request Methods</h1></section>
+<section><h2>HTTP Request Methods</h2>
+    <p>HTTP protocol defines a set of request methods, which a client can use to request a server resource.</p>
+</section>
+<section><h2>The "GET" Request Method</h2>
+    <section>
+        <dl class="fa">
+            <dt>Used to request data from a specified resource</dt>
+            <dt class="note">The query string is sent in the URL</dt>
+        </dl>
+        <pre><code rel="Example" class="http">
+            https://duckduckgo.com/?q=http+get+request&t=hz&ia=web
+        </code></pre>
+    </section>
+    <section>
+        <dl class="fa">
+            <dt>GET requests should be used only to retrieve data, and not to change the server state</dt>
+            <dt>GET requests should NEVER be used with sensitive data</dt>
+            <dt>GET requests have length restrictions</dt>
+            <dt>GET requests can be cached</dt>
+            <dt>GET requests remain in the browser history</dt>
+            <dt>GET requests can be bookmarked</dt>
+        </dl>
+    </section>
+</section>
+<section><h2>The "POST" Request Method</h2>
+    <section>
+        <dl class="fa">
+            <dt>POST request method is used to sent data to the server, like customer information, file upload etc.</dt>
+            <dt>POST request should change the server state</dt>
+            <dt>the query string will be sent in the body of the request message</dt>
+            <dt>the request headers Content-Type and Content-Length are used to notify the server the type and the length of the query string</dt>
+        </dl>
+    </section>
+    <section>
+        <dl class="fa">
+            <dt>POST requests are never cached</dt>
+            <dt>POST requests do not remain in the browser history</dt>
+            <dt>POST requests cannot be bookmarked</dt>
+            <dt>POST requests have no restrictions on data length</dt>
+        </dl>
+    </section>
+    <section>
+        <p>Simply putted, POST is used to <span class="note">create</span> content on the server!</p>
+    </section>
+</section>
+<section><h2>Other HTTP Request Methods</h2>
+    <section><h3>HEAD</h3>
+        <p>Same as GET, but transfers the status line and header section only. No document body is returned!</p>
+    </section>
+    <section><h3>PUT</h3>
+        <p>Replaces all current representations of the target resource with the uploaded content.</p>
+        <p>In oder words, PUT is used to <span class="note">create or update</span> content on server</p>
+    </section>
+    <section><h3>DELETE</h3>
+        <p>Deletes the specified resource</p>
+    </section>
+    <section><h3>OPTIONS</h3>
+        <p>Ask the server to return the list of request methods it supports</p>
+    </section>
+</section>
+
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are based on</p>
+     <p>customized version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="../../../outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="../../../lib/reveal.js/dist/reveal.js"></script>
+    <script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+    <script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+    <script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        // var highlightjsTabSize = '  ';
+        Reveal.initialize({
+
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1280,
+            height: 1024,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mousе click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+
+            plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+        });
+    </script>
+</body>
+</html>
