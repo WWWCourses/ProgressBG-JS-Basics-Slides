@@ -84,16 +84,16 @@
     <section id="SetupProject"><h3>Setup Project</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>Start by setting up the project as described in the previous exercise: "Create a Todo List Project".</dt>
-            <dd>Once the basic project is set up, install and configure JSON-Server to simulate a RESTful API.</dd>
-            <pre><code rel="Terminal" class="bash" data-noescape style="font-size: 1.2em;">
-                npm install -g json-server
-                json-server --watch db.json
-            </code></pre>
             <dt>Create a <code>db.json</code> file to serve as the database for the TodoApp.</dt>
             <pre><code rel="db.json" class="json">
                 {
                     "todos": []
                 }
+            </code></pre>
+            <dt>Once the basic project is set up, install and configure JSON-Server to simulate a RESTful API.</dt>
+            <pre><code rel="Terminal" class="bash" data-noescape style="font-size: 1.2em;">
+                npm install -g json-server
+                json-server --watch db.json
             </code></pre>
         </dl>
     </section>
