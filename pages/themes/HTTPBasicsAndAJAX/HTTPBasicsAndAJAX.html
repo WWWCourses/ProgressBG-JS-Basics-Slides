@@ -88,29 +88,6 @@
     </section>
 </section>
 
-<section id="staticVsDynamicWebsites"><h1>Static vs Dynamic websites (rendering)</h1></section>
-<section><h2>Static vs Dynamic websites (rendering)</h2>
-    <section><h3></h3>
-        <a href="./images/SSR_vs_DSR.png"><img src="./images/SSR_vs_DSR.png" alt="SSR_vs_DSR.png"></a>
-    </section>
-</section>
-<section data-min="50" id="clientSideVsServerSideRendering"><h1>Client-side vs Server-side rendering</h1></section>
-<section><h2>Client-side vs Server-side rendering</h2>
-    <section>
-        <dl class="fa">
-            <dt>Server-Side Rendering (SSR)</dt>
-            <dd>Client makes a request to the server</dd>
-            <dd>The server prepares the HTML page (being statically or dynamically) and returns it</dd>
-            <dd>Client displays the returned HTML page</dd>
-
-            <dt>Client-side Rendering (CSR)</dt>
-            <dd>Client makes a request to the server</dd>
-            <dd>Server get data form a database and returns it in some format (JSON/XML/...)</dd>
-            <dd>Client gets data and Javascript program renders the retrieved data</dd>
-        </dl>
-    </section>
-</section>
-
 <section data-notes="5" id="httpProtocolOverview"><h1>HTTP protocol overview</h1></section>
 <section><h2>HTTP protocol overview</h2>
     <section><h3>in brief</h3>
@@ -132,8 +109,8 @@
     </section>
 </section>
 
-<section data-notes="5" id="requestMessageFormat"><h1>Request Message Format</h1></section>
-<section><h2>Request Message Format</h2>
+<section data-notes="5" id="requestMessageFormat"><h1 class="advanced">Request Message Format</h1></section>
+<section><h2 class="advanced">Request Message Format</h2>
     <section>
         <img src="images/small/HTTP_RequestMessage.png">
     </section>
@@ -168,8 +145,8 @@
     </section>
 </section>
 
-<section data-notes="5" id="responseMessageFormat"><h1>Response Message Format</h1></section>
-<section><h2>Response Message Format</h2>
+<section data-notes="5" id="responseMessageFormat"><h1 class="advanced">Response Message Format</h1></section>
+<section><h2 class="advanced">Response Message Format</h2>
     <section>
         <a href="images/small/HTTP_ResponseMessage.png"><img src="images/small/HTTP_ResponseMessage.png"></a>
     </section>
@@ -227,7 +204,7 @@
     <section>
         <dl class="fa">
             <dt>Used to request data from a specified resource</dt>
-            <dt class="note">The query string is sent in the URL</dt>
+            <dt class="note">The query data is sent in the URL</dt>
         </dl>
         <pre><code rel="Example" class="http">
             https://duckduckgo.com/?q=http+get+request&t=hz&ia=web
@@ -265,13 +242,15 @@
         <p>Simply putted, POST is used to <span class="note">create</span> content on the server!</p>
     </section>
 </section>
-<section><h2>Other HTTP Request Methods</h2>
+<section><h2 class="advanced">Other HTTP Request Methods</h2>
     <section><h3>HEAD</h3>
         <p>Same as GET, but transfers the status line and header section only. No document body is returned!</p>
     </section>
     <section><h3>PUT</h3>
-        <p>Replaces all current representations of the target resource with the uploaded content.</p>
-        <p>In oder words, PUT is used to <span class="note">create or update</span> content on server</p>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Replaces all current representations of the target resource with the uploaded content.</dt>
+            <dt>In oder words, PUT is used to <span class="note">create or update</span> content on server</dt>
+        </dl>
     </section>
     <section><h3>DELETE</h3>
         <p>Deletes the specified resource</p>
@@ -281,6 +260,90 @@
     </section>
 </section>
 
+
+<section id="staticVsDynamicWebsites"><h1>Static vs Dynamic websites (rendering)</h1></section>
+<section><h2>Static vs Dynamic websites (rendering)</h2>
+    <section><h3></h3>
+        <a href="./images/SSR_vs_DSR.png"><img src="./images/SSR_vs_DSR.png" alt="SSR_vs_DSR.png"></a>
+    </section>
+</section>
+<section data-min="50" id="clientSideVsServerSideRendering"><h1>Client-side vs Server-side rendering</h1></section>
+<section><h2>Client-side vs Server-side rendering</h2>
+    <section>
+        <dl class="fa">
+            <dt>Server-Side Rendering (SSR)</dt>
+            <dd>Client makes a request to the server</dd>
+            <dd>The server prepares the HTML page (being statically or dynamically) and returns it</dd>
+            <dd>Client displays the returned HTML page</dd>
+
+            <dt>Client-side Rendering (CSR)</dt>
+            <dd>Client makes a request to the server</dd>
+            <dd>Server get data form a database and returns it in some format (JSON/XML/...)</dd>
+            <dd>Client gets data and Javascript program renders the retrieved data</dd>
+        </dl>
+    </section>
+</section>
+
+
+
+<section class="main-section-title" id="Ajax"><h1>AJAX</h1></section>
+<section class="sub-sections"><h2>AJAX</h2>
+    <section id="IntroductionToAjax"><h3>Introduction to AJAX</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>AJAX (Asynchronous JavaScript and XML) is a technique for creating dynamic web pages</dt>
+            <dd>In reality, these days, the use of JSON prevails over XML, but for backward compatibility we do not say AJAJ</dd>
+           <dt>It allows web pages to update asynchronously by making HTTP requests to the server in the background, without reloading the entire page</dt>
+        </dl>
+    </section>
+    <section><h3>Traditional Model of Client-Server Communication</h3>
+		<a href="images/Client-Server_Traditional.png"><img src="images/Client-Server_Traditional.png" alt=""></a>
+		<p>The traditional model of communication works <span class="note">synchronously</span>.</p>
+	</section>
+	<section><h3>Traditional Model is Synchronous</h3>
+		<a href="images/synchronousRequest.png"><img src="images/synchronousRequest.png" alt="images/synchronousRequest.png"></a>
+	</section>
+	<section><h3>AJAX Model of Client-Server Communication</h3>
+		<a href="images/Client-Server_AJAX.png"><img src="images/Client-Server_AJAX.png" alt="Client-Server_AJAX.png"></a>
+		<p>The AJAX model of communication can work <span class="note">asynchronously</span>.</p>
+	</section>
+	<section><h3>AJAX Model is Asynchronous</h3>
+		<a href="images/asynchronousRequest.png"><img src="images/asynchronousRequest.png" alt="images/asynchronousRequest.png"></a>
+	</section>
+    <section id="HowAjaxWorks"><h3>AJAX request with fetch APIs.</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><span class="note">Initiate a Request</span>: You use the fetch() function to send an HTTP request to a server. The fetch() function takes a URL as its first argument and optionally an options object as its second argument to specify the request method (GET, POST, etc.), headers, body, and other configurations.</dt>
+            <pre><code rel="JS" class="js">
+                fetch('https://api.example.com/data')
+                    .then(response => response.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.error('Error:', error));
+            </code></pre>
+           <dt><span class="note">Asynchronous Operation</span>: The fetch() function returns a Promise. This allows the operation to be asynchronous, meaning the JavaScript code can continue executing without waiting for the server to respond. The promise resolves when the server responds.</dt>
+           <dt><span class="note">Handle the Response</span>: Once the Promise resolves, you can handle the response using .then() and .catch(). Typically, you first check if the response was successful, then you parse the response data (usually as JSON) and handle it accordingly.</dt>
+           <dt><span class="note">Update the DOM</span>: After processing the data received from the server, you can update the DOM dynamically without reloading the entire page. This is a key feature of AJAX, providing a smoother user experience.</dt>
+        </dl>
+    </section>
+    <section id="AdvantagesOfAjax"><h3>Advantages of AJAX</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>1. Improves user experience.</dt>
+            <dd>Pages can be updated asynchronously, leading to smoother and faster interactions.</dd>
+            <dt>2. Reduces server load.</dt>
+            <dd>Only the necessary data is exchanged with the server, reducing bandwidth usage and load times.</dd>
+            <dt>3. Allows partial page updates.</dt>
+            <dd>Only parts of the page need to be refreshed, rather than the entire page.</dd>
+        </dl>
+    </section>
+    <section id="LimitationsOfAjax"><h3>Limitations of AJAX</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>1. Complexity in debugging and maintenance.</dt>
+            <dd>Asynchronous operations can be harder to debug and maintain.</dd>
+            <dt>2. Potential for security issues.</dt>
+            <dd>Exposing more endpoints can increase the risk of vulnerabilities.</dd>
+            <dt>3. Search engine indexing challenges.</dt>
+            <dd>Search engines may have difficulty indexing content that is dynamically loaded via AJAX.</dd>
+        </dl>
+    </section>
+</section>
 
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
