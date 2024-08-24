@@ -67,9 +67,6 @@ function renderTodos() {
     }
 }
 
-// Initialize an empty array to store todo objects
-let todos = [];
-
 // Get DOM elements
 const todoInput = document.getElementById('todo-input');
 const addTodoButton = document.getElementById('add-todo');
@@ -86,6 +83,9 @@ addTodoButton.addEventListener('click', () => {
         alert('Please enter a task.');
     }
 });
+
+// Initialize an empty array to store todo objects
+let todos = [];
 
 // Initial render to ensure the list is empty on load
 renderTodos();
