@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jokesApp</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+	<style>
+		main{
+			width: 80%;
+			margin: 0 auto;
+			font-size: 2em;
+		}
+		.btnShowJoke{
+			width: 100%;
+			padding: 1em 0;
+			margin: 2em auto;
+			vertical-align: middle;
+			text-align: center;
+			background: #666;
+			color: #CCC;
+			box-shadow: 5px 5px #999;
+		}
+		.btnShowJoke:hover{
+			cursor: pointer;
+			font-weight: bold;
+		}
+		.btnShowJoke:active{
+			box-shadow: 5px 5px #FFF;
+		}
+		.output{
+			/* border: .1em groove red; */
+			/* font-size: 2em; */
+		}
+		.fadeIn{
+			animation: fadeIn 3s;
+		}
+		@keyframes fadeIn{
+			0%{
+				opacity: 0;
+			}
+			100%{
+				opacity: 1;
+			}
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<div class="btnShowJoke">Show me a joke</div>
+		<div class="output"></div>
+	</main>
+
+	<script src="main.js"></script>
+</body>
+</html>

@@ -260,7 +260,6 @@
     </section>
 </section>
 
-
 <section id="staticVsDynamicWebsites"><h1>Static vs Dynamic websites (rendering)</h1></section>
 <section><h2>Static vs Dynamic websites (rendering)</h2>
     <section><h3></h3>
@@ -283,8 +282,6 @@
         </dl>
     </section>
 </section>
-
-
 
 <section class="main-section-title" id="Ajax"><h1>AJAX</h1></section>
 <section class="sub-sections"><h2>AJAX</h2>
@@ -343,6 +340,174 @@
             <dd>Search engines may have difficulty indexing content that is dynamically loaded via AJAX.</dd>
         </dl>
     </section>
+</section>
+
+<section class="main-sesction-title" id="JSONOverview"><h1>JSON Overview</h1></section>
+<section class="sub-sections"><h2>JSON Overview</h2>
+	<section>
+		<dl class="fa">
+			<dt>JSON = <b>J</b>ava<b>S</b>cript <b>O</b>bject <b>N</b>otation</dt>
+			<dt>A <span class="note">data-interchange format</span></dt>
+			<dt>Language agnostic</dt>
+			<dt>Proposed by <a href="https://en.wikipedia.org/wiki/Douglas_Crockford">Douglas Crockford</a> in early 2000s</dt>
+		</dl>
+	</section>
+	<section><h3>Why JSON</h3>
+		<dl class="fa">
+			<dt>Easy for humans (and the machines) to read and write</dt>
+			<dt>Minimalistic syntax</dt>
+			<dt>A strict subset of JavaScript (could be passed directly to <code>eval()</code>)</dt>
+			<dt><a href="https://json-schema.org/learn/miscellaneous-examples.html">JSON Schema</a> is also  defined</dt>
+		</dl>
+	</section>
+	<section><h3>JSON vs XML</h3>
+		<pre><code rel="JSON" class="js">
+			{
+				'fruits': ['apple', 'orange', 'banana'],
+			}
+		</code></pre>
+		<pre><code rel="XML" class="js">
+			<fruits>
+				<fruit>apple</fruit>
+				<fruit>orange</fruit>
+				<fruit>banane</fruit>
+			</fruits>
+		</code></pre>
+		<dl class="fa">
+			<dt>Useful resources:</dt>
+			<dd><a href="http://json.org/example.html">JSON Example</a></dd>
+			<dd><a href="https://www.convertjson.com/">JSON Conversions and Tools</a></dd>
+		</dl>
+	</section>
+</section>
+<section style="font-size: 0.7em"><h2>Syntax</h2>
+	<section><h3>JSON's basic data types</h3>
+		<dl class="fa">
+			<dt class="note">Number</dt>
+			<dd>a signed decimal number that may contain a fractional part</dd>
+			<dt class="note">String</dt>
+			<dd>a sequence of zero or more Unicode characters, delimited by <span class="note">double quotation mark</span></dd>
+			<dt class="note">Boolean</dt>
+			<dd>either of the values true or false</dd>
+			<dt class="note">Array</dt>
+			<dd>an ordered list of zero or more values (may be of any type). Comma-separated elements in square brackets</dd>
+			<dt class="note">Object</dt>
+			<dd>an unordered collection of <code>name:value</code> pairs, delimited by curly braces, where the names (also called keys) are strings. Pairs are separated by comma (<span class="note">trailing comma is not allowed</span>)</dd>
+		</dl>
+	</section>
+	<section><h3>JSON - example</h3>
+		<pre><code rel="JSON" class="json">
+			{
+				"todos": [
+					{
+						"title": "Learn HTML",
+						"completed": true,
+						"id": 1
+					},
+					{
+						"title": "Learn CSS",
+						"completed": true,
+						"id": 2
+					},
+					{
+						"title": "Learn JS",
+						"completed": true,
+						"id": 3
+					}
+				]
+			}
+		</code></pre>
+	</section>
+	<section><h3>JSON Validators</h3>
+		<dl class="fa">
+			<dt><a href="https://jsonlint.com/">JSONLint</a> - online JSON Validator</dt>
+			<dt>VSCode has built-in JSON support, including IntelliSense and validation</dt>
+		</dl>
+	</section>
+</section>
+<section class="sub-sections"><h2>Parse and Stringify JSON</h2>
+	<section><h3>JSON to JS object (Parse JSON)</h3>
+		<dl class="fa">
+			<dt>It's important to understand that JSON is just a text format, not a JS data structure</dt>
+			<dt>If we need to extract the information in a JSON string into respective JS data strucure, we <span class="note">must parse JSON string</span></dt>
+		</dl>
+		<pre><code rel="Syntax" class="js">
+			const data = JSON.parse(jsonString);
+		</code></pre>
+		<pre><code rel="JS" class="js">
+			// this is NOT a JS object, it's JUST a string
+			const jsonData = ` {
+				"title": "Learn HTML",
+				"completed": true,
+				"id": 1
+			}`;
+			console.log(typeof jsonData);
+
+			// parse json in rder to get the js object:
+			const data = JSON.parse(jsonData)
+			console.log(typeof data);
+		</code></pre>
+	</section>
+	<section><h3>JS obj to JSON (stringify JSON)</h3>
+		<dl class="fa">
+			<dt>If we need to pass our JS data to some other program/server, we must convert the JS data into respective JSON string</dt>
+		</dl>
+		<pre><code rel="Syntax" class="js">
+			var json = JSON.stringify(obj);
+		</code></pre>
+		<pre><code rel="JS" class="js">
+			// this is a JS object
+			const data = {
+				"title": "Learn HTML",
+				"completed": true,
+				"id": 1
+			};
+			console.log(typeof data);
+
+			// let's convert it into JSON string:
+			const dataJSON = JSON.stringify(data)
+			console.log(typeof dataJSON);
+		</code></pre>
+	</section>
+	<section><h3>Parse JSON from fetch()</h3>
+		<dl class="fa">
+			<dt>The <code>response.json()</code> method returns a promise which resolves with the result of parsing the body text as JSON.</dt>
+			<dt>Note that despite the method being named json(), the result is not JSON but is instead the result of taking JSON as input and parsing it to produce a JavaScript object.</dt>
+		</dl>
+	</section>
+	<section><h3>Parse JSON from fetch() - example</h3>
+		<pre><code rel="JS" class="js">
+			const url = 'https://jsonplaceholder.typicode.com/todos/1';
+
+			fetch(url)
+				.then( response => response.json() )
+				.then( todoObj => console.log(todoObj.title) )
+		</code></pre>
+	</section>
+</section>
+
+<section><h1 class="main-sesction-title">Public APIs returning JSON</h1></section>
+<section class="sub-sections"><h2>Public APIs returning JSON</h2>
+	<dl class="fa">
+		<dt><a href="https://jsonplaceholder.typicode.com/">{JSON} Placeholder
+		</a> - free fake and reliable API for testing and prototyping.</dt>
+		<dt><a href="https://api.chucknorris.io/">chucknorris.io</a> -  a free JSON API for hand curated Chuck Norris facts.</dt>
+		<dt><a href="https://opentdb.com/api_config.php">Open Trivia Database API</a> - a completely free JSON API for use in programming projects</dt>
+		<dt>List of public APIs</dt>
+		<dd><a href="https://github.com/toddmotto/public-apis">Public APIs list on GitHub</a></dd>
+	</dl>
+</section>
+
+<section class="main-sesction-title"><h1>Exercises</h1></section>
+<section class="sub-sections"><h2>Simple Jokes App</h2>
+	<section><h3>Task</h3>
+		<dl class="fa">
+			<dt>Create a page which shows random jokes on each button click, as shown in gif bellow. <br>
+			Use the <code><a href="http://api.icndb.com/jokes/random">http://api.icndb.com/jokes/random</a></code> URL to fetch the joke data.
+			</dt>
+		</dl>
+		<a href="examples/jokesApp/jokeAppWoringDemo.gif"><img src="examples/jokesApp/jokeAppWoringDemo.gif" alt="jokeAppWoringDemo.gif"></a>
+	</section>
 </section>
 
 

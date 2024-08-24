@@ -2,7 +2,7 @@
 function addTodo(task) {
     const newTodo = { title: task, completed: false };
 
-    fetch('https://jsonplaceholder.typicode.com/todos', {
+    fetch(`${todosAPI}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -11,7 +11,8 @@ function addTodo(task) {
     })
     .then(response => response.json())
     .then(data => {
-        todos.push({ task: data.title, completed: data.completed });
+        // Use the exact structure returned from the server
+        todos.push(data);
         renderTodos();
     })
     .catch(error => console.error('Error adding todo:', error));
@@ -20,18 +21,21 @@ function addTodo(task) {
 // Function to toggle the completion status of a todo item (PUT)
 function toggleTodoCompletion(index) {
     const todo = todos[index];
-    const updatedTodo = { ...todo, completed: !todo.completed };
 
-    fetch(`https://jsonplaceholder.typicode.com/todos/${index + 1}`, {
+    // Toggle completed prop:
+    todo.completed = !todo.completed;
+
+    fetch(`${todosAPI}/${todo.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(updatedTodo),
+        body: JSON.stringify(todo),
     })
     .then(response => response.json())
     .then(data => {
-        todos[index] = { task: data.title, completed: data.completed };
+        // Update the existing todo with the updated information
+        todos[index] = data;
         renderTodos();
     })
     .catch(error => console.error('Error updating todo:', error));
@@ -39,7 +43,9 @@ function toggleTodoCompletion(index) {
 
 // Function to delete a todo item (DELETE)
 function deleteTodo(index) {
-    fetch(`https://jsonplaceholder.typicode.com/todos/${index + 1}`, {
+    const todo = todos[index];
+
+    fetch(`${todosAPI}/${todo.id}`, {
         method: 'DELETE',
     })
     .then(() => {
@@ -61,8 +67,8 @@ function renderTodos() {
         const listItem = document.createElement('li');
         listItem.className = 'todo-item';
         listItem.innerHTML = todo.completed
-            ? `<span class="completed">${todo.task}</span>`
-            : `<span>${todo.task}</span>`;
+            ? `<span class="completed">${todo.title}</span>`
+            : `<span>${todo.title}</span>`;
         listItem.dataset.index = index;
 
         const completeBtn = document.createElement('button');
@@ -89,13 +95,10 @@ function renderTodos() {
 
 // Fetch todos from the API and render them
 function fetchTodos() {
-    fetch('https://jsonplaceholder.typicode.com/todos')
+    fetch(todosAPI)
         .then(response => response.json())
         .then(data => {
-            todos = data.slice(0, 10).map(todo => ({
-                task: todo.title,
-                completed: todo.completed,
-            }));
+            todos = data.slice(0, 10);  // Limit to the first 10 todos
             renderTodos();
         })
         .catch(error => console.error('Error fetching todos:', error));
@@ -121,7 +124,9 @@ addTodoButton.addEventListener('click', () => {
 // Initialize an empty array to store todo objects
 let todos = [];
 
+// Base URL for JSON-Server
+const todosAPI = 'https://jsonplaceholder.typicode.com/todos';
+// const todosAPI = 'http://localhost:3000/todos';
 
 // Fetch and render the todos on page load
 fetchTodos();
-

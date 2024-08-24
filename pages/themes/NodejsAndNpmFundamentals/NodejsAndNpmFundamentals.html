@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>NodejsAndNpmFundamentals</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+    <!-- custom -->
+    <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="../../../index.html#NodejsAndNpmFundamentals" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Спейс</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>Fundamentals of NodeJS and NPM</h1></section>
+<section data-transition="zoom">
+    <section>
+        <div class="copyright">
+            <div class="note">
+                <p>Created for</p>
+            </div>
+            <div class="company">
+                <a href="https://progressbg.net/javascript-basic/">
+                <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+        <div class="note">
+            <p>Created by</p>
+        </div>
+        <div class="company">
+           <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+        </div>
+        <!-- <div class="author">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div> -->
+    </section>
+</section>
+
+
+<section class="main-section-title" id="FundamentalsOfNodejsAndNpm"><h1>Fundamentals of NodeJS and NPM</h1></section>
+<section class="sub-sections"><h2>Fundamentals of NodeJS and NPM</h2>
+    <section id="IntroductionToNodejsAndItsArchitecture"><h3>Introduction to Node.js and its Architecture</h3>
+        <dl class="fa">
+            <dt>Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.</dt>
+            <dt>It is an <span class="note">asynchronous (i.e. non-blocking)</span>, event-driven JavaScript runtime, mainly used, but not limited, for creating scalable and fast working network applications</dt>
+            <dt>Node.js provides non-blocking I/O primitives and other libraries which are written using non-blocking paradigms, which allows the programs written on Node to run fast.</dt>
+            <dt>Node.js is built against modern versions of V8. This ensures that <span class="note">new features from the JavaScript ECMA-262 specification are brought to Node.js developers in a timely manner</span>, as well as continued performance and stability improvements.</dt>
+            <dt>Reference: <a href="https://nodejs.org">node.js.org</a></dt>
+        </dl>
+    </section>
+
+    <section id="NodejsAndTheEventLoop"><h3 class="advanced">Understanding Asynchronous Programming in Node.js and the Event Loop</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Asynchronous programming in Node.js allows for non-blocking operations.</dt>
+            <dd>This is achieved by using callbacks, promises, and async/await, enabling the application to handle other tasks while waiting for operations like file I/O or network requests to complete.</dd>
+
+            <dt>The Event Loop is central to Node.js asynchronous processing.</dt>
+            <dd>The Event Loop is a mechanism that continuously checks the call stack and the callback queue. If the call stack is empty, it pushes callbacks from the queue to the stack for execution. This allows Node.js to perform non-blocking I/O operations by deferring execution of certain tasks until
+            <dd>This is achieved by using callbacks, promises, and async/await, enabling the application to handle other tasks while waiting for operations like file I/O or network requests to complete.</dd>
+
+            <dd>The Event Loop is a mechanism that continuously checks the call stack and the callback queue. If the call stack is empty, it pushes callbacks from the queue to the stack for execution. This allows Node.js to perform non-blocking I/O operations by deferring execution of certain tasks until the call stack is clear.</dd>
+        </dl>
+    </section>
+    <section><h3 class="advanced">Reference</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Morning Keynote- Everything You Need to Know About Node.js Event Loop - Bert Belder, IBM</dt>
+        </dl>
+        <iframe width="770" height="433" src="https://www.youtube.com/embed/PNa9OMajw9w" title="Morning Keynote- Everything You Need to Know About Node.js Event Loop - Bert Belder, IBM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </section>
+
+    <section><h3>Example: Reading a File Asynchronously</h3>
+        <pre><code rel="JS" class="js">
+            // use the 'fs' node module
+            const fs = require('fs');
+
+            // File path
+            const filePath = 'path/to/your/file.txt';
+
+            // Reading file asynchronously
+            fs.readFile(filePath, 'utf8', (err, data) => {
+                if (err) {
+                    console.error("Error reading the file:", err);
+                    return;
+                }
+                console.log("File content:", data);
+            });
+
+            console.log("This message is displayed first.");
+        </code></pre>
+        <dl class="fa">
+            <dt>The fs module provides an API for interacting with the file system</dt>
+            <dt>The fs.readFile function is used to read files <span class="note">in a non-blocking (async)</span> manner.</dt>
+        </dl>
+    </section>
+</section>
+
+
+<section data-min="5"><h1>NPM and NPM CLI</h1></section>
+<section><h2>NPM and NPM CLI</h2>
+    <section id="IntroductionToNpm"><h3>What is NPM?</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>NPM (Node Package Manager) is the default package manager for Node.js.</dt>
+            <dd>It allows developers to share and reuse code, making it easier to manage dependencies in your project.</dd>
+            <dt>NPM hosts thousands of packages that you can easily integrate into your project.</dt>
+            <dd>These packages can range from simple utility libraries to full frameworks.</dd>
+            <dt><code>npm</code> consists of a command line client, also called <code>npm</code>, and an online database of public and paid-for private packages, called the npm registry.</dt>
+            <dt>Reference: <a href="https://www.npmjs.com/">www.npmjs.com</a></dt>
+        </dl>
+    </section>
+    <section><h3>NPM CLI</h3>
+        <dl class="fa">
+            <dt><code>npm</code> CLI allows you to <span class="note">install external node packages</span> (utility functions, libraries or whole frameworks) from the command line. They can be used as a standalone utilities or as a <span class="note">dependencies</span> in your application.</dt>
+            <dt>You can install these packages either to your global node package folder or to your local project folder.</dt>
+            <dd>Global node packages are accessible from everywhere and you have to install them only once to your global directory</dd>
+            <dd>Local node packages are accessible only from your project folder</dd>
+            <dt>Should I install a package as local or global (rule of thumb)</dt>
+            <dd>Any package that you want to use in your project (i.e. your project dependencies) should be installed locally</dd>
+            <dd>Any package that you want to use from the CLI should be installed globally</dd>
+        </dl>
+    </section>
+    <section><h3>Initialize node project with NPM</h3>
+        <dl class="fa">
+            <dt>Before starting a project which will use node modules, you have to initialize the project - i.e. create a <a href="https://docs.npmjs.com/cli/v7/configuring-npm/package-json">package.json</a> file</dt>
+            <dt>You can create automatically the package.json file using:</dt>
+        </dl>
+        <pre><code rel="Terminal" class="bash">
+            # make sure you are in your root project folder
+            # initialize a npm project (-y == defaults for package.json)
+            npm init -y
+        </code></pre>
+    </section>
+    <section><h3>the <code>package.json</code> file</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>While not strictly necessary, using a package.json is highly beneficial and recommended for managing a Node.js project efficiently.</dt>
+            <dd><b>Dependency Management</b>: package.json allows you to manage your project’s dependencies effectively. It lists all modules your project needs and their versions, which helps ensure consistency across different environments (development, testing, production).</dd>
+            <dd><b>NPM Scripts</b>: It enables the use of NPM scripts, which can automate common tasks such as testing, building, and starting your application.</dd>
+            <dd><b>Project Metadata</b>: It provides important metadata about your project, such as name, version, description, and entry points. This is particularly useful if you plan to distribute your project or work collaboratively.</dd>
+            <dd><b>Version Control</b>: It helps in handling version control of dependencies, enabling semantic versioning to manage different levels of dependency updates.</dd>
+            <dd><b>Package Installation</b>: When you use npm install to add a new package, NPM automatically adds the package and its version to your package.json, simplifying dependency management.</dd>
+        </dl>
+    </section>
+    <section><h3>Package installation</h3>
+        <pre><code rel="Terminal" class="bash">
+            # Install package locally
+            npm install &lt;package&gt;
+
+            # Install package globally
+            npm install -g &lt;package&gt;
+        </code></pre>
+        <dl class="fa">
+            <dt>The installed package will automatically appear in a folder called <span class="note">node_modules</span> and will be listed in the package.json file next to your other dependencies.</dt>
+            <dt>A <code>package-lock.json</code> will be generated.</dt>
+            <dt>The package-lock.json file is an automatic file generated by npm when installing node modules. It serves several important purposes in a Node.js project:</dt>
+        </dl>
+    </section>
+    <section><h3>devDependencies</h3>
+        <dl class="fa">
+            <dt>Some packages (like <code>live-server</code>) are only intended to be used in the development phase of our project and not in the production phase.</dt>
+            <dt>These packages are known as devDependencies</dt>
+            <dt>To install a devDependency append --save-dev to the command</dt>
+            <pre><code rel="Terminal" class="bash">
+                npm install live-server --save-dev
+            </code></pre>
+            <dt>devDependency packages are written in <code>package.json</code> file in the "devDependencies:{}" section </dt>
+        </dl>
+    </section>
+    <section><h3>Start node project - demo</h3>
+        <pre><code rel="Terminal" class="bash">
+            # create project folder
+            mkdir myApp
+
+            # go into project folder
+            cd myApp
+
+            # init the project
+            npm init -y
+
+            # install dev packages locally
+            npm install &lt;package_name&gt --save-dev
+
+            # install production packages locally:
+            npm install &lt;package_name&gt;
+        </code></pre>
+    </section>
+    <section><h3 class="advanced">How to run scripts installed by npm?</h3>
+        <dl class="fa">
+            <dt>In order to run a script installed with npm <span class="note">as a global package</span>, you just need to type the name of the executable</dt>
+            <pre><code rel="Terminal" class="bash">
+                # start live-server, which is installed globally
+                live-server ./
+            </code></pre>
+            <dt>If you want to start a script installed with npm <span class="note">as a local package</span>, you have two ways:</dt>
+            <dd>you can access the executable from <code>./node_modules/.bin/</code> folder</dd>
+            <pre><code rel="Terminal" class="bash">
+                # start live-server, which is installed locally
+                ./node_modules/.bin/live-server ./
+            </code></pre>
+            <dd>you can use <a href="https://www.npmjs.com/package/npx">npx</a></dd>
+            <dd><code>npx</code> is bundled with node, so you don't need to install it (for node>5.2.0)</dd>
+            <pre><code rel="Terminal" class="bash">
+                # start live-server, which is installed locally
+                # if live-server is not found in node_modules/.bin => start live-server which is installed globally
+                # if not found => install the live-server package
+                npx live-server -v
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Update package</h3>
+        <dl class="fa">
+            <dt>To update a specific local npm package simply run:</dt>
+            <pre><code rel="Terminal" class="bash">
+                npm update &lt;package-name&gt;
+            </code></pre>
+            <dt>To update a global package run:</dt>
+            <pre><code rel="Terminal" class="bash">
+                npm update &lt;package-name&gt; -g
+            </code></pre>
+            <dt>To update all the packages installed in your project run:</dt>
+            <pre><code rel="Terminal" class="bash">
+                npm update
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Uninstalling an npm package</h3>
+        <dl class="fa">
+            <dt>To uninstall an npm package use the following command:</dt>
+            <pre><code rel="Terminal" class="bash">
+                npm uninstall &lt;package-name&gt;
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Share a node project</h3>
+        <dl class="fa">
+            <dt>the <code>package.json</code> and <code>package-lock.json</code> files enables you to share your project with other developers <span class="note">without sharing the node_modules folder</span>.</dt>
+            <dt>Someone who will use your project can simply install all packages by using <code>npm install</code> on the command line, as long as you have provided both package files.</dt>
+            <dt><code>npm install</code> script takes all the dependencies listed in the package-lock.json file and installs them in the node_modules folder</dt>
+        </dl>
+    </section>
+</section>
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+    <p>These slides are based on</p>
+    <p>customized version of </p>
+    <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+    <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="../../../outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="../../../lib/reveal.js/dist/reveal.js"></script>
+    <script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+    <script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+    <script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        // var highlightjsTabSize = '  ';
+        Reveal.initialize({
+
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1920,
+            height: 1080,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mousе click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+
+            plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+        });
+    </script>
+</body>
+</html>

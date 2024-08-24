@@ -1,0 +1,11 @@
+1. Get your application's API key::
+	https://support.google.com/googleapi/answer/6158862
+
+2. For Google Maps JavaScript API:
+	API key 1: AIzaSyDgSItgsBhIrjBzyD6vOB9z1SgOZluCmlA
+
+3. Make A Nearby Search request:
+		HTTP URL:https://maps.googleapis.com/maps/api/place/nearbysearch/output?parameters
+
+		theater Sofia location: 42.697217, 23.345579
+		https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=42.697217,23.345579&radius=1000&type=restaurant&keyword=&key=AIzaSyDgSItgsBhIrjBzyD6vOB9z1SgOZluCmlA

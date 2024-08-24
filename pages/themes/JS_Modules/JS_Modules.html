@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>PracticalExerciseCreateATodoAppWithRestJsonServer</title>
+    <title>JS_Modules</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -22,7 +22,7 @@
 <body>
     <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
         <div class="top_links">
-            <a class="home_link" href="../../../index.html#PracticalExerciseCreateATodoAppWithRestJsonServer" target="_top"><i class="fa fa-home"></i></a>
+            <a class="home_link" href="../../../index.html#JS_Modules" target="_top"><i class="fa fa-home"></i></a>
             <span class="help_link"><i class="fa fa-question"></i></span>
             <div class="help_text">
                 <div class="note">Keyboard shortcuts:</div>
@@ -45,7 +45,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section><h1>Practical Exercise: Create a TodoApp with REST JSON-Server</h1></section>
+<section><h1>Modules in JavaScript</h1></section>
 <section data-transition="zoom">
     <section>
         <div class="copyright">
@@ -73,94 +73,77 @@
 </section>
 
 
-<section class="main-section-title" id="PracticalExerciseCreateTodoAppRESTJSONServer"><h1>Practical Exercise: "Create a TodoApp with REST JSON-Server"</h1></section>
-<section class="sub-sections"><h2>Practical Exercise: "Create a TodoApp with REST JSON-Server"</h2>
-    <section id="Introduction"><h3>Introduction</h3>
+<section class="main-section-title" id="ModulesInJavaScript"><h1>Modules in JavaScript</h1></section>
+<section class="sub-sections"><h2>Modules in JavaScript</h2>
+    <section id="IntroductionToES6Modules"><h3>Introduction to ES6 Modules</h3>
         <dl class="fa" style="min-width:80vw">
-            <dt>In this exercise, we will extend the basic Todo List application to integrate with a REST API using JSON-Server.</dt>
-            <dd>This version of the TodoApp will allow users to perform CRUD operations (Create, Read, Update, Delete) on tasks, simulating interaction with a backend server.</dd>
+            <dt>ES6 introduced a standardized way to manage and reuse code using modules.</dt>
+            <dd>Modules allow you to break down your code into smaller, reusable pieces that can be imported and exported as needed.</dd>
+            <dt>Each module in JavaScript is represented by a file.</dt>
+            <dd>The contents of these files can be shared with other modules or kept private.</dd>
         </dl>
     </section>
-    <section id="SetupProject"><h3>Setup Project</h3>
+
+    <section id="ExportingAndImportingModules"><h3>Exporting and Importing Modules</h3>
         <dl class="fa" style="min-width:80vw">
-            <dt>Start by setting up the project as described in the previous exercise: "Create a Todo List Project".</dt>
-            <dt>Create a <code>db.json</code> file to serve as the database for the TodoApp.</dt>
-            <pre><code rel="db.json" class="json">
-                {
-                    "todos": []
+            <dt>Exporting Modules:</dt>
+            <dd>You can export variables, functions, classes, etc., from a module to be used in other files.</dd>
+            <!-- -------------- Optional code block for programming code --------------- -->
+            <pre><code rel="JavaScript" class="javascript" style="min-height: 1vh;">
+                // Exporting a function
+                export function myFunction() {
+                    console.log('This is a function from the module.');
                 }
             </code></pre>
-            <dt>Once the basic project is set up, install and configure JSON-Server to simulate a RESTful API.</dt>
-            <pre><code rel="Terminal" class="bash" data-noescape style="font-size: 1.2em;">
-                npm install -g json-server
-                json-server --watch db.json
-            </code></pre>
-        </dl>
-    </section>
-    <section id="DataInteraction"><h3>Data Interaction with JSON-Server</h3>
-        <dl class="fa" style="min-width:80vw">
-            <dt>Modify your JavaScript to interact with the JSON-Server API. Replace the local data management logic with API calls to perform CRUD operations.</dt>
-            <dd>Use <code>fetch</code> to send requests to the JSON-Server for adding, retrieving, updating, and deleting todos.</dd>
-            <pre><code rel="main.js" class="js" style="min-height: 30em;">
-                // Base URL for JSON-Server
-                const apiUrl = 'http://localhost:3000/todos';
 
-                // Function to fetch todos from the server
-                function fetchTodos() {
-                    fetch(apiUrl)
-                        .then(response => response.json())
-                        .then(data => {
-                            todos = data;
-                            renderTodos();
-                        });
-                }
-
-                // Function to add a new todo
-                function addTodo(task) {
-                    const todo = { task: task, completed: false };
-                    fetch(apiUrl, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(todo)
-                    }).then(fetchTodos);
-                }
-
-                // Function to toggle the completion status of a todo
-                function toggleTodoCompletion(index) {
-                    const todo = todos[index];
-                    todo.completed = !todo.completed;
-                    fetch(`${apiUrl}/${todo.id}`, {
-                        method: 'PUT',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(todo)
-                    }).then(fetchTodos);
-                }
-
-                // Function to delete a todo
-                function deleteTodo(index) {
-                    const todo = todos[index];
-                    fetch(`${apiUrl}/${todo.id}`, {
-                        method: 'DELETE'
-                    }).then(fetchTodos);
-                }
-
-                // Fetch todos when the app starts
-                fetchTodos();
+            <dt>Importing Modules:</dt>
+            <dd>Imported modules can be used in the current file using the import statement.</dd>
+            <!-- -------------- Optional code block for programming code --------------- -->
+            <pre><code rel="JavaScript" class="javascript" style="min-height: 1vh;">
+                // Importing a function from another module
+                import { myFunction } from './myModule.js';
+                myFunction(); // Calls the function from the imported module
             </code></pre>
         </dl>
     </section>
-    <section id="TestingAndConclusion"><h3>Testing and Conclusion</h3>
+
+    <section id="NamedAndDefaultExports"><h3>Named and Default Exports</h3>
         <dl class="fa" style="min-width:80vw">
-            <dt>Test your application by running JSON-Server and interacting with the TodoApp in your browser.</dt>
-            <dd>Ensure that adding, editing, completing, and deleting todos work correctly and that the changes persist between page reloads.</dd>
-            <dt>This exercise demonstrates how to integrate a frontend with a simple RESTful API, laying the groundwork for more complex full-stack applications.</dt>
+            <dt>Named Exports:</dt>
+            <dd>Named exports allow you to export multiple values from a module. These must be imported using their exact names.</dd>
+            <!-- -------------- Optional code block for programming code --------------- -->
+            <pre><code rel="myModule.js" class="javascript" style="min-height: 1vh;">
+                // Named exports
+                export const myVariable = 42;
+                export function myFunction() {
+                    console.log('This is a named export function.');
+                }
+            </code></pre>
+
+            <dt>Default Exports:</dt>
+            <dd>A module can have one default export, which can be imported with any name.</dd>
+            <!-- -------------- Optional code block for programming code --------------- -->
+            <pre><code rel="myModule.js" class="javascript" style="min-height: 1vh;">
+                // Default export
+                export default function() {
+                    console.log('This is the default export.');
+                }
+            </code></pre>
+
+            <dt>Importing Default and Named Exports:</dt>
+            <dd>You can import both default and named exports in a single statement.</dd>
+            <!-- -------------- Optional code block for programming code --------------- -->
+            <pre><code rel="JavaScript" class="javascript" style="min-height: 1vh;">
+                // Importing both default and named exports
+                import myDefaultFunction, { myVariable, myFunction } from './myModule.js';
+                myDefaultFunction(); // Calls the default export
+                console.log(myVariable); // Logs the named export variable
+                myFunction(); // Calls the named export function
+            </code></pre>
         </dl>
     </section>
 </section>
+
 
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">

@@ -1,0 +1,132 @@
+[
+	{
+		"id": 1,
+		"name": "Whiskey",
+		"price": 78.00,
+		"image": {
+			"small": "images/small/jack.png",
+			"big": "images/big/p1.png"
+		},
+		"description":{
+			"short": "short description of product 1",
+			"long": "long description of product 1"
+		}
+	},
+	{
+		"id": 2,
+		"name": "Cigars",
+		"price": 60.00,
+		"image": {
+			"small": "images/small/pura.png",
+			"big": "images/big/p2.png"
+		},
+		"description":{
+			"short": "short description of product 2",
+			"long": "long description of product 2"
+		}
+	},
+	{
+		"id": 3,
+		"name": "Vodka",
+		"price": 55.00,
+		"image": {
+			"small": "images/small/vodka.png",
+			"big": "images/big/p3.png"
+		},
+		"description":{
+			"short": "short description of product 3",
+			"long": "long description of product 3"
+		}
+	},
+	{
+		"id": 4,
+		"name": "Beer",
+		"price": 12.00,
+		"image": {
+			"small": "images/small/corona.png",
+			"big": "images/big/p4.png"
+		},
+		"description":{
+			"short": "short description of product 4",
+			"long": "long description of product 4"
+		}
+	},
+	{
+		"id": 5,
+		"name": "Champagne",
+		"price": 95.00,
+		"image": {
+			"small": "images/small/champ.png",
+			"big": "images/big/p5.png"
+		},
+		"description":{
+			"short": "short description of product 5",
+			"long": "long description of product 5"
+		}
+	},
+	{
+		"id": 6,
+		"name": "Coffee",
+		"price": 26.00,
+		"image": {
+			"small": "images/small/coffee.png",
+			"big": "images/big/p6.png"
+		},
+		"description":{
+			"short": "short description of product 6",
+			"long": "long description of product 6"
+		}
+	},
+	{
+		"id": 7,
+		"name": "Nestea",
+		"price": 11.00,
+		"image": {
+			"small": "images/small/nestea.png",
+			"big": "images/big/p7.png"
+		},
+		"description":{
+			"short": "short description of product 7",
+			"long": "long description of product 7"
+		}
+	},
+	{
+		"id": 8,
+		"name": "Cigarattes",
+		"price": 18.00,
+		"image": {
+			"small": "images/small/cigaretes.png",
+			"big": "images/big/p8.png"
+		},
+		"description":{
+			"short": "short description of product 8",
+			"long": "long description of product 8"
+		}
+	},
+	{
+		"id": 9,
+		"name": "Chips",
+		"price": 14.00,
+		"image": {
+			"small": "images/small/chips.png",
+			"big": "images/big/p9.png"
+		},
+		"description":{
+			"short": "short description of product 9",
+			"long": "long description of product 9"
+		}
+	},
+	{
+		"id": 10,
+		"name": "Coca Cola",
+		"price": 6.00,
+		"image": {
+			"small": "images/small/cola.png",
+			"big": "images/big/p10.png"
+		},
+		"description":{
+			"short": "short description of product 10",
+			"long": "long description of product 10"
+		}
+	}
+]

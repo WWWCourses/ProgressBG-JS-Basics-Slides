@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>fetchIntro </title>
+</head>
+<body>
+	<script>
+		const url = 'https://raw.githubusercontent.com/WWWCourses/ProgressBG-JS-Advanced-React-Slides/gh-pages/pages/themes/AJAX/data/charlotte_sometimes';
+
+		fetch(url)
+			.then( response => {
+				// console.dir(response);
+				if( response.ok){
+					return response.text();
+				}else{
+					throw new Error(`Error: response status code is ${response.status}`)
+				}
+			} )
+			.then( data => console.log(data) )
+			.catch( err=> console.error(err.message))
+
+	</script>
+</body>
+</html>

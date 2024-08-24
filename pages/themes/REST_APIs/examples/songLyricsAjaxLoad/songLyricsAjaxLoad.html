@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>songLyricsAjaxLoad</title>
+	<style type="text/css">
+		html, body{
+			margin: 0;
+			padding: 0;
+			height: 100%;
+		}
+		main{
+			height: 100%;
+			background: #666;
+		}
+		.songSelectWrapper{
+			height: 20vh;
+			text-align: center;
+		}
+		.songSelectWrapper>img{
+			width: 20vh;
+			height: 20vh;
+			margin: 0 2vh 0 0;
+			box-sizing: border-box;
+		}
+		.songSelectWrapper>img:hover{
+			cursor: pointer;
+			border: 1px solid #ddd;
+		}
+		.lyricsWrapper{
+			min-height: 80vh;
+			font-size: 1.5em;
+			padding: 1em 0 0 0;
+			background:#CCC;
+			color: #6E008C;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+<main>
+	<div class="songSelectWrapper">
+		<img src="images/theCure-PicturesOfYou.jpg">
+		<img src="images/floyd_HeyYou.jpg">
+		<img src="images/theCure-CharlotteSometimes.jpg">
+	</div>
+	<div class="lyricsWrapper">
+		<div class="song"></div>
+		<div class="artist"></div>
+		<div class="lyrics">
+			<pre>Click on an image above to show the lyrics...</pre>
+		</div>
+	</div>
+</main>
+</body>
+<script type="text/javascript" src="songLyricsAjaxLoad.js"></script>
+</html>

@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>PracticalExerciseTodoAppWithRestJsonServer</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+    <!-- custom -->
+    <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="../../../index.html#PracticalExerciseCreateATodoAppWithRestJsonServer" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Спейс</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>Practical Exercise: Create a TodoApp with REST JSON-Server</h1></section>
+<section data-transition="zoom">
+    <section>
+        <div class="copyright">
+            <div class="note">
+                <p>Created for</p>
+            </div>
+            <div class="company">
+                <a href="https://progressbg.net/javascript-basic/">
+                <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+        <div class="note">
+            <p>Created by</p>
+        </div>
+        <div class="company">
+           <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+        </div>
+        <!-- <div class="author">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div> -->
+    </section>
+</section>
+
+
+<section class="main-section-title" id="PracticalExerciseCreateTodoAppRESTJSONServer"><h1>Practical Exercise: "Create a TodoApp with REST JSON-Server"</h1></section>
+<section class="sub-sections"><h2>Practical Exercise: "Create a TodoApp with REST JSON-Server"</h2>
+    <section id="Introduction"><h3>Introduction</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>In this exercise, we will extend the <a href="https://wwwcourses.github.io/ProgressBG-JS-Basics-Slides/pages/themes/PracticalExerciseTodoApp/PracticalExerciseTodoApp.html#/">basic Todo List application</a> to integrate with a REST API using JSON-Server.</dt>
+            <dd>This version of the TodoApp will allow users to perform CRUD operations (Create, Read, Update, Delete) on tasks, simulating interaction with a backend server.</dd>
+        </dl>
+    </section>
+    <section id="SetupProject"><h3>Setup Project</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Start by setting up the project as described in the previous exercise: "Create a Todo List Project".</dt>
+            <dt>Create a <code>db.json</code> file to serve as the database for the TodoApp.</dt>
+            <pre><code rel="db.json" class="json">
+                {
+                    "todos": []
+                }
+            </code></pre>
+            <dt>Once the basic project is set up, install and configure JSON-Server to simulate a RESTful API.</dt>
+            <pre><code rel="Terminal" class="bash" data-noescape style="font-size: 1.2em;">
+                npm install -g json-server
+                json-server --watch db.json
+            </code></pre>
+        </dl>
+    </section>
+    <section id="DataInteraction"><h3>Data Interaction with JSON-Server</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Modify your JavaScript to interact with the JSON-Server API. Replace the local data management logic with API calls to perform CRUD operations.</dt>
+            <dd>Use <code>fetch</code> to send requests to the JSON-Server for adding, retrieving, updating, and deleting todos.</dd>
+            <pre><code rel="main.js" class="js" style="min-height: 30em;">
+                // Function to add a new todo item (POST)
+                function addTodo(task) {
+                    const newTodo = { title: task, completed: false };
+
+                    fetch(`${todosAPI}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(newTodo),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Use the exact structure returned from the server
+                        todos.push(data);
+                        renderTodos();
+                    })
+                    .catch(error => console.error('Error adding todo:', error));
+                }
+
+                // Function to toggle the completion status of a todo item (PUT)
+                function toggleTodoCompletion(index) {
+                    const todo = todos[index];
+
+                    // Toggle completed prop:
+                    todo.completed = !todo.completed;
+
+                    fetch(`${todosAPI}/${todo.id}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(todo),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Update the existing todo with the updated information
+                        todos[index] = data;
+                        renderTodos();
+                    })
+                    .catch(error => console.error('Error updating todo:', error));
+                }
+
+                // Function to delete a todo item (DELETE)
+                function deleteTodo(index) {
+                    const todo = todos[index];
+
+                    fetch(`${todosAPI}/${todo.id}`, {
+                        method: 'DELETE',
+                    })
+                    .then(() => {
+                        todos.splice(index, 1);
+                        renderTodos();
+                    })
+                    .catch(error => console.error('Error deleting todo:', error));
+                }
+
+                // Function to render the todo list
+                function renderTodos() {
+                    console.dir(todos);
+                    todoList.innerHTML = '';
+
+                    for (let i = 0; i < todos.length; i++) {
+                        const todo = todos[i];
+                        const index = i;
+
+                        const listItem = document.createElement('li');
+                        listItem.className = 'todo-item';
+                        listItem.innerHTML = todo.completed
+                            ? `<span class="completed">${todo.title}</span>`
+                            : `<span>${todo.title}</span>`;
+                        listItem.dataset.index = index;
+
+                        const completeBtn = document.createElement('button');
+                        completeBtn.className = 'complete-btn';
+                        completeBtn.textContent = todo.completed ? 'Undo' : 'Complete';
+
+                        const deleteBtn = document.createElement('button');
+                        deleteBtn.className = 'delete-btn';
+                        deleteBtn.textContent = 'Delete';
+
+                        listItem.appendChild(completeBtn);
+                        listItem.appendChild(deleteBtn);
+                        todoList.appendChild(listItem);
+
+                        completeBtn.addEventListener('click', function () {
+                            toggleTodoCompletion(index);
+                        });
+
+                        deleteBtn.addEventListener('click', function () {
+                            deleteTodo(index);
+                        });
+                    }
+                }
+
+                // Fetch todos from the API and render them
+                function fetchTodos() {
+                    fetch(todosAPI)
+                        .then(response => response.json())
+                        .then(data => {
+                            todos = data.slice(0, 10);  // Limit to the first 10 todos
+                            renderTodos();
+                        })
+                        .catch(error => console.error('Error fetching todos:', error));
+                }
+
+                // Get DOM elements
+                const todoInput = document.getElementById('todo-input');
+                const addTodoButton = document.getElementById('add-todo');
+                const todoList = document.getElementById('todo-list');
+
+                // Add a click event listener to the add todo button
+                addTodoButton.addEventListener('click', () => {
+                    const todoInputValue = todoInput.value;
+
+                    if (todoInputValue.trim() !== '') {
+                        addTodo(todoInputValue);
+                        todoInput.value = '';
+                    } else {
+                        alert('Please enter a task.');
+                    }
+                });
+
+                // Initialize an empty array to store todo objects
+                let todos = [];
+
+                // Base URL for JSON-Server
+                const todosAPI = 'http://localhost:3000/todos'
+
+                // Fetch and render the todos on page load
+                fetchTodos();
+            </code></pre>
+        </dl>
+    </section>
+    <section id="TestingAndConclusion"><h3>Testing and Conclusion</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Test your application by running JSON-Server and interacting with the TodoApp in your browser.</dt>
+            <dd>Ensure that adding, editing, completing, and deleting todos work correctly and that the changes persist between page reloads.</dd>
+            <dt>This exercise demonstrates how to integrate a frontend with a simple RESTful API, laying the groundwork for more complex applications.</dt>
+        </dl>
+    </section>
+</section>
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are based on</p>
+     <p>customized version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="../../../outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="../../../lib/reveal.js/dist/reveal.js"></script>
+    <script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+    <script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+    <script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        // var highlightjsTabSize = '  ';
+        Reveal.initialize({
+
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1920,
+            height: 1080,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mousе click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+
+            plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+        });
+    </script>
+</body>
+</html>
