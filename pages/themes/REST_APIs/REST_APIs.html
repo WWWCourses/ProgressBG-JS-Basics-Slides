@@ -73,9 +73,8 @@
 </section>
 
 
-<section class="main-section-title" id="ConsumingRestJsonApis"><h1>Consuming REST JSON APIs</h1></section>
-
-<section class="sub-sections"><h2>Consuming REST JSON APIs</h2>
+<section class="main-section-title" id="ConsumingRestJsonApis"><h1>Overview of REST APIs</h1></section>
+<section class="sub-sections"><h2>Overview of REST APIs</h2>
     <section id="OverviewOfRestApis"><h3>Overview of REST APIs</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>REST (Representational State Transfer) is an architectural style used for designing networked applications.</dt>
@@ -84,8 +83,11 @@
             <dd>This makes it easier to integrate with various clients and platforms.</dd>
         </dl>
     </section>
+</section>
 
-    <section id="CrudOperationsAndTheirRestEquivalent"><h3>CRUD Operations and Their REST Equivalent</h3>
+<section class="main-section-title" id="CrudOperationsAndTheirRestEquivalent"><h1>CRUD Operations and Their REST Equivalent</h1></section>
+<section class="sub-sections"><h2>CRUD Operations and Their REST Equivalent</h2>
+    <section><h3>CRUD Operations and Their REST Equivalent</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>Create - POST</dt>
             <dd>Use POST method to create a new resource.</dd>
@@ -97,54 +99,55 @@
             <dd>Use DELETE method to remove a resource.</dd>
         </dl>
     </section>
+</section>
 
-    <section id="MakingGetPostPutDeleteRequests"><h3>Making GET, POST, PUT, DELETE Requests Using JavaScript's Fetch API</h3>
-        <dl class="fa" style="min-width:80vw">
-            <dt>GET Request Example:</dt>
-            <pre><code rel="JavaScript" class="javascript" style="min-height: 1vh;">
-                fetch('https://api.example.com/resource')
-                    .then(response => response.json())
-                    .then(data => console.log(data))
-                    .catch(error => console.error('Error:', error));
-            </code></pre>
 
-            <dt>POST Request Example:</dt>
-            <pre><code rel="JavaScript" class="javascript" style="min-height: 1vh;">
-                fetch('https://api.example.com/resource', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ name: 'New Resource' })
-                })
+<section class="main-section-title"><h1>Making GET, POST, PUT, DELETE Requests Using JavaScript's Fetch API</h1></section>
+<section class="sub-sections"><h2>Making GET, POST, PUT, DELETE Requests Using JavaScript's Fetch API</h2>
+    <section><h3>GET Request Example</h3>
+        <pre><code rel="JavaScript" class="javascript" style="min-height: 1vh;">
+            fetch('https://api.example.com/resource')
                 .then(response => response.json())
                 .then(data => console.log(data))
                 .catch(error => console.error('Error:', error));
-            </code></pre>
-
-            <dt>PUT Request Example:</dt>
-            <pre><code rel="JavaScript" class="javascript" style="min-height: 1vh;">
-                fetch('https://api.example.com/resource/1', {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ name: 'Updated Resource' })
-                })
-                .then(response => response.json())
-                .then(data => console.log(data))
-                .catch(error => console.error('Error:', error));
-            </code></pre>
-
-            <dt>DELETE Request Example:</dt>
-            <pre><code rel="JavaScript" class="javascript" style="min-height: 1vh;">
-                fetch('https://api.example.com/resource/1', {
-                    method: 'DELETE'
-                })
-                .then(response => console.log('Deleted'))
-                .catch(error => console.error('Error:', error));
-            </code></pre>
-        </dl>
+        </code></pre>
+    </section>
+    <section><h3>POST Request Example</h3>
+        <pre><code rel="JavaScript" class="javascript" style="min-height: 1vh;">
+            fetch('https://api.example.com/resource', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name: 'New Resource' })
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        </code></pre>
+    </section>
+    <section><h3>PUT Request Example</h3>
+        <pre><code rel="JavaScript" class="javascript" style="min-height: 1vh;">
+            fetch('https://api.example.com/resource/1', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name: 'Updated Resource' })
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        </code></pre>
+    </section>
+    <section><h3>DELETE Request Example</h3>
+        <pre><code rel="JavaScript" class="javascript" style="min-height: 1vh;">
+            fetch('https://api.example.com/resource/1', {
+                method: 'DELETE'
+            })
+            .then(response => console.log('Deleted'))
+            .catch(error => console.error('Error:', error));
+        </code></pre>
     </section>
 </section>
 
