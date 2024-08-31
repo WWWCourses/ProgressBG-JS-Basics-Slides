@@ -1,3 +1,16 @@
+// Fetch todos from the API and render them
+function fetchTodos() {
+    fetch(todosAPI)
+        .then(response => response.json())
+        .then(data => {
+            // Change local state
+            todos = data.slice(0, 10);  // Limit to the first 10 todos
+            // Update UI
+            renderTodos();
+        })
+        .catch(error => console.error('Error fetching todos:', error));
+}
+
 // Function to add a new todo item (POST)
 function addTodo(task) {
     const newTodo = { title: task, completed: false };
@@ -11,8 +24,9 @@ function addTodo(task) {
     })
     .then(response => response.json())
     .then(data => {
-        // Use the exact structure returned from the server
+        // Change local state
         todos.push(data);
+        // Update UI
         renderTodos();
     })
     .catch(error => console.error('Error adding todo:', error));
@@ -34,8 +48,9 @@ function toggleTodoCompletion(index) {
     })
     .then(response => response.json())
     .then(data => {
-        // Update the existing todo with the updated information
+        // Change local state
         todos[index] = data;
+        // Update UI
         renderTodos();
     })
     .catch(error => console.error('Error updating todo:', error));
@@ -49,13 +64,15 @@ function deleteTodo(index) {
         method: 'DELETE',
     })
     .then(() => {
+        // Change local state
         todos.splice(index, 1);
+        // Update UI
         renderTodos();
     })
     .catch(error => console.error('Error deleting todo:', error));
 }
 
-// Function to render the todo list
+// Function to update the UI
 function renderTodos() {
     console.dir(todos);
     todoList.innerHTML = '';
@@ -93,16 +110,6 @@ function renderTodos() {
     }
 }
 
-// Fetch todos from the API and render them
-function fetchTodos() {
-    fetch(todosAPI)
-        .then(response => response.json())
-        .then(data => {
-            todos = data.slice(0, 10);  // Limit to the first 10 todos
-            renderTodos();
-        })
-        .catch(error => console.error('Error fetching todos:', error));
-}
 
 // Get DOM elements
 const todoInput = document.getElementById('todo-input');
@@ -125,8 +132,8 @@ addTodoButton.addEventListener('click', () => {
 let todos = [];
 
 // Base URL for JSON-Server
-const todosAPI = 'https://jsonplaceholder.typicode.com/todos';
-// const todosAPI = 'http://localhost:3000/todos';
+// const todosAPI = 'https://jsonplaceholder.typicode.com/todos';
+const todosAPI = 'http://localhost:3000/todos';
 
 // Fetch and render the todos on page load
 fetchTodos();
