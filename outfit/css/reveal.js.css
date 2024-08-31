@@ -19,6 +19,12 @@
   font-size: 2em;
   opacity: .8;
 }
+
+.reveal.overview h1{
+  margin-top: 2em;
+  font-size: 3em;
+}
+
 /*Main_Sections_Title*/
 .reveal>.slides>section>h2{
   position: relative;
