@@ -77,12 +77,10 @@
 <section data-min="10"><h1>TypeScript Overview</h1></section>
 <section><h2>TypeScript Overview</h2>
 	<section><h3>Overview</h3>
-		<a href="images/ES5-ES6-TS.png"><img src="images/ES5-ES6-TS.png"></a>
-	</section>
-	<section><h3>Overview</h3>
 		<dl class="fa">
 			<dl class="fa">
 				<dt>TypeScript is a <b>superset</b> of JavaScript, which means <span class="note">each valid JavaScript program is a valid TypeScript program</span>.</dt>
+                <a href="images/ES5-ES6-TS.png"><img src="images/ES5-ES6-TS.png"></a>
 				<dt>TypeScript compiles to clean, simple JavaScript code which runs on any browser, in Node.js, or in any JavaScript engine that supports ECMAScript 3 (or newer).</dt>
 				<dt>official site: <a href="https://www.typescriptlang.org/index.html">typescriptlang.org</a></dt>
 			</dl>
@@ -102,45 +100,44 @@
 		<dl class="fa">
 			<dt>We can transpile TypeScript (or ES6) to ES5 using the TypeSctipt compiler</dt>
 			<dt>Let's have a valid ES6 file:</dt>
+            <pre><code rel="ES6toES5.js" class="ts" style="height: 80vh;">
+                class Animal {
+                    name:string
+
+                    constructor(name) {
+                        this.name = name;
+                    }
+
+                    eat(){
+                        console.log(`${this.name} is eating`);
+                    }
+
+                    speak() {
+                        console.log(`${this.name} makes an animal noise`);
+                    }
+                }
+
+                class Dog extends Animal {
+                    constructor(name) {
+                        super(name);
+                    }
+
+                    speak() {
+                        console.log(`${this.name} barks`);
+                    }
+                }
+
+                var pluto = new Dog('Pluto');
+
+                pluto.speak();
+                pluto.eat();
+            </code></pre>
+            <dt>We can transpile it to ES5 just by changing its extension to <span class="note">.ts</span> and:</dt>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                tsc ES6toES5.ts
+            </code></pre>
 		</dl>
-		<pre><code rel="ES6toES5.js" class="ts" style="height: 30vh;">
-			class Animal {
-				name:string
 
-				constructor(name) {
-					this.name = name;
-				}
-
-				eat(){
-					console.log(`${this.name} is eating`);
-				}
-
-				speak() {
-					console.log(`${this.name} makes an animal noise`);
-				}
-			}
-
-			class Dog extends Animal {
-				constructor(name) {
-					super(name);
-				}
-
-				speak() {
-					console.log(`${this.name} barks`);
-				}
-			}
-
-			var pluto = new Dog('Pluto');
-
-			pluto.speak();
-			pluto.eat();
-		</code></pre>
-		<dl class="fa">
-			<dt>We can transpile it to ES5 just by changing its extension to <span class="note">.ts</span> and:</dt>
-		</dl>
-		<pre><code rel="Terminal" class="bash" data-noescape>
-			tsc ES6toES5.ts
-		</code></pre>
 	</section>
 	<section><h3>TypeScript Features</h3>
 		<dl class="fa">
@@ -199,12 +196,8 @@
 			└── src
 				# for source TS files
 		</code></pre>
-		<p>You can use the next bash one-liner:</p>
-		<pre><code rel="Terminal" class="bash">
-			mkdir -p ts_demo_project/{dist,src}
-		</code></pre>
 	</section>
-	<section><h3>Create <code>package.json</code> with npm</h3>
+	<section><h3>Init the project (Create <code>package.json</code> with npm)</h3>
 		<dl class="fa">
 			<dt>The <code>package.json</code> file holds various metadata relevant to the project.</dt>
 			<dt>Reference: <a href="https://nodejs.org/en/knowledge/getting-started/npm/what-is-the-file-package-json/">What is the file `package.json`?</a></dt>
@@ -221,9 +214,13 @@
 		<pre><code rel="package.json" class="bash">
 			"scripts": {
 				"build": "tsc",
-				"start": "npm run build -- -w"
+				"start": "tsc -w"
 			},
 		</code></pre>
+        <dl class="fa" style="min-width:80vw">
+            <dt><code>build</code> command will compiles TypeScript files once.</dt>
+            <dt><code>start</code> command will run the TypeScript compiler in watch mode, automatically recompiling on file changes..</dt>
+        </dl>
 	</section>
 	<!-- <section><h3>Install project dependencies</h3>
 		<dl class="fa">
@@ -252,27 +249,29 @@
 			# create the tsconfig.json with default settings
 			tsc --init
 		</code></pre>
-		<p>or manually create the <code>tsconfig.json</code> and paste into it</p>
-		<pre><code rel="tsconfig.json" class="bash">
-			{
-				"compilerOptions": {
-					"outDir": "./dist/",
-					"rootDir": "./src/",
-					"sourceMap": false,
-					"module": "commonjs",
-					"target": "ES5",
-				},
-				"exclude": [
-					"node_modules"
-				]
-			}
-		</code></pre>
-		<dl class="fa">
-			<dt>Just make sure, that you have set:</dt>
-			<dt><span class="note">outDir</span>: where TypeScript to put our compiled code. We want it to go to a dist/ folder.</dt>
-			<dt><span class="note">rootDir</span>: where TypeScript looks for our code. We've configured it to look in the src/ folder.</dt>
-		</dl>
 	</section>
+    <section><h3>Modify <code>tsconfig.json</code> file</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Open the generated tsconfig.json file and modify it according to your project needs. Here's a sample configuration:</dt>
+            <pre><code rel="tsconfig.json" class="bash">
+                {
+                    "compilerOptions": {
+                        "target": "es6",                       // Specify ECMAScript target version
+                        "module": "commonjs",                  // Specify module code generation
+                        "outDir": "./dist",                    // Redirect output structure to the 'dist' directory
+                        "rootDir": "./src",                    // Specify the root directory of input files
+                        "strict": true,                         // Enable all strict type-checking options
+                        "esModuleInterop": true,                // Enables emit interoperability between CommonJS and ES Modules
+                        "skipLibCheck": true,                   // Skip type checking of declaration files
+                        "forceConsistentCasingInFileNames": true // Disallow inconsistently-cased references to the same file
+                    },
+                    "include": ["src/**/*.ts"],                // Specify files to include
+                    "exclude": ["node_modules", "**/*.spec.ts"] // Specify files to exclude
+                }
+            </code></pre>
+
+        </dl>
+    </section>
 	<section><h3>Create a simple TS file</h3>
 		<dl class="fa">
 			<dt>As we set TS compiler to look for ts files in ./src/ folder, we must have at least one, before starting the compiler. Otherwise an error: "error TS18003: No inputs were found in config file ..." will be raised.</dt>
