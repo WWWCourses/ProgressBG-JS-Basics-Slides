@@ -77,31 +77,184 @@
 <section class="sub-sections"><h2>Practical Exercise: "Create a TodoApp with REST JSON-Server"</h2>
     <section id="Introduction"><h3>Introduction</h3>
         <dl class="fa" style="min-width:80vw">
-            <dt>In this exercise, we will extend the <a href="https://wwwcourses.github.io/ProgressBG-JS-Basics-Slides/pages/themes/PracticalExerciseTodoApp/PracticalExerciseTodoApp.html#/">basic Todo List application</a> to integrate with a REST API using JSON-Server.</dt>
-            <dd>This version of the TodoApp will allow users to perform CRUD operations (Create, Read, Update, Delete) on tasks, simulating interaction with a backend server.</dd>
+            <dt>In this exercise, we will extend the <a href="https://wwwcourses.github.io/ProgressBG-JS-Basics-Slides/pages/themes/PracticalExerciseTodoApp/PracticalExerciseTodoApp.html#/">Create Todo List Application</a> to integrate with a REST API using JSON-Server.</dt>
+            <dt>This version of the TodoApp will allow users to perform CRUD operations (Create, Read, Update, Delete) on tasks, simulating interaction with a backend server.</dt>
         </dl>
     </section>
     <section id="SetupProject"><h3>Setup Project</h3>
         <dl class="fa" style="min-width:80vw">
-            <dt>Start by setting up the project as described in the previous exercise: "Create a Todo List Project".</dt>
-            <dt>Create a <code>db.json</code> file to serve as the database for the TodoApp.</dt>
-            <pre><code rel="db.json" class="json">
-                {
-                    "todos": []
-                }
-            </code></pre>
-            <dt>Once the basic project is set up, install and configure JSON-Server to simulate a RESTful API.</dt>
-            <pre><code rel="Terminal" class="bash" data-noescape style="font-size: 1.2em;">
-                npm install -g json-server
-                json-server --watch db.json
+            <dt>Start by setting up the project as described in the previous exercise: <a href="https://wwwcourses.github.io/ProgressBG-JS-Basics-Slides/pages/themes/PracticalExerciseTodoApp/PracticalExerciseTodoApp.html#/SetupProject">"Create Todo List Application - Setup Project"</a> "Create Todo List Application".</dt>
+            <dt>You can create absolutely new project folder structure, but it is better to use a new Git branch.</dt>
+            <dd>This approach allows you to build upon your existing work without altering the original version of TodoApp.</dd>
+            <dt>Create and switch to a new branch (named '<code>rest-json-server</code>') from your existing project:</dt>
+            <pre><code rel="Terminal" class="bash">
+                git checkout -b rest-json-server
             </code></pre>
         </dl>
     </section>
+</section>
+
+<section id="setupJsonServerAndDb"><h1>Setup json-server and DB</h1></section>
+<section><h2>Setup json-server and DB</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>For our TodoApp demo project, we can use the <a href="https://www.npmjs.com/package/json-server">json-server</a>, as it is freely  available on NPM and ready to use.</dt>
+            <dt>Please note, that this server is useful only for learning purposes and you must not use it for any production code.</dt>
+        </dl>
+    </section>
+    <section id="ConfigureGitignore"><h3>Configure <code>.gitignore</code></h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The <code>node_modules</code> directory, which will be created automatically when we install the JSON-server, should be ignored in your Git repository  for several important reasons:</dt>
+            <dd><b>Size and Bloat</b>: The <code>node_modules</code> directory can become very large, as it contains all the dependencies and their sub-dependencies required by your project</dd>
+            <dd><b>Reproducibility</b>: The <code>package.json</code> and <code>package-lock.json</code> files list all required dependencies and their specific versions. Other developers (or you later) can recreate the exact same <code>node_modules</code> directory by running <code>npm install</code>, ensuring that everyone has the same setup without needing to track the actual files.</dd>
+            <pre><code rel=".gitignore" class="bash">
+                # Node.js dependencies
+                node_modules/
+            </code></pre>
+            <dt>When you modify your <code>.gitignore</code> file commit that change with appropriate message, like <em>Ignore node-modules</em>.</dt>
+        </dl>
+    </section>
+    <section><h3>Installation</h3>
+        <dl class="fa">
+            <dt>Install <a href="https://www.npmjs.com/package/json-server">json-server</a></dt>
+            <dd>To prevent polluting your global environment, it's recommended to install NPM packages locally, i.e. without the <code>-g</code> option.</dd>
+            <dd>Also, as we need the package just for dev purposes, then it's recommended to install it as <span class="note">dev dependency</span></dd>
+        </dl>
+        <pre><code rel="Terminal" class="bash">
+            # Navigate to your project root folder
+            $ cd /path/to/TodoApp
+
+            # Set up the npm project
+            $ npm init
+
+            # Install the json-server package locally as a dev dependency
+            $ npm install json-server --save-dev
+        </code></pre>
+    </section>
+    <section><h3>Create the DB file</h3>
+        <dl class="fa">
+            <dt>In project root folder create the file <code>db.json</code> with next content:</dt>
+            <pre><code rel="db.json" class="json" style="min-height: 65vh;">
+                {
+                    "todos":[
+                        {
+                            "id": 1,
+                            "title": "Learn HTML",
+                            "completed": false
+                        },
+                        {
+                            "id": 2,
+                            "title": "Learn CSS",
+                            "completed": false
+                        },
+                        {
+                            "id": 3,
+                            "title": "Learn JavaScript",
+                            "completed": false
+                        }
+                    ]
+                }
+            </code></pre>
+            <dt>This file serves as a mock database for your project, storing an array of todos objects in <code>"todos"</code> property.</dt>
+            <dt>Any changes made through API requests will reflect directly in this file, allowing you to see data as you would with an actual backend.</dt>
+            <dt>Commit your changes with a message like: <em>Set up JSON server and created db.json</em></dt>
+        </dl>
+    </section>
+    <section><h3>Start the server</h3>
+        <dl class="fa">
+            <dt>All locally installed NPM packages place the executable commands in <code>./node-modules/.bin/</code> folder. You can start json-server by:</dt>
+            <pre><code rel="Terminal" class="bash">
+                $ ./node_modules/.bin/json-server --watch db.json
+            </code></pre>
+            <dt>Or you can use <a href="https://www.npmjs.com/package/npx">npx</a> which executes 'command' either from a local node_modules/.bin, or from a central cache, installing any packages needed in order for 'command' to run.</dt>
+            <pre><code rel="Terminal" class="bash">
+                npx json-server --watch db.json
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>json-server started screenshot</h3>
+        <a href="./images/json-server_started.png"><img src="./images/json-server_started.png" alt="json-server_started.png"></a>
+        <p class="note">Do not close (or press CTRL+C) the Terminal, as the server will be killed!</p>
+    </section>
+    <section><h3>References</h3>
+        <dl class="fa">
+            <dt>Video Tutorial: <a href="https://egghead.io/lessons/javascript-creating-demo-apis-with-json-server">Creating demo APIs with json-server</a></dt>
+            <dt>Official docs: <a href="https://www.npmjs.com/package/json-server">json-server</a></dt>
+            <dt>Еxamples using Fetch API: <a href="https://jsonplaceholder.typicode.com/guide/">Guide @jsonplaceholder.typicode.com</a></dt>
+        </dl>
+    </section>
+</section>
+
+<section id="jsonServerEndpoints"><h1>json-server endpoints</h1></section>
+<section><h2>json-server endpoints</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>For our TodoApp, we need the server to be capable of serving next requests and taking expected actions:</dt>
+            <table style="margin-top: .5em;">
+                <tr><th>Method</th><th>Path (Route)</th><th>Action</th></tr>
+                <tr><td>GET</td><td>/todos</td><td>get all todos</td></tr>
+                <tr><td>GET</td>	<td>/todos/id</td>	<td>get Todo by id</td></tr>
+                <tr><td>POST</td>	<td>/todos</td>		<td>add new Todo</td></tr>
+                <tr><td>PUT</td>	<td>/todos/id</td>	<td>update Todo by id</td></tr>
+                <tr><td>DELETE</td>	<td>/todos/id</td>	<td>remove Todo by id</td></tr>
+            </table>
+            <dt>The json-server we've setup can serve all of them, even more: <a href="https://github.com/typicode/json-server#routes">Routes in json-server</a></dt>
+            <dt>A tutorial on how to send these requests to json-server with fetch api can be find on <a href="https://jsonplaceholder.typicode.com/guide/">https://jsonplaceholder.typicode.com/guide/</a></dt>
+        </dl>
+    </section>
+    <section><h3>json-server usage notes</h3>
+        <dl class="fa">
+            <dt>Your request body JSON should be object enclosed, just like the GET output. (for example {"name": "Foobar"})</dt>
+            <dt>Id values are not mutable. Any id value in the body of your PUT or PATCH request will be ignored. Only a value set in a POST request will be respected, but only if not already taken.</dt>
+            <dt>A POST, PUT or PATCH request should include a Content-Type: application/json header to use the JSON in the request body. Otherwise it will result in a 200 OK but without changes being made to the data.</dt>
+        </dl>
+    </section>
+</section>
+<section><h2 class="advanced">Explore the Endpoints</h2>
+    <section id="exploreTheEndpoints"><h3 class="advanced">Explore the Endpoints with Postman</h3>
+        <dl class="fa">
+            <dt>Before starting with coding, it's useful to get insights of the API Server endpoints. I.e. to send HTTP requests to the server and inspect the response. A useful tool for such API exploratory tasks is <a href="https://www.postman.com/">postman</a></dt>
+            <dd>If you don't want to install postman, you can use a browser extension to test Restful API Server, like chrome's <a href="https://chrome.google.com/webstore/detail/restman/ihgpcfpkpmdcghlnaofdmjkoemnlijdi">RestMan</a> extension</dd>
+            <dt>Next slides will present you a screenshot of Postman for each request we need to inspect</dt>
+        </dl>
+    </section>
+    <section><h3>GET	/todos	(get all todos)</h3>
+        <a href="images/postman/json-serever_GET_all.png"><img src="images/postman/json-serever_GET_all.png" alt=""></a>
+    </section>
+    <section><h3>GET	/todos/id	(get Todo by id)</h3>
+        <a href="images/postman/json-serever_GET_one.png"><img src="images/postman/json-serever_GET_one.png" alt=""></a>
+    </section>
+    <section><h3>POST	/todos	(add new Todo)</h3>
+        <a href="images/postman/json-serever_POST.png"><img src="images/postman/json-serever_POST.png" alt=""></a>
+    </section>
+    <section><h3>PUT	/todos/id	(update Todo by id)</h3>
+        <a href="images/postman/json-serever_PUT.png"><img src="images/postman/json-serever_PUT.png" alt=""></a>
+    </section>
+    <section><h3>DELETE	/todos/id	(remove Todo by id)</h3>
+        <a href="images/postman/json-serever_DELETE.png"><img src="images/postman/json-serever_DELETE.png" alt=""></a>
+    </section>
+</section>
+
+<section class="main-section-title"><h1>Project implementation</h1></section>
+<section class="sub-sections"><h2>Project implementation</h2>
     <section id="DataInteraction"><h3>Data Interaction with JSON-Server</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>Modify your JavaScript to interact with the JSON-Server API. Replace the local data management logic with API calls to perform CRUD operations.</dt>
             <dd>Use <code>fetch</code> to send requests to the JSON-Server for adding, retrieving, updating, and deleting todos.</dd>
             <pre><code rel="main.js" class="js" style="min-height: 30em;">
+                // Fetch todos from the API and render them
+                function fetchTodos() {
+                    fetch(todosAPI)
+                        .then(response => response.json())
+                        .then(data => {
+                            // Change local state
+                            todos = data.slice(0, 10);  // Limit to the first 10 todos
+                            // Update UI
+                            renderTodos();
+                        })
+                        .catch(error => console.error('Error fetching todos:', error));
+                }
+
                 // Function to add a new todo item (POST)
                 function addTodo(task) {
                     const newTodo = { title: task, completed: false };
@@ -115,8 +268,9 @@
                     })
                     .then(response => response.json())
                     .then(data => {
-                        // Use the exact structure returned from the server
+                        // Change local state
                         todos.push(data);
+                        // Update UI
                         renderTodos();
                     })
                     .catch(error => console.error('Error adding todo:', error));
@@ -138,8 +292,9 @@
                     })
                     .then(response => response.json())
                     .then(data => {
-                        // Update the existing todo with the updated information
+                        // Change local state
                         todos[index] = data;
+                        // Update UI
                         renderTodos();
                     })
                     .catch(error => console.error('Error updating todo:', error));
@@ -153,13 +308,15 @@
                         method: 'DELETE',
                     })
                     .then(() => {
+                        // Change local state
                         todos.splice(index, 1);
+                        // Update UI
                         renderTodos();
                     })
                     .catch(error => console.error('Error deleting todo:', error));
                 }
 
-                // Function to render the todo list
+                // Function to update the UI
                 function renderTodos() {
                     console.dir(todos);
                     todoList.innerHTML = '';
@@ -197,16 +354,6 @@
                     }
                 }
 
-                // Fetch todos from the API and render them
-                function fetchTodos() {
-                    fetch(todosAPI)
-                        .then(response => response.json())
-                        .then(data => {
-                            todos = data.slice(0, 10);  // Limit to the first 10 todos
-                            renderTodos();
-                        })
-                        .catch(error => console.error('Error fetching todos:', error));
-                }
 
                 // Get DOM elements
                 const todoInput = document.getElementById('todo-input');
@@ -229,10 +376,12 @@
                 let todos = [];
 
                 // Base URL for JSON-Server
-                const todosAPI = 'http://localhost:3000/todos'
+                const todosAPI = 'https://jsonplaceholder.typicode.com/todos';
+                // const todosAPI = 'http://localhost:3000/todos';
 
                 // Fetch and render the todos on page load
                 fetchTodos();
+
             </code></pre>
         </dl>
     </section>
@@ -244,6 +393,7 @@
         </dl>
     </section>
 </section>
+
 
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">

@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JS_Development_Tools</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+    <!-- custom -->
+    <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="../../../index.html#JS_Development_Tools" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Спейс</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>JavaScript Development Tools</h1></section>
+<section data-transition="zoom">
+    <section>
+        <div class="copyright">
+            <div class="note">
+                <p>Created for</p>
+            </div>
+            <div class="company">
+                <a href="https://progressbg.net/javascript-basic/">
+                <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+        <div class="note">
+            <p>Created by</p>
+        </div>
+        <div class="company">
+           <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+        </div>
+        <!-- <div class="author">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div> -->
+    </section>
+</section>
+
+
+<section class="main-section-title"><h1>Introduction to JS Development Tools</h1></section>
+<section class="sub-sections"><h2>Introduction to JS Development Tools</h2>
+    <section id="IntroductionToJSTools"><h3>Introduction to JS Development Tools</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>JavaScript tooling enhances development workflow by automating tasks, optimizing performance, and improving code quality.</dt>
+            <dt>These tools include transpilers, bundlers, linters, and package managers, which streamline various aspects of development.</dt>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="LintersAndFormatters"><h1>Linters and Formatters</h1></section>
+<section class="sub-sections"><h2>Linters and Formatters</h2>
+    <section><h3>Linters and Formatters</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><span class="note">Linters</span> like ESLint help identify and fix problems in your JavaScript code before it runs, like:</dt>
+            <dd><b>Identifying Code Issues</b>: ESLint catches syntax errors, unused variables, and potential bugs before running the code.</dd>
+            <dd><b>Enforcing Coding Standards</b>: It enforces a consistent coding style across the project, like ensuring all functions use camelCase for naming.</dd>
+            <dd><b>Automating Code Fixes</b>: ESLint can automatically fix certain issues, such as indentation or trailing commas.</dd>
+            <dt><span class="note">Formatters</span> such as Prettier enforce consistent code style across your project, reducing the likelihood of errors and improving readability. Prettier can help you with</dt>
+            <dd><b>Consistent Formatting</b>: Automatically formats code according to defined style rules.</dd>
+            <dd><b>Handling Line Length</b>: Wraps lines that exceed a specified length.</dd>
+            <dd><b>Automatic Semicolon Insertion</b>: Adds or removes semicolons based on configuration.</dd>
+            <dd><b>Single vs. Double Quotes</b>: Enforces consistent use of single or double quotes.</dd>
+            <dd><b>Trailing Commas</b>: Adds or removes trailing commas in arrays and objects.</dd>
+        </dl>
+    </section>
+
+    <section id="UsingLintersAndFormattersWithVSCode"><h3>Using Linters and Formatters with VSCode</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>VSCode integrates smoothly with tools like ESLint and Prettier to provide real-time feedback and automatic code formatting.</dt>
+            <dd>You can set up these tools by installing the respective extensions from the VSCode marketplace.</dd>
+            <!-- --------------------- Optional code block for CLI --------------------- -->
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                # Install ESLint and Prettier globally
+                npm install -g eslint prettier
+
+                # Create an ESLint configuration file
+                npx eslint --init
+            </code></pre>
+            <dt>After installation, configure VSCode to use ESLint and Prettier.</dt>
+            <dd>Add the following settings in your `settings.json` file:</dd>
+            <!-- -------------- Optional code block for programming code --------------- -->
+            <pre><code rel="JSON" class="json" style="min-height: 1vh;">
+                {
+                    "editor.formatOnSave": true,
+                    "editor.codeActionsOnSave": {
+                        "source.fixAll.eslint": true
+                    },
+                    "eslint.validate": [
+                        "javascript",
+                        "javascriptreact",
+                        "typescript",
+                        "typescriptreact"
+                    ],
+                    "prettier.requireConfig": true
+                }
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+<section class="main-section-title"><h1>Transpilers</h1></section>
+<section class="sub-sections"><h2>Transpilers</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Transpilers convert modern JavaScript (ES6+) code into a version that is compatible with older browsers.</dt>
+            <dt>Common transpilers include Babel, which allows you to use the latest JavaScript features without worrying about browser support.</dt>
+            <!-- -------------- Optional code block for programming code --------------- -->
+            <pre><code rel="JavaScript" class="javascript" style="min-height: 1vh;">
+                // Example of Babel transpiling ES6 code to ES5
+                // Original ES6 code
+                const greet = () => console.log('Hello, World!');
+
+                // Transpiled ES5 code by Babel
+                var greet = function() {
+                    console.log('Hello, World!');
+                };
+            </code></pre>
+            <dt>You can play live in <a href="https://babeljs.io/repl#?browsers=&build=&builtIns=false&corejs=3.21&spec=false&loose=false&code_lz=MYewdgzgLgBA5gJwKZNgXhgCgJQzQPhlEhABskA6UkOTAcgAklTqAaGAdRAVIBMBCOtgDcQA&debug=false&forceAllTransforms=false&modules=false&shippedProposals=false&evaluate=false&fileSize=false&timeTravel=false&sourceType=script&lineWrap=true&presets=env%2Creact%2Cstage-2%2Cstage-3&prettier=false&targets=&version=7.25.5&externalPlugins=&assumptions=%7B%7D">https://babeljs.io/repl</a></dt>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="Bundlers"><h1>Bundlers</h1></section>
+<section class="sub-sections"><h2>Bundlers</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Bundlers like Webpack and Parcel combine multiple JavaScript files into a single file or a few files.</dt>
+            <dt>This process reduces the number of HTTP requests needed to load your application, improving performance.</dt>
+            <!-- -------------- Optional code block for programming code --------------- -->
+            <pre><code rel="JavaScript" class="javascript" style="min-height: 1vh;">
+                // Example of a simple Webpack configuration
+                const path = require('path');
+
+                module.exports = {
+                    entry: './src/index.js',
+                    output: {
+                        filename: 'bundle.js',
+                        path: path.resolve(__dirname, 'dist')
+                    },
+                    mode: 'production'
+                };
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+<section class="main-section-title" id="PackageManagers"><h1>Package Managers</h1></section>
+<section class="sub-sections"><h2>Package Managers</h2>
+    <section><h3>Package Managers</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Package managers like npm and Yarn help you manage dependencies in your JavaScript projects.</dt>
+            <dt>They allow you to easily install, update, and remove libraries, keeping your project organized and up-to-date.</dt>
+            <!-- --------------------- Optional code block for CLI --------------------- -->
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                # Installing a package with npm
+                npm install lodash --save
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are based on</p>
+     <p>customized version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="../../../outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="../../../lib/reveal.js/dist/reveal.js"></script>
+    <script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+    <script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+    <script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        // var highlightjsTabSize = '  ';
+        Reveal.initialize({
+
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1920,
+            height: 1080,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mousе click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+
+            plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+        });
+    </script>
+</body>
+</html>
