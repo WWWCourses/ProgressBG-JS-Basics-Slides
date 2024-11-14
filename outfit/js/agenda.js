@@ -248,7 +248,7 @@ const dom = {
 const config = {
 	hours_per_day: 4,
 	showThemes: true,
-	showSubThemes: true,
+	showSubThemes: false,
 	showThemesHours:true,
 	showSubThemesHours:true
 }
