@@ -160,7 +160,7 @@
     </section>
 </section>
 
-<section class="main-sesction-title" id="Variables" ><h1>Променливи (Variables)</h1></section>
+<section class="main-sesction-title" id="Variables"><h1>Променливи (Variables)</h1></section>
 <section class="sub-sections"><h2>Променливи (Variables)</h2>
     <section><h3>Какво е променлива в JavaScript?</h3>
         <dl class="fa">
@@ -181,34 +181,34 @@
     <section style="font-size: .9em"><h3>Деклариране/Дефиниране</h3>
         <dl class="fa">
             <dt>Създаването на една променлива се нарича <span class="note">деклариране</span> на променлива.
-            В JavaScript това става чрез запазената за езика дума <code class="note">var</code>.
-            </dt>
-            <dt>В ES 6, се въвеждат и нови думи за деклариране на променливи: <code class="note">let</code> и <code class="note">const</code>, които ще разгледаме след като изясним понятията "scope" и "hoisting".</dt>
+            В JavaScript, преди ES6, се използваше запазената за езика дума <code class="note">var</code>. В ES 6, се въвеждат и нови думи за деклариране на променливи: <code class="note">let</code> и <code class="note">const</code>, които ще разгледаме след като изясним понятията "scope" и "hoisting"</dt>
+            <dd class="note">В съвременните JS приложения се препоръчва използването на <code class="note">let</code>, вместо <code class="note">var</code>.</dd>
             <dt>Ако желаем, може при създаването на променливата, да запишем в нея конкретна стойност - т.е. да <span class="note">дефинираме</span>(<span>инициализираме</span>) променливата.</dt>
-            <dt>В JavaScript, една променлива винаги е дефинирана, тъй като ако не зададем експлицитно стойност при декларацията, то в променливата се записва стойността <span class="note">undefined</span>.</dt>
+            <dt>В JavaScript, една променлива винаги е дефинирана (има конкретна стойност), тъй като ако не зададем експлицитно стойност при декларацията, то в променливата се записва стойността <span class="note">undefined</span>.</dt>
         </dl>
         <pre><code rel="JS">
-            let x;      // деклариране на променливата x
+            let x;      // деклариране на променливата x (в x се записва undefined)
             x = 10;     // записваме в x стойност 10
-            let y;      // деклариране на променливата y
-            let a,b;    // деклариране на променливите a и b
-            let x = 10; // деклариране и инициализиране на x със стойността 10
+            let y=10;   // дефиниране на променливата y (в y се записва числото 10)
+            let a,b;    // едновременно деклариране на променливите a и b
+
         </code></pre>
     </section>
     <section><h3>Глобални променливи</h3>
-        <p>В JavaScript, променлива може да се създаде и без да се декларира явно с <code class="note">var</code>/<span class="note">let</span> или <span class="note">const</span>. Например:</p>
+        <dl class="fa" style="min-width:80vw">
+            <dt>В JavaScript, променлива може да се създаде и без да се декларира явно с <code class="note">var</code>, <span class="note">let</span> или <span class="note">const</span>. Например:</dt>
+            <pre><code rel="JS" class="js">
+                x = 10;
+                console.log(x);
+            </code></pre>
+            <dt><span class=note>Това се счита за изключително лоша практика, тъй като се създава "<strong>глобална променлива</strong>"</span> (в темата за <a href="../../../pages/themes/beginners/JS_Functions/JS_Functions.html#Scope">scope</a>, ще разгледаме защо), и в новите версии на езика (от ЕС5.1) при използването на strict mode, това би <strong>довело до грешка</strong>!</dt>
+        </dl>
+
         <pre><code rel="JS" class="js">
-            x = 10; // (Error in strict mode)
-            console.log(x);
-        </code></pre>
-        <p class="note">Това се счита за изключително лоша практика, тъй като се създава "<strong>глобална променлива</strong>" (в темата за <a href="../../../pages/themes/beginners/JS_Functions/JS_Functions.html#Scope">scope</a>, ще разгледаме защо), и в новите версии на езика (от ЕС5.1) при използването на strict mode, това би <strong>довело до грешка</strong>!</p>
-    </section>
-    <section><h3 class="advanced">Strict Mode</h3>
-        <pre><code rel="JS" class="js">
-            // global variable in  strict-mode:
+            // enable whole-script strict mode syntax:
             'use strict';
+
             x = 10; // Uncaught ReferenceError: x is not defined
-            console.log(x);
         </code></pre>
         <p>Повече информация: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode">Strict_mode @MDN</a></p>
     </section>
@@ -239,21 +239,29 @@
             <dt>Пълен списък: <a href="http://www.w3schools.com/js/js_reserved.asp">http://www.w3schools.com/js/js_reserved.asp</a></dt>
         </dl>
     </section>
-    <section><h3>Конвенции за именуване на променливи</h3>
-        <p>Препоръчва се имената на променливите да описват данните, които възнамеряваме да съхраняваме в тях.</p>
-        <p>Не бихте искали програмата ви да изглежда така:</p>
-        <p><img src="images/Messy_storage_room_with_boxes.jpg" alt="Messy_storage_room_with_boxes" style="height: 60vh"><br><a class="resourseAttribution" href="https://upload.wikimedia.org/wikipedia/commons/3/39/Messy_storage_room_with_boxes.jpg">From Wikimedia Commons</a></p>
+    <section><h3>Конвенции и добри практики за именуване на променливи</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Конвенции и добрите практики не са задължителни правила, но е важно да ги следвате.</dt>
+            <dt>Те спомагат за подобряване на четимостта и качеството на кода, предотвратяване на грешки и улесняват сътрудничеството между екип от програмисти.</dt>
+            <div style="display:flex; align-items: center; justify-content: center; gap:1em; margin-top:1em">
+                <img src="images/Messy_storage_room_with_boxes.jpg" alt="Messy_storage_room_with_boxes" style="height: 50vh">
+                <span> vs. </span>
+                <img src="images/archive-1850170_640.jpg" alt="archive-1850170_640" style="height: 50vh;">
+            </div>
+
+        </dl>
     </section>
-    <section><h3>Конвенции за именуване на променливи</h3>
-        <p>А по-скоро така: </p>
-        <img src="images/archive-1850170_640.jpg" alt="archive-1850170_640" style="height: 70vh;">
-    </section>
-    <section><h3>Конвенции за именуване на променливи</h3>
+    <section><h3>Конвенции и добри практики за именуване на променливи</h3>
         <dl class="fa">
+            <dt>Препоръчва се имената на променливите да описват данните, които възнамеряваме да съхраняваме в тях.</dt>
             <dt>Ако е необходимо името да се състои от две или повече думи, то в JavaScript се препоръчва да се използва <span class="note">lowerCamelCase</span> - първата дума започва с малка буква, а следващите думи се залепват непосредствено като започват с голяма буква.</dt>
         </dl>
         <pre><code rel="JS" class="js">
-             camelCasedName = 'something';
+            // Лошо име на променлива: не дава никаква информация за това какви данни се съхраняват в променливата.
+            let x = 100;
+
+            // Добро име на променлива
+            let totalPrice = 100;
         </code></pre>
     </section>
     <section><h3>Примери:</h3>
@@ -410,22 +418,26 @@
             let stop  = false;
         </code></pre>
     </section>
-    <section><h3>null</h3>
-        <p>Използва се при работа с обекти, които са разгледани по-нататък.</p>
-        <p class="advanced">null е примитивен тип, а не обект! Факта, че оператора <code>typeof null;</code> връща "object" се дължи на всеизвестен <span class="note">бъг в JavaScript</span> ( <i class="advanced"></i><a href="http://2ality.com/2013/10/typeof-null.html">The history of “typeof null” by Dr. Axel Rauschmayer</a>)</p>
-    </section>
-    <section><h3>undefined</h3>
-        <dl class="fa">
-            <dt>Обозначава, че променливата съществува (декларирана е), но в нея няма зададена стойност (не е дефинирана).</dt>
-            <dt>Това е стойността, която се записва по подразбиране, когато не зададем стойност при декларацията на променлива.</dt>
-            <dt>Разликата между <code>null</code> и <code>undefined</code> ще разгледаме след като се запознаем с обектите в JS.</dt>
+    <section><h3>null and undefined</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><code>null</code>: обозначава умишлено зададена "празна" стойност. Обикновено се използва, когато инициализирате променлива с намерение да й присвоите стойност по-късно.</dt>
+            <pre><code rel="JS" class="js">
+                let x = null;
+                console.log(x); // null
+            </code></pre>
+            <dt><code>undefined</code>: стойност, която JavaScript автоматично присвоява на променливи, които не са инициализирани, или на свойства, които не съществуват в обекти.</dt>
+            <pre><code rel="JS" class="js">
+                let y;
+                console.log(y); // undefined
+            </code></pre>
+            <dt>Основната разлика е, че null е умишлено зададена стойност от програмиста, докато undefined е резултат от автоматичното поведение на JavaScript</dt>
         </dl>
     </section>
     <section><h3>typeof оператор</h3>
         <dl class="fa">
             <dt>За да разберем какъв е типът данни на дадена стойност, може да използваме оператора <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof">typeof</a></code></dt>
         </dl>
-        <pre><code rel="JS" class="js">
+        <pre><code rel="JS" class="js" style="min-height: 70vh;">
             console.log( typeof 5 );
             // number
 
@@ -440,7 +452,7 @@
 
             console.log( typeof null );
             // object
-            // но това е споменатия вече бъг в JS
+            // но това е бъг още от първите версии на JS. null не е обект, а отделен примитивен тип.
 
         </code></pre>
     </section>
@@ -448,12 +460,18 @@
         <dl class="fa">
             <dt>В JavaScript, към типа number спада и стойността <span class="note">NaN (Not-a-Number)</span>.</dt>
             <dt>Тя не се използва директно, а е дефинирана за да обозначи резултат от числова операция, която не е число.</dt>
+            <pre><code rel="JS" class="js">
+                let res = 0 / "a";
+                console.log( res );         // NaN
+                console.log( typeof(res) ); // number
+            </code></pre>
+            <dt>За да проверите дали дадена стойност е NaN, използвайте функцията <code>Number.isNaN()</code>:</dt>
+            <pre><code rel="JS" class="js">
+                console.log(Number.isNaN(NaN));  // true
+                console.log(Number.isNaN("NaN")); // false
+            </code></pre>
         </dl>
-        <pre><code rel="JS" class="js">
-            let res = 0 / "a";
-            console.log( res );         // NaN
-            console.log( typeof(res) ); // number
-        </code></pre>
+
     </section>
 </section>
 
@@ -463,6 +481,72 @@
         <dt>Self learning section</dt>
         <dd><a href="https://www.w3schools.com/js/js_comments.asp">JavaScript Comments</a></dd>
     </dl>
+</section>
+
+
+<section class="main-sesction-title" id="assignment"><h1>Оператор за присвояване (Assignment operator)</h1></section>
+<section class="sub-sections"><h2>Оператор за присвояване (Assignment operator)</h2>
+    <section id="AssignmentBasics">
+        <dl class="fa">
+            <dt>Assignment '<code class="note">=</code>'
+                <pre><code rel="Syntax" class="js">
+                    LHS = RHS;
+                </code></pre></dt>
+            <dt style="font-size: .8em">LHS: Left Hand Side: трябва да бъде <span class="note">декларирана променлива</span>. Ако променливата не е декларирана ще се създаде <span class="note">глобална променлива</span>, което е изключително лоша практика.</dt>
+            <dt style="font-size: .8em">RHS: Right Hand Side: <strong><span class="note">израз</span>, който се изчислява</strong> и стойността му се записва в LHS променливата</dt>
+                <pre><code rel="JS" class="js" style="font-size: 1em">
+                    // декларираме променливите x и y:
+                    let x, y;
+
+                    // записваме в паметта, сочена от x, числото 3:
+                    x = 3;
+
+                    // в x записваме стойността на x, повдигната на степен 2:
+                    x = x ** 2; // след този израз в x имаме стойността 9
+                </code></pre>
+            </dt>
+        </dl>
+    </section>
+    <section id="LHS_vs_RHS">
+        <dl class="fa">
+            <dt>Понятията "LHS" и "RHS" се използват не само в контекста на assignment оператора.</dt>
+            <dt>Когато променлива се използва като <span class="note">LHS</span> то  тогава <span class="note">записваме</span> стойност в нея</dt>
+            <dt>Когато се използва като <span class="note">RHS</span> => <span class="note">четем</span> стойност от нея.</dt>
+        </dl>
+        <pre><code rel="JS" class="js">
+            let x, y = 1;
+            x = y; // тук четем от y и записваме в x
+        </code></pre>
+    </section>
+    <section id="AssignmentValue"><h3>Резултат от операцията</h3>
+        <dl class="fa">
+            <dt>Операцията "присвояване" връща стойност! И това е стойността, която ще се запише в LHS променливата</dt>
+            <dt>Поради това, можем да имаме няколко оператора за присвояване в израз:</dt>
+        </dl>
+        <pre><code rel="JS" class="js">
+            // декларираме променливите x и y
+            let x,y;
+
+            // присвояваме и на двете променливи стойността 1
+            y = x = 1;
+
+            console.log(`x = ${x}`); // x = 1
+            console.log(`y = ${y}`); // y = 1
+        </code></pre>
+    </section>
+    <section id="AssignmentShorthand"><h3>Съкратен запис</h3>
+        <dl class="fa">
+            <dt>Когато имаме една и съща променлива от двете страни на assignment оператора и знак за операция, то можем да запишем израза съкратено.</dt>
+        </dl>
+        <pre><code rel="JS" class="js">
+            let x = 4;
+            x += 3; // x = x + 3;
+            x ­-= 3; // x = x - 3;
+            x *= 3; // x = x * 3;
+            x /= 3; // x = x / 3;
+            x %= 3; // x = x % 3;
+        </code></pre>
+    </section>
 </section>
 
 <section class="main-sesction-title" id="ArithmeticOperators"><h1>Аритметични оператори (Arithmetic operators)</h1></section>
@@ -536,7 +620,7 @@
         <p>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation">Степенуване</a> @MDN</p>
     </section>
     <section><h3>Increment и Decrement</h3>
-        <a href="https://www.reddit.com/r/ProgrammerHumor/comments/caj01i/you_know_you_updated_from_junior_to_senior/">:) You know you updated from Junior to Senior developer when:</a>
+        <a href="https://www.reddit.com/r/ProgrammerHumor/comments/caj01i/you_know_you_updated_from_junior_to_senior/">:) You know you updated from Junior to Senior developer when:</a><br>
         <img src="./images/increment_from_junior_to_denior.webp" alt="">
     </section>
     <section id="increment"><h3>Инкрементиране (Increment)</h3>
@@ -624,86 +708,32 @@
             <li>Такова скрито преобразуване на типове се нарича <span class="note">type coercion</span>.</li>
         </ul>
     </section>
-    <section id="stringToNumber"><h3>Преобразуване на низ в число</h3>
-        <dl class="fa">
-            <dt>Често в практиката се налага да преобразуваме явно низ до число. За целта в JS съществуват различни подходи, но като най-бърз и лесен е варианта чрез <span class="note">умножение по 1</span></dt>
-            <pre><code rel="JS" class="js">
-                let x = "42";
-
-                console.log(x + 2);    // 422 защото в x имаме низ
-                console.log(typeof(x)) // string
-
-                console.log(x*1 + 2); // 44  защото x*1 е число
-                console.log(typeof(x*1)) // number
-
-
-            </code></pre>
-        </dl>
-    </section>
 </section>
 
-<section class="main-sesction-title" id="assignment"><h1>Оператор за присвояване (Assignment operator)</h1></section>
-<section class="sub-sections"><h2>Оператор за присвояване (Assignment operator)</h2>
-    <section id="AssignmentBasics">
+<section class="main-section-title"><h1>Преобразуване на низ в число</h1></section>
+<section class="sub-sections"><h2>Преобразуване на низ в число</h2>
+    <section id="stringToNumber">
         <dl class="fa">
-            <dt>Assignment '<code class="note">=</code>'
-                <pre><code rel="Syntax" class="js">
-                    LHS = RHS;
-                </code></pre></dt>
-            <dt style="font-size: .8em">LHS: Left Hand Side: трябва да бъде <span class="note">декларирана променлива</span>. Ако променливата не е декларирана ще се създаде <span class="note">глобална променлива</span>, което е изключително лоша практика.</dt>
-            <dt style="font-size: .8em">RHS: Right Hand Side: <strong><span class="note">израз</span>, който се изчислява</strong> и стойността му се записва в LHS променливата</dt>
-                <pre><code rel="JS" class="js" style="font-size: 1em">
-                    // декларираме променливите x и y:
-                    let x, y;
+            <dt>Често в практиката се налага да преобразуваме явно низ до число. За целта в JS съществуват различни подходи:</dt>
+            <pre><code rel="JS" class="js" style="min-height: 70vh;" data-copy>
+                let x = "42.5";
 
-                    // записваме в паметта, сочена от x, числото 3:
-                    x = 3;
+                // Преобразува низа в число (десетично или цяло, в зависимост от съдържанието
+                console.log( Number(x) ); //42.5
 
-                    // в x записваме стойността на x, повдигната на степен 2:
-                    x = x ** 2; // след този израз в x имаме стойността 9
-                </code></pre>
-            </dt>
-        </dl>
-    </section>
-    <section id="LHS_vs_RHS">
-        <dl class="fa">
-            <dt>Понятията "LHS" и "RHS" се използват не само в контекста на assignment оператора.</dt>
-            <dt>Когато променлива се използва като <span class="note">LHS</span> то  тогава <span class="note">записваме</span> стойност в нея</dt>
-            <dt>Когато се използва като <span class="note">RHS</span> => <span class="note">четем</span> стойност от нея.</dt>
-        </dl>
-        <pre><code rel="JS" class="js">
-            let x, y = 1;
-            x = y; // тук четем от y и записваме в x
-        </code></pre>
-    </section>
-    <section id="AssignmentValue"><h3>Резултат от операцията</h3>
-        <dl class="fa">
-            <dt>Операцията "присвояване" връща стойност! И това е стойността, която ще се запише в LHS променливата</dt>
-            <dt>Поради това, можем да имаме няколко оператора за присвояване в израз:</dt>
-        </dl>
-        <pre><code rel="JS" class="js">
-            // декларираме променливите x и y
-            let x,y;
+                // Преобразува низа в число с плаваща запетая.
+                console.log( parseFloat(x) ); // 42.5
 
-            // присвояваме и на двете променливи стойността 1
-            y = x = 1;
+                // Преобразува низа в цяло число (премахва десетичната част).
+                console.log( parseInt(x) ); //42
 
-            console.log(`x = ${x}`); // x = 1
-            console.log(`y = ${y}`); // y = 1
-        </code></pre>
-    </section>
-    <section id="AssignmentShorthand"><h3>Съкратен запис</h3>
-        <dl class="fa">
-            <dt>Когато имаме една и съща променлива от двете страни на assignment оператора и знак за операция, то можем да запишем израза съкратено.</dt>
+                // Умножава низа по 1, което го преобразува автоматично в число.
+                console.log( x*1 ); //42.5
+
+                // Унарният плюс (+) преобразува низа в число.
+                console.log( +x ); //42.5
+            </code></pre>
         </dl>
-        <pre><code rel="JS" class="js">
-            let x = 4;
-            x += 3; // x = x + 3;
-            x ­-= 3; // x = x - 3;
-            x *= 3; // x = x * 3;
-            x /= 3; // x = x / 3;
-            x %= 3; // x = x % 3;
-        </code></pre>
     </section>
 </section>
 
@@ -738,8 +768,7 @@
 
 <section class="main-sesction-title" id="simpleOperatorsTasks"><h1>Примери и Задачи</h1></section>
 <section class="sub-sections"><h2>Примери и Задачи</h2>
-    <section>
-        <p>Създаване на променливи и основни операции с простите типове данни.</p>
+    <section><h3>Примери: Създаване на променливи и основни операции с простите типове данни.</h3>
         <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result&embed-version=2" data-user="webdesigncourse" data-slug-hash="VeZrQE/" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Simple variables and operations">
         <span>See the Pen <a href='https://codepen.io/webdesigncourse/pen/VeZrQE/'>Simple variables and operations</a> by Iva Popova (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.</span>
         </p>
@@ -750,6 +779,9 @@
             BMI simplest calculation</a> by Iva Popova (<a href="https://codepen.io/webdesigncourse">@webdesigncourse</a>)
             on <a href="https://codepen.io">CodePen</a>.</span>
           </p>
+          <dl class="fa" style="min-width:80vw">
+            <dt>Работете във файл: BMI_calc.js</dt>
+          </dl>
     </section>
 </section>
 
@@ -757,8 +789,58 @@
 <section class="sub-sections"><h2>Оператори за сравнение (Comparison Operators)</h2>
     <section id="comparisonOperatorsBasics">
         <dl class="fa">
-            <dt><a href="https://www.w3schools.com/js/js_comparisons.asp">JavaScript Comparison and Logical Operators (by w3schools)</a></dt>
-            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators">Comparison operators (by MDN)</a></dt>
+            <dt>Операторите за сравнение в JavaScript се използват за сравняване на стойности (числа, низове и други типове данни) и връщане на булеви резултати (true или false).</dt>
+            <dt>Тези оператори играят основна роля при условни конструкции като if, когато трябва да проверим дали дадено условие е изпълнено.</dt>
+            <table border="1">
+                <tr>
+                  <th>Оператор</th>
+                  <th>Описание</th>
+                  <th>Пример</th>
+                </tr>
+                <tr>
+                  <td>==</td>
+                  <td>равенство</td>
+                  <td>5 == 5  // true</td>
+                </tr>
+                <tr>
+                  <td>===</td>
+                  <td>строго равенство</td>
+                  <td>5 === "5"  // false</td>
+                </tr>
+                <tr>
+                  <td>!=</td>
+                  <td>неравенство</td>
+                  <td>5 != 3  // true</td>
+                </tr>
+                <tr>
+                  <td>!==</td>
+                  <td>строго неравенство</td>
+                  <td>5 !== "5"  // true</td>
+                </tr>
+                <tr>
+                  <td>></td>
+                  <td>по-голямо от</td>
+                  <td>10 > 5  // true</td>
+                </tr>
+                <tr>
+                  <td><</td>
+                  <td>по-малко от</td>
+                  <td>3 < 5  // true</td>
+                </tr>
+                <tr>
+                  <td>>=</td>
+                  <td>по-голямо или равно на</td>
+                  <td>5 >= 5  // true</td>
+                </tr>
+                <tr>
+                  <td><=</td>
+                  <td>по-малко или равно на</td>
+                  <td>4 <= 3  // false</td>
+                </tr>
+              </table>
+
+            <dt>Reference: <a href="https://www.w3schools.com/js/js_comparisons.asp">JavaScript Comparison and Logical Operators (by w3schools)</a></dt>
+
         </dl>
     </section>
     <section id="comparisonOperatorsExamples"><h3>примери</h3>
@@ -796,7 +878,7 @@
     </section>
     <section><h3>Повече за операторите за сравнение и как работи с тях JS:</h3>
         <dl class="fa">
-            <dt><a href="https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/get-started/ch2.md#equalish" class="advanced">Equal...ish @You don't know JS</a></dt>
+            <dt><a href="https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/get-started/ch2.md#equalish" class="advanced" style="font-size: 1em;">Equal...ish @You don't know JS</a></dt>
         </dl>
     </section>
 </section>
@@ -805,7 +887,7 @@
 <section class="sub-sections"><h2>логически оператори (Logical Operators)</h2>
     <section>
         <dl class="fa">
-            <dt>Логическите оператори намират приложение предимно при условните изрази, разглеждани детайлно в следващата тема.</dt>
+            <dt>Логическите оператори намират приложение предимно при условните конструкции като if, разглеждани детайлно в следващата тема.</dt>
             <dt>Обикновено, логическите оператори се използват над Булев тип операнди, за да съставим по-сложни изрази.</dt>
             <dd>Например: "Вярно ли е, че потребителят е пълнолетен <span class="note">и</span> е от България"</dd>
             <dt>Но логическите оператори могат да се използват и над друг тип данни. В такъв случай, <span class="note">те не връщат Булева стойност</span>.</dt>
@@ -886,8 +968,8 @@
 
     <section id="truthValueInterpretation"><h3>Изчисляване на истинностни стойности</h3>
         <dl class="fa">
-            <dt>Логическите оператори в JS могат да работят върху различни типове данни.</dt>
-            <dt>За да се изчисли резултата, за всеки един от операндите трябва да се изчисли истинностната му стойност (true/false), като се следват правилата:</dt>
+            <dt>Изчисляване на истинностни стойности в JavaScript се отнася до процеса, чрез който стойностите се оценяват като "истинни" (true) или "лъжливи" (false), когато са в логически контекст.</dt>
+            <dt>Когато трябва да се изчисли истинностната стойност на даден операнд се следват правилата:</dt>
         </dl>
         <table>
             <tr>
@@ -923,13 +1005,13 @@
         </span>
         </p>
     </section>
-    <!-- <section><h3 class="advanced">Short-circuit evaluation</h3>
+    <section><h3 class="advanced">Short-circuit evaluation</h3>
         <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#short-circuit_evaluation">Short-circuit_evaluation @MDN</a>
         <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="rpgOxG/" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="JS: Short-circuit evaluation">
         <span>See the Pen <a href='https://codepen.io/webdesigncourse/pen/rpgOxG/'>JS: Short-circuit evaluation</a> by Iva Popova (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
         </span>
         </p>
-    </section> -->
+    </section>
 </section>
 
 <section id="conditionalStatements"><h1>Условни изрази (Conditional statements)</h1></section>
