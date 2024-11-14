@@ -49,6 +49,7 @@
             <span class="toggleSubThemes">Toggle sub-themes</span>
         </div>
         <div class="themes">
+
 <!-- ---------------------------- Themes Start ----------------------------- -->
 <article><h2>JavaScript Basics</h2>
     <section id="CourseWelcome" data-hours="0.5">
@@ -59,19 +60,19 @@
             <li>Course resources.</li>
         </ol>
     </section>
-    <section id="SetupCourseEnvironment" data-hours="0.5">
+    <section id="SetupCourseEnvironment" data-hours="2.5">
         <h3>Setup course environment</h3>
         <ol class="sub_themes">
             <li>Setting up the development environment with VSCode.</li>
         </ol>
     </section>
-    <section id="JS_Intro" data-hours="1">
+    <section id="JS_Intro" data-hours="2">
         <h3>Introduction to JavaScript</h3>
         <ol class="sub_themes">
             <li>Overview and history of JavaScript.</li>
         </ol>
     </section>
-    <section id="JS_BasicSyntax" data-hours="7">
+    <section id="JS_BasicSyntax" data-hours="10">
         <h3>JavaScript: basic syntactic elements</h3>
         <ol class="sub_themes">
             <li>Variables, primitive data types, operators.</li>
@@ -79,10 +80,10 @@
             <li>Loops.</li>
         </ol>
     </section>
-    <section id="PracticalExerciseGuessTheNumberGameLogic" data-hours="1">
+    <section id="PracticalExerciseGuessTheNumberGameLogic" data-hours="1" data-wip>
         <h3>Practical Exercise: code "Guess the number" game logic</h3>
     </section>
-    <section id="JS_Arrays" data-hours="3">
+    <section id="JS_Arrays" data-hours="3" data-wip>
         <h3>JavaScript: Arrays and Operations</h3>
         <ol class="sub_themes">
             <li>Creating and manipulating arrays.</li>
@@ -90,22 +91,23 @@
             <li>Loop over arrays.</li>
         </ol>
     </section>
-    <section id="PracticalExerciseQuizGameLogic" data-hours="1">
+    <section id="PracticalExerciseQuizGameLogic" data-hours="1" data-wip>
         <h3 class="italic">Practical Exercise: code "Quiz Game" logic</h3>
     </section>
-    <section id="JS_Functions" data-hours="5" data-wip>
+    <section id="JS_Functions" data-hours="8" data-wip>
         <h3>JavaScript: Functions</h3>
         <ol class="sub_themes">
             <li>Defining functions: function declaration vs function expression.</li>
             <li>Function Invocation.</li>
             <li>Functions are first-class citizens!</li>
             <li>Scope and shadowing.</li>
+            <li>Arrow Syntax</li>
         </ol>
     </section>
     <section id="PracticalExerciseRefactorGuessTheNumberAndQuizGameUsingFunctions" data-hours="1" data-wip>
         <h3 class="italic">Practical Exercise: refactor "Guess the number" and "Quiz Game" using functions</h3>
     </section>
-    <section id="JavascriptObjects" data-hours="5" data-wip>
+    <section id="JS_Objects" data-hours="4" data-wip>
         <h3>JavaScript - Objects</h3>
         <ol class="sub_themes">
             <li>Object creation: by literal.</li>
@@ -113,10 +115,10 @@
             <li>Factory and Constructor Functions; ES6 Class Syntax.</li>
         </ol>
     </section>
-    <section id="PracticalExerciseCodeSimpleDigitalLibrarySystemLogic" data-hours="1" data-wip>
+    <section id="PracticalExerciseSimpleDigitalLibrarySystemLogic" data-hours="1" data-wip>
         <h3 class="italic">Practical Exercise: code "Simple Digital library System" logic</h3>
     </section>
-    <section id="StandardObjectsInEcmascript" data-hours="2" data-wip>
+    <section id="JS_BuiltInObjects" data-hours="2" data-wip>
         <h3>Standard Built-in Objects in EcmaScript</h3>
         <ol class="sub_themes">
             <li>Global objects: Math, Date, String, etc.</li>
@@ -124,7 +126,7 @@
             <li>Primitive object wrappers.</li>
         </ol>
     </section>
-    <section id="TimersInJavascript" data-hours="1" data-wip>
+    <section id="JS_TimersAndAsync" data-hours="1" data-wip>
         <h3>Timers in JavaScript</h3>
         <ol class="sub_themes">
             <li>Using setTimeout and setInterval.</li>
@@ -134,9 +136,18 @@
     <section id="PracticalExerciseCreateACountdownTimer" data-hours="1" data-wip>
         <h3 class="italic">Practical Exercise: "Create a Countdown Timer"</h3>
     </section>
+    <section id="Exceptions" data-hours="2" data-wip>
+        <h3>Exceptions handling</h3>
+        <ol class="sub_themes">
+            <li>What are Exceptions?</li>
+            <li>Exception handling.</li>
+            <li>Throwing exceptions.</li>
+            <li>Custom exceptions.</li>
+        </ol>
+    </section>
 </article>
 <article><h2>Working with Browsers API</h2>
-    <section id="JsInteractionWithBrowser" data-hours="4" data-wip>
+    <section id="DOM_Intro" data-hours="4" data-wip>
         <h3>JS interaction with Browser (HTML DOM, BOM)</h3>
         <ol class="sub_themes">
             <li>JavaScript host environments.</li>
@@ -144,7 +155,7 @@
             <li>Accessing and modifying the DOM.</li>
         </ol>
     </section>
-    <section id="HandlingHtmlDomEvents" data-hours="3" data-wip>
+    <section id="DOMEvents" data-hours="3" data-wip>
         <h3>Handling HTML DOM Events</h3>
         <ol class="sub_themes">
             <li>DOM events overview.</li>
@@ -152,27 +163,34 @@
             <li>Using the Event Object.</li>
         </ol>
     </section>
-    <section id="PracticalExerciseInteractiveToDoList" data-hours="1" data-wip>
-        <h3 class="italic">Practical Exercise: "Create Todo List Project"</h3>
-    </section>
-    <section id="ManipulatingCssPropertiesWithJavascript" data-hours="2" data-wip>
+    <section id="DOM_JS_StylingElements" data-hours="1" data-wip>
         <h3>Manipulating CSS Properties with JavaScript</h3>
         <ol class="sub_themes">
             <li>Dynamically changing styles with JavaScript.</li>
             <li>Accessing computed styles.</li>
         </ol>
     </section>
-    <section id="DomManipulationsWithJQuery" data-hours="2" data-wip>
+    <section id="jQueryIntro" data-hours="1" data-wip>
         <h3>DOM manipulations with jQuery</h3>
         <ol class="sub_themes">
             <li>Basics of jQuery.</li>
             <li>DOM manipulation with jQuery.</li>
         </ol>
     </section>
+    <section id="clientSideStorages" data-hours="2" data-wip>
+        <h3>Client-side Storages</h3>
+        <ol class="sub_themes">
+            <li>Cookies.</li>
+            <li>SessionStorage.</li>
+            <li>LocalStorage.</li>
+        </ol>
+    </section>
+    <section id="PracticalExerciseTodoApp" data-hours="1" data-wip>
+        <h3 class="italic">Practical Exercise: "Create Todo App Application"</h3>
+    </section>
 </article>
-
 <article><h2>Modern Web Development with JavaScript</h2>
-    <section id="IntroductionToCli" data-hours="2" data-wip>
+    <section id="CLI_Overview" data-hours="2" data-wip>
         <h3>Introduction to CLI</h3>
         <ol class="sub_themes">
             <li>Introduction to Command Line Interface (CLI) and its importance for developers.</li>
@@ -180,7 +198,7 @@
             <li>Basic navigation and file system commands.</li>
         </ol>
     </section>
-    <section id="WorkingWithGitAndGitHub" data-hours="4" data-wip>
+    <section id="GitAndGitHub_Overview" data-hours="4" data-wip>
         <h3>Working with Git and GitHub</h3>
         <ol class="sub_themes">
             <li>Overview of Version (Source) Control Systems. Why Git?</li>
@@ -189,7 +207,7 @@
             <li>How to explore and collaborate to a GitHub project.</li>
         </ol>
     </section>
-    <section id="DeploymentStrategiesForJavaScriptApplications" data-hours="1" data-wip>
+    <section id="DeploymentStrategiesForJSApplications" data-hours="1" data-wip>
         <h3>Deployment strategies for JavaScript applications</h3>
         <ol class="sub_themes">
             <li>Understanding the deployment process for JavaScript applications.</li>
@@ -197,11 +215,11 @@
             <li>Cloud Hosting Platforms: Overview of platforms like Heroku, Vercel, Netlify.</li>
         </ol>
     </section>
-    <section id="PracticalExerciseVersionControlWithGitAndGitHub" data-hours="1" data-wip>
-        <h3 class="italic">Practical Exercise: "Collaborate on Todo List Project in GitHub. Deployment on Vercel."</h3>
+    <section id="PracticalExerciseTodoAppOnGitHubAndGitHubPages" data-hours="1" data-wip>
+        <h3 class="italic">Practical Exercise: "Collaborate on Todo List Project in GitHub. Deployment on GitHub Pages."</h3>
     </section>
-    <section id="ES6MoreFeatures" data-hours="1" data-wip>
-        <h3>Other ES6 Features</h3>
+    <section id="JS_ES6MoreFeatures" data-hours="2" data-wip>
+        <h3>Other ES6 New Features</h3>
         <ol class="sub_themes">
             <li>The <code>spread</code> operator.</li>
             <li>Rest parameters.</li>
@@ -211,25 +229,29 @@
             <li>The <code>for-of</code> loop.</li>
         </ol>
     </section>
-    <section id="FunctionalProgrammingConceptsInJavaScript" data-hours="3" data-wip>
+    <section id="JS_FunctionalProgrammingConcepts" data-hours="4" data-wip>
         <h3>Functional programming concepts in JavaScript</h3>
         <ol class="sub_themes">
             <li>Overview of core concepts of functional programming (immutability, pure functions).</li>
             <li>Higher-Order Functions in JavaScript.</li>
             <li>New features in ES6 relevant to functional programming (arrow functions, spread operator, etc.).</li>
             <li>Map, Reduce, and Filter methods in JavaScript.</li>
-            <li>The forEach loop method.</li>
+            <li>forEach Array method.</li>
         </ol>
     </section>
-    <section id="JsonInJavascript" data-hours="2" data-wip>
-        <h3>JSON in JavaScript</h3>
+    <section id="promisesAndAsync" data-hours="4" data-wip="">
+        <h3>Promises. Async/Await</h3>
+    </section>
+    <section id="HTTPBasicsAndAJAX" data-hours="4" data-wip>
+        <h3>HTTP Basics and AJAX with Fetch API</h3>
         <ol class="sub_themes">
-            <li>Overview of data-interchange formats (JSON, XML, YAML).</li>
-            <li>JSON Syntax.</li>
-            <li>Parsing and stringifying JSON.</li>
+            <li>Client-Server Communications on HTTP.</li>
+            <li>What is AJAX?.</li>
+            <li>Fetch API</li>
+            <li>JSON (JavaScript Object Notation) Overview</li>
         </ol>
     </section>
-    <section id="ConsumingRestJsonApis" data-hours="5" data-wip>
+    <section id="REST_APIs" data-hours="2" data-wip>
         <h3>Consuming REST JSON APIs</h3>
         <ol class="sub_themes">
             <li>Overview of REST APIs, their importance in web and mobile applications.</li>
@@ -237,10 +259,7 @@
             <li>Making GET, POST, PUT, DELETE requests using JavaScript's Fetch API.</li>
         </ol>
     </section>
-    <section id="PracticalExerciseCreateATodoAppWithRestJsonServer" data-hours="1" data-wip>
-        <h3 class="italic">Practical Exercise: Create a TodoApp with REST JSON-Server</h3>
-    </section>
-    <section id="FundamentalsOfNodejsAndNpm" data-hours="5" data-wip>
+    <section id="NodejsAndNpmFundamentals" data-hours="2" data-wip>
         <h3>Fundamentals of NodeJS and NPM</h3>
         <ol class="sub_themes">
             <li>Introduction to Node.js and its architecture.</li>
@@ -249,10 +268,10 @@
             <li>Basic NPM commands.</li>
         </ol>
     </section>
-    <section id="PracticalExerciseSimpleHttpServerWithNodeJs" data-hours="1" data-wip>
-        <h3 class="italic">Practical Exercise: Building a simple HTTP server with Node.js</h3>
+    <section id="PracticalExerciseTodoAppWithRestJsonServer" data-hours="2" data-wip>
+        <h3 class="italic">Practical Exercise: Create a TodoApp with REST JSON-Server</h3>
     </section>
-    <section id="ModulesInJavaScript" data-hours="3" data-wip>
+    <section id="JS_Modules" data-hours="2" data-wip>
         <h3>Modules in JavaScript</h3>
         <ol class="sub_themes">
             <li>Introduction to ES6 Modules.</li>
@@ -260,11 +279,11 @@
             <li>Named and default exports.</li>
         </ol>
     </section>
-    <section id="PracticalExerciseCreatingAndUsingModulesInAJavaScriptProject" data-hours="1" data-wip>
+    <!-- <section id="PracticalExerciseCreatingAndUsingModulesInAJavaScriptProject" data-hours="1" data-wip>
         <h3 class="italic">Practical Exercise: Creating and using modules in a JavaScript project</h3>
-    </section>
-    <section id="ToolingInJavaScriptDevelopment" data-hours="3" data-wip>
-        <h3>Tooling in JavaScript Development </h3>
+    </section> -->
+    <section id="JS_Development_Tools" data-hours="2" data-wip>
+        <h3>JavaScript Development Tools </h3>
         <ol class="sub_themes">
             <li>Introduction to tools for JavaScript transpilation and module bundling.</li>
             <li>Using Babel for browser compatibility.</li>
@@ -272,18 +291,18 @@
             <li>Configuration of Babel and Webpack.</li>
         </ol>
     </section>
-    <section id="PracticalExerciseSettingUpAModernJavaScriptAppWorkflow" data-hours="1" data-wip>
+    <!-- <section id="PracticalExerciseSettingUpAModernJavaScriptAppWorkflow" data-hours="1" data-wip>
         <h3 class="italic">Practical Exercise: "Setting Up a Modern JavaScript App Workflow" </h3>
-    </section>
-    <section id="WorkingWithExternalJavascriptLibraries" data-hours="4" data-wip>
+    </section> -->
+    <!-- <section id="JS_Libraries" data-hours="2" data-wip>
         <h3>Working with External JavaScript Libraries</h3>
         <ol class="sub_themes">
             <li>What external libraries are and why they are used.</li>
             <li>Integrating JS libraries: Step-by-step guide on using libraries like React.js, D3.js, Pixi.js.</li>
             <li>Managing Dependencies: Understanding dependency management with npm or yarn.</li>
         </ol>
-    </section>
-    <section id="BasicsOfTypescript" data-hours="3" data-wip>
+    </section> -->
+    <section id="TypeScript_Basics" data-hours="6" data-wip>
         <h3>TypeScript Basics</h3>
         <ol class="sub_themes">
             <li>Introduction to TypeScript.</li>
@@ -294,10 +313,10 @@
             <li>Functions and Generics.</li>
         </ol>
     </section>
-    <section id="PracticalExerciseBuildingBasicWeatherAppWithTypeScript" data-hours="1" data-wip>
-        <h3 class="italic">Practical Exercise: "Building basic Weather App with TypeScript"</h3>
+    <section id="PracticalExerciseBuildingBasicWeatherAppWithTypeScript" data-hours="2" data-wip>
+        <h3 class="italic">Practical Exercise: "Building Todo App with TypeScript"</h3>
     </section>
-    <section id="IntroductionToAngular" data-hours="7" data-wip>
+    <!-- <section id="IntroductionToAngular" data-hours="7" data-wip>
         <h3>Introduction to Angular</h3>
         <ol class="sub_themes">
             <li>Angular overview. History and evolution.</li>
@@ -310,8 +329,20 @@
     </section>
     <section id="PracticalExerciseBuildingMovieSearchAppWithAngular" data-hours="1" data-wip>
         <h3 class="italic">Practical Exercise: "Building Movie Search App with Angular"</h3>
+    </section> -->
+</article>
+
+
+<article><h2>Appendix</h2>
+    <section id="onlineFreeResources" data-hours="0" data-wip><h3><a href="pages/readings/UsefulResources.html">Online resources</a></h3>
+    </section>
+    <section id="CourseProjectTasks" data-hours="0" data-wip><h3>Projects/Tasks</h3>
+        <ol>
+            <li></li>
+        </ol>
     </section>
 </article>
+
         </div>
         <div class="stats">
             <div id="total_hours"></div>
