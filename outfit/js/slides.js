@@ -68,6 +68,40 @@ function addDownloadButton_old() {
     });
 }
 
+function addCopyButton() {
+    // Selects all "pre>code" elements with the data-copy attribute
+    const filteredCodeBlocks = document.querySelectorAll('pre > code[data-copy] ');
+
+    // Filter code blocks to exclude those with data-no-copy attribute
+    // const filteredCodeBlocks = Array.from(codeBlocks).filter(codeBlock =>
+    //     !codeBlock.hasAttribute('data-no-copy')
+    // );
+
+    filteredCodeBlocks.forEach(block => {
+        const button = document.createElement('button');
+        button.innerText = 'Copy';
+        // button.innerHTML = '<i class="fa-regular fa-copy"></i>'
+        button.classList.add('copy-button');
+
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('code-wrapper')
+
+        block.parentNode.parentNode.insertBefore(wrapper, block.parentNode);
+
+        wrapper.appendChild(block.parentNode);
+        wrapper.appendChild(button);
+
+        button.addEventListener('click', () => {
+            const text = block.innerText.trim();
+            navigator.clipboard.writeText(text).then(() => {
+                button.innerText = 'Copied!';
+                setTimeout(() => (button.innerText = 'Copy'), 2000);
+            });
+        });
+    });
+}
+
+
 function addDownloadButton() {
     document.querySelectorAll('.downloadButton').forEach(button => {
         button.addEventListener('click', async function(event) {
@@ -95,4 +129,5 @@ function addDownloadButton() {
 
 addDownloadButton()
 PrettyPreCode();
+addCopyButton()
 

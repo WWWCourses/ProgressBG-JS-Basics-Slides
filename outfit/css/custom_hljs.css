@@ -68,4 +68,30 @@ pre>code>div.tab4{ margin-left: -9.5em; }
 pre>code>div.tab5{ margin-left: -12em; }
 /* TODO: when in reveal.js: */
 
+
+/* Copy Button Wrapper styling */
+.reveal div.code-wrapper {
+    position: relative;
+}
+.copy-button {
+	position: absolute;
+	top: 0em;
+    right: 6em;
+    z-index: 1;
+    font-size: .5em;
+	padding: .4em;
+    text-align: center;
+	background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+.copy-button:hover {
+    background-color: #666;
+}
+
 /* for highlight.js and my beautify_code_blocks }*/
