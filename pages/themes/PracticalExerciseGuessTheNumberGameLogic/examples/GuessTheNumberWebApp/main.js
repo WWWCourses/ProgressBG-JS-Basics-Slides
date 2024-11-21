@@ -1,4 +1,4 @@
-// Step 1: Initialize Variables
+// Initialize Variables
 const randomNumber = Math.floor(Math.random() * 100) + 1;
 console.log(`randomNumber=${randomNumber}`);
 let attempts = 0;
