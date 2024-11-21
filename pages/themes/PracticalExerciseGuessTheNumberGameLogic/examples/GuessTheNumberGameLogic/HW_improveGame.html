@@ -3,26 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Познай числото - Подобрена версия</title>
+    <title>Познай числото - Нива на трудност</title>
 </head>
 <body>
     <script>
+        // Избор на ниво
+        let level = prompt("Изберете ниво на трудност: Лесно (1-10), Средно (1-50), Трудно (1-100). Въведете 'лесно', 'средно' или 'трудно':");
+        let maxNumber;
+
+        if (level === 'лесно') {
+            maxNumber = 10;
+        } else if (level === 'средно') {
+            maxNumber = 50;
+        } else {
+            maxNumber = 100;
+        }
+
         // Инициализиране на променливи
-        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let randomNumber = Math.floor(Math.random() * maxNumber) + 1;
         let userGuess = null;
         let attempts = 0;
 
         // Основен цикъл на играта
         while (attempts < 10) {
             // Получаване на вход от потребителя
-            userGuess = prompt("Познай числото между 1 и 100:");
+            userGuess = prompt(`Познай числото между 1 и ${maxNumber}:`);
             if (userGuess === null) break; // Изход от играта
 
             userGuess = parseInt(userGuess);
 
             // Валидация на входа
-            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
-                alert("Моля, въведете валидно число между 1 и 100.");
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > maxNumber) {
+                alert(`Моля, въведете валидно число между 1 и ${maxNumber}.`);
                 continue;
             }
 

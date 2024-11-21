@@ -120,21 +120,19 @@
                     // Initialize Variables
                     let randomNumber = Math.floor(Math.random() * 100) + 1; // Generate a Random Number
                     let userGuess = null;
-                    let attempts = 0;
 
                     // Game Logic
                     while (userGuess !== randomNumber) {
                         // Prompt the User for Input
-                        userGuess = parseInt(prompt("Guess the number between 1 and 100:"));
-                        attempts++;
+                        userGuess = parseInt(prompt(&quot;Guess the number between 1 and 100:&quot;));
 
                         // Compare the Guess to the Random Number and Provide Feedback
-                        if (userGuess > randomNumber) {
-                            alert("Too high! Try again.");
-                        } else if (userGuess < randomNumber) {
-                            alert("Too low! Try again.");
+                        if (userGuess &gt; randomNumber) {
+                            alert(&quot;Too high! Try again.&quot;);
+                        } else if (userGuess &lt; randomNumber) {
+                            alert(&quot;Too low! Try again.&quot;);
                         } else {
-                            alert(`Congratulations! You guessed the number in ${attempts} attempts!`);
+                            alert(&grave;Congratulations! You guessed my number!&grave;);
                         }
                     }
                 &lt;/script&gt;
