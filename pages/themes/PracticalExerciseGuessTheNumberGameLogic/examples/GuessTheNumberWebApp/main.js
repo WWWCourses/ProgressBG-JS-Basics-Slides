@@ -52,5 +52,6 @@ form.addEventListener('submit', function(event){
 
     // Clear userGuessInput
     userGuessInput.value="";
-    userGuessInput.focus()
+
+    userGuessInput.focus();
 });

@@ -159,7 +159,7 @@
     </section>
     <section><h3>Create the page structure</h3>
         <p>Create the page structure in <code>index.html</code> file:</p>
-        <pre><code rel="index.html" class="html5" style="min-height: 50vh;">
+        <pre><code rel="index.html" class="html5" style="min-height: 90vh;" data-copy>
             &lt;!DOCTYPE html&gt;
             &lt;html lang=&quot;en&quot;&gt;
             &lt;head&gt;
@@ -174,7 +174,7 @@
                         &lt;h3&gt;Guess the Number Game&lt;/h3&gt;
                         &lt;form id=&quot;guessForm&quot;&gt;
                             &lt;label for=&quot;guess&quot;&gt;Guess the number between 1 and 100:&lt;/label&gt;
-                            &lt;input type=&quot;number&quot; id=&quot;guess&quot; required&gt;
+                            &lt;input type=&quot;number&quot; id=&quot;guess&quot; required autofocus&gt;
                             &lt;button type=&quot;submit&quot;&gt;Submit Guess&lt;/button&gt;
                         &lt;/form&gt;
                         &lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
@@ -188,11 +188,12 @@
                 &lt;script src=&quot;./main.js&quot;&gt;&lt;/script&gt;
             &lt;/body&gt;
             &lt;/html&gt;
+
         </code></pre>
     </section>
     <section><h3>Add simple style</h3>
         <p>Add some css to style the page a bit, in <code>style.css</code> file:</p>
-        <pre><code rel="style.css" class="css" style="min-height: 80vh;">
+        <pre><code rel="style.css" class="css" style="min-height: 80vh;" data-copy>
             body {
                 font-family: Arial, sans-serif;
                 background-color: #f0f0f0;
@@ -244,58 +245,63 @@
     </section>
     <section><h3>Add JavaScript</h3>
         <p>Add JavaScript in <code>main.js</code> to implement program logic:</p>
-        <pre><code rel="main.js" class="js" style="min-height: 80vh;">
-            // Step 1: Initialize Variables
+        <pre><code rel="main.js" class="js" style="min-height: 80vh;" data-copy>
+            // Initialize Variables
             const randomNumber = Math.floor(Math.random() * 100) + 1;
-            console.log(&grave;randomNumber=${randomNumber}&grave;);
+            console.log(`randomNumber=${randomNumber}`);
             let attempts = 0;
 
             // Get DOM elements
-            const form = document.getElementById(&apos;guessForm&apos;);
-            const resultDiv = document.getElementById(&apos;result&apos;);
-            const historyList = document.getElementById(&apos;historyList&apos;);
-            const userGuessInput = document.getElementById(&apos;guess&apos;);
-            const gameContainer = document.querySelector(&apos;#game-container&apos;);
+            const form = document.getElementById('guessForm');
+            const resultDiv = document.getElementById('result');
+            const historyList = document.getElementById('historyList');
+            const userGuessInput = document.getElementById('guess');
+            const gameContainer = document.querySelector('#game-container');
 
             // Function to handle form submission
-            form.addEventListener(&apos;submit&apos;, function(event){
+            form.addEventListener('submit', function(event){
                 event.preventDefault();
 
                 const userGuess = parseInt(userGuessInput.value);
                 attempts++;
 
-                let message = &apos;&apos;;
-                let historyMessage = &grave;Guess ${attempts}: ${userGuess} - &grave;;
-                if (userGuess &gt; randomNumber) {
-                    message = &apos;Too high! Try again.&apos;;
-                    historyMessage += &apos;Too high&apos;;
-                } else if (userGuess &lt; randomNumber) {
-                    message = &apos;Too low! Try again.&apos;;
-                    historyMessage += &apos;Too low&apos;;
+                let message = '';
+                let historyMessage = `Guess ${attempts}: ${userGuess} - `;
+                if (userGuess > randomNumber) {
+                    message = 'Too high! Try again.';
+                    historyMessage += 'Too high';
+                } else if (userGuess < randomNumber) {
+                    message = 'Too low! Try again.';
+                    historyMessage += 'Too low';
                 } else if (userGuess === randomNumber) {
-                    message = &grave;Congratulations! You guessed the number in ${attempts} attempts.&grave;;
-                    historyMessage += &apos;Correct!&apos;;
+                    message = `Congratulations! You guessed the number in ${attempts} attempts.`;
+                    historyMessage += 'Correct!';
                     form.remove();  // Remove form after correct guess
 
-                    // add &quot;New Game&quot; button at the end of #game-container
-                    const newGameBtn = document.createElement(&apos;button&apos;);
-                    newGameBtn.innerHTML=&apos;New Game&apos;;
-                    newGameBtn.id = &apos;btn-new-game&apos;;
-                    newGameBtn.addEventListener(&apos;click&apos;, function(event) {
-                        // reload page on &quot;New Game&quot; button click
+                    // add "New Game" button at the end of #game-container
+                    const newGameBtn = document.createElement('button');
+                    newGameBtn.innerHTML='New Game';
+                    newGameBtn.id = 'btn-new-game';
+                    newGameBtn.addEventListener('click', function(event) {
+                        // reload page on "New Game" button click
                         window.location.reload();
                     })
                     gameContainer.appendChild(newGameBtn)
                 } else {
-                    message = &apos;Invalid input! Please enter a number.&apos;;
-                    historyMessage += &apos;Invalid input&apos;;
+                    message = 'Invalid input! Please enter a number.';
+                    historyMessage += 'Invalid input';
                 }
                 resultDiv.textContent = message;
 
                 // Add guess to history
-                const listItem = document.createElement(&apos;li&apos;);
+                const listItem = document.createElement('li');
                 listItem.textContent = historyMessage;
                 historyList.appendChild(listItem);
+
+                // Clear userGuessInput
+                userGuessInput.value="";
+
+                userGuessInput.focus();
             });
         </code></pre>
     </section>
