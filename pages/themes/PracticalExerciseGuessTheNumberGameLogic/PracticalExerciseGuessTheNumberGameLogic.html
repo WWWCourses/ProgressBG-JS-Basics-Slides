@@ -85,13 +85,13 @@
             <dt>Initialize Variables</dt>
             <dd>Use a variable to store the randomly generated number.</dd>
             <dd>Use a variable to store the user's guess.</dd>
-            <dd>Use a variable to keep track of the number of attempts.</dd>
 
             <dt>Generate a Random Number</dt>
             <dd>Use the Math.random() function to generate a random number between 1 and 100.</dd>
 
             <dt>Prompt the User for Input</dt>
-            <dd>Use the prompt() function to get the user's guess.</dd>
+            <dd>Use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt">prompt()</a>  function to get the user's guess.</dd>
+            <dd>Note, that the prompt() returns user input as string!</dd>
 
             <dt>Compare the Guess to the Random Number</dt>
             <dd>Use an if-else statement to check if the guess is too high, too low, or correct.</dd>
@@ -99,10 +99,10 @@
             <dt>Provide Feedback</dt>
             <dd>If the guess is too high, alert the user that it's too high.</dd>
             <dd>If the guess is too low, alert the user that it's too low.</dd>
-            <dd>If the guess is correct, congratulate the user and display the number of attempts.</dd>
+            <dd>If the guess is correct, congratulate the user!</dd>
 
             <dt>Loop Until Correct Guess</dt>
-            <dd>Use a while loop to keep asking the user for guesses until the correct number is guessed.</dd>
+            <dd>Use a loop to keep asking the user for guesses until the correct number is guessed.</dd>
             <dt class="note">Write your code in a Browser Environment, as prompt() and alert() functions works only there, not in node.</dt>
         </dl>
     </section>
@@ -141,6 +141,15 @@
             &lt;/body&gt;
             &lt;/html&gt;
         </code></pre>
+    </section>
+    <section><h3>Homework: Improve Guess the number game</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Подобрете играта "Guess the number", като реализирате следните подобрения:</dt>
+            <dd>Ограничете броя на опитите до 10. Ако играчът не успее да познае числото в рамките на 10 опита, изведете "Играта свърши! Числото беше X."</dd>
+            <dd>Валидирайте входа на потребителя, за да сте сигурни, че е число между 1 и 100. Ако входът не е валиден, покажете съобщение: "Моля, въведете валидно число между 1 и 100."</dd>
+            <dd>Покажете общия брой опити след като играта приключи.</dd>
+
+        </dl>
     </section>
 </section>
 

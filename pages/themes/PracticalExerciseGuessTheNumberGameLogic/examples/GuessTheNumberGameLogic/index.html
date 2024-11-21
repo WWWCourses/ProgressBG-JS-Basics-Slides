@@ -10,7 +10,6 @@
         // Initialize Variables
         let randomNumber = Math.floor(Math.random() * 100) + 1; // Generate a Random Number
         let userGuess = null;
-        let attempts = 0;
 
         // Game Logic
         while (userGuess !== randomNumber) {
@@ -24,7 +23,7 @@
             } else if (userGuess < randomNumber) {
                 alert("Too low! Try again.");
             } else {
-                alert(`Congratulations! You guessed the number in ${attempts} attempts!`);
+                alert(`Congratulations! You guessed my number!`);
             }
         }
     </script>

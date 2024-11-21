@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Познай числото - Подобрена версия</title>
+</head>
+<body>
+    <script>
+        // Инициализиране на променливи
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let userGuess = null;
+        let attempts = 0;
+
+        // Основен цикъл на играта
+        while (attempts < 10) {
+            // Получаване на вход от потребителя
+            userGuess = prompt("Познай числото между 1 и 100:");
+            if (userGuess === null) break; // Изход от играта
+
+            userGuess = parseInt(userGuess);
+
+            // Валидация на входа
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                alert("Моля, въведете валидно число между 1 и 100.");
+                continue;
+            }
+
+            attempts++;
+
+            // Проверка на предположението
+            if (userGuess > randomNumber) {
+                alert("Твърде високо! Опитайте отново.");
+            } else if (userGuess < randomNumber) {
+                alert("Твърде ниско! Опитайте отново.");
+            } else {
+                alert(`Поздравления! Познахте числото за ${attempts} опита.`);
+                break;
+            }
+        }
+
+        // Проверка за изчерпване на опитите
+        if (attempts === 10 && userGuess !== randomNumber) {
+            alert(`Играта свърши! Числото беше ${randomNumber}.`);
+        }
+    </script>
+</body>
+</html>
