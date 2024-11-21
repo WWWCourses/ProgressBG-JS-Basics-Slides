@@ -49,4 +49,8 @@ form.addEventListener('submit', function(event){
     const listItem = document.createElement('li');
     listItem.textContent = historyMessage;
     historyList.appendChild(listItem);
+
+    // Clear userGuessInput
+    userGuessInput.value="";
+    userGuessInput.focus()
 });
