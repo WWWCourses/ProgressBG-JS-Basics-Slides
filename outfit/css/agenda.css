@@ -201,7 +201,7 @@ header .logo{
 }
 .themes>article h3.italic{
   font-style: italic;
-  color:#666;
+  /* color:#666; */
 }
 .themes>article h3 span.hours{
   font-style: normal;
