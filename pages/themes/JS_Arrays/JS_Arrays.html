@@ -90,7 +90,7 @@
         <dl class="fa">
             <dt>Данните в масива се наричат негови <span class="note">елементи</span>.</dt>
             <dt>Поредните номера на елементите на масива се наричат <span class="note">индекси</span>.</dt>
-            <dt>В JS, както и при всички останали езици за програмиране, <span class="note">броенето на елементите започва от 0</span>.</dt>
+            <dt>В JS, както и в повечето езици за програмиране, <span class="note">броенето на елементите започва от 0</span>.</dt>
             <dt>Редът на елементите в масива е важен!</dt>
         </dl>
     </section>
@@ -127,11 +127,11 @@
             <pre><code rel="Syntax" class="js">
                 arrayName[i]
             </code></pre>
-            <dt>Операцията <code>arrayName[i]</code> се нарича индексиране</dt>
+            <dt>Забележете, че <code>arrayName[i]</code> е операция, която винаги връща стойност - съответния елемент на масива.</dt>
         </dl>
-        <pre><code rel="JS">
+        <pre><code rel="JS" style="min-height: 55vh;">
             // дефинираме масива fruits:
-            var fruits = ['apple', 'banana', 'strawberry'];
+            let fruits = ['apple', 'banana', 'strawberry'];
 
             // достъп до 1-я елемент (четене):
             console.log("first fruit is: ", fruits[0]);
@@ -191,7 +191,7 @@
         <dl class="fa">
             <dt>Върху масивите са дефинирани някои специални пропъртита и методи, които може да използваме за най-често срещаните операции с масиви. <br>Например:</dt>
             <pre><code rel="JS">
-                var fruits = ['apple', 'banana', 'strawberry'];
+                let fruits = ['apple', 'banana', 'strawberry'];
 
                 // брой на елементите на масив:
                 fruits.length; // 3
@@ -317,9 +317,9 @@
             <dt>Често в практиката се налага <span class="note">да изпълняваме едни и същи действия върху всички елементи на масива</span>.</dt>
             <dt>За целта може да използваме for(){} цъкъл по индексите на масива:
                 <pre><code rel="JS" class="js">
-                    var fruits = ['apple', 'banana', 'strawberry'];
+                    let fruits = ['apple', 'banana', 'strawberry'];
 
-                    for (var i = 0; i < fruits.length; i++) {
+                    for (let i = 0; i < fruits.length; i++) {
                         console.log(`Елемент ${i}: ${fruits[i]}`);
                     }
                     // Елемент 0: apple
@@ -331,9 +331,9 @@
     </section>
     <section><h3>Обхождане на елементите на масив в обратен ред</h3>
         <pre><code rel="JS">
-            var fruits = ['apple', 'banana', 'strawberry'];
+            let fruits = ['apple', 'banana', 'strawberry'];
 
-            for (var i = fruits.length-1; i >= 0; i--) {
+            for (let i = fruits.length-1; i >= 0; i--) {
                 console.log(`Елемент ${i}: ${fruits[i]}`);
             }
             // Елемент 2: strawberry
@@ -349,7 +349,7 @@
         <dl class="fa">
             <dt>В JavaScript не са имплементирани двумерни(или многомерни) масиви, но тъй като елементите на един масив могат да са всеки един тип данни, включително и масиви, то можем да симулираме двумерен масив като <span class="note">масив, чийто елементи са масиви</span>:
                 <pre><code rel="JS" class="js">
-                    var matrix = [
+                    let matrix = [
                         [ 'а', 'б', 'в' ],
                         [ 'г', 'д', 'е' ],
                         [ 'ж', 'з', 'и' ]
@@ -362,7 +362,7 @@
     </section>
     <section><h3>Достъп до елемент от "двумерен масив"</h3>`
         <pre><code rel="JS" class="js">
-            var matrix = [
+            let matrix = [
                 [ 'а', 'б', 'в' ],
                 [ 'г', 'д', 'е' ],
                 [ 'ж', 'з', 'и' ]
@@ -375,18 +375,18 @@
     </section>
     <section><h3>обхождане на елементите на двумерен масив (по редове и колони)</h3>
         <pre><code rel="JS" class="javascript">
-            var matrix = [
+            let matrix = [
                 [ 'а', 'б', 'в' ],
                 [ 'г', 'д', 'е' ],
                 [ 'ж', 'з', 'и' ]
             ];
 
-            var rows = matrix.length;
-            var cols = matrix[0].length;
+            let rows = matrix.length;
+            let cols = matrix[0].length;
 
-            for (var i = 0; i < rows; i++) {
+            for (let i = 0; i < rows; i++) {
                 console.log("row:", i);
-                for (var j = 0; j < cols; j++) {
+                for (let j = 0; j < cols; j++) {
                     console.log( matrix[i][j] + ',');
                 }
             }
@@ -408,7 +408,7 @@
 
 <section class="main-sesction-title" id="hw"><h1>Примери и задачи</h1></section>
 <section class="sub-sections"><h2 id="hw">Примери и задачи</h2>
-    <section><h3>arrayAsObject - example</h3>
+    <section><h3>Example: arrayAsObject</h3>
         <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="qqepxG" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="arrayAsObject">
 		<span>
           See the Pen <a href='https://codepen.io/webdesigncourse/pen/qqepxG'>arrayAsObject</a> by Iva Popova
@@ -416,7 +416,7 @@
         </span>
 		</p>
     </section>
-    <section><h3>sumArrayElements -examples and task</h3>
+    <section><h3>Example and HW: sumArrayElements</h3>
         <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="owyBrG" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="sumArrayElements">
 		<span>
           See the Pen <a href='https://codepen.io/webdesigncourse/pen/owyBrG'>sumArrayElements</a> by Iva Popova
@@ -424,7 +424,7 @@
         </span>
 		</p>
     </section>
-    <section><h3>find Max array element - example</h3>
+    <section><h3>Example: find Max array element</h3>
         <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="XWjPbWy" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="find Max array element - algorithm demo">
 		<span>
           See the Pen <a href='https://codepen.io/webdesigncourse/pen/XWjPbWy'>find Max array element - algorithm demo</a> by Iva Popova
@@ -432,7 +432,7 @@
         </span>
 		</p>
     </section>
-    <section id="negativeOddArrayNumbers"><h3>negativeOddArrayNumbers - example</h3>
+    <section id="negativeOddArrayNumbers"><h3>Example: negativeOddArrayNumbers</h3>
         <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="NjvKde" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="negativeOddArrayNumbers">
 		<span>
           See the Pen <a href='https://codepen.io/webdesigncourse/pen/NjvKde'>negativeOddArrayNumbers</a> by Iva Popova
@@ -440,7 +440,7 @@
         </span>
 		</p>
     </section>
-    <section id="separateArrayElementsInNewArrays"><h3>separateArrayElementsInNewArrays- task</h3>
+    <section id="separateArrayElementsInNewArrays"><h3>HW: separateArrayElementsInNewArrays</h3>
         <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="XgYNzy" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="separateArrayElementsInNewArrays">
 		<span>
           See the Pen <a href='https://codepen.io/webdesigncourse/pen/XgYNzy'>separateArrayElementsInNewArrays</a> by Iva Popova
@@ -448,7 +448,7 @@
         </span>
 		</p>
     </section>
-    <section id="studentsDataAsArrays"><h3>studentsDataAsArrays</h3>
+    <section id="studentsDataAsArrays"><h3>Example and HW: studentsDataAsArrays</h3>
         <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="LLgrQm" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="studentsDataAsArrays">
 		<span>
           See the Pen <a href='https://codepen.io/webdesigncourse/pen/LLgrQm'>studentsDataAsArrays</a> by Iva Popova
@@ -456,7 +456,7 @@
         </span>
 		</p>
     </section>
-    <section id="BulgarianRulersStat"><h3>BulgarianRulersStat</h3>
+    <section id="BulgarianRulersStat"><h3>HW: BulgarianRulersStat</h3>
         <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="yXEVMv" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="HW: Bulgarian Rulers Stat">
 		<span>
           See the Pen <a href='https://codepen.io/webdesigncourse/pen/yXEVMv'>HW: Bulgarian Rulers Stat</a> by Iva Popova
@@ -464,28 +464,15 @@
         </span>
 		</p>
     </section>
-    <section id="FormatQuizQuestions"><h3>Format Quiz Questions</h3>
-        <dl class="fa" style="min-width:80vw">
-            <dt>Дадени са 3 масива (questions, options, и answers). Задачата е да генерирате форматиран стринг от техните стойности, както е показано по-долу.</dt>
-            <dt>Използвайте дадения по-долу шаблон (TASK_FormatQuizQuestions.js), който може да свалите при вас: <button
-                class="downloadButton"
-                data-filename="TASK_FormatQuizQuestions.js"
-                data-gistid="0f2fb350b82755e250796def65b5dd36"
-                id="TASK_FormatQuizQuestions.js">Download Gist</button>.
-            </dt>
-            <dt>Заместете 'YOUR CODE HERE' с вашия код, така че да получите в конзолата резултата даден в 'EXPECTED OUTPUT'</dt>
-        </dl>
 
-            <script src="https://gist.github.com/WWWCourses/0f2fb350b82755e250796def65b5dd36.js"></script>
-    </section>
-    <!-- <section><h3>twoDimensionalArray</h3>
+    <section><h3>HW: twoDimensionalArray</h3>
         <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="awKJEE" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="twoDimensionalArray">
 		<span>
           See the Pen <a href='https://codepen.io/webdesigncourse/pen/awKJEE'>twoDimensionalArray</a> by Iva Popova
           (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
         </span>
 		</p>
-    </section> -->
+    </section>
     <!-- <section><h3>JS_Loops_and_Arrays codepen колекция</h3>
         <p><a href="https://codepen.io/collection/DObLNy/">JS_Loops_and_Arrays codepen колекция</a></p>
     </section> -->
@@ -542,5 +529,6 @@
 			plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
 		});
 	</script>
+    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 </body>
 </html>

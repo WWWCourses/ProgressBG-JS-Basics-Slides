@@ -78,20 +78,32 @@
     <section id="Introduction"><h3>Introduction</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>In this exercise, we'll create the logic for a simple quiz game using JavaScript.</dt>
-            <dd>The quiz game will include questions, multiple-choice answers, and score tracking.</dd>
+            <dt>The quiz game will include questions, single-choice answers, and score tracking.</dt>
+            <dt>We will follow next steps.</dt>
+            <ol>
+                <li>Setup Project</li>
+                <li>Define Questions, Options and Answers</li>
+                <li>Display Questions</li>
+                <li>Check Answers</li>
+            </ol>
         </dl>
     </section>
     <section id="Step1SetupProject"><h3>Step 1: Setup Project</h3>
         <dl class="fa" style="min-width:80vw">
-            <dt>Create a new folder for your project (QuizGame) and 2 files: <code>index.html</code> and <code>main.js</code> </dt>
-            <dd>Make sure you have next structure</dd>
+            <dt>Create a new folder for your project (QuizGame)</dt>
+            <dt>Make sure you have next structure</dt>
             <pre><code rel="Terminal" class="bash" data-noescape>
                 QuizGame/
                 ├── index.html
+                ├── main.css
                 └── main.js
             </code></pre>
-            <dt>Set up the basic HTML structure.</dt>
-            <pre><code rel="index.html" class="HTML" style="min-height: 1vh;">
+        </dl>
+    </section>
+    <section id="addBasicHTML"><h3>Set up the basic HTML structure.</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Next will be our starter HTML code:</dt>
+            <pre><code rel="index.html" class="HTML" style="min-height: 60vh;" data-copy>
                 &lt;!-- index.html --&gt;
                 &lt;!DOCTYPE html&gt;
                 &lt;html lang=&quot;en&quot;&gt;
@@ -99,22 +111,75 @@
                     &lt;meta charset=&quot;UTF-8&quot;&gt;
                     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
                     &lt;title&gt;Quiz Game&lt;/title&gt;
+                    &lt;link rel=&quot;stylesheet&quot; href=&quot;./main.css&quot;&gt;
                 &lt;/head&gt;
                 &lt;body&gt;
                     &lt;div id=&quot;quiz-container&quot;&gt;&lt;/div&gt;
                     &lt;button id=&quot;submit-quiz&quot;&gt;Submit Quiz&lt;/button&gt;
                     &lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
-                    &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
+                    &lt;script src=&quot;./main.js&quot;&gt;&lt;/script&gt;
                 &lt;/body&gt;
                 &lt;/html&gt;
             </code></pre>
         </dl>
     </section>
-    <section id="Step2CreateQuestions"><h3>Step 2: Define Questions</h3>
+    <section id="addBasicCSS"><h3>Add some style</h3>
         <dl class="fa" style="min-width:80vw">
-            <dt>Define the questions, options, and answers in your JavaScript file.</dt>
-            <dd>Use arrays to store the questions, options, and correct answers.</dd>
-            <pre><code rel="main.js" class="js" style="min-height: 1vh;">
+            <dt>We'll add basic css to our code. Of course, you can play with it and make it as you like. </dt>
+            <pre><code rel="main.css" class="css" data-copy>
+                #quiz-container ul{
+                    padding: 0;
+                }
+                #quiz-container li{
+                    list-style-type:none;
+                }
+            </code></pre>
+        </dl>
+    </section>
+    <section id="WarmUpFormatQuizQuestions"><h3>Warm up - Format Quiz Questions</h3>
+        <dl class="fa" style="min-width:80vw">
+            <pre><code rel="quizDataStructureWithArrays.js" class="js">
+                // Define 'questions' array with next data:
+
+                    Q1: &quot;What is the capital of France?&quot;,
+                    Q2: &quot;Which language is used for Front-end Web development?&quot;,
+                    Q3: &quot;What does CSS stand for?&quot;
+
+                // Define options array with next data
+
+                    Q1 Options: &quot;Berlin&quot;, &quot;Madrid&quot;, &quot;Paris&quot;, &quot;Lisbon&quot;
+                    Q2 Options: &quot;Python&quot;, &quot;JavaScript&quot;, &quot;C++&quot;, &quot;Java&quot;
+                    Q3 Options: &quot;Cascading Style Sheets&quot;, &quot;Creative Style System&quot;, &quot;Computer Style Sheets&quot;, &quot;Colorful Style Sheets&quot;
+
+
+                // Define answers array with next data
+                    Q1 Answer: &quot;Paris&quot;,
+                    Q2 Answer: &quot;JavaScript&quot;,
+                    Q3 Answer: &quot;Cascading Style Sheets&quot;
+
+                // Define output variable which will contain a next string, using the data in questions, options and answers
+
+
+                /* ---------------------------------- TEST ---------------------------------- */
+                console.log(output);
+
+                /* ---------------------------- EXPECTED OUTPUT: ---------------------------- */
+                // What is the capital of France? (Paris)
+                //     Berlin, Madrid, Paris, Lisbon
+                // Which language is used for Front-end Web development? (JavaScript)
+                //     Python, JavaScript, C++, Java
+                // What does CSS stand for? (Cascading Style Sheets)
+                //     Cascading Style Sheets, Creative Style System, Computer Style Sheets, Colorful Style Sheets
+            </code></pre>
+            <dt>Заместете 'YOUR CODE HERE' с вашия код, така че да получите в конзолата резултата даден в 'EXPECTED OUTPUT'</dt>
+        </dl>
+
+
+    </section>
+    <section id="Step2CreateQuestions"><h3>Step 2: Define Questions, Options and Answers</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Define the questions, options and correct answers.</dt>
+            <pre><code rel="main.js" class="js" style="min-height: 90vh;" data-copy>
                 // main.js
 
                 // Array of questions
@@ -143,8 +208,8 @@
     <section id="Step3DisplayQuestions"><h3>Step 3: Display Questions</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>Display all the questions and options on the webpage at page load.</dt>
-            <dd>Use loops and template strings to create the quiz interface.</dd>
-            <pre><code rel="JS" class="js" style="min-height: 53vh;">
+            <dt>Use loops and template strings to create the quiz interface.</dt>
+            <pre><code rel="JS" class="js" style="min-height: 60vh;" data-copy>
                 let quizContainer = document.getElementById(&#39;quiz-container&#39;);
                 quizContainer.innerHTML = &#39;&#39;;
 
@@ -179,8 +244,8 @@
     <section id="Step4CheckAnswers"><h3>Step 4: Check Answers</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>Check if the selected answers are correct when the user submits the quiz.</dt>
-            <dd>Update the score and display the result once the quiz is submitted.</dd>
-            <pre><code rel="JS" class="js" style="min-height: 1vh;">
+            <dt>Update the score and display the result once the quiz is submitted.</dt>
+            <pre><code rel="JS" class="js" style="min-height: 60vh;" data-copy>
                 let submitButton = document.getElementById(&#39;submit-quiz&#39;);
                 submitButton.addEventListener(&#39;click&#39;, function() {
                     let score = 0; // Initialize the score variable
