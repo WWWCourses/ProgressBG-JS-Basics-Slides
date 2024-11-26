@@ -7,24 +7,27 @@
 </head>
 <body>
     <script>
-        // Initialize Variables
-        let randomNumber = Math.floor(Math.random() * 100) + 1; // Generate a Random Number
-        let userGuess = null;
+        // Initialize variables
+        let machineNumber = Math.floor(Math.random()*100)+1;
+        let userGuess;
 
-        // Game Logic
-        while (userGuess !== randomNumber) {
-            // Prompt the User for Input
-            userGuess = parseInt(prompt("Guess the number between 1 and 100:"));
 
-            // Compare the Guess to the Random Number and Provide Feedback
-            if (userGuess > randomNumber) {
-                alert("Too high! Try again.");
-            } else if (userGuess < randomNumber) {
-                alert("Too low! Try again.");
-            } else {
-                alert(`Congratulations! You guessed my number!`);
+        // Main game logic
+        do{
+            userGuess = parseInt( prompt('Enter a number (1..100)') );
+
+            // compare user guess with machineNumber and give feadback
+            if(userGuess>machineNumber){
+                alert(`${userGuess} is too high!`)
+            }else if(userGuess<machineNumber){
+                alert(`${userGuess} is too low!`)
+            }else if(userGuess===machineNumber){
+                alert(`Bravo! ${userGuess} is correct!`)
+            }else{
+                alert('Unexpected case')
             }
-        }
+        } while (userGuess!==machineNumber);
+
     </script>
 </body>
 </html>

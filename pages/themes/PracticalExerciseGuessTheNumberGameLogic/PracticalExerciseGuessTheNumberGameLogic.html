@@ -107,37 +107,27 @@
         </dl>
     </section>
     <section><h3>Code Implementation</h3>
-        <pre><code rel="HTML" class="html5" style="min-height: 99vh; min-width: 70vw;" data-copy>
-            &lt;!DOCTYPE html&gt;
-            &lt;html lang=&quot;en&quot;&gt;
-            &lt;head&gt;
-                &lt;meta charset=&quot;UTF-8&quot;&gt;
-                &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-                &lt;title&gt;Guess the Number Game&lt;/title&gt;
-            &lt;/head&gt;
-            &lt;body&gt;
-                &lt;script&gt;
-                    // Initialize Variables
-                    let randomNumber = Math.floor(Math.random() * 100) + 1; // Generate a Random Number
-                    let userGuess = null;
+        <pre><code rel="HTML" class="html5" style="min-height: 90vh; min-width: 70vw;" data-copy>
+            // Initialize variables
+            let machineNumber = Math.floor(Math.random()*100)+1;
+            let userGuess;
 
-                    // Game Logic
-                    while (userGuess !== randomNumber) {
-                        // Prompt the User for Input
-                        userGuess = parseInt(prompt(&quot;Guess the number between 1 and 100:&quot;));
 
-                        // Compare the Guess to the Random Number and Provide Feedback
-                        if (userGuess &gt; randomNumber) {
-                            alert(&quot;Too high! Try again.&quot;);
-                        } else if (userGuess &lt; randomNumber) {
-                            alert(&quot;Too low! Try again.&quot;);
-                        } else {
-                            alert(&grave;Congratulations! You guessed my number!&grave;);
-                        }
-                    }
-                &lt;/script&gt;
-            &lt;/body&gt;
-            &lt;/html&gt;
+            // Main game logic
+            do{
+                userGuess = parseInt( prompt(&apos;Enter a number (1..100)&apos;) );
+
+                // compare user guess with machineNumber and give feadback
+                if(userGuess&gt;machineNumber){
+                    alert(&grave;${userGuess} is too high!&grave;)
+                }else if(userGuess&lt;machineNumber){
+                    alert(&grave;${userGuess} is too low!&grave;)
+                }else if(userGuess===machineNumber){
+                    alert(&grave;Bravo! ${userGuess} is correct!&grave;)
+                }else{
+                    alert(&apos;Unexpected case&apos;)
+                }
+            } while (userGuess!==machineNumber);
         </code></pre>
     </section>
     <section><h3>Homework: Improve Guess the number game</h3>
