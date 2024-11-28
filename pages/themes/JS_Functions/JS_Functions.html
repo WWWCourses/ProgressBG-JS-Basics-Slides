@@ -157,6 +157,22 @@
         <dt>Тъй като тук дефинираме функцията чрез израз (оператора за присвояване), то задължително трябва да сложим '<span class="note">;</span>' в края.</dt>
         </dl>
     </section>
+    <section><h3 class="advanced">Пример за бъг, ако забравим ';'</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Ако пропуснем ';' след дефиницията на функцията, то в програмата ще има бъг: в x и y ще има undefined, вместо 1 и 2.</dt>
+            <pre><code rel="JS" class="js">
+                let x,y;
+
+                let foo = function(){
+                    console.log(`Foo`);
+                }// you must have ';' here
+
+                [x,y] = [1,2];
+
+                console.log(x,y);
+            </code></pre>
+        </dl>
+    </section>
     <section><h3>Параметри на функция</h3>
         <dl class="fa">
             <dt>Параметрите на една функция са <span class="note">локални променливи</span> които <b>не декларираме</b> експлицитно с <code>var</code> или <code>let</code>.</dt>
@@ -210,12 +226,13 @@
         <dl class="fa">
             <dt>Съпоставянето (предаването) на стойности между параметър и аргумент е в зависимост от последователността на изписване. Тоест - <span class="note">първия параметър приема стойността на първия аргумент, втория параметър - на втория аргумент и т.н</span></dt>
             <img src="images/argument-parameters mapping.png" alt="argument-parameters mapping"style="height: 30vh;"><br>
+            <ul>
+                <li>x = 2</li>
+                <li>y = 3</li>
+            </ul>
 
         </dl>
-        <ul>
-            <li>x = 2</li>
-            <li>y = 3</li>
-        </ul>
+
     </section>
     <section><h3>Предаване на аргументи</h3>
         <dl class="fa">
@@ -236,7 +253,7 @@
         <dl class="fa">
             <dt>Ако борят на параметрите не съответства на броя на аргументите, <span class="note">JavaScript не връща грешка</span>!</dt>
         </dl>
-        <pre style="width: 100%; font-size: .5em;"><code rel="JS">
+        <pre style="width: 100%; font-size: .8em;"><code rel="JS">
             function sum(x, y){
                 // let x = 2, y = undefined;
                 console.log( x + y);
@@ -244,7 +261,7 @@
 
             sum(2); // NaN
         </code></pre>
-        <pre style="width: 100%; font-size: .5em;"><code rel="JS">
+        <pre style="width: 100%; font-size: .8em;"><code rel="JS">
             function sum(x){
                 // let x = 2;
                 console.log( x ); // 2
@@ -260,26 +277,28 @@
 <section data-min="5"><h1>Стойности по подразбиране на параметрите</h1></section>
 <section><h2>Стойности по подразбиране на параметрите</h2>
     <section>
-        <p>Стойност по подразбиране е стойността, която параметър на функция приема, ако не е подаден аргумент за него при извикване на функцията.</p>
-        <p>Преди ES6: За задаване на стойности по подразбиране се използваха логически оператори</p>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Стойност по подразбиране е стойността, която параметър на функция приема, ако не е подаден аргумент за него при извикване на функцията. Това се въвежда от ES6.</dt>
+            <dt>Преди ES6:</dt>
 
-        <pre><code rel="JS" class="javascript">
-            function f(x, y, z){
-                let x = x || 1;
-                let y = y || 2;
-                let z = z || 3;
+            <pre><code rel="JS" class="javascript">
+                function f(x, y, z){
+                    let x = x || 1;
+                    let y = y || 2;
+                    let z = z || 3;
 
-                console.log(x, y, z); //6,7,3
-            }
-            f(6, 7);
-        </code></pre>
-        <p>След ES6</p>
-        <pre><code rel="JS" class="javascript">
-            function f(x=1, y=2, z=3){
-                console.log(x, y, z); //6,7,3
-            }
-            f(6, 7);
-        </code></pre>
+                    console.log(x, y, z); //6,7,3
+                }
+                f(6, 7);
+            </code></pre>
+            <dt>След ES6</dt>
+            <pre><code rel="JS" class="javascript">
+                function f(x=1, y=2, z=3){
+                    console.log(x, y, z); //6,7,3
+                }
+                f(6, 7);
+            </code></pre>
+        </dl>
     </section>
 </section>
 
@@ -292,7 +311,7 @@
             <dt>На мястото на извикването на функцията ще се подаде връщаната от функцията стойност.</dt>
             <dt>Ако във функцията не сме използвали оператора <code class="note">return</code>, то функцията връща <code class="note">undefined</code>!</dt>
             <dt>За да определим каква да бъде връщаната стойност използваме оператора <code class="note">return</code>.</dt>
-            <dt class="note">Или казано по-конкретно, <b>извикването на функция</b>: <code>funcName()</code> <b>е операция (expression, както 2+2), която винаги връща стойност</b>.</dt class="note">
+            <dt class="note"><b>Извикването на функция</b>: <code>funcName()</code> <b>е операция (expression, както 2+2), която винаги връща стойност</b> (undefined или израза след return, ако има такъв).</dt class="note">
         </dl>
     </section>
     <section>
@@ -305,7 +324,7 @@
             let res = funcName();
         </code></pre>
         <dl class="fa">
-            <dt><израз>  трябва да бъде изчислим.</dt>
+            <dt>&lt;израз&gt;  трябва да бъде валиден expression.</dt>
             <dt>Именно изчислената стойност ще се замести на мястото на извикване на функцията.</dt>
             <dt><span class="note">След оператора <code>return</code> се излиза от тялото на функцията</span>. Тоест, нито един израз във функцията, след <code>return</code> няма да се изпълни! .</dt>
             <pre><code rel="JS">
@@ -320,17 +339,6 @@
                 // "start"
             </code></pre>
         </dl>
-    </section>
-    <section><h3>Example</h3>
-        <pre><code rel="JS">
-            function f(){
-                console.log("start");
-                return true;
-                console.log("end"); // никога няма да се изпълни!
-            }
-
-            f();
-        </code></pre>
     </section>
 </section>
 
