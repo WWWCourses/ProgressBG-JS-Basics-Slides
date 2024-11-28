@@ -1,45 +1,45 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>JS_Functions</title>
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-	<!-- css & themes include -->
-	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
-	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
-	<link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+    <meta charset="utf-8">
+    <title>JS_Functions</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
 
 
-	<!-- Theme used for syntax highlighting of code -->
-	<!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+    <!-- Theme used for syntax highlighting of code -->
+    <!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
 
-	<!-- custom -->
-	<link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
-	<base target="_blank">
+    <!-- custom -->
+    <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+    <base target="_blank">
 </head>
 <body>
-	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
-		<div class="top_links">
-			<a class="home_link" href="../../../index.html#JS_Functions" target="_top"><i class="fa fa-home"></i></a>
-			<span class="help_link"><i class="fa fa-question"></i></span>
-			<div class="help_text">
-				<div class="note">Keyboard shortcuts:</div>
-				<div><span>N/Спейс</span><span>Next Slide</span></div>
-				<div><span>P</span><span>Previous Slide</span></div>
-				<div><span>O</span><span>Slides Overview</span></div>
-				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
-				<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
-				Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
-			</div>
-		</div>
-		<div class="footer theme_switch">
-			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
-			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
-			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
-		</div>
-		<div class="slides">
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="../../../index.html#JS_Functions" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Спейс</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
 <!--
 ########################################################
 ##################### SLIDES START #####################
@@ -47,215 +47,214 @@
 -->
 <section><h1>JavaScript: Functions</h1></section>
 <section data-transition="zoom">
-	<section>
-		<div class="copyright">
-			<div class="note">
-				<p>Created for</p>
-			</div>
-			<div class="company">
-				<a href="https://progressbg.net/javascript-basic/">
-				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
-				</a>
-			</div>
-		</div>
-	</section>
-	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
-		<div class="note">
-			<p>Created by</p>
-		</div>
-		<div class="company">
-		   <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
-		</div>
-		<!-- <div class="author">
-			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
-		</div> -->
-	</section>
+    <section>
+        <div class="copyright">
+            <div class="note">
+                <p>Created for</p>
+            </div>
+            <div class="company">
+                <a href="https://progressbg.net/javascript-basic/">
+                <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+        <div class="note">
+            <p>Created by</p>
+        </div>
+        <div class="company">
+           <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+        </div>
+        <!-- <div class="author">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div> -->
+    </section>
 </section>
-
 
 
 
 <section class="main-sesction-title" id="introduction" data-min="5"><h1>Въведение</h1></section>
 <section class="sub-sections"><h2>Въведение</h2>
-	<section>
-		<blockquote>"Really understanding functions in JavaScript is the single most important weapon you can wield"</blockquote>
-		<cite><a href="https://livebook.manning.com/book/secrets-of-the-javascript-ninja-second-edition">
-		<em>"Secrets of the JavaScript Ninja"</em><br>
-		<small>©2016 by Manning Publications Co</small></a></cite>
-	</section>
-	<section><h3>Какво са функциите?</h3>
-		<dl class="fa">
-			<dt>Последователност от действия изпълняващи дадена задача, които обединяваме под общо име.</dt>
-			<dd>Пример: кулинарна рецепта</dd>
-			<dt>Действията се изпълняват след указване на името а резултата може да зависи от допълнителни параметри.</dt>
-			<dd><q class="note">Палачинки (с мляко)</q> vs. <q class="note">Палачинки (с вода)</q> </dd>
-			<dt>В програмирането, може да разглеждаме функциите като под-програми, който извършват самостоятелно дадени действия.</dt>
-		</dl>
-	</section>
-	<section><h3>Защо да използваме функции?</h3>
-		<dl class="fa">
-			<dt>Избягваме повторението на код (DRY принцип).</dt>
-			<dt>Отделяне на концептуално свързани действия в едно цяло.</dt>
-			<dt>По-добро структуриране на програмата.</dt>
-			<dt>Увеличават изразителната сила на езика.</dt>
-		</dl>
-	</section>
-	<section><h3>Функции или Процедури?</h3>
-		<dl class="fa">
-			<dt>В програмирането, понятията функция и процедура се разграничават.</dt>
-			<dt>Под <span class="note">процедура</span> се разбира просто последователност от дадени действия, която не връща резултат. Най-често се използва като под-програма.</dt>
-			<dt>Под <span class="note">функция</span> - последователност от действия, на която се подават входни данни и връща изходен резултат. Точно както математическите функции, които използваме в по-сложни изрази.</dt>
-			<dt>В JavaScript, чрез функции можем да реализираме както процедури, така и функции.</dt>
-		</dl>
-	</section>
+    <section>
+        <blockquote>"Really understanding functions in JavaScript is the single most important weapon you can wield"</blockquote>
+        <cite><a href="https://livebook.manning.com/book/secrets-of-the-javascript-ninja-second-edition">
+        <em>"Secrets of the JavaScript Ninja"</em><br>
+        <small>©2016 by Manning Publications Co</small></a></cite>
+    </section>
+    <section><h3>Какво са функциите?</h3>
+        <dl class="fa">
+            <dt>Последователност от действия изпълняващи дадена задача, които обединяваме под общо име.</dt>
+            <dd>Пример: кулинарна рецепта</dd>
+            <dt>Действията се изпълняват след указване на името а резултата може да зависи от допълнителни параметри.</dt>
+            <dd><q class="note">Палачинки (с мляко)</q> vs. <q class="note">Палачинки (с вода)</q> </dd>
+            <dt>В програмирането, може да разглеждаме функциите като под-програми, който извършват самостоятелно дадени действия.</dt>
+        </dl>
+    </section>
+    <section><h3>Защо да използваме функции?</h3>
+        <dl class="fa">
+            <dt>Избягваме повторението на код (DRY принцип).</dt>
+            <dt>Отделяне на концептуално свързани действия в едно цяло.</dt>
+            <dt>По-добро структуриране на програмата.</dt>
+            <dt>Увеличават изразителната сила на езика.</dt>
+        </dl>
+    </section>
+    <section><h3>Функции или Процедури?</h3>
+        <dl class="fa">
+            <dt>В програмирането, понятията функция и процедура се разграничават.</dt>
+            <dt>Под <span class="note">процедура</span> се разбира просто последователност от дадени действия, която не връща резултат. Най-често се използва като под-програма.</dt>
+            <dt>Под <span class="note">функция</span> - последователност от действия, на която се подават входни данни и връща изходен резултат. Точно както математическите функции, които използваме в по-сложни изрази.</dt>
+            <dt>В JavaScript, чрез функции можем да реализираме както процедури, така и функции.</dt>
+        </dl>
+    </section>
 </section>
 
 <section class="main-sesction-title" id="function_definition" data-min="20"><h1>Дефиниция на функция (Function Definition)</h1></section>
 <section class="sub-sections"><h2>Дефиниция на функция (<a href="https://www.w3schools.com/js/js_function_definition.asp">Function Definition</a>)</h2>
-	<section><h3>Вариант 1: Function Declarations</h3>
-		<pre><code rel="Syntax">
-			function &lt;име&gt;( &lt;списък параметри&gt; ) {
-				&lt;тяло на функцията&gt;
-			}
-		</code></pre>
-		<dl class="fa" style="font-size: .9em;">
-			<dt><code>&lt;име&gt;</code></dt>
-			<dd>Име на функцията, съобразено с <a href="https://developer.mozilla.org/en-US/docs/Glossary/Identifier">правилата за идентификатори в JS</a>. (<a href="https://mothereff.in/js-variables#%E0%B2%A0%5f%E0%B2%A0">tool:   variable name validator</a>)</dd>
-			<dt><code>&lt;списък параметри&gt;</code></dt>
-			<dd>Нула или повече параметъра разделени със запетая. Кръглите скоби са задължителни дори и ако функцията няма параметри. </dd>
-			<dt><code>&lt;тяло на функцията&gt;</code></dt>
-			<dd>Изрази, разделени с '<code>;</code>'</dd>
-			<dt>Забележете, че след декларацията на функцията не e необходимо да се слага ';', <b>но не пречи</b>!</dt>
-		</dl>
-	</section>
-	<section><h3>Function Declarations - Примери</h3>
-		<pre><code rel="JavaScript">
-			//функцията няма параметри
-			function signOutMsg(){
-				confirm("Прекратяване на сесията?");
-			}
-		</code></pre>
-		<br>
-		<pre><code rel="JavaScript">
-			// функцията декларира 2 параметъра
-			function sum(x, y){
-				console.log( x + y );
-			}
-		</code></pre>
-	</section>
-	<section><h3>Вариант 2: Function Expression</h3>
-		<pre><code rel="Syntax">
-			let functionVar = function(&lt;списък параметри&gt;){
-				&lt;тяло на функцията&gt;
-			};
-		</code></pre>
-		<dl class="fa">
-		<dt>Тук се създава анонимна функция, която е достъпна чрез променливата <code>functionVar</code> в която сме я съхранили.</dt>
-		<dt>Реално, се извършват две действия:</dt>
-		<dd>1. let functionVar = undefined <span class="note">// compile time</span></dd>
-		<dd>2. functionVar = function(...){...}; <span class="note">// run time</span>
-		</dd>
-		<dt>Тъй като тук дефинираме функцията чрез израз (оператора за присвояване), то задължително трябва да сложим '<span class="note">;</span>' в края.</dt>
-		</dl>
-	</section>
-	<section><h3>Параметри на функция</h3>
-		<dl class="fa">
-			<dt>Параметрите на една функция са <span class="note">локални променливи</span> които <b>не декларираме</b> експлицитно с <code>var</code> или <code>let</code>.</dt>
-			<dt>Имената на параметри трябва да отговарят на правилата за именуване на променливи в JavaScript.</dt>
-			<dt>Параметрите получават стойност при извикването (изпълнението) на функцията.</dt>
-		</dl>
-	</section>
+    <section><h3>Вариант 1: Function Declarations</h3>
+        <pre><code rel="Syntax">
+            function &lt;име&gt;( &lt;списък параметри&gt; ) {
+                &lt;тяло на функцията&gt;
+            }
+        </code></pre>
+        <dl class="fa" style="font-size: .9em;">
+            <dt><code>&lt;име&gt;</code></dt>
+            <dd>Име на функцията, съобразено с <a href="https://developer.mozilla.org/en-US/docs/Glossary/Identifier">правилата за идентификатори в JS</a>. (<a href="https://mothereff.in/js-variables#%E0%B2%A0%5f%E0%B2%A0">tool:   variable name validator</a>)</dd>
+            <dt><code>&lt;списък параметри&gt;</code></dt>
+            <dd>Нула или повече параметъра разделени със запетая. Кръглите скоби са задължителни дори и ако функцията няма параметри. </dd>
+            <dt><code>&lt;тяло на функцията&gt;</code></dt>
+            <dd>Изрази, разделени с '<code>;</code>'</dd>
+            <dt>Забележете, че след декларацията на функцията не e необходимо да се слага ';', <b>но не пречи</b>!</dt>
+        </dl>
+    </section>
+    <section><h3>Function Declarations - Примери</h3>
+        <pre><code rel="JavaScript">
+            //функцията няма параметри
+            function signOutMsg(){
+                confirm("Прекратяване на сесията?");
+            }
+        </code></pre>
+        <br>
+        <pre><code rel="JavaScript">
+            // функцията декларира 2 параметъра
+            function sum(x, y){
+                console.log( x + y );
+            }
+        </code></pre>
+    </section>
+    <section><h3>Вариант 2: Function Expression</h3>
+        <pre><code rel="Syntax">
+            let functionVar = function(&lt;списък параметри&gt;){
+                &lt;тяло на функцията&gt;
+            };
+        </code></pre>
+        <dl class="fa">
+        <dt>Тук се създава анонимна функция, която е достъпна чрез променливата <code>functionVar</code> в която сме я съхранили.</dt>
+        <dt>Реално, се извършват две действия:</dt>
+        <dd>1. let functionVar = undefined <span class="note">// compile time</span></dd>
+        <dd>2. functionVar = function(...){...}; <span class="note">// run time</span>
+        </dd>
+        <dt>Тъй като тук дефинираме функцията чрез израз (оператора за присвояване), то задължително трябва да сложим '<span class="note">;</span>' в края.</dt>
+        </dl>
+    </section>
+    <section><h3>Параметри на функция</h3>
+        <dl class="fa">
+            <dt>Параметрите на една функция са <span class="note">локални променливи</span> които <b>не декларираме</b> експлицитно с <code>var</code> или <code>let</code>.</dt>
+            <dt>Имената на параметри трябва да отговарят на правилата за именуване на променливи в JavaScript.</dt>
+            <dt>Параметрите получават стойност при извикването (изпълнението) на функцията.</dt>
+        </dl>
+    </section>
 </section>
 
 <section class="main-sesction-title" id="function_call" data-min="20"><h1>Извикване на функция (Function Invocation)</h1></section>
 <section class="sub-sections"><h2>Function Invocation</h2>
-	<section>
-		<dl class="fa">
-			<dt>За да се изпълнят действията зададени в една функция, то тя трябва да се "извика".</dt>
-			<dt>Синоними:</dt>
-			<dd>Извикване, стартиране, изпълнение на функция</dd>
-			<dd>Function <span class="note">call</span>, <span class="note">invocation</span>, <span class="note">execution</span>.</dd>
-		</dl>
-	</section>
-	<section><h3>Синтаксис</h3>
-		<pre><code rel="Syntax">
-			<име на функция>(&lt;списък аргументи&gt;);
-		</code></pre>
-		<dl class="fa">
-			<dt><име на функция></dt>
-			<dd>името на функцията, която желаем да изпълним.</dd>
-			<dt>&lt;списък аргументи&gt;</dt>
-			<dd>стойности, които автоматично ще се подадат на параметрите.</dd>
-			<dt>Между името на функцията и отварящата скоба '(' не се оставя спейс!</dt>
-		</dl>
-		<pre><code rel="JS" class="js">
-			greet(); // извикване на функцията greet, без аргументи
-			greet('Ada', 'Byron'); // извикване на функцията greet с 2 аргумента
-		</code></pre>
-	</section>
-	<section><h3>Пример</h3>
-		<pre><code rel="JS" class="js">
-			function greet(userName){
-				console.log(`Hello ${userName}. Nice to see you.`);
-			}
+    <section>
+        <dl class="fa">
+            <dt>За да се изпълнят действията зададени в една функция, то тя трябва да се "извика".</dt>
+            <dt>Синоними:</dt>
+            <dd>Извикване, стартиране, изпълнение на функция</dd>
+            <dd>Function <span class="note">call</span>, <span class="note">invocation</span>, <span class="note">execution</span>.</dd>
+        </dl>
+    </section>
+    <section><h3>Синтаксис</h3>
+        <pre><code rel="Syntax">
+            <име на функция>(&lt;списък аргументи&gt;);
+        </code></pre>
+        <dl class="fa">
+            <dt><име на функция></dt>
+            <dd>името на функцията, която желаем да изпълним.</dd>
+            <dt>&lt;списък аргументи&gt;</dt>
+            <dd>стойности, които автоматично ще се подадат на параметрите.</dd>
+            <dt>Между името на функцията и отварящата скоба '(' не се оставя спейс!</dt>
+        </dl>
+        <pre><code rel="JS" class="js">
+            greet(); // извикване на функцията greet, без аргументи
+            greet('Ada', 'Byron'); // извикване на функцията greet с 2 аргумента
+        </code></pre>
+    </section>
+    <section><h3>Пример</h3>
+        <pre><code rel="JS" class="js">
+            function greet(userName){
+                console.log(`Hello ${userName}. Nice to see you.`);
+            }
 
-			// едва при извикването ще се изпълнят действията, дефинирани във функцията
+            // едва при извикването ще се изпълнят действията, дефинирани във функцията
 
-			// извикване на функцията greet() с аргумент "Ada"
-			greet("Ada");
-			// извикване на функцията greet() с аргумент "John"
-			greet("John");
-		</code></pre>
-	</section>
-	<section><h3>Предаване на аргументи</h3>
-		<dl class="fa">
-			<dt>Съпоставянето (предаването) на стойности между параметър и аргумент е в зависимост от последователността на изписване. Тоест - <span class="note">първия параметър приема стойността на първия аргумент, втория параметър - на втория аргумент и т.н</span></dt>
-			<img src="images/argument-parameters mapping.png" alt="argument-parameters mapping"style="height: 30vh;"><br>
+            // извикване на функцията greet() с аргумент "Ada"
+            greet("Ada");
+            // извикване на функцията greet() с аргумент "John"
+            greet("John");
+        </code></pre>
+    </section>
+    <section><h3>Предаване на аргументи</h3>
+        <dl class="fa">
+            <dt>Съпоставянето (предаването) на стойности между параметър и аргумент е в зависимост от последователността на изписване. Тоест - <span class="note">първия параметър приема стойността на първия аргумент, втория параметър - на втория аргумент и т.н</span></dt>
+            <img src="images/argument-parameters mapping.png" alt="argument-parameters mapping"style="height: 30vh;"><br>
 
-		</dl>
-		<ul>
-			<li>x = 2</li>
-			<li>y = 3</li>
-		</ul>
-	</section>
-	<section><h3>Предаване на аргументи</h3>
-		<dl class="fa">
-			<dt>Най-общо, при предаването на стойности на параметрите, това което JS интерпретатора прави, е да създаде локални за функцията променливи и да им присвои зададените като аргументи стойности.</dt>
-		</dl>
-		<pre><code rel="JS">
-			// декларация на функцията sum():
-			function sum(x, y){
-				// let x = 2, y = 3; => това се прави от JS интерпретатора при извикването на функцията
-				console.log( x + y);
-			}
+        </dl>
+        <ul>
+            <li>x = 2</li>
+            <li>y = 3</li>
+        </ul>
+    </section>
+    <section><h3>Предаване на аргументи</h3>
+        <dl class="fa">
+            <dt>Най-общо, при предаването на стойности на параметрите, това което JS интерпретатора прави, е да създаде локални за функцията променливи и да им присвои зададените като аргументи стойности.</dt>
+        </dl>
+        <pre><code rel="JS">
+            // декларация на функцията sum():
+            function sum(x, y){
+                // let x = 2, y = 3; => това се прави от JS интерпретатора при извикването на функцията
+                console.log( x + y);
+            }
 
-			// извикване на функцията sum():
-			sum(2, 3); // 5
-		</code></pre>
-	</section>
-	<section><h3>Особености</h3>
-		<dl class="fa">
-			<dt>Ако борят на параметрите не съответства на броя на аргументите, <span class="note">JavaScript не връща грешка</span>!</dt>
-		</dl>
-		<pre style="width: 100%; font-size: .5em;"><code rel="JS">
-			function sum(x, y){
-				// let x = 2, y = undefined;
-				console.log( x + y);
-			}
+            // извикване на функцията sum():
+            sum(2, 3); // 5
+        </code></pre>
+    </section>
+    <section><h3>Особености</h3>
+        <dl class="fa">
+            <dt>Ако борят на параметрите не съответства на броя на аргументите, <span class="note">JavaScript не връща грешка</span>!</dt>
+        </dl>
+        <pre style="width: 100%; font-size: .5em;"><code rel="JS">
+            function sum(x, y){
+                // let x = 2, y = undefined;
+                console.log( x + y);
+            }
 
-			sum(2); // NaN
-		</code></pre>
-		<pre style="width: 100%; font-size: .5em;"><code rel="JS">
-			function sum(x){
-				// let x = 2;
-				console.log( x ); // 2
-				console.log( x + y); // ReferenceError: y is not defined
-				// ако не използваме y във функцията, няма да има грешка.
-			}
+            sum(2); // NaN
+        </code></pre>
+        <pre style="width: 100%; font-size: .5em;"><code rel="JS">
+            function sum(x){
+                // let x = 2;
+                console.log( x ); // 2
+                console.log( x + y); // ReferenceError: y is not defined
+                // ако не използваме y във функцията, няма да има грешка.
+            }
 
-			sum(2, 3);
-		</code></pre>
-	</section>
+            sum(2, 3);
+        </code></pre>
+    </section>
 </section>
 
 <section data-min="5"><h1>Стойности по подразбиране на параметрите</h1></section>
@@ -287,828 +286,828 @@
 
 <section class="main-sesction-title" id="return" data-min="10"><h1>Return Statement</h1></section>
 <section class="sub-sections"><h2>Return Statement</h2>
-	<section>
-		<dl class="fa">
-			<dt class="note">Всяка функция в JavaScript връща стойност.</dt>
-			<dt>На мястото на извикването на функцията ще се подаде връщаната от функцията стойност.</dt>
-			<dt>Ако във функцията не сме използвали оператора <code class="note">return</code>, то функцията връща <code class="note">undefined</code>!</dt>
-			<dt>За да определим каква да бъде връщаната стойност използваме оператора <code class="note">return</code>.</dt>
-			<dt class="note">Или казано по-конкретно, <b>извикването на функция</b>: <code>funcName()</code> <b>е операция (expression, както 2+2), която винаги връща стойност</b>.</dt class="note">
-		</dl>
-	</section>
-	<section>
-		<pre><code rel="Syntax">
-			function funcName(){
-				// some code
-				return <израз>; // exit
-			}
+    <section>
+        <dl class="fa">
+            <dt class="note">Всяка функция в JavaScript връща стойност.</dt>
+            <dt>На мястото на извикването на функцията ще се подаде връщаната от функцията стойност.</dt>
+            <dt>Ако във функцията не сме използвали оператора <code class="note">return</code>, то функцията връща <code class="note">undefined</code>!</dt>
+            <dt>За да определим каква да бъде връщаната стойност използваме оператора <code class="note">return</code>.</dt>
+            <dt class="note">Или казано по-конкретно, <b>извикването на функция</b>: <code>funcName()</code> <b>е операция (expression, както 2+2), която винаги връща стойност</b>.</dt class="note">
+        </dl>
+    </section>
+    <section>
+        <pre><code rel="Syntax">
+            function funcName(){
+                // some code
+                return <израз>; // exit
+            }
 
-			let res = funcName();
-		</code></pre>
-		<dl class="fa">
-			<dt><израз>  трябва да бъде изчислим.</dt>
-			<dt>Именно изчислената стойност ще се замести на мястото на извикване на функцията.</dt>
-			<dt><span class="note">След оператора <code>return</code> се излиза от тялото на функцията</span>. Тоест, нито един израз във функцията, след <code>return</code> няма да се изпълни! .</dt>
-			<pre><code rel="JS">
-				function f(){
-					console.log("start");
-					return true;
-					console.log("end"); // никога няма да се изпълни!
-				}
+            let res = funcName();
+        </code></pre>
+        <dl class="fa">
+            <dt><израз>  трябва да бъде изчислим.</dt>
+            <dt>Именно изчислената стойност ще се замести на мястото на извикване на функцията.</dt>
+            <dt><span class="note">След оператора <code>return</code> се излиза от тялото на функцията</span>. Тоест, нито един израз във функцията, след <code>return</code> няма да се изпълни! .</dt>
+            <pre><code rel="JS">
+                function f(){
+                    console.log("start");
+                    return true;
+                    console.log("end"); // никога няма да се изпълни!
+                }
 
-				f();
+                f();
 
-				// "start"
-			</code></pre>
-		</dl>
-	</section>
-	<section><h3>Example</h3>
-		<pre><code rel="JS">
-			function f(){
-				console.log("start");
-				return true;
-				console.log("end"); // никога няма да се изпълни!
-			}
+                // "start"
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Example</h3>
+        <pre><code rel="JS">
+            function f(){
+                console.log("start");
+                return true;
+                console.log("end"); // никога няма да се изпълни!
+            }
 
-			f();
-		</code></pre>
-	</section>
+            f();
+        </code></pre>
+    </section>
 </section>
 
 <section class="main-sesction-title" id="scope" data-min="20"><h1>Обхват на променливите (Variables Scope)</h1></section>
 <section class="sub-sections"><h2>Обхват на променливите (Variables Scope)</h2>
-	<section><h3>Въведение</h3>
-		<dl class="fa">
-			<dt>Обхват (scope) на една променлива наричаме областта от кода, в която може да достъпим дадената променлива.</dt>
-			<dt>В JavaScript различаваме 2 вида scope:</dt>
-			<dd><span class="note">global</span></dd>
-			<dd><span class="note">local</span></dd>
-			<dd>*ES6 въвежда и <span class="note">block</span> scope (чрез <code>let</code> и <code>const</code>), разгледан в следващите слайдове.</dd>
-		</dl>
-		<pre><code rel="JS" class="js">
-			// x is defined in global scope
-			let x = 5;
+    <section><h3>Въведение</h3>
+        <dl class="fa">
+            <dt>Обхват (scope) на една променлива наричаме областта от кода, в която може да достъпим дадената променлива.</dt>
+            <dt>В JavaScript различаваме 2 вида scope:</dt>
+            <dd><span class="note">global</span></dd>
+            <dd><span class="note">local</span></dd>
+            <dd>*ES6 въвежда и <span class="note">block</span> scope (чрез <code>let</code> и <code>const</code>), разгледан в следващите слайдове.</dd>
+        </dl>
+        <pre><code rel="JS" class="js">
+            // x is defined in global scope
+            let x = 5;
 
-			function foo() {
-				// y is defined in local for 'foo()' scope
-				let y = 10;
-				console.log(`x in foo: ${x}`); // x in foo: 5
-				console.log(`y in foo: ${y}`); // y in foo: 10
-			}
+            function foo() {
+                // y is defined in local for 'foo()' scope
+                let y = 10;
+                console.log(`x in foo: ${x}`); // x in foo: 5
+                console.log(`y in foo: ${y}`); // y in foo: 10
+            }
 
-			foo();
+            foo();
 
-			console.log(`x in global: ${x}`); // x in global: 5
-			console.log(`y in global: ${y}`); // ReferenceError: y is not defined
-		</code></pre>
-	</section>
-	<section><h3>Global Scope</h3>
-		<dl class="fa">
-			 <dt>Когато скрипта се изпълнява от браузър, глобалният обхват (<span class="note">global scope</span>) е всичкия код принадлежащ към дадената страница. Ако имаме няколко включени в дадена страница JS файла, то всички те формират global scope.</dt>
-			<dt>Променлива, която не е декларирана в тялото на която и да е функция, се нарича <span class="note">глобална</span> и може да бъде достъпена от всяко едно място в global scope. Т.е. от всеки един JS файл, включен в същия HTML файл.</dt>
-		</dl>
-		<pre><code rel="JS" class="js">
-			var x = 1
-		</code></pre>
-	</section>
-	<section><h3>Global Scope</h3>
-		<pre style="width: 110%"><code rel="lib.js" class="js">
-			// x е глобална променлива
-			var x = 5;
-		</code></pre>
-		<pre style="width: 110%"><code rel="index.html" class="js">
-			&lt;body&gt;
-				&lt;!-- ... --&gt;
-				&lt;script type=&quot;text/javascript&quot; src=&quot;lib.js&quot;&gt;&lt;/script&gt;
-				&lt;script type=&quot;text/javascript&quot;&gt;
-					console.log(`x = ${x}`)
-					// x = 5
-				&lt;/script&gt;
-			&lt;/body&gt;
-		</code></pre>
-	</section>
-	<section><h3>Local Scope</h3>
-		<dl class="fa" style="font-size: .9em">
-			<dt><span class="note">Тялото на всяка една функция формира <b>local scope</b>.</span></dt>
-			<dt>Всяка променлива, декларирана с <span class="note">var, let или const</span>, в тялото на една функция се нарича <span class="note">локална</span> и е видима само в тялото на функцията (не може да бъде достъпена извън тялото на функцията).</dt>
-		</dl>
-		<pre><code rel="JS">
-			function f(){
-				// firstName e локална за f():
-				var firstName = "ada";
+            console.log(`x in global: ${x}`); // x in global: 5
+            console.log(`y in global: ${y}`); // ReferenceError: y is not defined
+        </code></pre>
+    </section>
+    <section><h3>Global Scope</h3>
+        <dl class="fa">
+             <dt>Когато скрипта се изпълнява от браузър, глобалният обхват (<span class="note">global scope</span>) е всичкия код принадлежащ към дадената страница. Ако имаме няколко включени в дадена страница JS файла, то всички те формират global scope.</dt>
+            <dt>Променлива, която не е декларирана в тялото на която и да е функция, се нарича <span class="note">глобална</span> и може да бъде достъпена от всяко едно място в global scope. Т.е. от всеки един JS файл, включен в същия HTML файл.</dt>
+        </dl>
+        <pre><code rel="JS" class="js">
+            var x = 1
+        </code></pre>
+    </section>
+    <section><h3>Global Scope</h3>
+        <pre style="width: 110%"><code rel="lib.js" class="js">
+            // x е глобална променлива
+            var x = 5;
+        </code></pre>
+        <pre style="width: 110%"><code rel="index.html" class="js">
+            &lt;body&gt;
+                &lt;!-- ... --&gt;
+                &lt;script type=&quot;text/javascript&quot; src=&quot;lib.js&quot;&gt;&lt;/script&gt;
+                &lt;script type=&quot;text/javascript&quot;&gt;
+                    console.log(`x = ${x}`)
+                    // x = 5
+                &lt;/script&gt;
+            &lt;/body&gt;
+        </code></pre>
+    </section>
+    <section><h3>Local Scope</h3>
+        <dl class="fa" style="font-size: .9em">
+            <dt><span class="note">Тялото на всяка една функция формира <b>local scope</b>.</span></dt>
+            <dt>Всяка променлива, декларирана с <span class="note">var, let или const</span>, в тялото на една функция се нарича <span class="note">локална</span> и е видима само в тялото на функцията (не може да бъде достъпена извън тялото на функцията).</dt>
+        </dl>
+        <pre><code rel="JS">
+            function f(){
+                // firstName e локална за f():
+                var firstName = "ada";
 
-				console.log( firstName );
-			}
+                console.log( firstName );
+            }
 
-			f(); // "ada"
-			console.log( firstName ); // ReferenceError: firstName is not defined
-		</code></pre>
-	</section>
-	<section><h3>Shadowing</h3>
-		<img src="images/Scope1.png">
-		<dl class="fa">
-			<dt>Локални променливи, чието име съвпада с променливи от външния scope, припокриват, засенчват (shadowing) външните променливи в рамките на локалния scope.</dt>
-		</dl>
-	</section>
-	<section><h3>Shadowing</h3>
-		<pre><code rel="JS">
-			var firstName = "Ada";
+            f(); // "ada"
+            console.log( firstName ); // ReferenceError: firstName is not defined
+        </code></pre>
+    </section>
+    <section><h3>Shadowing</h3>
+        <img src="images/Scope1.png">
+        <dl class="fa">
+            <dt>Локални променливи, чието име съвпада с променливи от външния scope, припокриват, засенчват (shadowing) външните променливи в рамките на локалния scope.</dt>
+        </dl>
+    </section>
+    <section><h3>Shadowing</h3>
+        <pre><code rel="JS">
+            var firstName = "Ada";
 
-			function foo(){
-				var firstName = "Turing"
-				console.log("foo() firstName: ", firstName);
-			}
-			foo(); // "Turing"
+            function foo(){
+                var firstName = "Turing"
+                console.log("foo() firstName: ", firstName);
+            }
+            foo(); // "Turing"
 
-			console.log("global firstName: ", firstName); // "Ada"
-		</code></pre>
-		<p>Локалната променлива firstName не променя стойността на глобалната променлива firstName!</p>
-		<p>За JavaScript това са 2 отделни променливи!</p>
-	</section>
-	<section>
-		<p>Внимавайте за следният възможен бъг:</p>
-			<pre><code rel="JS">
-				var firstName = "Ada";
+            console.log("global firstName: ", firstName); // "Ada"
+        </code></pre>
+        <p>Локалната променлива firstName не променя стойността на глобалната променлива firstName!</p>
+        <p>За JavaScript това са 2 отделни променливи!</p>
+    </section>
+    <section>
+        <p>Внимавайте за следният възможен бъг:</p>
+            <pre><code rel="JS">
+                var firstName = "Ada";
 
-				function foo(){
-					// тук променяме глобалната променлива!!!
-					firstName = "Turing"
-					console.log("foo() firstName: ", firstName);
-				}
-				foo();
+                function foo(){
+                    // тук променяме глобалната променлива!!!
+                    firstName = "Turing"
+                    console.log("foo() firstName: ", firstName);
+                }
+                foo();
 
-				console.log("global firstName: ", firstName);
-			</code></pre>
-			<p>firstName в тялото на функцията НЕ Е декларирана чрез var/let или const и така тя се счита за глобална променлива!</p>
-	</section>
+                console.log("global firstName: ", firstName);
+            </code></pre>
+            <p>firstName в тялото на функцията НЕ Е декларирана чрез var/let или const и така тя се счита за глобална променлива!</p>
+    </section>
 </section>
 
 <section class="main-sesction-title" id="let_const_var" data-min="10"><h1>Разлики между <code>let</code>, <code>const</code> и <code>var</code></h1></section>
 <section class="sub-sections"><h2>Разлики между <code>let</code>, <code>const</code> и <code>var</code></h2>
-	<section><h3><code>let/const</code> vs. <code>var</code>: scoping</h3>
-		<dl class="fa">
-			<dt>ES6 въвежда в JavaScript и <code class="note">block scope</code> за променливи дефинирани чрез ключовите думи <code class="note">let</code> и <code class="note">const</code></dt>
-			<dd><code>block</code> е всяка част от кода между <code>{</code> и <code>}</code></dd>
-		</dl>
-		<pre><code rel="JS" class="js">
-			{
-				var x = 2;           // x e глобална променлива
-				let y = 4;           // y e видима само в текущия блок
-				const alpha = 2.34;  // alpha e видима само в текущия блок
-			}
+    <section><h3><code>let/const</code> vs. <code>var</code>: scoping</h3>
+        <dl class="fa">
+            <dt>ES6 въвежда в JavaScript и <code class="note">block scope</code> за променливи дефинирани чрез ключовите думи <code class="note">let</code> и <code class="note">const</code></dt>
+            <dd><code>block</code> е всяка част от кода между <code>{</code> и <code>}</code></dd>
+        </dl>
+        <pre><code rel="JS" class="js">
+            {
+                var x = 2;           // x e глобална променлива
+                let y = 4;           // y e видима само в текущия блок
+                const alpha = 2.34;  // alpha e видима само в текущия блок
+            }
 
-			console.log(`x=${x}`);          // x=2
-			console.log(`y=${y}`);          // error: y is not defined
-			console.log(`alpha=${alpha}`);  // error: alpha is not defined
-		</code></pre>
-	</section>
-	<section><h3><code>let/const</code> vs. <code>var</code>: scoping - пример</h3>
-		<pre><code rel="JS" class="js">
-			let status = "none",
-				userAge = 32;
+            console.log(`x=${x}`);          // x=2
+            console.log(`y=${y}`);          // error: y is not defined
+            console.log(`alpha=${alpha}`);  // error: alpha is not defined
+        </code></pre>
+    </section>
+    <section><h3><code>let/const</code> vs. <code>var</code>: scoping - пример</h3>
+        <pre><code rel="JS" class="js">
+            let status = "none",
+                userAge = 32;
 
-			if(userAge>=18){
-				//тук не променяме глобалната променлива status, а създаваме нова променлива видима единствено в този блок
-				let status = "Adult"
-			};
+            if(userAge>=18){
+                //тук не променяме глобалната променлива status, а създаваме нова променлива видима единствено в този блок
+                let status = "Adult"
+            };
 
-			console.log(`status = ${status}`);
-			// status = none
-		</code></pre>
-	</section>
-	<section><h3><code>let/const</code> vs. <code>var</code>: redeclaring</h3>
-		<dl class="fa">
-			<dt>Друга разлика между <code>let/const</code> и <code>var</code> е, че ако една променлива вече е декларирана, то при повторна декларация (redeclaring) в съшия скоуп чрез <code>let</code> или <code>const</code> ще възникне грешка.</dt>
-			<dt>При ре-деклариране чрез <code>var</code> не би възникнала грешка.</dt>
-			<dt class="note">Добра практика е да предпочитаме използването на <code>let/const</code> за деклариране на променливи, вместо <code>var</code>!</dt>
-		</dl>
-	</section>
-	<section><h3>Особености на <code>const</code></h3>
-		<dl class="fa">
-			<dt>Чрез <code>const</code> създаваме променливи, които не бихме искали да ре-дефинираме по погрешка..</dt>
-			<pre><code rel="JS" class="js">
-				const GOLDEN_RATIO =  1.618;
-				GOLDEN_RATIO = 2; //TypeError: Assignment to constant variable.
-			</code></pre>
-			<dt>Променлива създадена чрез <code>const</code> задължително трябва да бъде инициализирана:</dt>
-			<pre><code rel="JS" class="js">
-				const GOLDEN_RATIO; // SyntaxError: Missing initializer in const declaration
-			</code></pre>
-		</dl>
-	</section>
-	<section><h3 class="advanced">Особености на <code>const</code></h3>
-		<dl class="fa">
-			<dt><code>const</code> не гарантира създаването на константи в буквалния смисъл. А единствено, че при опит за re-assign ще възникне грешка!</dt>
-			<dt>Ако стойността на <code>const</code> променливата е съставна, т.е обект, то ние <code>можем</code> да променим някое негово пропърти без да възникне грешка.</dt>
-			<pre><code rel="JS" class="js">
-				const someArray = [3.14];
+            console.log(`status = ${status}`);
+            // status = none
+        </code></pre>
+    </section>
+    <section><h3><code>let/const</code> vs. <code>var</code>: redeclaring</h3>
+        <dl class="fa">
+            <dt>Друга разлика между <code>let/const</code> и <code>var</code> е, че ако една променлива вече е декларирана, то при повторна декларация (redeclaring) в съшия скоуп чрез <code>let</code> или <code>const</code> ще възникне грешка.</dt>
+            <dt>При ре-деклариране чрез <code>var</code> не би възникнала грешка.</dt>
+            <dt class="note">Добра практика е да предпочитаме използването на <code>let/const</code> за деклариране на променливи, вместо <code>var</code>!</dt>
+        </dl>
+    </section>
+    <section><h3>Особености на <code>const</code></h3>
+        <dl class="fa">
+            <dt>Чрез <code>const</code> създаваме променливи, които не бихме искали да ре-дефинираме по погрешка..</dt>
+            <pre><code rel="JS" class="js">
+                const GOLDEN_RATIO =  1.618;
+                GOLDEN_RATIO = 2; //TypeError: Assignment to constant variable.
+            </code></pre>
+            <dt>Променлива създадена чрез <code>const</code> задължително трябва да бъде инициализирана:</dt>
+            <pre><code rel="JS" class="js">
+                const GOLDEN_RATIO; // SyntaxError: Missing initializer in const declaration
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3 class="advanced">Особености на <code>const</code></h3>
+        <dl class="fa">
+            <dt><code>const</code> не гарантира създаването на константи в буквалния смисъл. А единствено, че при опит за re-assign ще възникне грешка!</dt>
+            <dt>Ако стойността на <code>const</code> променливата е съставна, т.е обект, то ние <code>можем</code> да променим някое негово пропърти без да възникне грешка.</dt>
+            <pre><code rel="JS" class="js">
+                const someArray = [3.14];
 
-				// тук не re-assign-ваме променливата someArray, а променяме стойност в самия масив
-				someArray[0] = 99;
-				console.log( someArray[0] ); // 99
+                // тук не re-assign-ваме променливата someArray, а променяме стойност в самия масив
+                someArray[0] = 99;
+                console.log( someArray[0] ); // 99
 
-				const someObject = {
-					"pi": 3.14,
-				}
+                const someObject = {
+                    "pi": 3.14,
+                }
 
-				// тук не re-assign-ваме someObject, а променяме пропърти в самия обект:
-				someObject.pi = 4;
-				console.log( someObject.pi ); // 4
+                // тук не re-assign-ваме someObject, а променяме пропърти в самия обект:
+                someObject.pi = 4;
+                console.log( someObject.pi ); // 4
 
-				// тук правим опит за re-assign:
-				someArray = 4;      // TypeError: Assignment to constant variable.
-				someObject = {};    // TypeError: Assignment to constant variable.
-			</code></pre>
-		</dl>
-	</section>
+                // тук правим опит за re-assign:
+                someArray = 4;      // TypeError: Assignment to constant variable.
+                someObject = {};    // TypeError: Assignment to constant variable.
+            </code></pre>
+        </dl>
+    </section>
 </section>
 
 <section class="main-sesction-title" id="anonymous_functions" data-min="10"><h1>Анонимни функции (Anonymous functions)</h1></section>
 <section class="sub-sections"><h2>Анонимни функции</h2>
-	<section>
-		<dl class="fa">
-			<dt>Функция, която няма име се нарича анонимна функция!</dt>
-			<dt>Обикновено, анонимните функции се използват като стойности при предаване на аргументи на друга функция,  в return изрази, пропъртита на обекти (методи)).</dt>
-			<dt>Фактът че в JavaScript <span class="note">функциите са стойности</span> ги определя като "first-class citizens" (first-class function).</dt>
-		</dl>
-	</section>
-	<section><h3>Анонимна функция като стойност на променлива (function expression):</h3>
-		<pre><code rel="JS">
-			var foo = function(){
-				console.log("I am foo!");
-			}
+    <section>
+        <dl class="fa">
+            <dt>Функция, която няма име се нарича анонимна функция!</dt>
+            <dt>Обикновено, анонимните функции се използват като стойности при предаване на аргументи на друга функция,  в return изрази, пропъртита на обекти (методи)).</dt>
+            <dt>Фактът че в JavaScript <span class="note">функциите са стойности</span> ги определя като "first-class citizens" (first-class function).</dt>
+        </dl>
+    </section>
+    <section><h3>Анонимна функция като стойност на променлива (function expression):</h3>
+        <pre><code rel="JS">
+            var foo = function(){
+                console.log("I am foo!");
+            }
 
-			foo();
-			// "I am foo!"
-		</code></pre>
-		<!-- <p>Внимавайте за следната възможна грешка:</p>
-		<pre><code rel="JS">
-			var a = function b(){
-				console.log("I am in b!");
-			}
+            foo();
+            // "I am foo!"
+        </code></pre>
+        <!-- <p>Внимавайте за следната възможна грешка:</p>
+        <pre><code rel="JS">
+            var a = function b(){
+                console.log("I am in b!");
+            }
 
-			b(); //  ReferenceError: b is not defined
-		</code></pre> -->
-	</section>
-	<section><h3>Анонимна функция като елемент на масив:</h3>
-		<pre><code rel="JS" class="js">
-			let foobar = [
-				function () {
-					console.log(`Foo`);
-				},
-				function () {
-					console.log(`Bar`);
-				}
-			]
+            b(); //  ReferenceError: b is not defined
+        </code></pre> -->
+    </section>
+    <section><h3>Анонимна функция като елемент на масив:</h3>
+        <pre><code rel="JS" class="js">
+            let foobar = [
+                function () {
+                    console.log(`Foo`);
+                },
+                function () {
+                    console.log(`Bar`);
+                }
+            ]
 
-			foobar[0](); // 'Foo'
-			foobar[1](); // 'Bar'
-		</code></pre>
-	</section>
-	<!-- <section><h3>Анонимна функция като пропърти на обект (method) - пример</h3>
-		<pre><code rel="JS" class="js">
-			let obj = {
-				'foo': function () {
-					console.log(`Foo`);
-				},
-				'bar': function () {
-					console.log(`Bar`);
-				}
-			};
+            foobar[0](); // 'Foo'
+            foobar[1](); // 'Bar'
+        </code></pre>
+    </section>
+    <!-- <section><h3>Анонимна функция като пропърти на обект (method) - пример</h3>
+        <pre><code rel="JS" class="js">
+            let obj = {
+                'foo': function () {
+                    console.log(`Foo`);
+                },
+                'bar': function () {
+                    console.log(`Bar`);
+                }
+            };
 
-			obj.foo(); // 'Foo'
-			obj.bar(); // 'Bar'
-		</code></pre>
-	</section> -->
+            obj.foo(); // 'Foo'
+            obj.bar(); // 'Bar'
+        </code></pre>
+    </section> -->
 </section>
 
 <section class="main-sesction-title" id="first-class_functions"	data-min="10"><h1>Functions as First-Class Citizens</h1></section>
 <section><h2 class="advanced">Functions as First-Class Citizens</h2>
-	<section>
-		<dl class="fa">
-			<dt>Свойството на функциите в JavaScript (анонимни или не) - да бъдат използвани като стойности, т.е. да бъдат записвани в променливи, да бъдат подавани като аргументи на функции или да бъдат връщани като резултат от функция, ги определя като <span class="note">first-class functions</span></dt>
-			<dt>Темата за "first-class functions" се разглежда задълбочено в <a href="https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/">JavaScript - Advanced with React</a> курса. Но преди да навлезете в тази изключително важна за JavaScript тема е необходимо да усвоите добре основните, разгледани досега.</dt>
-		</dl>
-	</section>
-	<section><h3>Функция като стойност на параметър (callback functions)</h3>
-		<dl class="fa">
-			<dt>Често в JavaScript се налага дадена функция да бъде подадена като аргумент на друга функция, за да бъде изпълнена от тази функция:</dt>
-			<pre><code rel="JS" class="js">
-				function caller(callback){
-					console.log("caller will call the callback:")
-					callback();
-				}
+    <section>
+        <dl class="fa">
+            <dt>Свойството на функциите в JavaScript (анонимни или не) - да бъдат използвани като стойности, т.е. да бъдат записвани в променливи, да бъдат подавани като аргументи на функции или да бъдат връщани като резултат от функция, ги определя като <span class="note">first-class functions</span></dt>
+            <dt>Темата за "first-class functions" се разглежда задълбочено в <a href="https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/">JavaScript - Advanced with React</a> курса. Но преди да навлезете в тази изключително важна за JavaScript тема е необходимо да усвоите добре основните, разгледани досега.</dt>
+        </dl>
+    </section>
+    <section><h3>Функция като стойност на параметър (callback functions)</h3>
+        <dl class="fa">
+            <dt>Често в JavaScript се налага дадена функция да бъде подадена като аргумент на друга функция, за да бъде изпълнена от тази функция:</dt>
+            <pre><code rel="JS" class="js">
+                function caller(callback){
+                    console.log("caller will call the callback:")
+                    callback();
+                }
 
-				function callback1(){
-					console.log("I'm the callback1 function!")
-				}
+                function callback1(){
+                    console.log("I'm the callback1 function!")
+                }
 
-				function callback2(){
-					console.log("I'm the callback2 function!")
-				}
+                function callback2(){
+                    console.log("I'm the callback2 function!")
+                }
 
 
-				caller(callback1);
-				caller(callback2);
-			</code></pre>
-		</dl>
-	</section>
-	<section><h3>example</h3>
-		<dl class="fa">
-			<dt>Забележете разликата при подаването на функция като параметър и подаването на резултата от функцията като параметър.</dt>
-		</dl>
-		<pre style="width: 110%; font-size: .5em;"><code rel="JS" class="js">
-			function caller(f){
-				console.log("1")
-				f();
-			}
+                caller(callback1);
+                caller(callback2);
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>example</h3>
+        <dl class="fa">
+            <dt>Забележете разликата при подаването на функция като параметър и подаването на резултата от функцията като параметър.</dt>
+        </dl>
+        <pre style="width: 110%; font-size: .5em;"><code rel="JS" class="js">
+            function caller(f){
+                console.log("1")
+                f();
+            }
 
-			function callback(){
-				console.log("2")
-			}
+            function callback(){
+                console.log("2")
+            }
 
-			console.log("Feeding the caller() with function declaration")
-			caller( callback );
+            console.log("Feeding the caller() with function declaration")
+            caller( callback );
 
-			console.log("Feeding the caller() with function execution")
-			caller( callback() );
-		</code></pre>
-	</section>
-	<section><h3>Функция като return value</h3>
-		<pre><code rel="JS" class="js">
-			function foo(){
-				return function(){
-					console.log(`I'm the returned function`);
-				}
-			}
+            console.log("Feeding the caller() with function execution")
+            caller( callback() );
+        </code></pre>
+    </section>
+    <section><h3>Функция като return value</h3>
+        <pre><code rel="JS" class="js">
+            function foo(){
+                return function(){
+                    console.log(`I'm the returned function`);
+                }
+            }
 
-			foo()();
+            foo()();
 
-			// foo()() е концептуално еквивалентно на:
-			// var bar = foo();
-			// bar();
-		</code></pre>
-	</section>
-	<!-- <section class="main-sesction-title" id="References"><h3>References</h3>
-		<iframe src="https://www.youtube.com/embed/hRJrp17WnOE?list=PL-BwA4EWrxLAL9XzwMwLY2uLQFm68fJ4Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-	</section> -->
+            // foo()() е концептуално еквивалентно на:
+            // var bar = foo();
+            // bar();
+        </code></pre>
+    </section>
+    <!-- <section class="main-sesction-title" id="References"><h3>References</h3>
+        <iframe src="https://www.youtube.com/embed/hRJrp17WnOE?list=PL-BwA4EWrxLAL9XzwMwLY2uLQFm68fJ4Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </section> -->
 </section>
 
 
 <section class="main-sesction-title" id="HW_FunctionsBasics" data-min="5"><h1>Примери и Задачи <br>Functions basics</h1></section>
 <section class="sub-sections"><h2>Примери и Задачи</h2>
-	<section><h3>Function Definitions - Examples</h3>
-		<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="LWyPvy" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Function Definitions">
-		<span>
-		  See the Pen <a href='https://codepen.io/webdesigncourse/pen/LWyPvy'>Function Definitions</a> by Iva Popova
-		  (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
-		</span>
-		</p>
-	</section>
-	<section id="shadowingExample"><h3>Variables Shadowing - Examples</h3>
-		<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="PpmYMd" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Scope &amp; Shadowing">
-		<span>
-		  See the Pen <a href='https://codepen.io/webdesigncourse/pen/PpmYMd'>Scope &amp; Shadowing</a> by Iva Popova
-		  (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
-		</span>
-		</p>
-	</section>
-	<section id="shadowingTask"><h3>Variables Shadowing - Task</h3>
-		<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="vxZjaq" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="JS variables shadowing">
-		<span>
-		  See the Pen <a href='https://codepen.io/webdesigncourse/pen/vxZjaq'>JS variables shadowing</a> by Iva Popova
-		  (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
-		</span>
-		</p>
-	</section>
-	<section id="calculateRectangleArea"><h3>Calculate Rectangle Area - Task</h3>
-		<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="vYXzEoO" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Calculate Rectangle Area - Task">
-		<span>
-		See the Pen <a href='https://codepen.io/webdesigncourse/pen/vYXzEoO'>Calculate Rectangle Area - Task</a> by Iva Popova
-		(<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
-		</span>
-		</p>
-	</section>
-	<section id="logArrayEvenElements"><h3>logArrayEvenElements() - Example</h3>
-		<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="oNxyLwR" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="logArrayEvenElements() Example">
-		<span>
-			See the Pen <a href='https://codepen.io/webdesigncourse/pen/oNxyLwR'>logArrayEvenElements() Example</a> by Iva Popova
-			(<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
-		  </span>
-		</p>
-	</section>
-	<section id="sumArrays"><h3>sumArrays - Task</h3>
-		<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-slug-hash="ExdZXvL" data-user="ProgressWWWCourses" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-		<span>See the Pen <a href="https://codepen.io/ProgressWWWCourses/pen/ExdZXvL">
-			sumArrays</a> by Iva E. Popova (<a href="https://codepen.io/ProgressWWWCourses">@ProgressWWWCourses</a>)
-		on <a href="https://codepen.io">CodePen</a>.</span>
-		</p>
-		<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-	</section>
-	<section id="findMaxEven"><h3>findMaxEven() - Task</h3>
-		<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="bGpKeoq" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="findMaxEven() Task">
-		<span>
-			See the Pen <a href='https://codepen.io/webdesigncourse/pen/bGpKeoq'>findMaxEven() Task</a> by Iva Popova
-			(<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
-		  </span>
-		</p>
-	</section>
-	<section id="getHigherScoreIndex"><h3>getHigherScoreIndex - Task</h3>
-		<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="wRRaej" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="HW: Max/Min student score">
-		<span>
-		  See the Pen <a href='https://codepen.io/webdesigncourse/pen/wRRaej'>HW: Max/Min student score</a> by Iva Popova
-		  (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
-	  </span>
-		</p>
-	</section>
-	<section id="SumEven2DimArrayElements"><h3>SumEven2DimArrayElements - Task</h3>
-		<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="rPOXBe" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="HW: SumEvenArrayElements">
-		<span>
-		See the Pen <a href='https://codepen.io/webdesigncourse/pen/rPOXBe'>HW: SumEvenArrayElements</a> by Iva Popova
-		(<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
-		</span>
-		</p>
-	</section>
-	<section id="gameBoardDataStructure"><h3>gameBoardDataStructure - Demo and Task</h3>
-		<p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="vmydQN" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="gameBoardDataStructure">
-		<span>
-		  See the Pen <a href='https://codepen.io/webdesigncourse/pen/vmydQN'>gameBoardDataStructure</a> by Iva Popova
-		  (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
-		</span>
-		</p>
-	</section>
+    <section><h3>Function Definitions - Examples</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="LWyPvy" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Function Definitions">
+        <span>
+          See the Pen <a href='https://codepen.io/webdesigncourse/pen/LWyPvy'>Function Definitions</a> by Iva Popova
+          (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+        </p>
+    </section>
+    <section id="shadowingExample"><h3>Variables Shadowing - Examples</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="PpmYMd" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Scope &amp; Shadowing">
+        <span>
+          See the Pen <a href='https://codepen.io/webdesigncourse/pen/PpmYMd'>Scope &amp; Shadowing</a> by Iva Popova
+          (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+        </p>
+    </section>
+    <section id="shadowingTask"><h3>Variables Shadowing - Task</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="vxZjaq" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="JS variables shadowing">
+        <span>
+          See the Pen <a href='https://codepen.io/webdesigncourse/pen/vxZjaq'>JS variables shadowing</a> by Iva Popova
+          (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+        </p>
+    </section>
+    <section id="calculateRectangleArea"><h3>Calculate Rectangle Area - Task</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="vYXzEoO" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Calculate Rectangle Area - Task">
+        <span>
+        See the Pen <a href='https://codepen.io/webdesigncourse/pen/vYXzEoO'>Calculate Rectangle Area - Task</a> by Iva Popova
+        (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+        </p>
+    </section>
+    <section id="logArrayEvenElements"><h3>logArrayEvenElements() - Example</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="oNxyLwR" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="logArrayEvenElements() Example">
+        <span>
+            See the Pen <a href='https://codepen.io/webdesigncourse/pen/oNxyLwR'>logArrayEvenElements() Example</a> by Iva Popova
+            (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+          </span>
+        </p>
+    </section>
+    <section id="sumArrays"><h3>sumArrays - Task</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-slug-hash="ExdZXvL" data-user="ProgressWWWCourses" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+        <span>See the Pen <a href="https://codepen.io/ProgressWWWCourses/pen/ExdZXvL">
+            sumArrays</a> by Iva E. Popova (<a href="https://codepen.io/ProgressWWWCourses">@ProgressWWWCourses</a>)
+        on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+    </section>
+    <section id="findMaxEven"><h3>findMaxEven() - Task</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="bGpKeoq" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="findMaxEven() Task">
+        <span>
+            See the Pen <a href='https://codepen.io/webdesigncourse/pen/bGpKeoq'>findMaxEven() Task</a> by Iva Popova
+            (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+          </span>
+        </p>
+    </section>
+    <section id="getHigherScoreIndex"><h3>getHigherScoreIndex - Task</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="wRRaej" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="HW: Max/Min student score">
+        <span>
+          See the Pen <a href='https://codepen.io/webdesigncourse/pen/wRRaej'>HW: Max/Min student score</a> by Iva Popova
+          (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+      </span>
+        </p>
+    </section>
+    <section id="SumEven2DimArrayElements"><h3>SumEven2DimArrayElements - Task</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="rPOXBe" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="HW: SumEvenArrayElements">
+        <span>
+        See the Pen <a href='https://codepen.io/webdesigncourse/pen/rPOXBe'>HW: SumEvenArrayElements</a> by Iva Popova
+        (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+        </p>
+    </section>
+    <section id="gameBoardDataStructure"><h3>gameBoardDataStructure - Demo and Task</h3>
+        <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="vmydQN" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="gameBoardDataStructure">
+        <span>
+          See the Pen <a href='https://codepen.io/webdesigncourse/pen/vmydQN'>gameBoardDataStructure</a> by Iva Popova
+          (<a href='https://codepen.io/webdesigncourse'>@webdesigncourse</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </span>
+        </p>
+    </section>
 </section>
 
 <section data-min="30"><h1>The arrow function syntax</h1></section>
 <section><h2>The arrow function syntax</h2>
-	<section><h3>arrow functions???</h3>
-		<dl class="fa" style="font-size: .8em;">
-			<dt>ES6 introduces a <span class="note">new function declaration syntax</span> called <span class="note">arrow notation</span>.</dt>
-			<dt>Also known in JavaScript as <span class="note">Arrow functions</span> or <span class="note">Fat arrow functions</span></dt>
-			<dt>In other languages (Python, Java, C#,...) they are know as <span class="note">lambda functions</span></dt>
-			<dd>The term originated from Lisp language</dd>
-			<dt>It is essentially syntactic sugar that reduces the number of times you have to type the word function , as well as the number of braces you have to type</dt>
-		</dl>
-	</section>
-	<section><h3>Function expression vs arrow syntax:</h3>
-		<pre><code rel="JS" class="javascript">
-			const pi = 3.14;
+    <section><h3>arrow functions???</h3>
+        <dl class="fa" style="font-size: .8em;">
+            <dt>ES6 introduces a <span class="note">new function declaration syntax</span> called <span class="note">arrow notation</span>.</dt>
+            <dt>Also known in JavaScript as <span class="note">Arrow functions</span> or <span class="note">Fat arrow functions</span></dt>
+            <dt>In other languages (Python, Java, C#,...) they are know as <span class="note">lambda functions</span></dt>
+            <dd>The term originated from Lisp language</dd>
+            <dt>It is essentially syntactic sugar that reduces the number of times you have to type the word function , as well as the number of braces you have to type</dt>
+        </dl>
+    </section>
+    <section><h3>Function expression vs arrow syntax:</h3>
+        <pre><code rel="JS" class="javascript">
+            const pi = 3.14;
 
-			// function expression syntax:
-			let circleAreaExp = function(r){
-				return r*r*pi;
-			}
+            // function expression syntax:
+            let circleAreaExp = function(r){
+                return r*r*pi;
+            }
 
-			// arrow function syntax:
-			let circleAreaArrow = r=>r*r*pi;
-		</code></pre>
-	</section>
-	<section><h3>Basic Syntax</h3>
-		<dl class="fa" style="font-size: .8em">
-			<dt>Arrow function syntax <span class="note">always creates an anonymous function</span>.</dt>
-			<dd>And this is usually it main use-case.</dd>
-			<dd>In order to simplify the examples, we'll assign the arrow function to a variable.</dd>
-		</dl>
-		<pre><code rel="Basic Syntax">
-			(param1, param2, …, paramN) => { statements }
-		</code></pre>
-		<pre><code rel="JS - example" class="javascript">
-			const pi = 3.14;
+            // arrow function syntax:
+            let circleAreaArrow = r=>r*r*pi;
+        </code></pre>
+    </section>
+    <section><h3>Basic Syntax</h3>
+        <dl class="fa" style="font-size: .8em">
+            <dt>Arrow function syntax <span class="note">always creates an anonymous function</span>.</dt>
+            <dd>And this is usually it main use-case.</dd>
+            <dd>In order to simplify the examples, we'll assign the arrow function to a variable.</dd>
+        </dl>
+        <pre><code rel="Basic Syntax">
+            (param1, param2, …, paramN) => { statements }
+        </code></pre>
+        <pre><code rel="JS - example" class="javascript">
+            const pi = 3.14;
 
-			let circleArea = (r)=>{return r*r*pi};
+            let circleArea = (r)=>{return r*r*pi};
 
-			console.log(`circleArea(2) = ${circleArea(2)}`);
-		</code></pre>
-		<p>In next slides we'll see how we can shorten the <code>circleArea</code> definition</p>
-	</section>
-	<section><h3>"single parameter" syntax</h3>
-		<dl class="fa">
-			<dt>If the function takes <span class="note">a single parameter</span>, you can omit the parameter's parentheses:</dt>
-			<dd>But note that braces are <span class="note">required</span> for multiple parameters.</dd>
-		</dl>
-		<pre><code rel="Basic Syntax">
-			singleParam => { statements }
-		</code></pre>
-		<pre><code rel="JS - examples" class="javascript">
-			const pi = 3.14;
+            console.log(`circleArea(2) = ${circleArea(2)}`);
+        </code></pre>
+        <p>In next slides we'll see how we can shorten the <code>circleArea</code> definition</p>
+    </section>
+    <section><h3>"single parameter" syntax</h3>
+        <dl class="fa">
+            <dt>If the function takes <span class="note">a single parameter</span>, you can omit the parameter's parentheses:</dt>
+            <dd>But note that braces are <span class="note">required</span> for multiple parameters.</dd>
+        </dl>
+        <pre><code rel="Basic Syntax">
+            singleParam => { statements }
+        </code></pre>
+        <pre><code rel="JS - examples" class="javascript">
+            const pi = 3.14;
 
-			let circleArea = r=>{return r*r*pi};
+            let circleArea = r=>{return r*r*pi};
 
-			console.log(`circleArea(2) = ${circleArea(2)}`);
-		</code></pre>
-	</section>
-	<section><h3>"single expression" syntax</h3>
-		<dl class="fa">
-			<dt>If the function body is a <span class="note">single expression</span>, you can <span class="note">omit curly braces and the return statement</span></dt>
-		</dl>
-		<pre><code rel="Basic Syntax">
-			(param1, param2, …, paramN) => expression
-		</code></pre>
-		<pre><code rel="JS" class="javascript">
-			let circleArea = r=>r*r*pi;
+            console.log(`circleArea(2) = ${circleArea(2)}`);
+        </code></pre>
+    </section>
+    <section><h3>"single expression" syntax</h3>
+        <dl class="fa">
+            <dt>If the function body is a <span class="note">single expression</span>, you can <span class="note">omit curly braces and the return statement</span></dt>
+        </dl>
+        <pre><code rel="Basic Syntax">
+            (param1, param2, …, paramN) => expression
+        </code></pre>
+        <pre><code rel="JS" class="javascript">
+            let circleArea = r=>r*r*pi;
 
-			console.log(`circleArea(2) = ${circleArea(2)}`);
-		</code></pre>
-	</section>
-	<section><h3>"single expression" syntax notes</h3>
-		<dl class="fa" style="font-size: .8em;">
-			<dt>Note again, that when the curly braces are <b>not omitted</b>, then the <code>return</code> <b>is not</b> implied.</dt>
-			<dt>In other words, next two syntaxes are <span class="note">not</span> equivallent:</dt>
-			<dd><code>(param1, param2, …, paramN) => expression</code></dd>
-			<dd><code>(param1, param2, …, paramN) => {expression}</code></dd>
-		</dl>
-		<pre><code rel="JS  - example" class="js">
-			const pi = 3.14;
+            console.log(`circleArea(2) = ${circleArea(2)}`);
+        </code></pre>
+    </section>
+    <section><h3>"single expression" syntax notes</h3>
+        <dl class="fa" style="font-size: .8em;">
+            <dt>Note again, that when the curly braces are <b>not omitted</b>, then the <code>return</code> <b>is not</b> implied.</dt>
+            <dt>In other words, next two syntaxes are <span class="note">not</span> equivallent:</dt>
+            <dd><code>(param1, param2, …, paramN) => expression</code></dd>
+            <dd><code>(param1, param2, …, paramN) => {expression}</code></dd>
+        </dl>
+        <pre><code rel="JS  - example" class="js">
+            const pi = 3.14;
 
-			// no return is implied, so the return value will be 'undefined':
-			let circleArea = r=>{r*r*pi};
+            // no return is implied, so the return value will be 'undefined':
+            let circleArea = r=>{r*r*pi};
 
-			console.log(`circleArea(2) = ${circleArea(2)}`);
-			// undefined
-		</code></pre>
-	</section>
-	<!-- <section><h3>lexical "this"</h3>
-		<dl class="fa">
-			<dt>"this" value in arrow functions is <span class="note">lexically scoped</span> in contrast to standard functions, whose "this" value is dynamically scoped.<br>I.e the value of "this" in arrow functions is this same as the value of "this" in the enclosing scope.</dt>
-			<dt>"this" in arrow functions can not be changed with <code>call/apply or bind</code> methods!</dt>
-		</dl>
-	</section>
-	<section><h3>lexical "this" - examples</h3>
-		<pre><code rel="JS" class="js">
-			const obj = {
-				'id': 1,
-				'exp': function(){
-					console.log(this.id);
-				},
-				'arr': ()=>{console.log(this.id)}
-			}
-
-
-			obj.exp(); // 1
-			obj.arr(); // undefined
-		</code></pre>
-		<pre><code rel="JS" class="javascript">
-			lexicalThis = this;
-
-			var obj = {
-				'exp': function(){
-					console.log(this === lexicalThis);
-				},
-				'arr': ()=>{console.log(this === lexicalThis)}
-			}
+            console.log(`circleArea(2) = ${circleArea(2)}`);
+            // undefined
+        </code></pre>
+    </section>
+    <!-- <section><h3>lexical "this"</h3>
+        <dl class="fa">
+            <dt>"this" value in arrow functions is <span class="note">lexically scoped</span> in contrast to standard functions, whose "this" value is dynamically scoped.<br>I.e the value of "this" in arrow functions is this same as the value of "this" in the enclosing scope.</dt>
+            <dt>"this" in arrow functions can not be changed with <code>call/apply or bind</code> methods!</dt>
+        </dl>
+    </section>
+    <section><h3>lexical "this" - examples</h3>
+        <pre><code rel="JS" class="js">
+            const obj = {
+                'id': 1,
+                'exp': function(){
+                    console.log(this.id);
+                },
+                'arr': ()=>{console.log(this.id)}
+            }
 
 
-			obj.exp(); // false
-			obj.arr(); // true
-		</code></pre>
-	</section>
-	<section><h3>"this" problem -  solution with arrow function</h3>
-		<pre><code rel="JS" class="js" style="min-height: 60vh;">
-			const Person = function(name){
-				this.name = name;
+            obj.exp(); // 1
+            obj.arr(); // undefined
+        </code></pre>
+        <pre><code rel="JS" class="javascript">
+            lexicalThis = this;
 
-				this.greet = function(name){
-					console.log(`Hi ${name}, I'm ${this.name}`)
-				};
+            var obj = {
+                'exp': function(){
+                    console.log(this === lexicalThis);
+                },
+                'arr': ()=>{console.log(this === lexicalThis)}
+            }
 
-				this.greetArr = name=>{
-					console.log(`Hi ${name}, I'm ${this.name}`)
-				};
-			}
 
-			const pesho = new Person('Pesho');
-			const friends = ['George', 'Ana'];
+            obj.exp(); // false
+            obj.arr(); // true
+        </code></pre>
+    </section>
+    <section><h3>"this" problem -  solution with arrow function</h3>
+        <pre><code rel="JS" class="js" style="min-height: 60vh;">
+            const Person = function(name){
+                this.name = name;
 
-			friends.forEach(pesho.greet)
-			friends.forEach(pesho.greetArr)
+                this.greet = function(name){
+                    console.log(`Hi ${name}, I'm ${this.name}`)
+                };
 
-			// OUTPUT:
-			// Hi George, I'm undefined
-			// Hi Ana, I'm undefined
-			// Hi George, I'm Pesho
-			// Hi Ana, I'm Pesho
-		</code></pre>
-	</section>
-	<section><h3>lexical arguments</h3>
-		<dl class="fa">
-			<dt>the <code>arguments</code> object in arrow function is reference to the arguments object in the enclosing scope</dt>
-		</dl>
-		<pre><code rel="JS" class="javascript">
-			const logArgs = ()=>{
-				for (let i = 0; i < arguments.length; i++) {
-					console.log(arguments[i]);
-				}
-			}
+                this.greetArr = name=>{
+                    console.log(`Hi ${name}, I'm ${this.name}`)
+                };
+            }
 
-			logArgs(1,2,3);
-		</code></pre>
-	</section> -->
-	<!-- <section><h3>loose binding</h3>
-		<pre><code rel="JS" class="javascript">
-			const f = x => (x % 2) === 0 ? x : 0;
-			console.log(f(6));
-		</code></pre>
-		<pre><code rel="JS" class="javascript">
-			let cb;
+            const pesho = new Person('Pesho');
+            const friends = ['George', 'Ana'];
 
-			cb = cb || function() {}; // ok
+            friends.forEach(pesho.greet)
+            friends.forEach(pesho.greetArr)
 
-			cb = cb || () => {};
-			// SyntaxError: invalid arrow-function arguments
+            // OUTPUT:
+            // Hi George, I'm undefined
+            // Hi Ana, I'm undefined
+            // Hi George, I'm Pesho
+            // Hi Ana, I'm Pesho
+        </code></pre>
+    </section>
+    <section><h3>lexical arguments</h3>
+        <dl class="fa">
+            <dt>the <code>arguments</code> object in arrow function is reference to the arguments object in the enclosing scope</dt>
+        </dl>
+        <pre><code rel="JS" class="javascript">
+            const logArgs = ()=>{
+                for (let i = 0; i < arguments.length; i++) {
+                    console.log(arguments[i]);
+                }
+            }
 
-			cb = cb || (() => {});  // ok
-		</code></pre>
-	</section> -->
-	<!-- <section><h3>Notes</h3>
-		<dl class="fa">
-			<dt class="note">Arrow functions are always anonymous!</dt>
-			<dt>Arrow functions are perfect for callbacks</dt>
-			<dt>Arrow functions cannot be used as constructors and will throw an error when used with new</dt>
-		</dl>
-	</section> -->
-	<!-- <section><h3>References</h3>
-		<dl class="fa">
-			<dt><a href="https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/">ES6 In Depth: Arrow functions</a> @hacks.mozilla.org</dt>
-		</dl>
-	</section> -->
-	<section><h3>YouTube Video: Learn JavaScript ARROW FUNCTIONS in 8 minutes!</h3>
-		<iframe width="1028" height="578" src="https://www.youtube.com/embed/fRRRkognpOs" title="Learn JavaScript ARROW FUNCTIONS in 8 minutes! 🎯" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-	</section>
-	<section><h3>YouTube Video: How to use Arrow Functions</h3>
-		<dl class="fa" style="min-width:80vw">
-			<iframe width="1028" height="578" src="https://www.youtube.com/embed/Oy185MF8pnY" title="#46 How to use Arrow Functions | JavaScript Full Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-		</dl>
-	</section>
+            logArgs(1,2,3);
+        </code></pre>
+    </section> -->
+    <!-- <section><h3>loose binding</h3>
+        <pre><code rel="JS" class="javascript">
+            const f = x => (x % 2) === 0 ? x : 0;
+            console.log(f(6));
+        </code></pre>
+        <pre><code rel="JS" class="javascript">
+            let cb;
+
+            cb = cb || function() {}; // ok
+
+            cb = cb || () => {};
+            // SyntaxError: invalid arrow-function arguments
+
+            cb = cb || (() => {});  // ok
+        </code></pre>
+    </section> -->
+    <!-- <section><h3>Notes</h3>
+        <dl class="fa">
+            <dt class="note">Arrow functions are always anonymous!</dt>
+            <dt>Arrow functions are perfect for callbacks</dt>
+            <dt>Arrow functions cannot be used as constructors and will throw an error when used with new</dt>
+        </dl>
+    </section> -->
+    <!-- <section><h3>References</h3>
+        <dl class="fa">
+            <dt><a href="https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/">ES6 In Depth: Arrow functions</a> @hacks.mozilla.org</dt>
+        </dl>
+    </section> -->
+    <section><h3>YouTube Video: Learn JavaScript ARROW FUNCTIONS in 8 minutes!</h3>
+        <iframe width="1028" height="578" src="https://www.youtube.com/embed/fRRRkognpOs" title="Learn JavaScript ARROW FUNCTIONS in 8 minutes! 🎯" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </section>
+    <section><h3>YouTube Video: How to use Arrow Functions</h3>
+        <dl class="fa" style="min-width:80vw">
+            <iframe width="1028" height="578" src="https://www.youtube.com/embed/Oy185MF8pnY" title="#46 How to use Arrow Functions | JavaScript Full Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </dl>
+    </section>
 </section>
 
 <section class="main-sesction-title" id="hoisting" data-min="10"><h1>Variables Hoisting</h1></section>
 <section><h2 class="advanced">Variables Hoisting</h2>
-	<section>
-		<dl class="fa">
-			<dt>Декларирането на променливите <span class="note">в даден scope </span> винаги се изпълнява <span class="note">преди</span> всички изрази, без значение къде във scope се намират декларациите.</dt>
-			<dt>2 паса:</dt>
-			<dd>Compile time = > декларации</dd>
-			<dd>Run time = > изпълнение на програмата</dd>
-			<!-- <dt>Тоест, декларациите на променливите се "издигат" (hoist) до началото на съответния scope, без значение къде сме ги написали!</dt>
-			<dt>Това поведение на JavaScript е в сила само за <span class="note">декларациите</span> на променливи, зададени с <span class="note">var</span> и <span class="note">function declaration</span>. Изразите се изпълняват последователно, така както сме ги написали в кода.</dt>
-			<dt><span class="note">При декларация на променлива с <b>let</b> или <b>const</b> не се извършва hoisting.</span></dt> -->
+    <section>
+        <dl class="fa">
+            <dt>Декларирането на променливите <span class="note">в даден scope </span> винаги се изпълнява <span class="note">преди</span> всички изрази, без значение къде във scope се намират декларациите.</dt>
+            <dt>2 паса:</dt>
+            <dd>Compile time = > декларации</dd>
+            <dd>Run time = > изпълнение на програмата</dd>
+            <!-- <dt>Тоест, декларациите на променливите се "издигат" (hoist) до началото на съответния scope, без значение къде сме ги написали!</dt>
+            <dt>Това поведение на JavaScript е в сила само за <span class="note">декларациите</span> на променливи, зададени с <span class="note">var</span> и <span class="note">function declaration</span>. Изразите се изпълняват последователно, така както сме ги написали в кода.</dt>
+            <dt><span class="note">При декларация на променлива с <b>let</b> или <b>const</b> не се извършва hoisting.</span></dt> -->
 
-		</dl>
-	</section>
-	<section>
-		<pre><code rel="JS">
-			// JavaScript "знае" за съществуването на x, тъй като декларацията "var x;" вече се е изпълнила! Но не и израза, чрез който записваме 10 в x.
+        </dl>
+    </section>
+    <section>
+        <pre><code rel="JS">
+            // JavaScript "знае" за съществуването на x, тъй като декларацията "var x;" вече се е изпълнила! Но не и израза, чрез който записваме 10 в x.
 
-			console.log("x:", x); // undefined
+            console.log("x:", x); // undefined
 
-			var x;
-			x = 10;
-		</code></pre>
-		<pre><code rel="JS">
-			// Примерът е аналогичен на горния!
-			console.log("x:", x); // undefined
+            var x;
+            x = 10;
+        </code></pre>
+        <pre><code rel="JS">
+            // Примерът е аналогичен на горния!
+            console.log("x:", x); // undefined
 
-			var x = 10; // тук имаме декларация, която се е изпълнила в началото и израз, който се изпълнява сега.
-		</code></pre>
-	</section>
-	<section><h3>Function Declaration vs. Function Expression</h3>
-		<dl class="fa">
-			<dt>Когато дефинираме функция чрез декларация (<a href="../../../../pages/themes/beginners/JS_Functions/JS_Functions.html#/3">Вариант 1</a>) то декларацията на функцията винаги се извършва в началото на scope.</dt>
-		</dl>
-		<pre><code rel="JS">
-			// foo() вече е декларирана и JS знае, че е функция!
-			console.log( foo() );
+            var x = 10; // тук имаме декларация, която се е изпълнила в началото и израз, който се изпълнява сега.
+        </code></pre>
+    </section>
+    <section><h3>Function Declaration vs. Function Expression</h3>
+        <dl class="fa">
+            <dt>Когато дефинираме функция чрез декларация (<a href="../../../../pages/themes/beginners/JS_Functions/JS_Functions.html#/3">Вариант 1</a>) то декларацията на функцията винаги се извършва в началото на scope.</dt>
+        </dl>
+        <pre><code rel="JS">
+            // foo() вече е декларирана и JS знае, че е функция!
+            console.log( foo() );
 
-			function foo() {
-				return "I am foo() and I work!";
-			}
-		</code></pre>
-	</section>
-	<section><h3>Function Declaration vs. Function Expression</h3>
-		<pre><code rel="JS">
-			// foo() вече е декларирана, но JS не знае все още че е функция!
-			console.log( foo() ); //TypeError: foo is not a function
+            function foo() {
+                return "I am foo() and I work!";
+            }
+        </code></pre>
+    </section>
+    <section><h3>Function Declaration vs. Function Expression</h3>
+        <pre><code rel="JS">
+            // foo() вече е декларирана, но JS не знае все още че е функция!
+            console.log( foo() ); //TypeError: foo is not a function
 
-			var foo = function(){
-				return "I am foo() and I work!";
-			}
-		</code></pre>
-	</section>
+            var foo = function(){
+                return "I am foo() and I work!";
+            }
+        </code></pre>
+    </section>
 </section>
 
 <section data-min="50"><h1>Immediately Invoked Function Expression</h1></section>
 <section><h2 class="advanced">Immediately Invoked Function Expression</h2>
-	<section style="font-size: .9em"><h3 class="advanced">IIFE</h3>
-		<dl class="fa">
-			<dt>Единственият начин да се изпълни анонимна функция, която не е присвоена на променлива, е чрез конструкта, наречен <span class="note">IIFE</span> (Immediately Invoked Function Expression).</dt>
-		</dl>
-		<pre><code rel="Syntax" class="javascript" data-noescape>
-			<b>(</b>f(){}<b>)()</b>
-		</code></pre>
-		<pre><code rel="JS">
-			(function(){
-				console.log("I am in nowhere, but I exist and work!");
-			})();
+    <section style="font-size: .9em"><h3 class="advanced">IIFE</h3>
+        <dl class="fa">
+            <dt>Единственият начин да се изпълни анонимна функция, която не е присвоена на променлива, е чрез конструкта, наречен <span class="note">IIFE</span> (Immediately Invoked Function Expression).</dt>
+        </dl>
+        <pre><code rel="Syntax" class="javascript" data-noescape>
+            <b>(</b>f(){}<b>)()</b>
+        </code></pre>
+        <pre><code rel="JS">
+            (function(){
+                console.log("I am in nowhere, but I exist and work!");
+            })();
 
-			// "I am in nowhere, but I exist and work"
-		</code></pre>
-		<dl class="fa">
-			<dt>Обърнете внимание на кръглите скоби с който заграждаме декларацията на функцията (за да я превърнем в изпълним израз), както и на скобите след това, за да изпълним този израз.</dt>
-		</dl>
-	</section>
-	<section><h3 class="advanced">IIFE</h3>
-		<dl class="fa">
-			<dt>IIFE намира приложение за създаване на local scope в даден скрипт.</dt>
-			<pre style="width:110%"><code rel="IIFE.js" class="js">
-				(function(){
-					// нито една от променливите създадени чрез var или let, няма да бъде видима извън тази функция:
+            // "I am in nowhere, but I exist and work"
+        </code></pre>
+        <dl class="fa">
+            <dt>Обърнете внимание на кръглите скоби с който заграждаме декларацията на функцията (за да я превърнем в изпълним израз), както и на скобите след това, за да изпълним този израз.</dt>
+        </dl>
+    </section>
+    <section><h3 class="advanced">IIFE</h3>
+        <dl class="fa">
+            <dt>IIFE намира приложение за създаване на local scope в даден скрипт.</dt>
+            <pre style="width:110%"><code rel="IIFE.js" class="js">
+                (function(){
+                    // нито една от променливите създадени чрез var или let, няма да бъде видима извън тази функция:
 
-					var x = 42;
-					console.log(`x in IIFE.js: ${x}`);
-				})()
-			</code></pre>
-			<pre style="width:110%"><code rel="index.html" class="html">
-				<script type="text/javascript" src="IIFE.js"></script>
-				<script type="text/javascript">
-					console.log(`x in main: ${x}`);
-				</script>
-			</code></pre>
-		</dl>
-	</section>
+                    var x = 42;
+                    console.log(`x in IIFE.js: ${x}`);
+                })()
+            </code></pre>
+            <pre style="width:110%"><code rel="index.html" class="html">
+                <script type="text/javascript" src="IIFE.js"></script>
+                <script type="text/javascript">
+                    console.log(`x in main: ${x}`);
+                </script>
+            </code></pre>
+        </dl>
+    </section>
 </section>
 
 <section class="main-section-title"><h1>Задачи <br>Advanced functions</h1></section>
 <section class="sub-sections"><h2>Задачи</h2>
-	<section><h3>Advanced Functions Tasks</h3>
-		<dl class="fa" style="min-width:80vw">
-			<dt>The tasks are given in next gist file: <a href="https://gist.githubusercontent.com/WWWCourses/f47a45b27cb6902edab8d8beddb8dacc/raw/562933803e969725a2131b4b67ca710baf21c9b5/advancedFunctionsTasks.js">advancedFunctionsTasks.js</a></dt>
-			<dt>You can copy it and work directly on it. Just put your code under "// YOUR CODE HERE" and un-comment "// TEST" section.</dt>
-		</dl>
-		<script src="https://gist.github.com/WWWCourses/f47a45b27cb6902edab8d8beddb8dacc.js"></script>
-	</section>
+    <section><h3>Advanced Functions Tasks</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The tasks are given in next gist file: <a href="https://gist.githubusercontent.com/WWWCourses/f47a45b27cb6902edab8d8beddb8dacc/raw/562933803e969725a2131b4b67ca710baf21c9b5/advancedFunctionsTasks.js">advancedFunctionsTasks.js</a></dt>
+            <dt>You can copy it and work directly on it. Just put your code under "// YOUR CODE HERE" and un-comment "// TEST" section.</dt>
+        </dl>
+        <script src="https://gist.github.com/WWWCourses/f47a45b27cb6902edab8d8beddb8dacc.js"></script>
+    </section>
 </section>
 
 
 <!-- <section class="main-sesction-title" id="references" data-min="0"><h1>References</h1></section>
 <section class="sub-sections"><h2>References</h2>
-	<section>
-		<dl class="fa">
-			<dt><a href="https://www.w3schools.com/js/js_function_definition.asp">Functions</a> @w3schools</dt>
-			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions">Functions</a> @MDN</dt>
-		</dl>
-	</section>
+    <section>
+        <dl class="fa">
+            <dt><a href="https://www.w3schools.com/js/js_function_definition.asp">Functions</a> @w3schools</dt>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions">Functions</a> @MDN</dt>
+        </dl>
+    </section>
 </section> -->
 
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
-	 <p>These slides are based on</p>
-	 <p>customized version of </p>
-	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
-	 <p>framework</p>
+     <p>These slides are based on</p>
+     <p>customized version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
 </section>
 <!--
 ########################################################
 ##################### SLIDES END   #####################
 ########################################################
 -->
-		</div>
-	</div>
-	<!-- Custom processing -->
-	<script src="../../../outfit/js/slides.js"></script>
-	<!-- external scripts -->
-	<script src="../../../lib/reveal.js/dist/reveal.js"></script>
-	<script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
-	<script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
-	<script src="../../../lib/reveal.js/plugin/search/search.js"></script>
-	<script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
-	<script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="../../../outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="../../../lib/reveal.js/dist/reveal.js"></script>
+    <script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+    <script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+    <script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
 
 
-	<!-- init reveal -->
-	<script>
-		// Full list of configuration options available at:
-		// https://github.com/hakimel/reveal.js#configuration
-		// var highlightjsTabSize = '  ';
-		Reveal.initialize({
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        // var highlightjsTabSize = '  ';
+        Reveal.initialize({
 
-			slideNumber: 'c/t',
-			keyboard: true,
-			history: true,
-			center: true,
-			width: 1920,
-			height: 1080,
-			// slide transition
-			transition: 'concave', // none/fade/slide/convex/concave/zoom
-			// Factor of the display size that should remain empty around the content
-			margin: 0.1,
-			// shift+mousе click to zoom in/out element
-			zoomKey: 'ctrl',
-			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-			// transition: Reveal.getQueryHash().transition || 'default'
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1920,
+            height: 1080,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mousе click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
 
-			plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
-		});
-	</script>
-	<!-- <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script> -->
+            plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+        });
+    </script>
+    <!-- <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script> -->
 </body>
 </html>
