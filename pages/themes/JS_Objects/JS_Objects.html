@@ -384,7 +384,7 @@
             </code></pre>
         </dl>
     </section>
-    <section><h3>Чрез Constructor functuon</h3>
+    <section><h3>Чрез Constructor function</h3>
         <dl class="fa" style="font-size: .8em">
             <dt>За да бъде синтаксисът в JavaScript по-близък до този в класическите ООП езици (C++, Java, C# и пр.) в JavaScript може да използваме и Конструктор на обекти:</dt>
             <pre><code rel="JS" class="js">
@@ -410,9 +410,35 @@
                 ["Python", "Machine Learning", "Data Science"],
                 );
             </code></pre>
-            <dt>В ES6 се добавя и синтаксис за класове (class). По-подробно тези теми се разглеждат в Advanced модула на курса.</dt>
         </dl>
     </section>
+    <section>
+        <h3>Чрез Class Syntax</h3>
+        <dl class="fa" style="font-size: .8em">
+            <dt>С ES6 в JavaScript се въвежда класически синтаксис за дефиниране на класове, който прави кода по-близък до този в традиционните ООП езици:</dt>
+            <pre><code rel="JS" class="js">
+                // Клас Developer с конструктор и метод.
+                class Developer {
+                    constructor(firstName, surName, skills) {
+                        this.firstName = firstName;
+                        this.surName = surName;
+                        this.skills = skills;
+                    }
+
+                    applyForJob() {
+                        const skillsStr = this.skills.toString();
+                        console.log(`Hi, I'm ${this.firstName} ${this.surName}. My strongest skills are ${skillsStr}.`);
+                    }
+                }
+
+                // Създаване на обекти от класа Developer:
+                const developer1 = new Developer("Ivan", "Ivanov", ["HTML", "CSS", "JavaScript"]);
+                const developer2 = new Developer("Maria", "Mineva", ["Python", "Machine Learning", "Data Science"]);
+            </code></pre>
+            <dt>Синтаксисът за класове в JavaScript е по-четим и изчистен, като предоставя същите функционалности като конструкторите.</dt>
+        </dl>
+    </section>
+
 </section>
 
 <section><h1 id="hw">Примери и задачи</h1></section>
@@ -483,13 +509,12 @@
         </span>
         </p>
     </section>
-
-        <section><h3>Всички примери</h3>
-                <dl class="fa">
-                        <dt>Повече примери и задачи по темата:</dt>
-                        <dd><a href="https://codepen.io/collection/XPMQxY/">JS_Objects</a> @codepen</dd>
-                </dl>
-        </section>
+    <!-- <section><h3>Всички примери</h3>
+            <dl class="fa">
+                    <dt>Повече примери и задачи по темата:</dt>
+                    <dd><a href="https://codepen.io/collection/XPMQxY/">JS_Objects</a> @codepen</dd>
+            </dl>
+    </section> -->
 </section>
 
 
@@ -542,5 +567,6 @@
             plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
         });
     </script>
+    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 </body>
 </html>
