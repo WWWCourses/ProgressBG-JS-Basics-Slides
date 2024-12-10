@@ -320,7 +320,7 @@
 
 
 <section><h1>Създаване на множество еднотипни обекти</h1></section>
-<section><h2 class="advanced">Създаване на множество еднотипни обекти</h2>
+<section><h2>Създаване на множество еднотипни обекти</h2>
     <section><h3>Чрез литерали (неефективен вариант):</h3>
         <dl class="fa" style="font-size: .8em">
             <dt>В реалните приложения често се налага да работим с множество <span class="note">еднотипни обекти</span> - обекти, който имат еднаква структура, т.е. един и същ брой и имена на пропъртита и методи, които ще се различават само по стойностите.</dt>
@@ -354,7 +354,7 @@
     <section><h3>Чрез Factory function</h3>
         <dl class="fa" style="font-size: .8em">
             <dt>По-ефективно е да създадем функция, която да генерира нашите обекти. Освен, че ще намали кода, този вариант има и предимството, че всички конструирани обекти гарантирано ще имат <span class="note">еднаква структура</span>.</dt>
-            <pre><code rel="JS" class="js" style="min-height: 50vh;">
+            <pre><code rel="JS" class="js" style="min-height: 80vh;">
                 // функция, създаваща обекти от тип developer:
                 function developerFactory(firstName, surName, skills){
                     var obj = {};
@@ -387,8 +387,9 @@
     <section><h3>Чрез Constructor function</h3>
         <dl class="fa" style="font-size: .8em">
             <dt>За да бъде синтаксисът в JavaScript по-близък до този в класическите ООП езици (C++, Java, C# и пр.) в JavaScript може да използваме и Конструктор на обекти:</dt>
-            <pre><code rel="JS" class="js">
-                // Конструктор за обекти от тип Developer. Важно е да бъде извикан с "new"! Поради това конвенцията е името да започва с главна буква.
+            <pre><code rel="JS" class="js" style="min-height: 70vh;">
+                // Конструктор за обекти от тип Developer.
+                // bВажно е да бъде извикан с "new"! Поради това конвенцията е името да започва с главна буква.
                 function Developer(firstName, surName, skills){
                     this.firstName = firstName;
                     this.surName = surName;
