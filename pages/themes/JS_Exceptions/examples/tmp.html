@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .bg-red{
+            background-color: red;
+        }
+        #test{
+            width: 10em;
+            height: 10em;
+        }
+    </style>
+</head>
+<body>
+    <div id="test">Test</div>
+    <script>
+        const element = document.getElementById("test");
+
+        function addClass(element, className) {
+            if (className === undefined) {
+                throw new Error("Missing class name!");
+            }
+            element.className += `${className}`;
+        }
+
+        try {
+            addClass(element, "bg-red");
+        } catch (e) {
+            console.log(e.message);
+        }
+    </script>
+</body>
+</html>

@@ -269,42 +269,61 @@
     </section>
     <section><h3>example</h3>
         <pre><code rel="JS">
-            function divide(x, y){
-                try{
-                    if( y === 0 ){
-                        throw("I would not divide by zero!");
-                    }else{
-                        return x/y;
-                    }
-                }catch(e){
-                    console.dir( e );
-                    return undefined;
-                }
+            function divide(a, b) {
+              if (b === 0) {
+                throw new Error("Cannot divide by zero");
+              }
+              return a / b;
             }
 
-            var res = divide(5, 0);
-            console.log(`res: ${res}`);
+            try {
+              console.log(divide(10, 2));  // Outputs: 5
+              console.log(divide(10, 0));  // Throws an error
+            } catch (e) {
+              console.log(e.message);  // Outputs: Cannot divide by zero
+            }
+
         </code></pre>
     </section>
-    <section><h3>example</h3>
+    <section><h3>Example</h3>
         <pre><code rel="JS">
-            "use strict";
-            var testNode = document.getElementById("test");
-            function addClass(element, className){
-                try{
-                    if( className == undefined){
-                        throw("missing class name!")
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang=&quot;en&quot;&gt;
+            &lt;head&gt;
+                &lt;style&gt;
+                    .bg-red{
+                        background-color: red;
                     }
-                    element.className += " " + className;
-                }catch(e){
-                    console.log(e);
-                }
-            }
+                    #test{
+                        width: 10em;
+                        height: 10em;
+                    }
+                &lt;/style&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;div id=&quot;test&quot;&gt;Test&lt;/div&gt;
+                &lt;script&gt;
+                    const element = document.getElementById(&quot;test&quot;);
 
-            addClass(testNode, "box");
-            // note: This is just an example!
-            // Element.classList.add() is better to be used.
+                    function addClass(element, className) {
+                        if (className === undefined) {
+                            throw new Error(&quot;Missing class name!&quot;);
+                        }
+                        element.className += &grave;${className}&grave;;
+                    }
+
+                    try {
+                        addClass(element, &quot;bg-red&quot;);
+                    } catch (e) {
+                        console.log(e.message);
+                    }
+                &lt;/script&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
         </code></pre>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Note that this is just an example! In practice use Element.classList.add()</dt>
+        </dl>
     </section>
 </section>
 
