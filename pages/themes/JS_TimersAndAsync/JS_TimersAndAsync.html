@@ -87,33 +87,62 @@
         <dl class="fa">
             <dt>Синхронно изпълнение на програма</dt>
             <dd>Когато всяка инструкция се изпълнява <span class="note">след</span> като предходната инструкция завърши изпълнението си.</dd>
-            <dt>А-синхронно изпълнение на програма</dt>
+            <dt><span class="note">А</span>синхронно изпълнение на програма</dt>
             <dd>Всяка следваща инструкция се изпълнява <span class="note">веднага</span> след предходната, независимо дали предходната инструкция е приключила работата си или не.</dd>
         </dl>
     </section>
     <section><h3>Пример за синхронно изпълнение</h3>
         <pre><code rel="JS" class="js">
-            // докато функцията alert() не приключи изпълнението си, нито един ред след нея няма да се изпълни:
-            alert(`1`);
-
-            console.log(`2`);
+            console.log("Synchronous Example:");
+            console.log("Step 1");
+            console.log("Step 2");
+            console.log("Step 3");
+        </code></pre>
+        <pre><code rel="OUTPUT" class="html5">
+            Step 1
+            Step 2
+            Step 3
         </code></pre>
     </section>
     <section><h3>Пример за асинхронно изпълнение</h3>
         <pre><code rel="JS" class="js">
-            //функцията setTimeout() се извиква веднага, но кода в нея - едва след 1000ms
-            setTimeout(function(){
-                console.log(`1`);
-            },1000)
-
-            console.log(`2`);
+            console.log("\nAsynchronous Example:");
+            console.log("Step 1");
+            setTimeout(() => {
+                console.log("Step 2");
+            }, 1000);
+            console.log("Step 3");
         </code></pre>
         <pre><code rel="OUTPUT" class="js" data-noescape>
-            2
-            1 // след 1 секунда
+            Step 1
+            Step 3
+            Step 2 (след 1 секунда)
         </code></pre>
         <dl class="fa">
-            <dt>Забележете, че кода <code>console.log(`2`)</code> <span class="note">не изчаква</span> предходната инструкция да завърши изпълнението си, а се изпълнява веднага.</dt>
+            <dt>Забележете, че кодът <code>console.log("Step 3")</code> <span class="note">се изпълнява веднага</span>, без да изчаква завършването на асинхронната инструкция в <code>setTimeout</code>, която се изпълнява след 1 секунда.</dt>
+        </dl>
+    </section>
+    <section><h3>Пример за асинхронна функция</h3>
+        <pre><code rel="JS" class="js" style="min-height: 80vh;">
+            // Synchronous example
+            console.log("Synchronous Example:");
+            console.log("Step 1");
+            console.log("Step 2");
+            console.log("Step 3");
+
+            // Asynchronous example with async/await
+            async function asyncFunction() {
+                const result = await new Promise(resolve => resolve("Step 2 (Async)"));
+                console.log(result);
+            }
+
+            console.log("\nAsynchronous Example:");
+            console.log("Step 1");
+            asyncFunction();
+            console.log("Step 3");
+        </code></pre>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Функцията asyncFunction се изпълнява асинхронно, което позволява на JavaScript да изпълни другия код, преди функцията да завърши</dt>
         </dl>
     </section>
 </section>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Examples</title>
+    <style type="text/css">
+    	.box{
+    		width: 10em;
+    		height: 10em;
+    		border: 1px solid #999;
+    	}
+    </style>
+</head>
+<body>
+	<div id="test"></div>
+	<script type="text/javascript">
+		var examples = {
+			'ErrorObjectDef': function(){
+			//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+				var error = new Error("Oh, error!");
+				console.dir(error);
+			//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
+			},
+			'ErrorObject': function(){
+			//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+				function validateEmail(email) {
+					return email.match(/[\w.-]@\w+\.\w+/) ?
+						email :
+						new Error(`invalid email: ${email}`);
+				}
+
+				var validEmail = validateEmail('name@domain.com');
+
+				if(validEmail instanceof Error) {
+					console.error(`Error: ${validEmail.message}`);
+				} else {
+					console.log(`Valid email: ${validEmail}`);
+				}
+			//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
+			},
+			'trycatch': function(){
+			//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+				"use strict";
+				try{
+					x = 2;
+					console.log(`x=${x}`);
+				}catch(err){
+					console.error(`Error: ${err.message}`);
+					console.dir(err);
+				}
+			//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
+			},
+			'trycatch2': function(){
+			//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+				"use strict";
+				function validateEmail(email) {
+					return email.match(/[\w.-]@\w+\.\w+/) ?
+						email :
+						new Error(`invalid email: ${email}`);
+				}
+
+				var email = 'namedomain.com';
+				try {
+					const validatedEmail = validateEmail(email);
+					if(validatedEmail instanceof Error) {
+						console.error(`Anticipated Error: ${validatedEmail.message}`);
+					} else {
+						console.log(`Valid email: ${validatedEmail}`);
+					}
+				} catch(err) {
+					console.error(`Unanticipated Error: ${err.message}`);
+				}
+			//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
+			},
+			'trycatch3': function(){
+			//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+				"use strict";
+				var testNode = document.getElementById("test");
+				function addClass(element, className){
+					try{
+						if( className == undefined){
+							throw("missing class name!")
+						}
+						element.className += " " + className;
+					}catch(e){
+						console.log(e);
+					}
+				}
+
+				addClass(testNode, "box");
+				// note: Element.classList.add() is better
+			//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
+			},
+			'trycatchScope': function(){
+			// ▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+				try{
+					x + 2;
+				}catch(err){
+					console.error(`Error: ${err.message}`);
+					console.dir(err); // ok
+				}
+
+				console.dir(err); // ReferenceError: err is not defined
+			//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
+			},
+			'trycatchfinally': function(){
+			//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+				try{
+					console.log(`Try 1`);
+					x + 2;
+				}finally{
+					console.log("Finally 1");
+				}
+
+				console.log("But it's OK now");
+			//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
+			},
+			'throw1': function(){
+			//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+				throw 'Error 1';
+				console.log("Post-throw action"); //never
+			//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
+			},
+			'throw2': function(){
+			//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+				function divide(x, y){
+					try{
+						if( y === 0 ){
+							throw("I would not even try to divide by zero!")
+						}else{
+							return x/y;
+						}
+					}catch(e){
+						console.dir( e );
+						return undefined;
+					}
+				}
+
+				var res = divide(5, 0);
+				console.log(`res: ${res}`);
+			//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
+			},
+			'specificErrors': function(){
+			//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+				try {
+					//something that throws an error
+				} catch (e){
+					if (e instanceof EvalError){
+						//handle the EvalError
+					} else if (e instanceof RangeError){
+						//handle the RangeError
+					} else if (e instanceof ReferenceError){
+						//handle the ReferenceError
+					} else if (e instanceof SyntaxError){
+						//handle the SyntaxError
+					} else if (e instanceof TypeError){
+						//handle the TypeError
+					} else if (e instanceof URIError){
+						//handle the URIError
+					} else{
+						//handle all others
+					}
+				}
+			//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
+			},
+			'customErrorsES5': function(){
+			//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+				'use strict';
+
+				// ES5 way
+				function DivideByZero(message) {
+					this.name = "DivideByZero Error";
+					this.message = message || "Can not divide by negative value";
+					this.stack = Error().stack;
+				};
+				DivideByZero.prototype = new Error;
+
+				function divide(x, y){
+					try{
+						if( y === 0 ){
+							throw( new DivideByZero() );
+						}else{
+							return x/y;
+						}
+					}catch(e){
+						console.log( e.name );
+						console.log( e.stack );
+						return undefined; // or whatever we want
+					}
+				}
+
+				console.log( `5/0= ${divide(5, 0)}` );
+			//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
+			},
+			'customErrorsES6': function(){
+			//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+				'use strict';
+
+				// ES6 way
+				class DivideByZero extends Error {
+				constructor(msg) {
+					super(msg);
+					this.name = 'DivideByZero Error';
+				}
+				}
+
+				function divide(x, y){
+					try{
+						if( y === 0 ){
+							throw( new DivideByZero() );
+						}else{
+							return x/y;
+						}
+					}catch(e){
+						console.log( e.name );
+						console.log( e.stack );
+						return undefined; // or whatever we want
+					}
+				}
+
+				console.log( `5/0= ${divide(5, 0)}` );
+			//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
+			},
+			'windowOnerror': function(){
+			//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+				window.onerror = function(message, source, lineno, colno, error) {
+					console.log(`Error:${message}`);
+				}
+
+				throw('Ups, Error')
+			//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
+			},
+			'example2': function(){
+			//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+
+			//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
+			},
+
+		}
+
+		examples.windowOnerror();
+		console.log(`**********************************`);
+		// examples.customErrorsES6();
+	</script>
+</body>
+</html>

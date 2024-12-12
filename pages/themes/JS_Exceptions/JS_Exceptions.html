@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>JS_Exceptions</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+	<link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+	<link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+	<!-- Theme used for syntax highlighting of code -->
+	<!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+	<!-- custom -->
+	<link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+		<div class="top_links">
+			<a class="home_link" href="../../../index.html#JS_Exceptions" target="_top"><i class="fa fa-home"></i></a>
+			<span class="help_link"><i class="fa fa-question"></i></span>
+			<div class="help_text">
+				<div class="note">Keyboard shortcuts:</div>
+				<div><span>N/Спейс</span><span>Next Slide</span></div>
+				<div><span>P</span><span>Previous Slide</span></div>
+				<div><span>O</span><span>Slides Overview</span></div>
+				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+				<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+				Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+			</div>
+		</div>
+		<div class="footer theme_switch">
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+		</div>
+		<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>JavaScript Exceptions</h1></section>
+<section data-transition="zoom">
+	<section>
+		<div class="copyright">
+			<div class="note">
+				<p>Created for</p>
+			</div>
+			<div class="company">
+				<a href="https://progressbg.net/javascript-basic/">
+				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+				</a>
+			</div>
+		</div>
+	</section>
+	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+		<div class="note">
+			<p>Created by</p>
+		</div>
+		<div class="company">
+		   <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+		</div>
+		<!-- <div class="author">
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+		</div> -->
+	</section>
+</section>
+
+
+<section><h1>Exception handling - overview</h1></section>
+<section><h2>Exception handling - overview</h2>
+    <section>
+        <dl class="fa">
+            <dt>We do not live in an error-free world.</dt>
+            <dt>With proper error-handling we can anticipate the possible errors and deal with them in timely manner.</dt>
+            <dt>Handle the exceptional circumstances.</dt>
+        </dl>
+    </section>
+    <section><h3>What is exception?</h3>
+        <dl class="fa">
+            <dt>Exception is an event, occurring <span class="note">during the execution of a program</span> (run-time errors), that disturbs the normal flow of the program</dt>
+            <dt class="note">Exception !== Syntactic Error</dt>
+            <dd>Syntactic errors can be detected during the compilation phase!</dd>
+            <dt>Classical exception example: "ReferenceError: x is not define".</dt>
+            <dt class="note">in JavaScript, there is no Exception object, but an Error object.</dt>
+            <dd>I.e. we, developers speak of Exceptions, but JS throws Errors</dd>
+        </dl>
+    </section>
+</section>
+
+<section><h2>How JavaScript handles errors?</h2>
+    <section>
+        <dl class="fa">
+            <dt>Instances of <a href="https://developer.mozilla.org/en-US/docs/web/javascript/reference/global_objects/error">Error objects</a> are <span class="note">thrown as exceptions</span> when runtime errors occur.</dt>
+            <dt>The Error objects may also serve as base objects for user defined exception classes (explained deeply in next slides)</dt>
+        </dl>
+        <pre><code rel="Syntax">
+            var myErr = new Error([message])
+        </code></pre>
+        <dl class="fa">
+            <dt><code class="note">message</code>: [optional] Human-readable description of the error.</dt>
+        </dl>
+    </section>
+    <section><h3>example</h3>
+        <dl class="fa">
+            <dt>We can also throw an Error, using the throw statement (discussed in next slides)</dt>
+            <dt>Next example demonstrate what JS engine do, when an Error occurs</dt>
+        </dl>
+        <pre><code rel="JS">
+            function validateAge(age) {
+                if(age<=0 || age>120){
+                    // throw an Error:
+                    throw new Error('Invalid value for age!')
+                }else{
+                    console.log(`Age is valid: ${age}`);
+                }
+            }
+
+            validateAge(34);
+            validateAge(-5);
+
+            // OUTPUT
+
+            // Age is valid: 34
+            // throw new Error('Invalid value for age!')
+            // ^
+            // Error: Invalid value for age!
+            // ...
+        </code></pre>
+    </section>
+    <!-- <section><h3>Reference</h3>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Global Error object at MDN</a>
+    </section> -->
+</section>
+
+<section><h2>Exception handling with <code>try-catch/finally</code> blocks</h2>
+    <section>
+        <dl class="fa">
+            <dt>If you do not want your program just to crash, but to handle possible exceptions gracefully:</dt>
+            <dd><code>try...catch</code></dd>
+            <dd><code>try...finally</code></dd>
+            <dd><code>try...catch...finally</code></dd>
+        </dl>
+
+    </section>
+    <section><h3><code>try...catch</code> statement</h3>
+        <pre><code rel="Syntax" class="js">
+            try {
+              try_statements
+            }
+            catch (exception_var) {
+              catch_statements
+            }
+        </code></pre>
+
+        <dl class="fa">
+            <dt>if exception occurs in any of <code>try</code> block statements, the execution is stopped and transferred to <code>catch</code> block.</dt>
+            <dt>If there are no errors => the <code>catch</code> block is not executed.</dt>
+            <dt>The catch-block specifies an identifier (exception_var) that holds the value of the exception; this value is only available in the scope of the catch-block</dt>
+            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch">try...catch @MDN</a></dt>
+        </dl>
+    </section>
+    <section><h3><code>try...catch</code> simple example</h3>
+        <pre><code rel="JS">
+            try{
+                console.log(x); // JS will throw an Error here, as x is not defined
+                console.log('Continue try block?');
+            }catch(err){
+                console.log('There was an error');
+            }
+
+            console.log('But program continues to run');
+
+            // OUTPUT
+            // There was an error
+            // But program continues to run
+        </code></pre>
+    </section>
+    <section><h3>watch the scope</h3>
+        <pre><code rel="JS">
+            try{
+                x + 2;
+            }catch(err){
+                console.error(`Error: ${err.message}`);
+                console.dir(err); // ok
+            }
+
+            console.dir(err); // ReferenceError: err is not defined
+        </code></pre>
+        <dl class="fa">
+            <dt><code>err</code> - an instance of Error object. It's <span class="note">local scoped</span> to <code>catch</code> block.</dt>
+        </dl>
+    </section>
+    <section><h3><code>try...catch</code> example 2</h3>
+        <pre><code rel="JS">
+            function validateAge(age) {
+                return (age<=0 || age>120) ?
+                    new Error(`Invalid value for age: ${age}`)
+                    : age;
+            }
+
+            try {
+                const validatedAge = validateAge(-5);
+                if(validatedAge instanceof Error) {
+                    console.error(`Anticipated Error: ${validatedAge.message}`);
+                } else {
+                    console.log(`Valid age: ${validatedAge}`);
+                }
+            } catch(err) {
+                console.error(`Opps, something went wrong ! (${err.message})`);
+            }
+        </code></pre>
+    </section>
+    <section><h3><code>try...catch..finally</code> statement</h3>
+        <pre><code rel="Syntax" class="js">
+            try {
+              try_statements
+            }
+            catch (exception_var) {
+              catch_statements
+            }
+            finally {
+              finally_statements
+            }
+        </code></pre>
+        <dl class="fa">
+            <dt>The statements in <code>finally</code> block are executed after the try block and catch clause(s) execute.</dt>
+            <dt><code>finally</code> block executes <span class="note">whether or not</span> an exception was thrown. I.e. the finally-block will always execute</dt>
+            <dt>It's the right place to clean resources used in try-catch.</dt>
+        </dl>
+    </section>
+    <section><h3><code>try..finally</code> statement</h3>
+        <dl class="fa">
+            <dt>This construct is not often used in practice.</dt>
+            <dt>Remember, that finally-block will always execute</dt>
+        </dl>
+        <pre><code rel="JS">
+            try{
+                console.log(`Try 1`);
+                console.log(x); // a ReferenceError will be thrown
+            }finally{
+                console.log("Finally 1");
+            }
+
+            console.log("Is program continued?");
+        </code></pre>
+    </section>
+</section>
+
+<section><h2>Throwing exceptions</h2>
+    <section>
+        <dl class="fa">
+            <dt>You can <code>“throw”</code> (or "raise") errors, as well.</dt>
+            <pre><code rel="syntax">
+                throw expression;
+            </code></pre>
+            <pre><code rel="JS">
+                throw 'Error 1';
+                console.log("Post-throw action"); //never
+            </code></pre>
+            <dt>the statements after throw won't be executed.</dt>
+        </dl>
+    </section>
+    <section><h3>example</h3>
+        <pre><code rel="JS">
+            function divide(x, y){
+                try{
+                    if( y === 0 ){
+                        throw("I would not divide by zero!");
+                    }else{
+                        return x/y;
+                    }
+                }catch(e){
+                    console.dir( e );
+                    return undefined;
+                }
+            }
+
+            var res = divide(5, 0);
+            console.log(`res: ${res}`);
+        </code></pre>
+    </section>
+    <section><h3>example</h3>
+        <pre><code rel="JS">
+            "use strict";
+            var testNode = document.getElementById("test");
+            function addClass(element, className){
+                try{
+                    if( className == undefined){
+                        throw("missing class name!")
+                    }
+                    element.className += " " + className;
+                }catch(e){
+                    console.log(e);
+                }
+            }
+
+            addClass(testNode, "box");
+            // note: This is just an example!
+            // Element.classList.add() is better to be used.
+        </code></pre>
+    </section>
+</section>
+
+<section><h2>Handling a specific error</h2>
+    <section><h3>Error types</h3>
+        <dl class="fa">
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError">EvalError</a></dt>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError">RangeError</a></dt>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError">ReferenceError</a></dt>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError">SyntaxError</a></dt>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError">TypeError</a></dt>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError">URIError</a></dt>
+        </dl>
+        <pre><code rel="JS" style="max-height:30vh ;">
+            try {
+                //something that throws an error
+            } catch (e){
+                if (e instanceof EvalError){
+                    //handle the EvalError
+                } else if (e instanceof RangeError){
+                    //handle the RangeError
+                } else if (e instanceof ReferenceError){
+                    //handle the ReferenceError
+                } else if (e instanceof SyntaxError){
+                    //handle the SyntaxError
+                } else if (e instanceof TypeError){
+                    //handle the TypeError
+                } else if (e instanceof URIError){
+                    //handle the URIError
+                } else{
+                    //handle all others
+                }
+            }
+        </code></pre>
+    </section>
+    <section><h3>examples</h3>
+        <pre><code rel="JS" class="js">
+            try {
+                console.log(x);
+            } catch (e){
+                if (e instanceof EvalError){
+                    console.log('EvalError')
+                } else if (e instanceof RangeError){
+                    console.log('RangeError')
+                } else if (e instanceof ReferenceError){
+                    console.log('ReferenceError')
+                } else if (e instanceof SyntaxError){
+                    console.log('SyntaxError')
+                } else if (e instanceof TypeError){
+                    console.log('TypeError')
+                } else if (e instanceof URIError){
+                    console.log('URIError')
+                } else{
+                    console.log('Error!')
+                }
+            }
+
+            // OUTPUT
+            // ReferenceError
+        </code></pre>
+    </section>
+</section>
+
+<section><h2>Custom exceptions</h2>
+    <section><h3>ES5 way</h3>
+        <dl class="fa">
+            <dt>We can throw custom Error objects by defining a constructor function.</dt>
+            <dt>Our object must  inherits the Error object</dt>
+        </dl>
+        <pre><code rel="JS">
+            function DivideByZero(message) {
+                this.name = "DivideByZero Error";
+                this.message = message || "Can not divide by negative value";
+                this.stack = Error().stack;
+            };
+            DivideByZero.prototype = new Error;
+
+            function divide(x, y){
+                try{
+                    if( y === 0 ){
+                        throw( new DivideByZero() );
+                    }else{
+                        return x/y;
+                    }
+                }catch(e){
+                    console.log( e.name );
+                    console.log( e.stack );
+                    return undefined; // or whatever we want
+                }
+            }
+
+            console.log( `5/0= ${divide(5, 0)}` );
+        </code></pre>
+    </section>
+    <section><h3>ES6 way</h3>
+        <dl class="fa">
+            <dt>We can throw custom Error objects for common custom exception by subclassing the Error class</dt>
+        </dl>
+        <pre><code rel="JS">
+            'use strict';
+
+            class DivideByZero extends Error {
+              constructor(msg) {
+                super(msg);
+                this.name = 'DivideByZero Error';
+              }
+            }
+
+            function divide(x, y){
+                try{
+                    if( y === 0 ){
+                        throw( new DivideByZero() );
+                    }else{
+                        return x/y;
+                    }
+                }catch(e){
+                    console.log( e.name );
+                    console.log( e.stack );
+                    return undefined; // or whatever we want
+                }
+            }
+
+            console.log( `5/0= ${divide(5, 0)}` );
+        </code></pre>
+    </section>
+</section>
+
+<section><h2>Fine-tune logging with <code>console</code> methods</h2>
+    <p class="note">The implementation of these methods is browser dependent!</p>
+    <pre><code rel="JS">
+        console.info("Calling console.info");
+        console.log("Calling console.log");
+        console.warn("Calling console.warn");
+        console.error("Calling console.error");
+    </code></pre>
+    <p>More on <code>console</code> object at <a href="https://developer.mozilla.org/en/docs/Web/API/console">MDN: Console</a></p>
+</section>
+
+<section><h2>window.onerror - the global error event handler</h2>
+    <section><h3>Syntax</h3>
+        <dl class="fa">
+            <dt>The window.onerror property of the Window object specifies an error-handler function that is invoked when a JavaScript error occurs and is not caught with a catch statement</dt>
+        </dl>
+        <pre><code rel="Syntax" class="javascript">
+            window.onerror = function(message, source, lineno, colno, error) { ... }
+        </code></pre>
+        <dl class="fa">
+            <dt><span class="note">message</span>: error message (string).</dt>
+            <dt><span class="note">source</span>: URL of the script where the error was raised (string)</dt>
+            <dt><span class="note">lineno</span>: Line number where error was raised (number)</dt>
+            <dt><span class="note">colno</span>: Column number for the line where the error occurred (number)</dt>
+            <dt><span class="note">error</span>: Error Object (object)</dt>
+        </dl>
+    </section>
+    <section><h3>Example</h3>
+        <pre><code rel="HTML" class="html5" style="min-height: 80vh;">
+            &lt;!DOCTYPE html&gt;
+            &#x9;&#x9;&#x9;&lt;html lang=&quot;en&quot;&gt;
+            &#x9;&#x9;&#x9;&lt;head&gt;
+            &#x9;&#x9;&#x9;&#x9;&lt;meta charset=&quot;UTF-8&quot;&gt;
+            &#x9;&#x9;&#x9;&#x9;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+            &#x9;&#x9;&#x9;&#x9;&lt;title&gt;window.onerror Demo&lt;/title&gt;
+            &#x9;&#x9;&#x9;&lt;/head&gt;
+            &#x9;&#x9;&#x9;&lt;body&gt;
+            &#x9;&#x9;&#x9;&#x9;&lt;script&gt;
+            &#x9;&#x9;&#x9;&#x9;&#x9;// Global error handler
+            &#x9;&#x9;&#x9;&#x9;&#x9;window.onerror = function(message, source, lineno, colno, error) {
+            &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;console.error(&grave;Message: ${message}&grave;);
+            &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;console.error(&grave;Source: ${source}&grave;);
+            &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;console.error(&grave;Line: ${lineno}&grave;);
+            &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;console.error(&grave;Column: ${colno}&grave;);
+            &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;console.error(&grave;Error object:&grave;);
+            &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;console.dir(error);
+
+            &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;// Check if error contains a stack trace
+            &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if (error &amp;&amp; error.stack) {
+            &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;console.log(&grave;Stack trace:\n${error.stack}&grave;);
+            &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;} else {
+            &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;console.log(&apos;Stack trace is not available.&apos;);
+            &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}
+
+            &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;// Prevent the error from showing in the browser console
+            &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;return true;
+            &#x9;&#x9;&#x9;&#x9;&#x9;};
+
+            &#x9;&#x9;&#x9;&#x9;&#x9;function greet() {
+            &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;console.log(&grave;Hello, ${userName}&grave;); // userName is not defined, triggers an error
+            &#x9;&#x9;&#x9;&#x9;&#x9;}
+
+            &#x9;&#x9;&#x9;&#x9;&#x9;greet();
+
+            &#x9;&#x9;&#x9;&#x9;&lt;/script&gt;
+            &#x9;&#x9;&#x9;&lt;/body&gt;
+            &#x9;&#x9;&#x9;&lt;/html&gt;
+
+        </code></pre>
+    </section>
+</section>
+
+<!-- <section><h2>JavaScript error tracking online services</h2>
+<p>Server-side log management is convenient for production, where you do not want the errors/logs to appear on the client-side</p>
+<p>Lot's of error/log managment SaaS available, like</p>
+<dl class="fa">
+    <dt><a href="https://www.loggly.com/">loggly</a></dt>
+    <dt><a href="https://rollbar.com">rollbar</a></dt>
+</dl>
+</section> -->
+
+
+<section class="main-section-title"><h1>HW</h1></section>
+<section class="sub-sections"><h2>HW</h2>
+    <section><h3>tasks_exceptions</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The tasks are given in next Gist: <a href="https://gist.githubusercontent.com/WWWCourses/8ba06f9db781c14edb5458fd4576db5e/raw/513080740dbee0e2a702301e6a79175dccca96a0/tasks_exceptions.js">tasks_exceptions.js</a> </dt>
+        </dl>
+    </section>
+</section>
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+	 <p>These slides are based on</p>
+	 <p>customized version of </p>
+	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+	 <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="../../../outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="../../../lib/reveal.js/dist/reveal.js"></script>
+	<script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+	<script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+	<script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+	<script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		// var highlightjsTabSize = '  ';
+		Reveal.initialize({
+
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+			center: true,
+			width: 1920,
+			height: 1080,
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+			// shift+mousе click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+
+			plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>window.onerror Demo</title>
+</head>
+<body>
+	<script>
+		// Global error handler
+		window.onerror = function(message, source, lineno, colno, error) {
+			console.error(`Message: ${message}`);
+			console.error(`Source: ${source}`);
+			console.error(`Line: ${lineno}`);
+			console.error(`Column: ${colno}`);
+			console.error(`Error object:`);
+			console.dir(error);
+
+			// Check if error contains a stack trace
+			if (error && error.stack) {
+				console.log(`Stack trace:\n${error.stack}`);
+			} else {
+				console.log('Stack trace is not available.');
+			}
+
+			// Prevent the error from showing in the browser console
+			return true;
+		};
+
+		function greet() {
+			console.log(`Hello, ${userName}`); // userName is not defined, triggers an error
+		}
+
+		greet();
+
+	</script>
+</body>
+</html>
