@@ -45,7 +45,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section><h1>JS interaction with Browser (HTML DOM, BOM)</h1></section>
+<section class="main-section-title"><h1>JS interaction with Browser (HTML DOM, BOM)</h1></section>
 <section data-transition="zoom">
 	<section>
 		<div class="copyright">
@@ -74,8 +74,8 @@
 
 
 
-<section><h1>JS host environments</h1></section>
-<section><h2>JS host environments</h2>
+<section class="main-section-title"><h1>JS host environments</h1></section>
+<section class="sub-sections"><h2>JS host environments</h2>
     <dl class="fa">
         <dt>JavaScript може да се изпълнява в различни среди:</dt>
         <dd>Browsers</dd>
@@ -89,8 +89,8 @@
     </dl>
 </section>
 
-<section><h1>the Global Object</h1></section>
-<section><h2>the Global Object</h2>
+<section class="main-section-title"><h1>the Global Object</h1></section>
+<section class="sub-sections"><h2>the Global Object</h2>
     <section>
         <dl class="fa">
             <dt>Във всяка една JS Host Environment е дефиниран един <span class="note">глобален обект</span>, към който са дефинирани като свойства останалите обекти на средата.</dt>
@@ -118,7 +118,8 @@
     </section>
 </section>
 
-<section><h2>Какво е HTML DOM?</h2>
+<section class="main-section-title"><h1>Какво е HTML DOM?</h1></section>
+<section class="sub-sections"><h2>Какво е HTML DOM?</h2>
     <section>
        <dl class="fa">
             <dt><abbr>DOM</abbr><dfn><span>Document</span><span>Object</span><span>Model</span></dfn></dt>
@@ -182,7 +183,7 @@
     </section>
 </section>
 
-<section><h2>The Document Object</h2>
+<section class="sub-sections"><h2>The Document Object</h2>
     <section>
         <dl class="fa">
             <dt>Когато браузъра зареди една Уеб страница, той създава кореспондиращият й обектен модел.</dt>
@@ -220,7 +221,7 @@
     </section>
 </section>
 
-<section><h2>The Element Object</h2>
+<section class="sub-sections"><h2>The Element Object</h2>
     <section>
         <dl class="fa">
             <dt>В HTML DOM, на всеки един HTML елемент се съпоставя един обект от тип <span class="code note">element object</span>, който е възел в DOM.</dt>
@@ -244,13 +245,13 @@
     </section>
 </section>
 
-<section><h2>The Attribute Object</h2>
+<section class="sub-sections"><h2>The Attribute Object</h2>
     <section>
-        <dl class="fa">
-            <dt>Всеки един HTMl атрибут в DOM се предсавя като <span class="note code">attribute object</span></dt>
+        <dl class="fa" style="font-size: .8em;">
+            <dt>Всеки един HTMl атрибут в DOM се представя като <span class="note code">attribute object</span></dt>
             <dt>attribute object винаги се разглежда като част от element object.</dt>
             <dt>attribute objects притежават следните методи и свойства: <a href="http://www.w3schools.com/jsref/dom_obj_attributes.asp">The HTML DOM Attribute Object</a></dt>
-            <pre><code rel="HTML">
+            <pre><code rel="HTML" class="html" style="font-size: .8em;">
                 &lt;body&gt;
                     <p id="p1">Paragraph <b>1</b>!</p>
 
@@ -265,7 +266,7 @@
                 &lt;/body&gt;
             </code></pre>
             <dt class="note">Стойностите на повечето стандартни HTML атрибути, като src, href, id, style, title и пр., могат да се достъпят директно като пропъртита на съответния обект чрез: <code>element.attributeName</code></dt>
-            <pre><code rel="HTML" class="html">
+            <pre><code rel="HTML" class="html" style="font-size: .8em;">
                 &lt;body&gt;
                     <p id="p1">Paragraph <b>1</b>!</p>
                     <img src="" alt="demo img">
@@ -288,7 +289,7 @@
     </section>
 </section>
 
-<section><h2>The Text Object</h2>
+<section class="sub-sections"><h2>The Text Object</h2>
     <section>
         <dl class="fa">
             <dt class="note">Текстът е отделен възел в DOM!</dt>
@@ -333,7 +334,7 @@
     </section>
 </section>
 
-<section><h2>The Comment Object</h2>
+<section class="sub-sections"><h2>The Comment Object</h2>
     <section>
         <dl class="fa">
             <dt class="note">Коментарите са отделни възли в DOM!</dt>
@@ -356,7 +357,7 @@
     </section>
 </section>
 
-<section><h2>Numerical Node Types</h2>
+<section class="sub-sections"><h2>Numerical Node Types</h2>
     <section>
         <dl class="fa">
             <dt>На всеки тип възел/обект в DOM съответства число. Така лесно динамично можем да определим типът на дадения възел/обект.</dt>
@@ -388,7 +389,8 @@
     </section>
 </section>
 
-<section><h2>Методи за достъпване на Element Objects</h2>
+<section class="main-section-title"><h1>Методи за достъпване на Element Objects</h1></section>
+<section class="sub-sections"><h2>Методи за достъпване на Element Objects</h2>
     <section><h3><a href="https://www.w3schools.com/jsref/met_document_getelementbyid.asp"></a>getElementById()</h3>
         <dl class="fa">
             <dt>Връща обект, представящ елемент с id = elementID</dt>
@@ -521,15 +523,15 @@
         </dl>
     </section>
 </section>
-<section><h2>Videos</h2>
+<section class="sub-sections"><h2>Videos</h2>
     <section><h3>The JavaScript DOM explained in 5 minutes! 🌳</h3>
         <iframe width="1028" height="578" src="https://www.youtube.com/embed/NO5kUNxGIu0" title="The JavaScript DOM explained in 5 minutes! 🌳" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </section>
 </section>
 
 
-<section><h1>Примери и задачи</h1></section>
-<section><h2>Примери и задачи</h2>
+<section class="main-section-title"><h1>Примери и задачи</h1></section>
+<section class="sub-sections"><h2>Примери и задачи</h2>
     <section><h3>Get and Show an Input Value</h3>
         <p class="codepen" data-height="300" data-theme-id="20230" data-default-tab="js,result" data-user="webdesigncourse" data-slug-hash="wogNMb" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Get Input Value">
 		<span>
