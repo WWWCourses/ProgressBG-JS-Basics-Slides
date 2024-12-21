@@ -145,56 +145,75 @@
             sum(1,2,3,4); // 10
         </code></pre>
     </section>
-    <section><h3>built-in objects == primitive types?</h3>
-        <p>Много често примитивните типове string, number, boolean се бъркат със съответните им "двойници - обекти: String, Number, Boolean</p>
-        <pre><code rel="JS">
-            let str1 = new String("ada");
-            let str2 = "ada";
+</section>
 
-            console.log( typeof(str1) ); // object
-            console.log( typeof(str2) ); // string
-        </code></pre>
-        <p>и макар и привидно еднакви, не бива да се забравя, че те все пак са различни неща!</p>
+<section class="main-section-title" id="primitiveBoxing"><h1>Primitive Objects Boxing (Wrapping)</h1></section>
+<section class="sub-sections"><h2>Primitive Objects Boxing (Wrapping)</h2>
+    <section><h3>built-in objects == primitive types?</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><span class="note">Примитивните типове (string, number, boolean) не са обекти</span> и нямат методи или свойства.</dt>
+            <dt>Но в JS са дефинирани специални вградени обекти (String, Number, Boolean), които предоставят методи и свойства за работа с примитивни стойности.</dt>
+            <pre><code rel="JS">
+                // Създаваме обект от тип String
+                let str1 = new String("ada");
+
+                // Създаваме стринг, който не е обект
+                let str2 = "ada";
+
+                console.log( typeof(str1) ); // object
+                console.log( typeof(str2) ); // string
+            </code></pre>
+            <dt>Примитивите и обектите са различни:</dt>
+            <pre><code rel="JS" class="js">
+                console.log(str1 == str2);  // true (сравнение по стойност)
+                console.log(str1 === str2); // false (различни типове)
+            </code></pre>
+        </dl>
     </section>
-    <section><h3>primitive objects wrapping</h3>
-        <p>Когато опитаме да използваме примитивен тип ( string, number и пр.) като обект, например:</p>
-        <pre><code rel="JS">
-            // примитивните типове не са обекти и нямат пропъртита, но:
-            "ada".toUpperCase(); // "ADA"
-        </code></pre>
-        <p>това, което прави JavaScript e да "обвие" примитивният тип в обект от съответния тип (в примера: String обекта) и да използва съответното свойство/метод (в примера: toUpperCase). </p>
+    <section><h3>Primitive Objects Boxing (Wrapping)</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Когато опитаме да използваме примитивен тип ( string, number и пр.) като обект, JavaScript автоматично "обвива" примитивния тип в съответния обектен тип (String, Number, Boolean), за да може да използва съответните методи и свойства.</dt>
+            <pre><code rel="JS">
+                // примитивните типове не са обекти и нямат пропъртита, но следното работи:
+                "ada".toUpperCase(); // "ADA"
+
+                // стойността "ada" временно се обвива в обект String, върху който се извиква метода
+                (new String("ada")).toUpperCase()
+            </code></pre>
+            <dt>Но примитивите не са обекти</dt>
+            <pre><code rel="JS" class="js">
+                let str1 = new String("ada");
+                let str2 = "ada";
+
+                str1.id = 1;
+                str2.id = 1;
+
+                console.log(str1.id);// 1
+                console.log(str2.id);// undefined
+            </code></pre>
+        </dl>
     </section>
-    <section><h3>best practices</h3>
-        <p>Въпреки че можем да създадем и работим с число, което е създадено като обект (същото е в сила и за останалите типове), на практика се предпочита използването на примитивния тип.</p>
-        <p>Например:</p>
-        <pre><code rel="JS">
-            // create number - the good way (as primitive)
+    <section><h3>Best Practices</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Добре е да използваме Boxing-a. Т.е. когато се налага да използваме свойство или метод на (String, Number, Boolean) директно да го приложим върху примитива, като знаем, че JS ще го "обвие" в съответния обект, вместо ние да създаваме обекта.</dt>
+        </dl>
+        <pre><code rel="JS" style="min-height: 55vh;">
+            // създаваме число като примитив (добър вариант)
             let x = 42;
 
-            // create number - the bad way (as Number object)
+            // създаваме число като обект (ненужно сложно)
             let y = new Number(42);
 
-            // we can use it the same way:
+            // използваме ги по един и същ начин:
             console.log( x + 10 ); // 52
-            console.log( x.toPrecision(5) ); // "42.000"
-
             console.log( y + 10 ); // 52
+
+            console.log( x.toPrecision(5) ); // "42.000"
             console.log( y.toPrecision(5) ); // "42.000"
 
-            // but "x" and "y" are different entities with same value
+            // но не бива да забравяме, че "x" и "y" са различни типове
             console.log( x == y )  // true
             console.log( x === y ) // false
-        </code></pre>
-    </section>
-    <section><h3>best practices</h3>
-        <p>Разбира се, <span class="note">използването</span> на методите на вградените обекти е необходимо и се препоръчва (по важните от тях бяха разгледани в съответните теми за Strings и Arrays)</p>
-        <p>Например:</p>
-        <pre><code rel="JS">
-            let str = "ada";
-            console.log( str.toUpperCase() ); // ADA
-
-            var arr = [1,2,3];
-            console.log( arr.reverse() );  // [3, 2, 1]
         </code></pre>
     </section>
     <section><h3 class="advanced">Readings</h3>
@@ -206,10 +225,10 @@
 
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
-	 <p>These slides are based on</p>
-	 <p>customized version of </p>
-	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
-	 <p>framework</p>
+	<p>These slides are based on</p>
+	<p>customized version of </p>
+	<p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+	<p>framework</p>
 </section>
 <!--
 ########################################################
