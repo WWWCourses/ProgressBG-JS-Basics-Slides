@@ -439,7 +439,54 @@
             <dt>Синтаксисът за класове в JavaScript е по-четим и изчистен, като предоставя същите функционалности като конструкторите.</dt>
         </dl>
     </section>
+</section>
 
+
+<section class="main-section-title"><h1 class="advanced">Представяне на основните типове данни в паметта</h1></section>
+<section class="sub-sections"><h2 class="advanced">Представяне на основните типове данни в паметта</h2>
+    <section><h3>Съхраняване на примитивни стойности</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Примитивните стойности се съхраняват "по стойност". Това означава, че когато присвояваме примитивна стойност на променлива, самата стойност се записва в паметта.</dt>
+            <dt>Примитивните типове обикновено се съхраняват в област от паметта наречена стек (stack). Стекът е бързо достъпна, но ограничена по размер памет.</dt>
+            <dt>Стойността на примитивните типове не може да бъде променяна (т.е. те са непроменими - immutable). Когато променяме стойността на променлива от примитивен тип, всъщност се създава нова стойност, а не се променя старата (старата стойност се изчиства от паметта автоматично от garbage collector, ако нямаме референция която да сочи към нея).</dt>
+            <dt>Примитивните типове се копират по стойност (<span class="note">copy by value</span>):</dt>
+            <pre><code rel="JS" class="js">
+                let x = 5;
+                let y = x;  // в y се копира стойността 5
+
+                x = 10;    // Променяме стойността на x
+
+                console.log(x);  // 10
+                console.log(y);  // 5  (y запазва оригиналната стойност)
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Съхраняване на обекти</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Обектите се съхраняват "по референция", затова често се наричат и Референтни типове данни. Това означава, че когато присвояваме обект на променлива, в нея се записва референция към адреса на обекта в паметта, а не стойностите на самият обект.</dt>
+            <dt>Референтните типове обикновено се съхраняват в  област от паметта наречена heap. Heap-a е по-голямо, но по-бавно достъпно пространство в паметта.</dt>
+            <dt>Стойностите на обектите са променяеми (mutable). Когато се променя обект, променяме стойностите, които са в обекта, а не самия обект.</dt>
+            <dt>Обектите се копират по референция (<span class="note">copy by reference</span>):</dt>
+            <pre><code rel="JS" class="js">
+                let obj1 = { x: 1 };
+                let obj2 = obj1; // в obj2 се копира референцията към obj1, не стойностите
+
+                obj1.x = 2; // Променяме стойността на x в obj1
+
+                console.log(obj1.x);  // 2
+                console.log(obj2.x);  // 2  (и obj2 се променя, защото е референция към същия обект)
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>"Copy by value" vs "Copy by reference"</h3>
+        <img src="./images/primitive-vs-reference-data-types-in-javascript.webp" alt="primitive-vs-reference-data-types-in-javascript" style="height:80vh">
+        <dl class="fa" style="min-width:80vw">
+            <dt>Изображението е от <a href="https://www.alaminshaikh.com/blog/primitive-vs-reference-data-types-in-javascript">Primitive vs Reference data types in JavaScript by Alamin Shaikh</a></dt>
+        </dl>
+    </section>
+    <section><h3>Повече за обекти</h3>
+        <iframe src="https://www.youtube.com/embed/X0ipw1k7ygU" title="Modern JavaScript Tutorial #5 - Objects" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="height:80vh"></iframe>
+    </section>
 </section>
 
 <section><h1 id="hw">Примери и задачи</h1></section>
