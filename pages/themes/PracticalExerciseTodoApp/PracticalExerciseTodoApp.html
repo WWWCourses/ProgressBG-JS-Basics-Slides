@@ -92,7 +92,7 @@
                 └── style.css
             </code></pre>
             <dt>Set up the basic HTML structure.</dt>
-            <pre><code rel="index.html" class="HTML" style="min-height: 23em;">
+            <pre><code rel="index.html" class="HTML" style="min-height: 23em;" data-copy>
                 &lt;!-- index.html --&gt;
                 &lt;!DOCTYPE html&gt;
                 &lt;html lang=&quot;en&quot;&gt;
@@ -118,7 +118,7 @@
     <section id="AddStyling"><h3>Add Styling</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>Create a <code>style.css</code> file and add the following styles to enhance the appearance of the Todo List.</dt>
-            <pre><code rel="style.css" class="css" style="min-height: 48em;">
+            <pre><code rel="style.css" class="css" style="min-height: 48em;" data-copy>
                 /* General body styles */
                 body {
                     font-family: Arial, sans-serif;
@@ -247,14 +247,13 @@
             <dt><strong>Add Todo:</strong> Create a new todo object and push it to the todos array. Then, update the UI.</dt>
             <dt><strong>Toggle Completion:</strong> Toggle the <code>completed</code> property of the todo object at the specified index and update the UI.</dt>
             <dt><strong>Delete Todo:</strong> Remove the todo object from the todos array at the specified index and update the UI.</dt>
-            <dt><strong>Render Todos:</strong> Clear the current list of displayed todos, then iterate over the todos array to create and display list items. Attach event listeners to handle completion and deletion.</dt>
+            <dt><strong>Render Todos:</strong> Clear the current list of displayed todos, then iterate over the todos array to display list items. Attach event listeners to handle completion and deletion buttons.</dt>
         </dl>
     </section>
-    <section id="Step3DefineTodoLogic"><h3>Define Todo Logic</h3>
+    <section id="AddDeleteCompleteTodoLogic"><h3>Add/Delete/Complete Todo Logic</h3>
         <dl class="fa" style="min-width:80vw">
-            <dt>Define the logic in your JavaScript file to add, delete, and mark tasks as completed.</dt>
-            <dd>Set up functions to add, toggle completion, and delete todo items, and update the UI.</dd>
-            <pre><code rel="main.js" class="js" style="min-height: 40em;">
+            <dt>Define functions to add, toggle completion, and delete todo items</dt>
+            <pre><code rel="main.js" class="js" style="min-height: 20em;" data-copy>
                 // Function to add a new todo item
                 function addTodo(task) {
                     todos.push({ task: task, completed: false });
@@ -272,79 +271,136 @@
                     todos.splice(index, 1);
                     renderTodos();
                 }
-
+            </code></pre>
+        </dl>
+    </section>
+    <section id="UpdateUiLogicVariant_1"><h3>Update UI Logic - Variant 1</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Define function to update the UI - to render todo items</dt>
+            <dt>Variant 1: using <code>createElement</code> for list item elements</dt>
+            <pre><code rel="main.js" class="js" style="min-height: 20em;" data-copy>
                 // Function to render the todo list
                 function renderTodos() {
                     console.dir(todos);
                     // Clear the current list
-                    todoList.innerHTML = '';
+                    dom.todoList.innerHTML = &apos;&apos;;
 
                     // Iterate over the todos array and create list items for each todo
-                    for (let i = 0; i < todos.length; i++) {
+                    for (let i = 0; i &lt; todos.length; i++) {
                         const todo = todos[i];
                         const index = i;
 
                         // Create a new list item
-                        const listItem = document.createElement('li');
-                        listItem.className = 'todo-item';
+                        const listItem = document.createElement(&apos;li&apos;);
+                        listItem.className = &apos;todo-item&apos;;
                         if (todo.completed) {
-                            listItem.innerHTML = `<span class="completed">${todo.task}</span>`
+                            listItem.innerHTML = &grave;&lt;span class=&quot;completed&quot;&gt;${todo.task}&lt;/span&gt;&grave;
                         }else{
-                            listItem.innerHTML = `<span>${todo.task}</span>`
+                            listItem.innerHTML = &grave;&lt;span&gt;${todo.task}&lt;/span&gt;&grave;
                         }
-                        // listItem.textContent = todo.task;
                         listItem.dataset.index = index; // Set dataset index for identification
 
                         // Create the complete button
-                        const completeBtn = document.createElement('button');
-                        completeBtn.className = 'complete-btn';
-                        completeBtn.textContent = todo.completed ? 'Undo' : 'Complete';
+                        const completeBtn = document.createElement(&apos;button&apos;);
+                        completeBtn.className = &apos;complete-btn&apos;;
+                        completeBtn.textContent = todo.completed ? &apos;Undo&apos; : &apos;Complete&apos;;
 
                         // Create the delete button
-                        const deleteBtn = document.createElement('button');
-                        deleteBtn.className = 'delete-btn';
-                        deleteBtn.textContent = 'Delete';
+                        const deleteBtn = document.createElement(&apos;button&apos;);
+                        deleteBtn.className = &apos;delete-btn&apos;;
+                        deleteBtn.textContent = &apos;Delete&apos;;
 
                         // Append buttons to the list item
                         listItem.appendChild(completeBtn);
                         listItem.appendChild(deleteBtn);
 
                         // Append the list item to the todo list
-                        todoList.appendChild(listItem);
+                        dom.todoList.appendChild(listItem);
 
                         // Event listener to toggle completed status
-                        completeBtn.addEventListener('click', function (event) {
+                        completeBtn.addEventListener(&apos;click&apos;, function (event) {
                             toggleTodoCompletion(index);
                         });
 
                         // Event listener to delete the todo
-                        deleteBtn.addEventListener('click', function (event) {
+                        deleteBtn.addEventListener(&apos;click&apos;, function (event) {
                             deleteTodo(index);
                         });
                     }
                 }
+            </code></pre>
+        </dl>
+    </section>
+    <section id="UpdateUiLogicVariant_2"><h3>Update UI Logic - Variant 2</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Define function to update the UI - to render todo items</dt>
+            <dt>Variant 2: using <code>innerHTML</code> for list item elements</dt>
+            <pre><code rel="main.js" class="js" style="min-height: 20em;" data-copy>
+                // Function to render the todo list
+                function renderTodos() {
+                    console.dir(todos);
+                    // Clear the current list
+                    dom.todoList.innerHTML = &apos;&apos;;
+
+                    // Iterate over the todos array and create list items for each todo
+                    for (let i = 0; i &lt; todos.length; i++) {
+                        const todo = todos[i];
+                        const index = i;
+
+                        listItemHTML = &grave;
+                            &lt;li class=&quot;todo-item&quot; data-index=&quot;${index}&quot;&gt;
+                                &lt;span ${todo.completed?&apos;class=&quot;completed&quot;&apos;:&apos;&apos;}&gt;${todo.task}&lt;/span&gt;
+                                &lt;button class=&quot;complete-btn&quot;&gt;${todo.completed ? &apos;Undo&apos; : &apos;Complete&apos;}&lt;/button&gt;
+                                &lt;button class=&quot;delete-btn&quot;&gt;Delete&lt;/button&gt;
+                            &lt;/li&gt;
+                        &grave;
+
+                        dom.todoList.innerHTML += listItemHTML;
+
+                        dom.completeBtn = document.querySelector(&apos;.complete-btn&apos;);
+                        dom.deleteBtn = document.querySelector(&apos;.delete-btn&apos;);
+
+                        // Event listener to toggle completed status
+                        dom.completeBtn.addEventListener(&apos;click&apos;, function (event) {
+                            toggleTodoCompletion(index);
+                        });
+
+                        // Event listener to delete the todo
+                        dom.deleteBtn.addEventListener(&apos;click&apos;, function (event) {
+                            deleteTodo(index);
+                        });
+                    }
+                }
+            </code></pre>
+        </dl>
+    </section>
+    <section id="MainProgramLogic"><h3>Main program logic</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Define main program logic</dt>
+            <pre><code rel="main.js" class="js" style="min-height: 20em;" data-copy>
+                // Get DOM elements
+                const dom = {
+                    todoInput : document.getElementById(&apos;todo-input&apos;),
+                    addTodoButton : document.getElementById(&apos;add-todo&apos;),
+                    todoList : document.getElementById(&apos;todo-list&apos;),
+                }
+
+                // Add a click event listener to the add todo button
+                dom.addTodoButton.addEventListener(&apos;click&apos;, () =&gt; {
+                    const todoInputValue = dom.todoInput.value;
+
+                    if (todoInputValue.trim() !== &apos;&apos;) {
+                        addTodo(todoInputValue);
+                        dom.todoInput.value = &apos;&apos;;
+                    } else {
+                        alert(&apos;Please enter a task.&apos;);
+                    }
+                });
 
                 // Initialize an empty array to store todo objects
                 let todos = [];
 
-                // Get DOM elements
-                const todoInput = document.getElementById('todo-input');
-                const addTodoButton = document.getElementById('add-todo');
-                const todoList = document.getElementById('todo-list');
-
-                // Add a click event listener to the add todo button
-                addTodoButton.addEventListener('click', () => {
-                    const todoInputValue = todoInput.value;
-
-                    if (todoInputValue.trim() !== '') {
-                        addTodo(todoInputValue);
-                        todoInput.value = '';
-                    } else {
-                        alert('Please enter a task.');
-                    }
-                });
-
-                // Initial render to ensure the list is empty on load
+                // Initial render
                 renderTodos();
             </code></pre>
         </dl>

@@ -20,7 +20,7 @@ function deleteTodo(index) {
 function renderTodos() {
     console.dir(todos);
     // Clear the current list
-    todoList.innerHTML = '';
+    dom.todoList.innerHTML = '';
 
     // Iterate over the todos array and create list items for each todo
     for (let i = 0; i < todos.length; i++) {
@@ -35,7 +35,6 @@ function renderTodos() {
         }else{
             listItem.innerHTML = `<span>${todo.task}</span>`
         }
-        // listItem.textContent = todo.task;
         listItem.dataset.index = index; // Set dataset index for identification
 
         // Create the complete button
@@ -53,7 +52,7 @@ function renderTodos() {
         listItem.appendChild(deleteBtn);
 
         // Append the list item to the todo list
-        todoList.appendChild(listItem);
+        dom.todoList.appendChild(listItem);
 
         // Event listener to toggle completed status
         completeBtn.addEventListener('click', function (event) {
@@ -67,18 +66,57 @@ function renderTodos() {
     }
 }
 
+// Function to render the todo list
+function renderTodos() {
+    console.dir(todos);
+    // Clear the current list
+    dom.todoList.innerHTML = '';
+
+    // Iterate over the todos array and create list items for each todo
+    for (let i = 0; i < todos.length; i++) {
+        const todo = todos[i];
+        const index = i;
+
+        listItemHTML = `
+            <li class="todo-item" data-index="${index}">
+                <span ${todo.completed?'class="completed"':''}>${todo.task}</span>
+                <button class="complete-btn">${todo.completed ? 'Undo' : 'Complete'}</button>
+                <button class="delete-btn">Delete</button>
+            </li>
+        `
+
+        dom.todoList.innerHTML += listItemHTML;
+
+        dom.completeBtn = document.querySelector('.complete-btn');
+        dom.deleteBtn = document.querySelector('.delete-btn');
+
+        // Event listener to toggle completed status
+        dom.completeBtn.addEventListener('click', function (event) {
+            toggleTodoCompletion(index);
+        });
+
+        // Event listener to delete the todo
+        dom.deleteBtn.addEventListener('click', function (event) {
+            deleteTodo(index);
+        });
+    }
+}
+
+
 // Get DOM elements
-const todoInput = document.getElementById('todo-input');
-const addTodoButton = document.getElementById('add-todo');
-const todoList = document.getElementById('todo-list');
+const dom = {
+    todoInput : document.getElementById('todo-input'),
+    addTodoButton : document.getElementById('add-todo'),
+    todoList : document.getElementById('todo-list'),
+}
 
 // Add a click event listener to the add todo button
-addTodoButton.addEventListener('click', () => {
-    const todoInputValue = todoInput.value;
+dom.addTodoButton.addEventListener('click', () => {
+    const todoInputValue = dom.todoInput.value;
 
     if (todoInputValue.trim() !== '') {
         addTodo(todoInputValue);
-        todoInput.value = '';
+        dom.todoInput.value = '';
     } else {
         alert('Please enter a task.');
     }
@@ -87,5 +125,5 @@ addTodoButton.addEventListener('click', () => {
 // Initialize an empty array to store todo objects
 let todos = [];
 
-// Initial render to ensure the list is empty on load
+// Initial render
 renderTodos();
