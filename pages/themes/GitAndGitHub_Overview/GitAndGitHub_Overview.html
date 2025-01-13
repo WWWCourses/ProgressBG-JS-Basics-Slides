@@ -153,7 +153,7 @@
             <dt><b>Pull:</b></dt>
             <dd>Bringing in changes from the server repository to the local repository to keep it up-to-date.</dd>
             <dt><b>Push:</b></dt>
-            <dd>Transferring local changes (commits_ to the server repository. This is how changes are shared with other team members.</dd>
+            <dd>Transferring local changes (commits) to the server repository. This is how changes are shared with other team members.</dd>
         </dl>
     </section>
 </section>
@@ -244,8 +244,8 @@
         <dl class="fa" style="min-width:80vw">
             <dt>In Git, there are three main states that files can reside in within a Git repository:</dt>
             <dt><b>Working Directory</b> (Untracked files): This is the state where files exist in your project directory but have not yet been tracked by Git. Git is unaware of any changes made to these files, and they are considered untracked.</dt>
-            <dt><b>Staging Area</b> (Staged files): After modifying files in the working directory, you can stage them for the next commit by adding them to the staging area using the git add command. Files in the staging area are ready to be committed, and Git is aware of the changes made to these files.</dt>
-            <dt><b>Repository</b> (Committed files): When you commit changes in the staging area using the git commit command, Git creates a snapshot of the staged changes and permanently stores them in the repository. These committed changes are now part of the project's history and can be accessed and referenced in the future.</dt>
+            <dt><b>Staging Area</b> (Staged files): After modifying files in the working directory, you can stage them for the next commit by adding them to the staging area using the <code><b>git add</b></code> command. Files in the staging area are ready to be committed, and Git is aware of the changes made to these files.</dt>
+            <dt><b>Repository</b> (Committed files): When you commit changes in the staging area using the <code><b>git commit</b></code> command, Git creates a snapshot of the staged changes and permanently stores them in the repository. These committed changes are now part of the project's history and can be accessed and referenced in the future.</dt>
         </dl>
     </section>
 </section>
@@ -273,9 +273,10 @@
             </code></pre>
             <dt>To stage all changes in the working directory, including new, modified, and deleted files (including untracked files and directories):</dt>
             <pre><code rel="Terminal" class="bash">
+                # Stage all changes in the repository
                 git add -A
 
-                # or the shortcut:
+                # Stage changes in the current directory and its subdirectories (does not stage deleted files)
                 git add .
             </code></pre>
             <!-- <dt>To stage modifications and deletions, but not to add new untracked files to the staging area:</dt>
@@ -405,8 +406,11 @@
             <dt>By creating a .gitignore file in the root directory of the repository and listing patterns for files or directories to ignore, Git will automatically disregard those files when tracking changes.</dt>
             <dt>.gitignore uses simple pattern matching rules to specify which files or directories to ignore. Patterns can include wildcards such as "*" to match multiple files or directories, and "!" to negate patterns.</dt>
             <pre><code rel=".gitignore" class="bash">
-                # Ignore all .txt files in the repository
-                *.txt
+                # Ignore all .txt files in the current directory
+                /*.txt
+
+                # Ignore all .txt files at all directory levels
+                **/*.txt
 
                 # Ignore all files in the "logs" directory
                 logs/*
@@ -417,12 +421,6 @@
 
                 # Ignore the "config" directory and its contents
                 /config/
-
-                # Ignore all files with the .tmp extension in any directory
-                **/*.tmp
-
-                # Exclude all files in the "docs" directory, including subdirectories
-                /docs/
             </code></pre>
             <dt>For popular programming languages and frameworks you can find in internet .gitignore templates:</dt>
             <dd><a href="https://github.com/github/gitignore">A collection of .gitignore templates</a></dd>
@@ -469,8 +467,13 @@
                 git commit -m "Initial commit"
             </code></pre>
             <dt>5. Push your changes to GitHub:</dt>
+            <dd>Sets the upstream branch and push</dd>
             <pre><code rel="Terminal" class="bash">
                 git push -u origin main
+            </code></pre>
+            <dd>For future pushes into main branch you can just type:</dd>
+            <pre><code rel="Terminal" class="bash">
+                git push
             </code></pre>
             <dt><b>Authentication:</b>You may need to authenticate with your GitHub username and password or use SSH keys for authentication.</dt>
             <dt>Reference: <a href="https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#adding-a-local-repository-to-github-using-git">Adding a local repository to GitHub using Git
@@ -554,6 +557,7 @@
         <dl class="fa" style="min-width:80vw">
             <dt>Merging is a fundamental Git operation that integrates changes from one branch into another.</dt>
             <dd>Think of merging like combining the ingredients of two recipes into one. In Git, merging takes the changes from one branch (like a list of ingredients) and adds them to another, making your project up-to-date with all the changes.</dd>
+            <a href="./images/git-merge-dev.png"><img src="./images/git-merge-dev.png" alt="git-merge-dev" style="height: 8em; width: 13em;"></a>
             <dt>How to Merge</dt>
             <dd>1. Switch to the branch you want to add changes to. This is usually your main project branch, often called <code>main</code>.</dd>
             <pre><code rel="Terminal" class="bash" data-noescape>
@@ -565,11 +569,13 @@
             </code></pre>
             <dd>This tells Git: "Take everything from <code>feature</code> and add it to <code>main</code>."</dd>
         </dl>
+
     </section>
-    <section><h3>Conflict Resolution</h3>
+    <section><h3>Merge Conflicts</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>Merge conflicts occurs when changes in one branch clash with changes in another.</dt>
-            <dd>It's like when two recipes suggest different oven temperatures - you have to decide which one to follow.</dd>
+            <dd>It's like when two recipes suggest different quontity of an ingredient - you have to decide which one to follow.</dd>
+            <a href="./images/merge_conflict.png"><img src="./images/merge_conflict.png" alt="merge_conflict.png"></a>
             <dt>Git will highlight conflicts during a merge, and you'll have to edit the files to fix them. After that, you tell Git you've resolved the conflicts by adding and committing the changes.</dt>
         </dl>
     </section>
