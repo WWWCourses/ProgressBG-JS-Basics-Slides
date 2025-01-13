@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>clientSideStorages</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+    <!-- custom -->
+    <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="../../../index.html#clientSideStorages" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Спейс</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>Client-side storages</h1></section>
+<section data-transition="zoom">
+    <section>
+        <div class="copyright">
+            <div class="note">
+                <p>Created for</p>
+            </div>
+            <div class="company">
+                <a href="https://progressbg.net/javascript-basic/">
+                <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+        <div class="note">
+            <p>Created by</p>
+        </div>
+        <div class="company">
+           <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+        </div>
+        <!-- <div class="author">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div> -->
+    </section>
+</section>
+
+
+<section data-min="10" class="main-sesction-title"><h1>Overview</h1></section>
+<section class="sub-sections"><h2>Overview</h2>
+    <section>
+        <dl class="fa">
+            <dt>Modern web browsers support a number of ways for web sites to store data on the user's computer (client-side), instead of on the server-side.</dt>
+            <dt>The typical use-cases for client-side storage are:</dt>
+            <dd>Personalizing site preferences.</dd>
+            <dd>Persisting previous site activity (e.g. storing the contents of a shopping cart from a previous session, remembering if a user was previously logged in).</dd>
+            <dd>Storing data for offline use.</dd>
+            <dt>The basic types of client-side storage are:  Cookies, Local/Session Storage, IndexedDB</dt>
+            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage">Client-side storage @mdn</a></dt>
+        </dl>
+    </section>
+    <section><h3>Cookies vs Local Storage vs Session Storage</h3>
+        <table style="font-size: .9em">
+            <tr>
+                <th>Cookies</th>
+                <th>Local Storage</th>
+                <th>Session Storage</th>
+            </tr>
+            <tr>
+                <td><span class="note">4KB</span> max</td>
+                <td><span class="note">10MB</span> max</td>
+                <td><span class="note">5MB</span> max</td>
+            </tr>
+            <tr>
+                <td>Expiration depends on settings and/or session</td>
+                <td>Does not expire. Have to be deleted by JS or manually.</td>
+                <td>Expiration depends session</td>
+            </tr>
+            <tr>
+                <td><span class="note">Server</span> and client-side access.</td>
+                <td>only client-side access.</td>
+                <td>only client-side access.</td>
+            </tr>
+        </table>
+    </section>
+</section>
+
+<section data-min="10" class="main-sesction-title"><h1>Cookies</h1></section>
+<section class="sub-sections"><h2>Cookies</h2>
+  <section><h3>Overview</h3>
+      <dl class="fa">
+          <dt>An HTTP cookie is a text data stored to the user's web browser.</dt>
+          <dt>Cookies are sent with the HTTP response message from the web server.</dt>
+          <dt>The browser can store the cookie and send it back to the server with next request.</dt>
+          <!-- <dt>With cookies we can emulate a stateful connection through HTTP, which is <a href="https://en.wikipedia.org/wiki/Stateless_protocol">stateless protocol</a> by design.</dt> -->
+        <a href="images/cookie_transfer.png"><img src="images/cookie_transfer.png"></a>
+      </dl>
+  </section>
+  <section><h3>Cookie format</h3>
+      <dl class="fa">
+          <dt>A Cookie is a string containing a semicolon-separated list of all cookies (i.e. key=value pairs)</dt>
+          <dt>A Cookie can have optional attributes:</dt>
+          <dd><span class="note">;path=path</span> − The path to the directory or web page that set the cookie (e.g., '/', '/mydir') . If not specified, defaults to the current path of the current document location.</dd>
+          <dd><span class="note">;domain=domain</span> −  (e.g., 'example.com' or 'subdomain.example.com'). If not specified, this defaults to the host portion of the current document location.</dd>
+          <dd><span class="note">;expires=date-in-GMTString-format</span> − defines a specific date and time for when the browser should delete the cookie. If neither expires nor max-age specified it will expire at the end of session.</dd>
+            <dd><span class="note">;secure</span> − the cookie will only be transmitted over secure protocol as <b>https</b>.</dd>
+            <dt>Reference:</dt>
+            <dd><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie">Document​.cookie @mdn</a></dd>
+            <dd><a href="https://en.wikipedia.org/wiki/HTTP_cookie">HTTP cookie @wikipedia</a></dd>
+      </dl>
+  </section>
+  <section><h3>Setting cookies with JS</h3>
+      <dl class="fa">
+          <dt>All cookies are stored in a <code>document.cookie</code> string</dt>
+      </dl>
+      <pre><code rel="JS" class="js" data-copy>
+          function setCookie(name, value){
+            // to set Expire Time 1 minute after current time:
+            let now = new Date();
+            now.setMinutes( now.getMinutes() + 1 );
+
+            // set a cooke:
+            document.cookie = `${name}=${value}; Expires=${now.toGMTString()}; Path=/`
+          }
+          setCookie(color, '#FF0000');
+      </code></pre>
+  </section>
+  <section><h3>Read a cookie value with vanilla JS</h3>
+      <pre><code rel="JS" class="js" style="min-height: 80vh;" data-copy>
+          function readCookie(name){
+            // get all cookies
+            let cookies = document.cookie;
+
+            // check if we have ${name} cookie set, and get its value (note the use of lookahed):
+            // see regex explained here: https://regex101.com/r/0pOjkH/7
+            let pattern = `${name}=(.+?)(?:;|$)`;
+            let re = new RegExp(pattern,'i');
+
+            let match = cookies.match(re);
+            if(match){
+              return match[1]; // return the 1st capture group, i.e. the cookie value
+            }else{
+              return false;
+            }
+          }
+
+          let color = readCookie('color');
+      </code></pre>
+  </section>
+</section>
+
+<section data-min="520" class="main-sesction-title"><h1>Session and Local Storage</h1></section>
+<section class="sub-sections"><h2>Session and Local Storage</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>Modern browsers provide the ability to <span class="note">save key/value pairs in the browser</span>, trough objects accessible as window properties.</dt>
+            <dt>The standard defines <code>window.sessionStorage</code> and <code>window.localStorage</code> read-only properties which stores the respective objects</dt>
+            <dt>Unlike cookies, web storage objects are not sent to server with each request. We work with these objects only with JavaScript by methods to read/write/delete data</dt>
+            <dt>The storage data is bound to the (domain/protocol/port) triplet. And that can not be changed with JS.</dt>
+            <dd> That is, different protocols or subdomains infer different storage objects, they can’t access data from each other.</dd>
+            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage">Storage interface of the Web Storage API</a></dt>
+            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage">sessionStorage @mdn</a></dt>
+            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">localStorage @mdn</a></dt>
+        </dl>
+    </section>
+    <section><h3>Storage methods and properties</h3>
+        <p>Both localStorage and sessionStorage objects provide same methods and properties:</p>
+        <dl class="fa">
+            <dt><span class="note">setItem(key, value)</span>  – store key/value pair.</dt>
+            <dt><span class="note">getItem(key)</span>  – get the value by key.</dt>
+            <dt><span class="note">removeItem(key)</span>  – remove the key with its value.</dt>
+            <dt><span class="note">clear()</span> – delete everything.</dt>
+            <dt><span class="note">key(index)</span>  – get the key on a given position.</dt>
+            <dt><span class="note">length</span> – the number of stored items.</dt>
+        </dl>
+    </section>
+    <section><h3>Examples - read/write/delete</h3>
+        <pre><code rel="JS" class="js" style="min-height: 60vh;" data-copy>
+            storage = window.localStorage
+
+            // set data
+            storage.setItem('userName','Ada')
+
+            // get item by getItem() method:
+            userName=storage.getItem('userName')
+
+            // get item as property (if key name is a valid JS identifier):
+            userName = storage.userName;
+
+            // remove value by key :
+            localStorage.removeItem(userName);
+        </code></pre>
+    </section>
+    <section><h3>Example - get all key/value pairs</h3>
+        <pre><code rel="JS" class="js">
+            for(let i=0; i&lt;localStorage.length; i++) {
+                let key = localStorage.key(i);
+                console.log(`${key}: ${localStorage.getItem(key)}`);
+            }
+        </code></pre>
+    </section>
+    <section><h3>localStorage vs sessionStorage</h3>
+        <dl class="fa">
+            <dt>The main features of localStorage are:</dt>
+            <dd>Shared between all tabs and windows from the same origin.</dd>
+            <dd>The data does not expire. It remains after the browser restart and even OS reboot.</dd>
+            <dt>The sessionStorage exists only within the current browser tab.</dt>
+            <dd>Each browser tab with the same page have it's own sessionStorage.</dd>
+            <dd>The data survives page refresh, but not closing/opening the tab.</dd>
+        </dl>
+    </section>
+</section>
+
+
+<section data-min="1" id="hw"><h1>Exercises</h1></section>
+<section class="sub-sections"><h2>Task1 - Store user colour preferences</h2>
+  <section id="TaskStoreUserColourPreferences">
+    <dl class="fa">
+      <dt>Given is next hmtl code:</dt>
+    </dl>
+    <pre><code rel="HTML" class="html">
+      <div class="bgChoice">
+        <h2>Choose background color:</h2>
+        <select>
+          <option value="#FF0000">red</option>
+          <option value="#00FF00">green</option>
+          <option value="#0000FF">blue</option>
+        </select>
+        <button>Set BG</button>
+      </div>
+    </code></pre>
+        <dl class="fa">
+      <dt>You have to store the color selected by the user, so that next time when she enters the site, her chosen colour would be set as page background colour.</dt>
+      <dd>Implement the task with cookies</dd>
+      <!-- <dd>Implement the task with Session Storage</dd> -->
+      <dd>Implement the task with Local Storage</dd>
+    </dl>
+  </section>
+</section>
+<section class="sub-sections"><h2>Task2 - TodoApp with client-side storage</h2>
+    <dl class="fa">
+        <dt>Implement your todoApp project with ability to save todos data on browser</dt>
+        <dt>The only requirement is the data to be accessible after the user close browser window</dt>
+    </dl>
+</section>
+
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are based on</p>
+     <p>customized version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="../../../outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="../../../lib/reveal.js/dist/reveal.js"></script>
+    <script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+    <script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+    <script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        // var highlightjsTabSize = '  ';
+        Reveal.initialize({
+
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1920,
+            height: 1080,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mousе click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+
+            plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+        });
+    </script>
+</body>
+</html>
