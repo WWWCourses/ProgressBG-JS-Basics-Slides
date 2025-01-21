@@ -101,25 +101,27 @@
         <dl class="fa">
             <dt>With spread syntax in array literal we can create a new array using an existing array.</dt>
             <dt>Or concatenate two or more arrays</dt>
-        </dl>
-        <pre><code rel="Syntax: array literals">
-            [...iterableObj, 4, 5, 6];
-        </code></pre>
-        <pre><code rel="Example: array literals" class="js">
-            let arr = [1,2,3];
-            let str = 'abc';
+            <pre><code rel="Syntax: array literals">
+                [...iterableObj, 4, 5, 6];
+            </code></pre>
+            <pre><code rel="Example: array literals" class="js">
+                let arr = [1,2,3];
+                let str = 'abc';
 
-            console.log( [...arr, 9] );       // [1, 2, 3, 9]
-            console.log( [9, ...arr] );       // [9, 1, 2, 3]
-            console.log( [...arr, ...str] );   // [1, 2, 3, "a", "b", "c"]
-        </code></pre>
+                console.log( [...arr, 9] );       // [1, 2, 3, 9]
+                console.log( [9, ...arr] );       // [9, 1, 2, 3]
+                console.log( [...arr, ...str] );   // [1, 2, 3, "a", "b", "c"]
+            </code></pre>
+            <dt>Note that the spread operator <span class="note">does not modify the original array</span> (i.e., it is an <b>immutable operation</b>), unlike array methods like
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push">push</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift">unshift</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice">splice</a>, which mutate the original array.</dt>
+        </dl>
     </section>
 </section>
 <section><h2>The rest (<code>...</code>) operator</h2>
     <section>
         <dl class="fa">
-            <dt>The last parameter of a function prefixed with " ... " is called as <span class="note">a rest parameter</span>. It collects all remaining arguments and 'condenses' them into a single array element </dt>
-            <dt>We can use it to replaces the <code>arguments</code> object. The difference is that the <code>...rest</code> parameter is an array type</dt>
+            <dt>The last parameter of a function prefixed with " ... " is called as <span class="note">a rest parameter</span>. It collects all remaining arguments and 'condenses' them into a <span class="note">single array</span> parameter.</dt>
+            <dt>We can use it to replaces the <code>arguments</code> object.</dt>
             <dt>The <span class="note">rest</span> parameter must be provided <span class="note">after</span> the positional parameters.</dt>
             <pre><code rel="JS" class="javascript">
                 function foo(a, b, ...args){
@@ -132,6 +134,70 @@
                     console.log(args);
                 }
                 // SyntaxError: Rest parameter must be last formal parameter
+            </code></pre>
+        </dl>
+    </section>
+</section>
+<section><h2>The rest (<code>...</code>) operator use cases and differences with <code>arguments</code></h2>
+    <section><h3>Rest operator works with arrow functions:</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><code>arguments</code> is unavailable in arrow functions, but the rest operator can be used.</dt>
+            <dt>Example:</dt>
+            <pre><code rel="JS" class="js" style="min-height: 40vh;" data-copy>
+                const demoArrow = (...args) => {
+                    let sum = 0;
+                    for (const num of args) {
+                        sum += num;
+                    }
+                    return sum;
+                };
+                console.log(demoArrow(1, 2, 3, 4)); // 10
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3><code>arguments</code> is not an array:</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The <code>arguments</code> object is <b>array-like</b> but lacks array methods (e.g., .map, .reduce).</dt>
+            <dt>The rest operator directly creates a true array, allowing you to use array methods.</dt>
+            <dt>Example:</dt>
+            <pre><code rel="JS" class="js" style="min-height: 40vh;" data-copy>
+                function demoArguments() {
+                  console.log(arguments.map); // undefined (not a true array)
+                }
+                demoArguments(1, 2, 3);
+
+                function demoRest(...args) {
+                  console.log(args.map(x =&gt; x * 2)); // [2, 4, 6]
+                }
+                demoRest(1, 2, 3);
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Explicitness:</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The rest operator explicitly defines the parameters being collected, making the function easier to understand.</dt>
+            <dt>Example:</dt>
+            <pre><code rel="JS" class="js" style="min-height: 40vh;" data-copy>
+                function sum(...numbers) {
+                    let sum = 0;
+                    for (const num of numbers) {
+                        sum += num;
+                    }
+                    return sum;
+                }
+                console.log(sum(1, 2, 3)); // 6
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Skipping arguments:</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>rest operator can ignore some parameters and collect the rest.</dt>
+            <dt>Example:</dt>
+            <pre><code rel="JS" class="js" style="min-height: 40vh;" data-copy>
+                function demo(a, b, ...rest) {
+                  console.log(rest); // Collects all arguments after the first two
+                }
+                demo(1, 2, 3, 4); // [3, 4]
             </code></pre>
         </dl>
     </section>
@@ -373,7 +439,7 @@
             console.dir(p1);
         </code></pre>
     </section>
-    <section><h3>Static methods and properties</h3>
+    <section><h3 class="advanced">Static methods and properties</h3>
         <dl class="fa">
             <dt>We can define a static method for a class, using the keyword <span class="note">static</span> inside the class body</dt>
             <dt> Static methods aren't called on instances of the class. Instead, they're called on the class itself</dt>
