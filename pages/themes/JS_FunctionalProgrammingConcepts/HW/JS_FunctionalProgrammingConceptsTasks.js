@@ -2,8 +2,10 @@
 /*                                    TASK1                                   */
 /* -------------------------------------------------------------------------- */
 // Given is the next Douglas Adams quote:
-// "A common mistake that people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools."
-// Write Arrow function: filterWordsStartingWithLetter(sentence, letter) that
+// "A common mistake that people make when trying to design something
+// completely foolproof is to underestimate the ingenuity of complete fools."
+//
+// Write Arrow function: filterWordsStartingWithLetter(sentence, letter), that
 // filters words starting with a specific letter and returns them as array.
 //
 // Hint: split the string into array of words separated by spaces.
@@ -26,7 +28,7 @@ console.log(filteredWords);
 /*                                    TASK2                                   */
 /* -------------------------------------------------------------------------- */
 // Given is an array of numbers.
-// Write Arrow function sumOfSquaredEvens() which will return the sum of the
+// Write Arrow function: sumOfSquaredEvens(), which will return the sum of the
 // squared even numbers.
 // Use only map|filter|reduce methods.
 
@@ -47,7 +49,7 @@ console.log(sumOfSquaredEvens(arr));
 /*                                    TASK3                                   */
 /* -------------------------------------------------------------------------- */
 // Given is an array of city objects: cities.
-// Write Arrow function findMinPopulationCityNamecode(cities), which will return
+// Write Arrow function: findMinPopulationCityNamecode(cities), which will return
 // the city name with minimum population.
 // Use only map|filter|reduce and Math.min() methods
 
@@ -74,7 +76,7 @@ console.log( minCityName );
 /*                                    TASK4                                   */
 /* -------------------------------------------------------------------------- */
 // Given is an array of Todo objects.
-// Write function invertTodoCompleted(todos, todoID), which inverts the
+// Write Arrow function: invertTodoCompleted(todos, todoID), which inverts the
 // 'completed' value of the todo item with the given 'todoID' and returns
 // a new array of objects.
 // Make sure not to modify the original array.
@@ -119,9 +121,8 @@ console.log('Updated todos: ', updatedTodos);
 /*                                    TASK5                                   */
 /* -------------------------------------------------------------------------- */
 // Given is an array of products objects.
-// Implement calcTotalPriceByCategory(products, category) Arrow function,
-// so that it will return the price sum of all products matching
-// the given catgory.
+// Write Arrow function: calcTotalPriceByCategory(products, category), which
+// returns the price sum of all products matching the given catgory.
 // Use only map|filter|reduce methods.
 
 
@@ -167,8 +168,8 @@ console.log(totalPriceByCategory);
 /*                                    TASK6                                   */
 /* -------------------------------------------------------------------------- */
 // Given is an array of library books objects.
-// Write sortBooksByIdAndAuthor(books) Arrow function,
-// so that it will return a new array with books sorted:
+// Write Arrow function: sortBooksByIdAndAuthor(books), which returns
+// a new array with books sorted:
 // 1. By their id in ascending order.
 // 2. For books with the same id, by the title's name in alphabetical order.
 
