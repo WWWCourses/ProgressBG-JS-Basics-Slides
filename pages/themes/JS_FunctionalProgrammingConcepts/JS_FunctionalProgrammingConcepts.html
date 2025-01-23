@@ -87,14 +87,14 @@
         </code></pre>
         <dl class="fa">
             <dt>callbackFn can be defined with arrow or with classic syntax</dt>
-            <dt>callbackFn is called for every element of arr. Each time callbackFn executes it's returned value is added to newArray</dt>
+            <dt>callbackFn is called for each element of the array. The value returned by callbackFn for each element is added to a new array, which is then returned</dt>
             <dt>The callbackFn function accepts the following arguments:</dt>
             <dd><span class="note">element</span>: The current element being processed in the array.</dd>
             <dd><span class="note">index</span>: <i>Optional</i>. The index of the current element being processed in the array.</dd>
             <dd><span class="note">array</span>: <i>Optional</i>The array map was called upon.</dd>
             <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">map @mdn</a></dt>
         </dl>
-        <pre><code rel="JS" class="js">
+        <pre><code rel="JS" class="js" style="min-height: 40vh;" data-copy>
             let input = ['a', 'b', 'c'];
 
             let output = input.map((e,i,arr)=>{console.log(e, i, arr)})
@@ -131,7 +131,7 @@
         </code></pre>
     </section>
     <section><h3>Example - using array index in callbackFn</h3>
-        <pre><code rel="JS" class="js">
+        <pre><code rel="JS" class="js" style="min-height: 40vh;" data-copy>
             let input = ['a', 'b', 'c'];
 
             let output = input.map((e,i)=>e.toUpperCase()+i)
@@ -142,7 +142,7 @@
         </code></pre>
     </section>
     <section><h3>TASK_1:</h3>
-        <pre><code rel="JS" class="js">
+        <pre><code rel="JS" class="js" style="min-height: 70vh;" data-copy>
             // TASK: from 'cities' array generate a new array 'cityNames' which will contain only the names of the cities
             let cities = [
                         {name: 'Sofia', population: 1_236_000},
@@ -160,8 +160,27 @@
             // [ 'Sofia', 'Plovdiv', 'Burgas', 'Varna' ]
         </code></pre>
     </section>
+    <section><h3>TASK1 - Solution</h3>
+        <pre><code rel="JS" class="js" style="min-height: 70vh;" data-copy>
+            let cities = [
+                {name: 'Sofia', population: 1_236_000},
+                {name: 'Plovdiv', population: 343_424 },
+                {name: 'Burgas', population: 202_766},
+                {name: 'Varna', population: 335_177},
+            ];
+
+            // YOUR CODE HERE:
+            const cityNames = cities.map(city=>city.name);
+
+            // TEST:
+            console.log(cityNames);
+
+            // OUTPUT:
+            // [ 'Sofia', 'Plovdiv', 'Burgas', 'Varna' ]
+        </code></pre>
+    </section>
     <section><h3>TASK_2</h3>
-        <pre><code rel="JS" class="js">
+        <pre><code rel="JS" class="js" style="min-height: 99vh;" data-copy>
             // TASK: from 'cities' array generate a new array 'bgCityNames' which will contain only the names
             // of the cities, but mapped to their Bulgarian equivalent
 
@@ -186,32 +205,16 @@
 
             // EXPECTED OUTPUT:
             // [ 'София', 'Пловдив', 'Бургас', 'Варна' ]
-
-
         </code></pre>
     </section>
-</section>
-<section><h2>filter()</h2>
-    <section><h3>Overview</h3>
-        <dl class="fa">
-            <dt>The <code>filter()</code> method creates <span class="note">a new array</span> with all elements that <span class="note">pass the test implemented by the provided function</span>.</dt>
-            <dt>I.e. the resulting array will contain only the input elements, for each the <span class="note">provided function</span> will return <code><strong>true</strong></code> value.</dt>
-            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter @mdn</a></dt>
-        </dl>
-        <a href="images/filter.png"><img src="images/filter.png"></a>
-    </section>
-    <section><h3>Example</h3>
-        <pre><code rel="JS" class="js">
-            let input = [0,1,2,3,4];
-            let output = input.filter( x=>x%2);
-
-            console.log(`input: ${input}`);
-            console.log(`output: ${output}`);
-        </code></pre>
-    </section>
-    <section><h3>Task</h3>
-        <pre><code rel="JS" class="js">
-            // TASK: filter only cities which population is greater than 340_000
+    <section><h3>TASK2 -Solution</h3>
+        <pre><code rel="JS" class="js" style="min-height: 99vh;" data-copy>
+            let dict = {
+                'Sofia' : 'София',
+                'Plovdiv' : 'Пловдив',
+                'Burgas' : 'Бургас',
+                'Varna' : 'Варна'
+            }
             let cities = [
                         {name: 'Sofia', population: 1_236_000},
                         {name: 'Plovdiv', population: 343_424 },
@@ -220,11 +223,74 @@
             ];
 
             // YOUR CODE HERE:
+            const bgCityNames = cities.map(city=>dict[city.name])
 
             // TEST:
-            console.log(filtered);
+            console.log(bgCityNames);
+
+            // OUTPUT:
+            // [ 'София', 'Пловдив', 'Бургас', 'Варна' ]
+        </code></pre>
+    </section>
+</section>
+<section><h2>filter()</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>The <code>filter()</code> method creates a <span class="note">new array</span> containing only the elements from the original array that meet a specific condition.</dt>
+            <dt>This condition is defined by a callback function you provide</dt>
+            <dt>The function is called for each element, and if it returns true, that element is included in the new array. If it returns false, the element is excluded.</dt>
+            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter @mdn</a></dt>
+        </dl>
+        <a href="images/filter.png"><img src="images/filter.png"></a>
+    </section>
+    <section><h3>Example</h3>
+        <pre><code rel="JS" class="js" style="min-height: 40vh;" data-copy>
+            const input = [0,1,2,3,4];
+            const output = input.filter( x=>x%2===0);
+
+            console.log(`input: ${input}`);
+            console.log(`output: ${output}`);
+        </code></pre>
+    </section>
+    <section><h3>TASK1</h3>
+        <pre><code rel="JS" class="js" style="min-height: 80vh;" data-copy>
+            // TASK: filter only cities which population is greater than 340_000
+            const cities = [
+                {name: 'Sofia', population: 1_236_000},
+                {name: 'Plovdiv', population: 343_424 },
+                {name: 'Burgas', population: 202_766},
+                {name: 'Varna', population: 335_177},
+            ];
+
+            // YOUR CODE HERE:
+
+
+            // TEST:
+            console.log(populatedCities);
 
             // EXPECTED OUTPUT:
+            // [
+            // 	{ name: 'Sofia', population: 1236000 },
+            // 	{ name: 'Plovdiv', population: 343424 }
+            // ]
+        </code></pre>
+    </section>
+    <section><h3>TASK1 - Solution</h3>
+        <pre><code rel="JS" class="js" style="min-height: 80vh;" data-copy>
+            const cities = [
+                {name: 'Sofia', population: 1_236_000},
+                {name: 'Plovdiv', population: 343_424 },
+                {name: 'Burgas', population: 202_766},
+                {name: 'Varna', population: 335_177},
+            ];
+
+            // YOUR CODE HERE:
+            const populatedCities = cities.filter(city=>city.population>340_000)
+
+            // TEST:
+            console.log(populatedCities);
+
+            // OUTPUT:
             // [
             // 	{ name: 'Sofia', population: 1236000 },
             // 	{ name: 'Plovdiv', population: 343424 }
@@ -235,11 +301,11 @@
 <section><h2>reduce()</h2>
 	<section><h3>Overview</h3>
 		<dl class="fa">
-			<dt>The <code>reduce()</code> method executes the provided reducer function on each element of the array, resulting in a <span class="note">single output value</span>.</dt>
+			<dt>The <code>reduce()</code> method executes the provided callback function on each element of the array to reduce the array to a  <span class="note">single output value</span>.</dt>
 			<dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">reduce @mdn</a></dt>
 		</dl>
 		<pre><code rel="Syntax" class="js">
-			let value = arr.reduce(callbackFn)
+			let value = arr.reduce(callbackFn, [initialValue])
 		</code></pre>
 		<a href="images/reduce.png"><img src="images/reduce.png" style="height: 40vh; display: inline-block; margin-left: 0;"></a>
 		<pre style="display: inline-block; width: 50vw; margin: 0 0 0 2em;"><code rel="JS" class="js" style="height: 39vh; width: 50vw; margin: 0;">
@@ -259,16 +325,18 @@
 			// output: 10
 		</code></pre>
 	</section>
-	<section><h3>A note for <code>acc</code> initial value</h3>
+	<section><h3>How it works?</h3>
 		<pre><code rel="Syntax" class="js">
-			let value = arr.reduce( (acc, curr)=>{...}, initialValue );
+			let value = arr.reduce( (accumulator, current)=>{...}, [initialValue] );
 		</code></pre>
 		<dl class="fa">
-			<dt><span class="note">initialValue</span>: <i>Optional</i>. A value to which <code>acc</code> is initialized the first time the callback is called.</dt>
-			<dt>If initialValue is specified, that also causes <code>curr</code> to be initialized to the first value in the array.</dt>
-			<dt>If initialValue is not specified, <code>acc</code> is initialized to the first value in the array, and <code>curr</code> is initialized to the second value in the array.</dt>
+            <dt><code>(accumulator, current) => { ... }</code>: The callback function applied to each element.
+            <dd><b>accumulator</b>: This is the accumulated value returned from the previous iteration.</dd>
+            <dd><b>current</b>: This is the current element being processed in the array.</dd>
+			<dt><b>initialValue</b>: <i>Optional</i>. A value (can be any type) to which <code>accumulator</code> is initialized the first time the callback is called.</dt>
+			<dd>If initialValue is not specified, <code>accumulator</code> is initialized to the first value in the array, and <code>current</code> is initialized to the second value in the array.</dd>
 		</dl>
-		<pre><code rel="JS" class="js">
+		<pre><code rel="JS" class="js" style="min-height: 40vh;" data-copy>
 			let input = [1,2,3,4];
 
 			let output = input.reduce( (acc, curr)=> {
@@ -289,7 +357,7 @@
 		<dl class="fa">
 			<dt>Using reduce() only - difficult to read and write.</dt>
 		</dl>
-		<pre><code rel="JS" class="js">
+		<pre><code rel="JS" class="js" style="min-height: 40vh;" data-copy>
 			let input = [1,2,3,4];
 
 			let output = input.reduce( (acc, curr)=> curr%2==0?acc+curr:acc, 0);
@@ -299,7 +367,7 @@
 		<dl class="fa">
 			<dt>Using filter().reduce() - <span class="note">better approach</span>:</dt>
 		</dl>
-		<pre><code rel="JS" class="js">
+		<pre><code rel="JS" class="js" style="min-height: 40vh;" data-copy>
 			let input = [1,2,3,4];
 
 			let output = input.filter(el=>el%2==0).reduce((acc,curr)=>acc+curr)
@@ -310,9 +378,8 @@
 </section>
 
 
-
 <section class="main-section-title"><h1>forEach Array method</h1></section>
-<section class="sub-sections"><h2>forEach Array method</h2>
+<section class="sub-sections"><h2>forEach()</h2>
     <section><h3>Overview</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>The forEach method in JavaScript is used to execute a provided function once for each element in an array.</dt>
@@ -330,10 +397,10 @@
         </dl>
     </section>
     <section><h3>Example</h3>
-        <pre><code rel="JS" class="js">
+        <pre><code rel="JS" class="js" style="min-height: 40vh;" data-copy>
             const numbers = [1, 2, 3, 4, 5];
 
-            // Using forEach to log each number
+            // Using forEach to log each number and its index:
             numbers.forEach(function(number, index) {
                 console.log(`Index ${index}: ${number}`);
             });
@@ -344,74 +411,302 @@
             });
         </code></pre>
     </section>
+    <section><h3>TASK1</h3>
+        <pre><code rel="JS" class="js" style="min-height: 80vh;" data-copy>
+            //TASK: calculate the total sales from an array of sales objects using the forEach method
 
+            // GIVEN
+            const sales = [
+                { product: 'Laptop', amount: 1000 },
+                { product: 'Phone', amount: 500 },
+                { product: 'Tablet', amount: 300 }
+            ];
+
+            // YOUR CODE HERE
+
+
+            // TEST
+            console.log(totalSales);
+
+            // EXPECTED OUTPUT:
+            // 1800
+        </code></pre>
+    </section>
+    <section><h3>TASK1 - Solution</h3>
+        <pre><code rel="JS" class="js" style="min-height: 80vh;" data-copy>
+            //TASK: calculate the total sales from an array of sales objects using the forEach method
+
+            // GIVEN
+            const sales = [
+                { product: 'Laptop', amount: 1000 },
+                { product: 'Phone', amount: 500 },
+                { product: 'Tablet', amount: 300 }
+            ];
+
+            // YOUR CODE HERE
+            let totalSales = 0;
+            sales.forEach(sale => totalSales += sale.amount);
+
+            // TEST
+            console.log(totalSales);
+
+            // OUTPUT:
+            // 1800
+        </code></pre>
+    </section>
+    <section><h3>TASK2</h3>
+        <pre><code rel="JS" class="js" style="min-height: 100vh;" data-copy>
+            //TASK: You are given an array of user objects.
+            //Add an isAdmin property to each user object based on the user's role within the array of user objects.
+
+            // GIVEN
+            const users = [
+                { name: 'Maria', role: 'user' },
+                { name: 'Ivan', role: 'admin' },
+                { name: 'Stoyan', role: 'user' }
+            ];
+
+            // YOUR CODE HERE
+
+
+            // TEST
+            console.log(users);
+
+            // EXPECTED OUTPUT:
+            // [
+            //     { name: 'Maria', role: 'user', isAdmin: false },
+            //     { name: 'Ivan', role: 'admin', isAdmin: true },
+            //     { name: 'Stoyan', role: 'user', isAdmin: false }
+            // ]
+        </code></pre>
+    </section>
+    <section><h3>TASK2 - Solution</h3>
+        <pre><code rel="JS" class="js" style="min-height: 100vh;" data-copy>
+            //TASK: You are given an array of user objects.
+            //Add an isAdmin property to each user object based on the user's role within the array of user objects.
+
+            // GIVEN
+            const users = [
+                { name: 'Maria', role: 'user' },
+                { name: 'Ivan', role: 'admin' },
+                { name: 'Stoyan', role: 'user' }
+            ];
+
+            // YOUR CODE HERE
+            users.forEach(user => {
+                user.isAdmin = user.role === 'admin';
+            });
+
+            // TEST
+            console.log(users);
+
+            // EXPECTED OUTPUT:
+            // [
+            //     { name: 'Maria', role: 'user', isAdmin: false },
+            //     { name: 'Ivan', role: 'admin', isAdmin: true },
+            //     { name: 'Stoyan', role: 'user', isAdmin: false }
+            // ]
+        </code></pre>
+    </section>
 </section>
 
-<section data-min="1" id='hw'><h1>Exercises</h1></section>
-<section><h2>Task: filterWordsStartingWithLetter</h2>
-	<section id="filterWordsStartingWithLetter"><h3>description</h3>
-		<dl class="fa">
-			<dt>Given is the next Douglas Adams quote: <blockquote>A common mistake that people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.</blockquote> </dt>
-			<dt>Make a program, which will write in the console <span class="note">only </span> the words that starts with letter 't' and are longer than 2 symbols</dt>
-		</dl>
-		<pre><code rel="expected output" class="js">
-			that
-			trying
-			the
-		</code></pre>
-		<dl class="fa">
-			<dt><span class="note">Hint:</span> to split a string into array of words you can use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split">String.prototype.split()</a> method</dt>
-		</dl>
-	</section>
+
+<section class="main-section-title"><h1>find Array method</h1></section>
+<section class="sub-sections"><h2>find()</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>The <code>find()</code> method returns the <span class="note">first element</span> in the array that satisfies the condition specified by the provided callback function.
+            <pre><code rel="Syntax" class="bash">
+                arr.find(callbackFn)
+            </code></pre>
+            </dt>
+
+            <dt>The callback function is called for each element in the array.The method stops when it finds the first match which is returned. If no element satisfies the condition, it returns <code>undefined</code>.</dt>
+            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find">find @mdn</a></dt>
+        </dl>
+    </section>
+    <section><h3>Example</h3>
+        <pre><code rel="JS" class="js" style="min-height: 40vh;" data-copy>
+            const input = [1, 2, 3, 4, 5];
+            const output = input.find(x => x > 3);
+
+            console.log(`input: ${input}`);
+
+            //output: 4
+        </code></pre>
+    </section>
+    <section><h3>TASK1</h3>
+        <pre><code rel="JS" class="js" style="min-height: 80vh;" data-copy>
+            // TASK: Find the first city with a population greater than 500,000
+            const cities = [
+                {name: 'Sofia', population: 1_236_000},
+                {name: 'Plovdiv', population: 343_424},
+                {name: 'Burgas', population: 202_766},
+                {name: 'Varna', population: 335_177},
+            ];
+
+            // YOUR CODE HERE:
+
+
+            // TEST:
+            console.log(firstLargeCity);
+
+            // EXPECTED OUTPUT:
+            // { name: 'Sofia', population: 1236000 }
+        </code></pre>
+    </section>
+    <section><h3>TASK1 - Solution</h3>
+        <pre><code rel="JS" class="js" style="min-height: 80vh;" data-copy>
+            const cities = [
+                {name: 'Sofia', population: 1_236_000},
+                {name: 'Plovdiv', population: 343_424},
+                {name: 'Burgas', population: 202_766},
+                {name: 'Varna', population: 335_177},
+            ];
+
+            // YOUR CODE HERE:
+            const firstLargeCity = cities.find(city => city.population > 500_000);
+
+            // TEST:
+            console.log(firstLargeCity);
+
+            // OUTPUT:
+            // { name: 'Sofia', population: 1236000 }
+        </code></pre>
+    </section>
 </section>
-<section><h2>Task:  sumOfSquaresOfEvenNumbers</h2>
-	<section id="sumOfSquaresOfEvenNumbers"><h3>description</h3>
-		<dl class="fa">
-			<dt>Given is the next array of numbers: <code>[1,2,3,4,5,6,7,8,9,10]</code></dt>
-			<dt>Write a program which will output in the console the sum of the squares of even numbers</dt>
-		</dl>
-		<pre><code rel="expected output" class="js">
-			220
-		</code></pre>
-	</section>
+
+<section class="main-section-title"><h1>sort Array method</h1></section>
+<section class="sub-sections"><h2>sort Array method</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>The <code>sort()</code> method sorts the elements of an array <span class="note">in place</span> and returns the sorted array.</dt>
+            <dt>By default, the elements are sorted as strings in ascending order, comparing their Unicode code values.
+                <pre><code rel="Syntax" class="bash">
+                    arr.sort()
+                </code></pre>
+            </dt>
+            <dt>A custom sort order can be defined by providing a <span class="note">compare function</span>.
+                <pre><code rel="Syntax" class="bash">
+                    arr.sort(compareFn)
+                </code></pre>
+            </dt>
+            <dt>To sort an array without modifying the original, you can create a copy of the array using the spread operator [...] and then sort the copy.
+                <pre><code rel="Syntax" class="bash">
+                    [...arr].sort(compareFn)
+                </code></pre>
+            </dt>
+            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">sort @mdn</a></dt>
+        </dl>
+    </section>
+    <section><h3>How the Compare Function Works</h3>
+        <dl class="fa">
+            <dt>The compare function determines the order of elements in the array.</dt>
+            <dt>It takes two arguments, <code>a</code> and <code>b</code>, which represent two elements being compared.</dt>
+            <dt>The return value of the compare function dictates the sort order:</dt>
+            <dd>
+                <ul>
+                    <li>If <code>compare(a, b) &lt; 0</code>, <code>a</code> is placed before <code>b</code>.</li>
+                    <li>If <code>compare(a, b) &gt; 0</code>, <code>a</code> is placed after <code>b</code>.</li>
+                    <li>If <code>compare(a, b) === 0</code>, the order of <code>a</code> and <code>b</code> remains unchanged.</li>
+                </ul>
+            </dd>
+            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#description">compare function @mdn</a></dt>
+        </dl>
+    </section>
+    <section><h3>Example</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Note that, sort() without compareFn <span class="note">always</span> sorts as strings.
+                <pre><code rel="JS" class="js"  data-copy>
+                    const input = [13, 1, 4, 1, 15, 9];
+                    input.sort()
+                    console.log(input); // [ 1, 1, 13, 15, 4, 9 ]
+                </code></pre>
+            </dt>
+            <dt>If you want to sort the numbers as numbers, you must provide a compareFn
+                <pre><code rel="JS" class="js"  data-copy>
+                    const input = [13, 1, 4, 1, 15, 9];
+                    input.sort((a,b)=>a-b);
+                    console.log(input); // [ 1, 1, 4, 9, 13, 15 ]
+                </code></pre>
+            </dt>
+        </dl>
+
+    </section>
+    <section><h3>TASK1</h3>
+        <pre><code rel="JS" class="js" style="min-height: 80vh;" data-copy>
+            // TASK: Sort the cities array in descending order of population
+            const cities = [
+                {name: 'Sofia', population: 1_236_000},
+                {name: 'Plovdiv', population: 343_424},
+                {name: 'Burgas', population: 202_766},
+                {name: 'Varna', population: 335_177},
+            ];
+
+            // YOUR CODE HERE:
+
+
+            // TEST:
+            console.log(sortedCities);
+
+            // EXPECTED OUTPUT:
+            // [
+            //   { name: 'Sofia', population: 1236000 },
+            //   { name: 'Plovdiv', population: 343424 },
+            //   { name: 'Varna', population: 335177 },
+            //   { name: 'Burgas', population: 202766 }
+            // ]
+        </code></pre>
+    </section>
+    <section><h3>TASK1 - Solution</h3>
+        <pre><code rel="JS" class="js" style="min-height: 80vh;" data-copy>
+            const cities = [
+                {name: 'Sofia', population: 1_236_000},
+                {name: 'Plovdiv', population: 343_424},
+                {name: 'Burgas', population: 202_766},
+                {name: 'Varna', population: 335_177},
+            ];
+
+            // YOUR CODE HERE:
+            const sortedCities = cities.sort((a, b) => b.population - a.population);
+
+            // TEST:
+            console.log(sortedCities);
+
+            // OUTPUT:
+            // [
+            //   { name: 'Sofia', population: 1236000 },
+            //   { name: 'Plovdiv', population: 343424 },
+            //   { name: 'Varna', population: 335177 },
+            //   { name: 'Burgas', population: 202766 }
+            // ]
+        </code></pre>
+    </section>
 </section>
-<section><h2>Task: calcProductsPrices</h2>
-	<section id="calcProductsPrices">
+
+
+
+<section class="main-section-title" id='hw'><h1>HW Tasks</h1></section>
+<section><h2 class="sub-sections">Tasks: JS_FunctionalProgrammingConceptsTasks.js</h2>
+	<section id="hw_tasks"><h3>Tasks: JS_FunctionalProgrammingConceptsTasks.js</h3>
 		<dl class="fa">
 			<br>
-			<dt>The task is given in next template file. You can view the  raw code by clicking on "view raw" in bottom-right corner</dt>
+			<dt>The tasks are given in next template file. You can view the  raw code by clicking on "view raw" in bottom-right corner</dt>
 		</dl>
 		<br><br>
-		<script src="https://gist.github.com/WWWCourses/5e9d7d4c7d27587261ded8018a562d43.js"></script>
+		<script src="https://gist.github.com/WWWCourses/9128ca4cc9ba1e4a7f1e327037c293b6.js"></script>
 	</section>
 </section>
-<section><h2>Task: mapArrayOfObjects</h2>
-	<section id="mapArrayOfObjects">
-		<dl class="fa">
-			<br>
-			<dt>The task is given in next template file. You can view the  raw code by clicking on "view raw" in bottom-right corner</dt>
-		</dl>
-		<script src="https://gist.github.com/WWWCourses/9fae7212defb4d27ec5e9f26957ef5f2.js"></script>
-	</section>
-</section>
-<section><h2>Task: getCityNameWithMinimalPopulation</h2>
-	<section id="getCityNameWithMinimalPopulation">
-		<dl class="fa">
-			<br>
-			<dt>The task is given in next template file. You can view the  raw code by clicking on "view raw" in bottom-right corner</dt>
-		</dl>
-		<br><br>
-		<script src="https://gist.github.com/WWWCourses/5a9da27f43f61bdadf1ff672b90a1af5.js"></script>
-	</section>
-</section>
-<section><h2>Task: analyze groupProductsByCategory</h2>
-	<section id="analyseGroupProductsByCategory">
-		<dl class="fa">
-			<dt>Analyze next approaches used to group products by category.</dt>
-			<dt>Make sure you understand all of them.</dt>
-		</dl>
-		<script src="https://gist.github.com/WWWCourses/acbda006475936a6904c0a35bb369666.js"></script>
-	</section>
+
+<section><h1 class="advanced main-section-title">Advanced Task: analyze groupProductsByCategory.js</h1></section>
+<section><h2 class="advanced sub-sections">Advanced Task: analyze groupProductsByCategory.js</h2>
+    <section id="analyseGroupProductsByCategory"><h3 class="advanced">Advanced Task: analyze groupProductsByCategory.js</h3>
+        <dl class="fa">
+            <dt>Analyze next approaches used to group products by category.</dt>
+            <dt>Make sure you understand all of them.</dt>
+        </dl>
+        <script src="https://gist.github.com/WWWCourses/acbda006475936a6904c0a35bb369666.js"></script>
+    </section>
 </section>
 
 
