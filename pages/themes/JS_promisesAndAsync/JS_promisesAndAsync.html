@@ -521,6 +521,67 @@
             renderData();
         </code></pre>
     </section>
+    <section><h3>Example: Sequential Async Execution</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>This example demonstrates sequential execution of asynchronous functions using async/await, where each function call waits for the previous one to complete before proceeding. It calculates the sum of two squared values.</dt>
+            <pre><code rel="JS" class="js" style="min-height: 90vh;" data-copy>
+                async function square(x) {
+                    console.log(`async square is executed`);
+                    return x**2
+                }
+
+                async function add(x) {
+                    console.log(`calc sum1`);
+                    sum1 = await square(3)
+
+                    console.log(`calc sum2`);
+                    sum2 = await square(3)
+
+                    console.log(`Total sum: ${sum1+sum2}`);
+
+                }
+
+                function print(msg) {
+                    console.log(msg);
+                }
+
+                console.log(`1`);
+                add(3)
+                console.log(`2`);
+
+                /* ------------------------------ more insights ----------------------------- */
+                // square(3).then(print)
+
+                // square(3).then(n=>console.log(`n:${n}`))
+
+                // console.log(square(3));
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Example: Async Await with Simulated Delay</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>In this example, the square function simulates an asynchronous operation using a Promise with a setTimeout. The calculate function awaits the result of two consecutive square calls, demonstrating how async/await can handle asynchronous code with delays, while the console logs "Start" and "End" without waiting for the square function to finish.</dt>
+            <pre><code rel="JS" class="js" style="min-height: 80vh;" data-copy>
+                async function square(x) {
+                    return new Promise(resolve => {
+                        setTimeout(() => {
+                            resolve(x ** 2);
+                        }, 1000); // Simulate a delay (1 second)
+                    });
+                }
+
+                async function calculate() {
+                    const sum1 = await square(3); // Waits for the result of square(3)
+                    const sum2 = await square(3); // Waits for the result of square(3)
+                    console.log(`Total sum: ${sum1 + sum2}`);
+                }
+
+                console.log(`Start`);
+                calculate();
+                console.log(`End`);
+            </code></pre>
+        </dl>
+    </section>
 
 </section>
 
