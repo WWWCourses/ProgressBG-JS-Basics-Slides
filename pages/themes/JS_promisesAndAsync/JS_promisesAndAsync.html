@@ -470,8 +470,8 @@
     <section><h3>Overview</h3>
         <dl class="fa">
             <dt>Async/await is a syntactic feature that allows writing asynchronous code in a more synchronous manner. It's built on top of Promises.</dt>
-            <dt>An async function always returns a Promise.</dt>
-            <dt> The await keyword can be used inside async functions to pause the execution until the Promise is resolved.</dt>
+            <dt>An async function always returns a Promise, regardless of whether you explicitly return a value or not. If you return a value, the Promise will resolve with that value; if an error is thrown, the Promise will reject with that error.</dt>
+            <dt>The await keyword can be used inside async functions to pause the execution until the Promise is resolved.</dt>
         </dl>
         <pre><code rel="JS" class="js">
             let getDataPromise = new Promise((resolve, reject) => {
@@ -494,7 +494,7 @@
         </code></pre>
     </section>
     <section><h3>Async/Await API vs Promise API</h3>
-        <pre><code rel="JS" class="js">
+        <pre><code rel="JS" class="js" style="min-height: 80vh;" data-copy>
             let getDataPromise = new Promise((resolve, reject) => {
                 setTimeout(() => {
                     // resolve('Some data');
@@ -521,6 +521,7 @@
             renderData();
         </code></pre>
     </section>
+
 </section>
 
 <section data-min="5" class="main-sesction-title"><h1>References</h1></section>
