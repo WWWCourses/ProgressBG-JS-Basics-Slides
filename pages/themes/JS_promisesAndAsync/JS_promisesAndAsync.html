@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JS_promisesAndAsync</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../../lib/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!-- <link rel="stylesheet" href="../../../lib/reveal.js/plugin/highlight/zenburn.css"> -->
+
+    <!-- custom -->
+    <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="../../../index.html#JS_promisesAndAsync" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Спейс</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>Promises. Async/Await</h1></section>
+<section data-transition="zoom">
+    <section>
+        <div class="copyright">
+            <div class="note">
+                <p>Created for</p>
+            </div>
+            <div class="company">
+                <a href="https://progressbg.net/javascript-basic/">
+                <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+        <div class="note">
+            <p>Created by</p>
+        </div>
+        <div class="company">
+           <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+        </div>
+        <!-- <div class="author">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div> -->
+    </section>
+</section>
+
+
+<section data-min="5" class="main-sesction-title"><h1>Asynchronous JavaScript</h1></section>
+<section class="sub-sections"><h2>Asynchronous JavaScript</h2>
+    <section><h3>Synchronous vs. Asynchronous Execution</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><b>Synchronous Execution</b>: Tasks are performed one after another. Each task must finish before the next one begins, causing potential delays if one task takes time.
+            </dt>
+            <dd>Synchronous execution is like waiting in line at a coffee shop - you can't do anything else until you get your coffee.</dd>
+            <dt><b>Asynchronous Execution</b>: Tasks can run independently of each other. One task doesn't need to wait for another to finish. This improves efficiency, especially for I/O-bound operations like making network request for data, read/write from files or interacting with databases.</dt>
+            <dd>Asynchronous execution is like ordering coffee and then doing other tasks while it's being made</dd>
+            <a href="./images/Sync_VS_AsyncExecution.drawio.png"><img src="./images/Sync_VS_AsyncExecution.drawio.png" alt="Sync_VS_AsyncExecution.drawio.png"></a>
+        </dl>
+    </section>
+    <section><h3>Synchronous vs. Asynchronous Demo</h3>
+        <pre><code rel="JS" class="js" style="min-height: 90vh;" data-copy>
+            function calcSum_Sync(arr){
+                console.log(arr.reduce((ac, el)=>ac+el));
+            }
+
+            function calcSum_Async(arr){
+                //setTimeout is executed asynchronous and is not blocking the rest of the code!
+                setTimeout(()=>{console.log( arr.reduce((ac, el)=>ac+el) )}, 0)
+            }
+
+            // generate array of integers (1..1_000_000)
+            const numbers =  Array.from({length:1_000_000},(_,i)=>i+1);
+
+            console.log(`~~~~~ Sync execution ~~~~~`);
+            calcSum_Sync(numbers);
+            console.log(`Do other task`);
+
+            console.log(`\n~~~~~ Async execution ~~~~~`);
+            calcSum_Async(numbers);
+            console.log(`Do other task`);
+
+            // OUTPUT
+            // ~~~~~ Sync execution ~~~~~
+            // 500000500000
+            // Do other task
+
+            // ~~~~~ Async execution ~~~~~
+            // Do other task
+            // 50000050000
+
+        </code></pre>
+    </section>
+</section>
+
+<section data-min="5" id="whyUsingPromises" class="main-sesction-title"><h1>Why Using Promises or Async/Await?</h1></section>
+<section class="sub-sections"><h2>Why Using Promises or Async/Await?</h2>
+    <section><h3>The problem ()</h3>
+        <dl class="fa">
+            <dt>We have to write a program, that will execute a sequence of asynchronous tasks: first, prepare a dinner (prepareDinner), then eat the dinner (eatDinner), and finally go to bed (goToBed). Each step depends on the successful completion of the previous one. Also we must handle possible errors properly.</dt>
+            <dt>Examine the next code. It works as we want, but calling a function into another function is a bad practice</dt>
+			<dd>no <a href="https://en.wikipedia.org/wiki/Separation_of_concerns">separation of concerns</a></dd>
+			<dd>spaghetti code</dd></dt>
+            <pre><code rel="JS" class="js" style="min-height: 60vh;" data-copy>
+                const handleError = err=>{
+                    console.error(`Error: ${err}`)
+                }
+
+                const prepareDinner = ()=>{
+                    console.log(`prepareDinner will take 2000ms`);
+                    setTimeout(() => {
+                        // do work on prepare dinner
+                        const dinner = 'pizza'
+                        const success = true;
+
+                        if(success){
+                            console.log(`${dinner} is prepared!`);
+                            eatDinner(dinner);
+                        }else{
+                            handleError(`Can not buy dinner!`);
+                        }
+                    }, 2000);
+                };
+
+                const eatDinner = (dinner)=>{
+                    console.log(`eatDinner will take 500ms`);
+                    setTimeout(() => {
+                        // do work on eat dinner
+                        const success = true;
+
+                        if(success){
+                            console.log(`${dinner} is eaten!`);
+                            goToBed(`Sweet Dreams after ${dinner} `)
+                        }else{
+                            handleError(`Can not eat dinner!`);
+                        }
+                    }, 500);
+                }
+
+                const goToBed = (msg)=>{
+                    console.log(`${msg}`);
+                }
+
+                prepareDinner();
+                console.log(`Do something else while prepare=>eat=>gotToBed...`);
+            </code></pre>
+        </dl>
+
+    </section>
+    <section><h3>Solution with callbacks</h3>
+        <dl class="fa">
+            <dt>Next code do the task, but results in nested callbacks, which can become harder to read and manage as the sequence grows, illustrating the concept of "callback hell".</dt>
+            <pre><code rel="JS" class="js" style="min-height: 60vh;" data-copy>
+                const handleError = err=>{
+                    console.error(`Error: ${err}`)
+                }
+
+                const prepareDinner = (successCallback, errorCallback)=>{
+                    console.log(`prepareDinner will take 2000ms`);
+                    setTimeout(() => {
+                        // do work on prepare dinner
+                        const dinner = 'pizza'
+                        const success = true;
+
+                        if(success){
+                            console.log(`prepareDinner finished successfully (${dinner})!`);
+                            successCallback(dinner);
+                        }else{
+                            errorCallback(`Can not buy dinner!`);
+                        }
+                    }, 2000);
+                };
+
+                const eatDinner = (dinner, successCallback, errorCallback)=>{
+                    console.log(`eatDinner will take 500ms`);
+                    setTimeout(() => {
+                        // do work on eat dinner
+                        const success = true;
+
+                        if(success){
+                            console.log(`eatDinner finished successfully!`);
+                            successCallback(`Go to bed after ${dinner}`)
+                        }else{
+                            errorCallback(`Can not eat dinner!`);
+                        }
+                    }, 500);
+                }
+
+                const goToBed = function(msg){
+                    console.log(`${msg}`);
+                }
+
+                // Callback hell
+                prepareDinner((prepareRes)=>{
+                    eatDinner(prepareRes, (eatRes)=>{
+                        goToBed(eatRes)
+                    },handleError)
+                },handleError)
+
+                console.log(`Do something else while prepare=>eat=>gotToBed...`);
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Solution with Promises</h3>
+        <dl class="fa">
+            <dt>Next code is definitely cleaner. Notice that we do not need to use nested callbacks, but instead, we chain asynchronous operations using then</dt>
+            <dt>We can clearly define the flow of asynchronous tasks in a linear fashion, keeping the logic flat. Each promise resolves or rejects, and we handle the result or error in separate .then() or .catch() blocks. This not only improves code readability but also makes error handling more centralized and easier to manage compared to multiple nested error-handling mechanisms in callbacks.</dt>
+            <pre><code rel="JS" class="js" style="min-height: 60vh;" data-copy>
+                const handleError = err=>{
+                    console.error(`Error: ${err}`)
+                }
+
+                const prepareDinner = function() {
+                    console.log(`prepareDinner will take 2000ms`);
+                    return new Promise((resolve,reject)=>{
+                        setTimeout(() => {
+                            // do work on prepare dinner
+                            const dinner = 'pizza'
+                            const success = true;
+
+                            if(success){
+                                console.log(`${dinner} is prepared!`);
+                                resolve(dinner);
+                            }else{
+                                reject(`Error: Can not buy dinner!`);
+                            }
+                        }, 2000);
+                    })
+                };
+
+                const eatDinner = function(dinner){
+                    console.log(`eatDinner will take 500ms`);
+                    return new Promise((resolve,reject)=>{
+                        setTimeout(() => {
+                            // do work on eat dinner
+                            const success = true;
+
+                            if(success){
+                                console.log(`${dinner} is eaten!`);
+                                resolve(`Sweet Dreams after ${dinner}`)
+                            }else{
+                                reject(`Error: Can not eat dinner!`);
+                            }
+                        }, 500);
+                    })
+                }
+
+                const goToBed = function(msg){
+                    console.log(`${msg}`);
+                }
+
+
+                prepareDinner()
+                    .then(prepareRes=>eatDinner(prepareRes))
+                    .then(eatRes=>goToBed(eatRes))
+                    .catch(handleError)
+
+                console.log(`Do something else while prepare=>eat=>gotToBed...`);
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Solution with async/await</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Unlike promises with .then(), async/await syntax allows asynchronous code to be written in a way that closely resembles synchronous flow, making it easier to understand.</dt>
+            <dt>The <code>await</code> keyword waits for each promise to resolve before moving to the next one, ensuring that each task (preparing dinner, eating dinner, and going to bed) is executed in sequence without deep nesting</dt>
+            <dt>Error handling is also simpler: the try/catch block ensures that any error encountered during the asynchronous operations is caught in a centralized location, avoiding the need to attach .catch() handlers to individual promises.</dt>
+            <pre><code rel="JS" class="js" style="min-height: 60vh;" data-copy>
+                const handleError = (err) => {
+                    console.error(`Error: ${err}`);
+                }
+
+                const prepareDinner = async () => {
+                    console.log(`prepareDinner will take 2000ms`);
+                    return new Promise((resolve, reject) => {
+                        setTimeout(() => {
+                            const dinner = 'pizza';
+                            const success = true;
+
+                            if (success) {
+                                console.log(`${dinner} is prepared!`);
+                                resolve(dinner);
+                            } else {
+                                reject(`Error: Can not buy dinner!`);
+                            }
+                        }, 2000);
+                    });
+                };
+
+                const eatDinner = async (dinner) => {
+                    console.log(`eatDinner will take 500ms`);
+                    return new Promise((resolve, reject) => {
+                        setTimeout(() => {
+                            const success = true;
+
+                            if (success) {
+                                console.log(`${dinner} is eaten!`);
+                                resolve(`Sweet Dreams after ${dinner}`);
+                            } else {
+                                reject(`Error: Can not eat dinner!`);
+                            }
+                        }, 500);
+                    });
+                };
+
+                const goToBed = (msg) => {
+                    console.log(`${msg}`);
+                };
+
+                const executeTasks = async () => {
+                    try {
+                        const prepareRes = await prepareDinner();
+                        const eatRes = await eatDinner(prepareRes);
+                        goToBed(eatRes);
+                    } catch (err) {
+                        handleError(err);
+                    }
+                };
+
+                executeTasks();
+
+                console.log(`Do something else while prepare=>eat=>gotToBed...`);
+
+            </code></pre>
+        </dl>
+    </section>
+
+</section>
+
+<section data-min="5" class="main-sesction-title"><h1>Promises</h1></section>
+<section class="sub-sections"><h2>Promises</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> is an object representing the <span class="note">eventual completion or failure</span> of an <span class="note">asynchronous operation</span></dt>
+            <dt>Essentially, a promise is an object to which you attach callbacks, instead of passing callbacks into a function.</dt>
+            <dt>A Promise has three possible states:</dt>
+            <dd><b>Pending</b>: The initial state, before the promise has been fulfilled or rejected.</dd>
+            <dd><b>Fulfilled</b>: The operation completed successfully, and the promise has a resulting value.</dd>
+            <dd><b>Rejected</b>: The operation failed, and the promise has a reason for the failure.</dd>
+            <dt>A promise object has method <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then">then()</a> which accepts two callback functions and returns a promise object (which means that we can chain multiple <code>then()</code> calls)</dt>
+            <dt>Once a Promise is fulfilled or rejected, the respective handler function (onFulfilled or onRejected) will be called asynchronously</dt>
+        </dl>
+    </section>
+    <section><h3>Promise Object - Basic Structure</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>A promise is created using the <code>new Promise</code> constructor, which takes a function with two arguments: resolve (for success) and reject (for failure).</dt>
+            <pre><code rel="JS" class="js" style="min-height: 40vh;" data-copy>
+                let myPromise = new Promise((resolve, reject) => {
+                    let success = true; // Or some condition to determine success/failure
+                    if (success) {
+                        resolve("Operation successful!");  // Resolving the promise
+                    } else {
+                        reject("Operation failed!");      // Rejecting the promise
+                    }
+                });
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Consuming a Promise</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Once a promise is created, you can consume it using .then(), .catch(), or .finally() methods.</dt>
+            <dd><b>.then()</b>: Used to handle fulfillment of the promise (when the promise is resolved).</dd>
+            <dd><b>.catch()</b>: Used to handle rejection (when the promise is rejected).</dd>
+            <dd><b>.finally()</b>: Used to perform an action regardless of whether the promise was fulfilled or rejected (like cleanup).</dd>
+            <pre><code rel="JS" class="js" style="min-height: 50vh;" data-copy>
+                myPromise
+                    .then(result => {
+                        console.log(result);  // "Operation successful!" if resolved
+                    })
+                    .catch(error => {
+                        console.error(error);  // "Operation failed!" if rejected
+                    })
+                    .finally(() => {
+                        console.log("Promise completed, success or failure.");  // Always runs
+                    });
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Example of Using a Promise with an Async Operation</h3>
+        <dl class="fa" style="min-width:80vw">
+            <pre><code rel="JS" class="js" style="min-height: 80vh;" data-copy>
+                // create Promise object:
+                const p = new Promise((resolve, reject)=>{
+                    // do promised work asynchronously, like getting data
+                    setTimeout(() => {
+                        const data = 'Data fetched...';
+
+                        if(data){
+                            resolve(data)
+                        }else{
+                            reject('Error')
+                        }
+                    }, 1000);
+                });
+
+                // use promise:
+                p.then(value => {
+                    console.log(value);
+                }, reason => {
+                    console.error(reason);
+                });
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Example: Promise for even number</h3>
+        <pre><code rel="JS" class="js" style="min-height: 90vh;" data-copy>
+            let promiseForEven = new Promise( (resolve, reject)=>{
+                setTimeout(function(){
+                    let num = Math.round(Math.random()*100);
+
+                    if(num%2 === 0){
+                        console.log(`Promise for even number is fulfilled!`);
+                        resolve(num)
+                    }else{
+                        console.log(`Promise for even number is rejected!`);
+                        reject(num)
+                    }
+                },2000)
+
+            })
+
+            function promiseFulfilled(num){
+                console.log('Let do something with '+num);
+            }
+
+            function promiseRejected(num){
+                console.log('Error: '+num);
+            }
+
+
+            promiseForEven
+                .then( promiseFulfilled )
+                .catch( promiseRejected )
+
+
+            console.log(`I'm doing something important and I don't want to wait`);
+
+        </code></pre>
+    </section>
+</section>
+
+<section data-min="10" class="main-sesction-title"><h1>Async/Await</h1></section>
+<section class="sub-sections"><h2>Async/Await</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>Async/await is a syntactic feature that allows writing asynchronous code in a more synchronous manner. It's built on top of Promises.</dt>
+            <dt>An async function always returns a Promise.</dt>
+            <dt> The await keyword can be used inside async functions to pause the execution until the Promise is resolved.</dt>
+        </dl>
+        <pre><code rel="JS" class="js">
+            let getDataPromise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve('Some data');
+                    // reject('Error message');
+                }, 1000);
+            });
+
+            async function renderData() {
+                try {
+                    const data = await getDataPromise
+                    console.log(data);
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+
+            renderData();
+        </code></pre>
+    </section>
+    <section><h3>Async/Await API vs Promise API</h3>
+        <pre><code rel="JS" class="js">
+            let getDataPromise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    // resolve('Some data');
+                    reject('Can not get data!');
+                }, 1000);
+            });
+            // using getDataPromise with Async/Await API:
+            async function renderData() {
+                try {
+                    const data = await getDataPromise
+                    console.log(data);
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+
+            // using getDataPromise with Promise API:
+            function renderData() {
+                getDataPromise
+                .then(data=>console.log(data))
+                .catch(err=>console.log(err))
+            }
+
+            renderData();
+        </code></pre>
+    </section>
+</section>
+
+<section data-min="5" class="main-sesction-title"><h1>References</h1></section>
+<section class="sub-sections"><h2>References</h2>
+    <section><h3>Docs</h3>
+        <dl class="fa">
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Async_JS/Introducing">Introducing asynchronous JavaScript @mdn</a></dt>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Using promises @mdn</a></dt>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise Constructor @mdn</a></dt>
+            <dt><a href="https://www.sitepoint.com/overview-javascript-promises/">An Overview of JavaScript Promises @sitepoint.com</a></dt>
+        </dl>
+    </section>
+</section>
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+     <p>These slides are based on</p>
+     <p>customized version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="../../../outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="../../../lib/reveal.js/dist/reveal.js"></script>
+    <script src="../../../lib/reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="../../../lib/reveal.js/plugin/notes/notes.js"></script>
+    <script src="../../../lib/reveal.js/plugin/search/search.js"></script>
+    <script src="../../../lib/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../../lib/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        // var highlightjsTabSize = '  ';
+        Reveal.initialize({
+
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: 1920,
+            height: 1080,
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+mousе click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+
+            plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+        });
+    </script>
+</body>
+</html>
