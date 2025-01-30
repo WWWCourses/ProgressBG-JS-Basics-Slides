@@ -344,11 +344,12 @@
             <dd><b>Interactivity:</b> Limited initial interactivity; JavaScript is used to enhance the page's behavior after it has been rendered.</dd>
             <dd><b>User Experience</b>: The user sees content quicker but may experience some delay when interacting with the page, as it might need to request additional resources (like data).</dd>
             <dd><b>SEO</b>: Better for SEO because search engines can index the content more easily since the content is rendered on the server and is present in the initial HTML response.</dd>
-
-            <dt>Client-side Rendering (CSR)</dt>
-            <dd>Client makes a request to the server</dd>
-            <dd>Server get data form a database and returns it in some format (JSON/XML/...)</dd>
-            <dd>Client gets data and Javascript program renders the retrieved data</dd>
+            <dt>Client-Side Rendering (CSR)</dt>
+            <dd><b>Rendering Process</b>: The browser downloads the HTML, CSS, and JavaScript, and uses JavaScript to dynamically render the content by fetching data and inserting it into the page.</dd>
+            <dd><b>Initial Load</b>: Slower initial page load because the browser needs to download JavaScript files and render the content dynamically after execution.</dd>
+            <dd><b>Interactivity</b>: High interactivity as JavaScript can update the page dynamically without needing a full reload, allowing for a more fluid user experience.</dd>
+            <dd><b>User Experience</b>: After the initial load, the user experience is faster for interactions since only data needs to be fetched from the server, making subsequent actions more responsive.</dd>
+            <dd><b>SEO</b>: Can be more challenging for SEO since search engines may have trouble indexing content that is rendered dynamically by JavaScript unless additional measures (like server-side rendering or prerendering) are used.</dd>
         </dl>
     </section>
 </section>
