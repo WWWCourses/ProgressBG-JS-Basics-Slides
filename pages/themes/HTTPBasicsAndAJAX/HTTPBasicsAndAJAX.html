@@ -377,6 +377,33 @@
 	<section><h3>AJAX Model is Asynchronous</h3>
 		<a href="images/asynchronousRequest.png"><img src="images/asynchronousRequest.png" alt="images/asynchronousRequest.png"></a>
 	</section>
+    <section><h3>AJAX request with XMLHttpRequest (XHR) Object</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>XMLHttpRequest (XHR) is a JavaScript API used to send HTTP requests to a server and receive responses asynchronously.</dt>
+            <dt>It allows web pages to fetch data from a server without reloading the page, enabling dynamic content updates.</dt>
+            <dt>However, in modern web development, it is rarely used because the fetch API is more flexible, easier to work with, and supports promises, making it simpler to handle asynchronous code.</dt>
+        </dl>
+        <pre><code rel="JS" class="js">
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://api.example.com/data', true);
+
+            xhr.onreadystatechange = function() {
+              if (xhr.readyState === 4 && xhr.status === 200) {
+                var data = JSON.parse(xhr.responseText);
+                console.log(data);
+              } else if (xhr.readyState === 4) {
+                console.error('Error:', xhr.statusText);
+              }
+            };
+
+            xhr.onerror = function() {
+              console.error('Error:', xhr.statusText);
+            };
+
+            xhr.send();
+
+        </code></pre>
+    </section>
     <section id="HowAjaxWorks"><h3>AJAX request with fetch APIs.</h3>
         <dl class="fa" style="min-width:80vw">
             <dt><span class="note">Initiate a Request</span>: You use the fetch() function to send an HTTP request to a server. The fetch() function takes a URL as its first argument and optionally an options object as its second argument to specify the request method (GET, POST, etc.), headers, body, and other configurations.</dt>
