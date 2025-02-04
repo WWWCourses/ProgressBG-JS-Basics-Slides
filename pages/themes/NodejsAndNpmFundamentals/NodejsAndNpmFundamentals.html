@@ -73,8 +73,8 @@
 </section>
 
 
-<section class="main-section-title" id="FundamentalsOfNodejsAndNpm"><h1>Fundamentals of NodeJS and NPM</h1></section>
-<section class="sub-sections"><h2>Fundamentals of NodeJS and NPM</h2>
+<section class="main-section-title" id="FundamentalsOfNodejsAndNpm"><h1 class="advanced">Fundamentals of NodeJS and NPM</h1></section>
+<section class="sub-sections"><h2 class="advanced">Fundamentals of NodeJS and NPM</h2>
     <section id="IntroductionToNodejsAndItsArchitecture"><h3>Introduction to Node.js and its Architecture</h3>
         <dl class="fa">
             <dt>Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.</dt>
@@ -82,19 +82,40 @@
             <dt>Node.js provides non-blocking I/O primitives and other libraries which are written using non-blocking paradigms, which allows the programs written on Node to run fast.</dt>
             <dt>Node.js is built against modern versions of V8. This ensures that <span class="note">new features from the JavaScript ECMA-262 specification are brought to Node.js developers in a timely manner</span>, as well as continued performance and stability improvements.</dt>
             <dt>Reference: <a href="https://nodejs.org">node.js.org</a></dt>
+            <a href="./images/NodeJSInternals.png"><img src="./images/NodeJSInternals.png" alt="NodeJSInternals.png"></a>
         </dl>
     </section>
-
     <section id="NodejsAndTheEventLoop"><h3 class="advanced">Understanding Asynchronous Programming in Node.js and the Event Loop</h3>
         <dl class="fa" style="min-width:80vw">
+            <dt> Node.js runs on a <span class="note">single thread</span>, meaning it can only execute one task at a time.</dt>
             <dt>Asynchronous programming in Node.js allows for non-blocking operations.</dt>
-            <dd>This is achieved by using callbacks, promises, and async/await, enabling the application to handle other tasks while waiting for operations like file I/O or network requests to complete.</dd>
-
+            <dt>This is achieved by using callbacks, promises, and async/await, enabling the application to handle other tasks while waiting for operations like file I/O or network requests to complete.</dt>
             <dt>The Event Loop is central to Node.js asynchronous processing.</dt>
-            <dd>The Event Loop is a mechanism that continuously checks the call stack and the callback queue. If the call stack is empty, it pushes callbacks from the queue to the stack for execution. This allows Node.js to perform non-blocking I/O operations by deferring execution of certain tasks until
-            <dd>This is achieved by using callbacks, promises, and async/await, enabling the application to handle other tasks while waiting for operations like file I/O or network requests to complete.</dd>
-
-            <dd>The Event Loop is a mechanism that continuously checks the call stack and the callback queue. If the call stack is empty, it pushes callbacks from the queue to the stack for execution. This allows Node.js to perform non-blocking I/O operations by deferring execution of certain tasks until the call stack is clear.</dd>
+        </dl>
+    </section>
+    <section><h3 class="advanced">How Event Loop Works</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dd>The Event Loop is a mechanism that continuously monitors the call stack and the callback queue. When the call stack is empty, it pushes callbacks from the queue onto the stack for execution. This process allows Node.js to perform non-blocking I/O operations by deferring the execution of certain tasks until the stack is clear.</dd>
+            <dd>It achieves this by using callbacks, promises, and async/await, which enable the application to handle other tasks while waiting for operations like file I/O or network requests to complete.</dd>
+        </dl>
+    </section>
+    <section><h3 class="advanced">Call Stack</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The call stack is a data structure that keeps track of the function calls in a program. When a function is called, it's added (pushed) to the call stack. When the function finishes executing, it's removed (popped) from the stack.</dt>
+            <dd><b>Main purpose</b>: Keeps track of the order of function execution.</dd>
+            <dd><b>LIFO structure</b>: Last In First Out - the last function called is the first to finish.</dd>
+            <dt>For example, if a function A calls function B, function B gets added to the call stack while A is paused. Once B finishes, it’s removed, and A resumes.</dt>
+            <a href="./images/JS_CallStack.webp"><img src="./images/JS_CallStack.webp" alt="JS_CallStack.webp"></a>
+            <dt>Live example: <a href="https://www.jsv9000.app/?code=ZnVuY3Rpb24gdGVudGgoKSB7IH0KCmZ1bmN0aW9uIG5pbnRoKCkgeyB0ZW50aCgpIH0KCmZ1bmN0aW9uIGVpZ3RoKCkgeyBuaW50aCgpIH0KCmZ1bmN0aW9uIHNldmVudGgoKSB7IGVpZ3RoKCkgfQoKZnVuY3Rpb24gc2l4dGgoKSB7IHNldmVudGgoKSB9CgpmdW5jdGlvbiBmaWZ0aCgpIHsgc2l4dGgoKSB9CgpmdW5jdGlvbiBmb3VydGgoKSB7IGZpZnRoKCkgfQoKZnVuY3Rpb24gdGhpcmQoKSB7IGZvdXJ0aCgpIH0KCmZ1bmN0aW9uIHNlY29uZCgpIHsgdGhpcmQoKSB9CgpmdW5jdGlvbiBmaXJzdCgpIHsgc2Vjb25kKCkgfQoKZmlyc3QoKTs%3D">Call Stack Example @JavaScript Visualizer 9000</a></dt>
+        </dl>
+    </section>
+    <section><h3 class="advanced">Callback Queue</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The callback queue (or message queue) is a data structure where callbacks from asynchronous operations are placed once they're ready to be executed. The event loop checks the queue when the call stack is empty and moves the callback to the stack for execution.</dt>
+            <dd><b>Main purpose</b>: Holds functions waiting for the call stack to be clear before execution.</dd>
+            <dd><b>FIFO structure</b>: First In First Out - the first callback added is the first to be executed.</dd>
+            <dt>For example, when a network request completes, its callback is placed in the callback queue. Once the call stack is empty, the event loop moves the callback to the call stack for execution.</dt>
+            <dt>Live example: <a href="https://www.jsv9000.app/?code=c2V0VGltZW91dChmdW5jdGlvbiBhKCkge30sIDEwMDApOwoKc2V0VGltZW91dChmdW5jdGlvbiBiKCkge30sIDUwMCk7CgpzZXRUaW1lb3V0KGZ1bmN0aW9uIGMoKSB7fSwgMCk7CgpmdW5jdGlvbiBkKCkge30KCmQoKTs%3D">Task Queue Example @JavaScript Visualizer 9000</a></dt>
         </dl>
     </section>
     <section><h3 class="advanced">Reference</h3>
@@ -103,9 +124,8 @@
         </dl>
         <iframe width="770" height="433" src="https://www.youtube.com/embed/PNa9OMajw9w" title="Morning Keynote- Everything You Need to Know About Node.js Event Loop - Bert Belder, IBM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </section>
-
     <section><h3>Example: Reading a File Asynchronously</h3>
-        <pre><code rel="JS" class="js">
+        <pre><code rel="JS" class="js" data-copy>
             // use the 'fs' node module
             const fs = require('fs');
 
