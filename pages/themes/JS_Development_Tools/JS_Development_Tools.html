@@ -85,50 +85,115 @@
 
 <section class="main-section-title" id="LintersAndFormatters"><h1>Linters and Formatters</h1></section>
 <section class="sub-sections"><h2>Linters and Formatters</h2>
-    <section><h3>Linters and Formatters</h3>
+    <section><h3>Overview</h3>
         <dl class="fa" style="min-width:80vw">
-            <dt><span class="note">Linters</span> like ESLint help identify and fix problems in your JavaScript code before it runs, like:</dt>
-            <dd><b>Identifying Code Issues</b>: ESLint catches syntax errors, unused variables, and potential bugs before running the code.</dd>
-            <dd><b>Enforcing Coding Standards</b>: It enforces a consistent coding style across the project, like ensuring all functions use camelCase for naming.</dd>
-            <dd><b>Automating Code Fixes</b>: ESLint can automatically fix certain issues, such as indentation or trailing commas.</dd>
-            <dt><span class="note">Formatters</span> such as Prettier enforce consistent code style across your project, reducing the likelihood of errors and improving readability. Prettier can help you with</dt>
-            <dd><b>Consistent Formatting</b>: Automatically formats code according to defined style rules.</dd>
-            <dd><b>Handling Line Length</b>: Wraps lines that exceed a specified length.</dd>
-            <dd><b>Automatic Semicolon Insertion</b>: Adds or removes semicolons based on configuration.</dd>
-            <dd><b>Single vs. Double Quotes</b>: Enforces consistent use of single or double quotes.</dd>
-            <dd><b>Trailing Commas</b>: Adds or removes trailing commas in arrays and objects.</dd>
+            <dt><span class="note">Linter</span> like ESLint, is a tool that analyzes JavaScript/TypeScript code for potential errors and enforces coding standards.:</dt>
+            <dd>ESLint catches syntax errors, unused variables, and potential bugs before running the code.</dd>
+            <dd>It enforces a consistent coding style across the project, like ensuring all functions use camelCase for naming.</dd>
+            <dd>Can autofix some issues but is mainly for <b>code quality and consistency</b>.</dd>
+            <dt><span class="note">Formatter</span> like Prettier is a tool that ensures consistent code style (e.g., indentation, semicolons, quotes)</dt>
+            <dd>It automatically reformats code but does not catch logical errors or bad practices.</dd>
         </dl>
     </section>
-
-    <section id="UsingLintersAndFormattersWithVSCode"><h3>Using Linters and Formatters with VSCode</h3>
-        <dl class="fa" style="min-width:80vw">
-            <dt>VSCode integrates smoothly with tools like ESLint and Prettier to provide real-time feedback and automatic code formatting.</dt>
-            <dd>You can set up these tools by installing the respective extensions from the VSCode marketplace.</dd>
-            <!-- --------------------- Optional code block for CLI --------------------- -->
-            <pre><code rel="Terminal" class="bash" data-noescape>
-                # Install ESLint and Prettier globally
-                npm install -g eslint prettier
-
-                # Create an ESLint configuration file
+    <section><h3>Setup ESLint in VSCode</h3>
+        <dl class="fa" style="min-width:80vw; font-size: 0.8em;">
+            <dt>Install ESLint VSCode Extension (Search for ESLint and install it.)</dt>
+            <dt>Install ESLint in Your Project (or as global package)</dt>
+            <pre><code rel="Terminal" class="bash">
+                npm install eslint --save-dev
+            </code></pre>
+            <dt>Initialize ESLint and create config file</dt>
+            <pre><code rel="Terminal" class="bash">
                 npx eslint --init
             </code></pre>
-            <dt>After installation, configure VSCode to use ESLint and Prettier.</dt>
-            <dd>Add the following settings in your `settings.json` file:</dd>
-            <!-- -------------- Optional code block for programming code --------------- -->
-            <pre><code rel="JSON" class="json" style="min-height: 1vh;">
+            <dt>You can modify or extend this configuration by adding your own rules.</dt>
+            <pre><code rel="JSON" class="json">
+                export default [
+                    {
+                        languageOptions: { globals: globals.browser },
+                    },
+                    pluginJs.configs.recommended,
+                    {
+                        rules: {
+                            // Enforces the use of double quotes for strings and throws an error if violated
+                            "quotes": ["error", "double"],
+                        },
+                    },
+                ];
+            </code></pre>
+            <dt>Enable Auto-fixing on Save (Modify VSCode <code>settings.json</code>)</dt>
+            <pre><code rel="JSON" class="json">
                 {
-                    "editor.formatOnSave": true,
                     "editor.codeActionsOnSave": {
                         "source.fixAll.eslint": true
-                    },
-                    "eslint.validate": [
-                        "javascript",
-                        "javascriptreact",
-                        "typescript",
-                        "typescriptreact"
-                    ],
-                    "prettier.requireConfig": true
+                    }
                 }
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Use ESLint</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Run ESLint Manually</dt>
+            <pre><code rel="Terminal" class="bash">
+                npx eslint .
+            </code></pre>
+            <dt>Fix ESLint Issues Automatically</dt>
+            <pre><code rel="Terminal" class="bash">
+                npx eslint . --fix
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Setup Prettier in VSCode</h3>
+        <dl class="fa" style="min-width:80vw; font-size: 0.8em;">
+            <dt>Install Prettier VSCode Extension (Search for Prettier and install it.)</dt>
+            <dt>Install Prettier in Your Project</dt>
+            <pre><code rel="Terminal" class="bash">
+                npm install --save-dev prettier
+            </code></pre>
+            <dt>Optional: Create a Prettier Configuration File: <code>.prettierrc</code></dt>
+            <pre><code rel=".prettierrc" class="json">
+                {
+                    "semi": true, // Add semicolons at the end of statements
+                    "singleQuote": true, // Use single quotes instead of double quotes
+                    "trailingComma": "es5" // Add trailing commas where valid in ES5 (e.g., objects, arrays)
+                }
+            </code></pre>
+            <dt>Enable Auto-formatting on Save (Modify VSCode <code>settings.json</code>)</dt>
+            <pre><code rel="JSON" class="json">
+                {
+                    "editor.formatOnSave": true // Automatically format the code when saving a file
+                }
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Use Prettier</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Run Prettier Manually</dt>
+            <pre><code rel="Terminal" class="bash">
+                npx prettier --write .
+            </code></pre>
+            <dt>Run Prettier on Specific Files</dt>
+            <pre><code rel="Terminal" class="bash">
+                npx prettier --write "src/**/*.js"
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Optional: Integrate ESLint with Prettier</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Install ESLint config for Prettier</dt>
+            <pre><code rel="Terminal" class="bash">
+                npm install --save-dev eslint-config-prettier
+            </code></pre>
+            <dt>Modify ESLint Config for Prettier</dt>
+            <pre><code rel="JavaScript" class="javascript">
+                export default [
+                    {
+                        extends: [
+                            "eslint:recommended", // Includes the recommended ESLint rules for JavaScript
+                            "prettier",           // Disables ESLint rules that conflict with Prettier's formatting
+                        ],
+                    },
+                ];
             </code></pre>
         </dl>
     </section>
