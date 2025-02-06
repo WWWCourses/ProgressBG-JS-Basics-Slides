@@ -150,13 +150,14 @@
             <pre><code rel="Terminal" class="bash">
                 npm install --save-dev prettier
             </code></pre>
-            <dt>Optional: Create a Prettier Configuration File: <code>.prettierrc</code></dt>
-            <pre><code rel=".prettierrc" class="json">
-                {
-                    "semi": true, // Add semicolons at the end of statements
-                    "singleQuote": true, // Use single quotes instead of double quotes
-                    "trailingComma": "es5" // Add trailing commas where valid in ES5 (e.g., objects, arrays)
-                }
+            <dt>Optional: Create a Prettier Configuration File</dt>
+            <dd>A Prettier configuration file allows you to customize formatting rules. You can create it as JSON (.prettierrc.json) - for simpler configs or as JavaScript (prettier.config.js) - to support comments and dynamic configuration</dd>
+            <pre><code rel="prettier.config.js" class="js">
+                module.exports = {
+                    semi: true, // Add semicolons
+                    singleQuote: true, // Use single quotes
+                    trailingComma: "es5" // Add trailing commas in ES5 structures
+                };
             </code></pre>
             <dt>Enable Auto-formatting on Save (Modify VSCode <code>settings.json</code>)</dt>
             <pre><code rel="JSON" class="json">
