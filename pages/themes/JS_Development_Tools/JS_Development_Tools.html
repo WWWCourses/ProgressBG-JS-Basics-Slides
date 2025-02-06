@@ -228,23 +228,175 @@
         <dl class="fa" style="min-width:80vw">
             <dt>Bundlers like Webpack and Parcel combine multiple JavaScript files into a single file or a few files.</dt>
             <dt>This process reduces the number of HTTP requests needed to load your application, improving performance.</dt>
-            <!-- -------------- Optional code block for programming code --------------- -->
+            <dt>Webpack is a highly configurable bundler, allowing you to manage various assets (JavaScript, CSS, images) and optimize them for production.</dt>
+            <dt>Parcel, on the other hand, is a zero-config bundler, making it easy to get started without needing extensive setup.</dt>
             <pre><code rel="JavaScript" class="javascript" style="min-height: 1vh;">
                 // Example of a simple Webpack configuration
                 const path = require('path');
 
                 module.exports = {
-                    entry: './src/index.js',
+                    entry: './src/index.js',  // Entry point for the application
                     output: {
-                        filename: 'bundle.js',
-                        path: path.resolve(__dirname, 'dist')
+                        filename: 'bundle.js',  // Name of the bundled file
+                        path: path.resolve(__dirname, 'dist')  // Output folder
                     },
-                    mode: 'production'
+                    module: {
+                        rules: [
+                            {
+                                test: /\.css$/,  // Use this rule for CSS files
+                                use: ['style-loader', 'css-loader']  // Apply style-loader and css-loader to bundle CSS
+                            },
+                            {
+                                test: /\.(png|jpg|gif)$/,  // For images
+                                use: ['file-loader']  // Use file-loader to handle image files
+                            }
+                        ]
+                    },
+                    mode: 'production'  // Set Webpack to production mode to optimize the build
                 };
             </code></pre>
         </dl>
     </section>
 </section>
+<section><h2>Using Webpack to Bundle JavaScript and Assets</h2>
+    <section><h3>Install Dependencies and create Project Structure</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>You need Webpack and some other dependencies</dt>
+            <pre><code rel="Terminal" class="bash">
+                npm init -y
+                npm install --save-dev webpack webpack-cli style-loader css-loader file-loader
+            </code></pre>
+            <dt>Create next project structure:</dt>
+            <pre><code rel="Terminal" class="bash">
+                my-webpack-project/
+                ├── dist/
+                ├── src/
+                │   ├── index.js
+                │   ├── styles.css
+                │   └── logo.png
+                ├── index.html
+                ├── package.json
+                └── webpack.config.js
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Create webpack.config.js</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Create a webpack.config.js in the root of your project folde</dt>
+            <pre><code rel="Terminal" class="bash">
+                const path = require('path');
+
+                module.exports = {
+                    entry: './src/index.js',  // Entry point for the JavaScript file
+                    output: {
+                        filename: 'bundle.js',  // Output file name
+                        path: path.resolve(__dirname, 'dist')  // Output folder
+                    },
+                    module: {
+                        rules: [
+                        {
+                            test: /\.css$/,  // Handle CSS files
+                            use: ['style-loader', 'css-loader']
+                        },
+                        {
+                            test: /\.(png|jpg|gif)$/i,  // Handle image files
+                            type: 'asset/resource',
+                        }
+                        ]
+                    },
+                    mode: 'development'  // You can change to 'production' for production builds
+                };
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Create src/index.js</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>This is your main JavaScript file, where you'll import the CSS and images.</dt>
+            <pre><code rel="src/index.js" class="js">
+                import './styles.css';  // Importing the CSS file
+                import logo from './logo.png';  // Importing the image
+
+                const imgElement = document.createElement('img');
+                imgElement.src = logo;
+                document.body.appendChild(imgElement);
+
+                const h1 = document.createElement('h1');
+                h1.textContent = 'Welcome to Webpack!';
+                document.body.appendChild(h1);
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Create src/styles.css</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>This is a simple CSS file.</dt>
+            <pre><code rel="src/styles.css" class="css">
+                body {
+                  font-family: Arial, sans-serif;
+                }
+
+                h1 {
+                  color: #4CAF50;
+                }
+
+                img {
+                  width: 200px;
+                  height: auto;
+                }
+
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Create index.html</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>This is the basic HTML file that will reference the output JavaScript file (bundle.js).</dt>
+            <pre><code rel="HTML" class="html5">
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang=&quot;en&quot;&gt;
+                &lt;head&gt;
+                    &lt;meta charset=&quot;UTF-8&quot;&gt;
+                    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+                    &lt;title&gt;Webpack Example&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;script src=&quot;dist/bundle.js&quot;&gt;&lt;/script&gt;  &lt;!-- Link to the bundled JS --&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Add scripts to package.json (if you have not)</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Make sure to add a build script to your package.json to run Webpack.</dt>
+            <pre><code rel="package.json" class="json">
+                {
+                  "name": "my-webpack-project",
+                  "version": "1.0.0",
+                  "main": "index.js",
+                  "scripts": {
+                    "build": "webpack"
+                  },
+                  "devDependencies": {
+                    "webpack": "^5.0.0",
+                    "webpack-cli": "^4.0.0",
+                    "css-loader": "^6.0.0",
+                    "style-loader": "^3.0.0",
+                    "file-loader": "^6.0.0"
+                  }
+                }
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Build the Project</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Now you can build the project using:</dt>
+            <pre><code rel="Terminal" class="bash">
+                npm run build
+            </code></pre>
+            <dt>This will bundle your JavaScript, CSS, and image files into the dist folder, and Webpack will output the bundle.js file.</dt>
+        </dl>
+    </section>
+</section>
+
 
 
 <section class="main-section-title" id="PackageManagers"><h1>Package Managers</h1></section>
