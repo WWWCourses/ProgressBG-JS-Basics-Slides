@@ -76,30 +76,30 @@
 
 <section data-min="10"><h1>TypeScript Overview</h1></section>
 <section><h2>TypeScript Overview</h2>
-	<section><h3>Overview</h3>
-		<dl class="fa">
-			<dl class="fa">
-				<dt>TypeScript is a <b>superset</b> of JavaScript, which means <span class="note">each valid JavaScript program is a valid TypeScript program</span>.</dt>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dl class="fa">
+                <dt>TypeScript is a <b>superset</b> of JavaScript, which means <span class="note">each valid JavaScript program is a valid TypeScript program</span>.</dt>
                 <a href="images/ES5-ES6-TS.png"><img src="images/ES5-ES6-TS.png"></a>
-				<dt>TypeScript compiles to clean, simple JavaScript code which runs on any browser, in Node.js, or in any JavaScript engine that supports ECMAScript 3 (or newer).</dt>
-				<dt>official site: <a href="https://www.typescriptlang.org/index.html">typescriptlang.org</a></dt>
-			</dl>
-		</dl>
-	</section>
-	<section><h3>Installation</h3>
-		<pre><code rel="Terminal" class="bash" data-noescape>
-			# install as global node module:
-			$ sudo npm install -g typescript
+                <dt>TypeScript compiles to clean, simple JavaScript code which runs on any browser, in Node.js, or in any JavaScript engine that supports ECMAScript 3 (or newer).</dt>
+                <dt>official site: <a href="https://www.typescriptlang.org/index.html">typescriptlang.org</a></dt>
+            </dl>
+        </dl>
+    </section>
+    <section><h3>Installation</h3>
+        <pre><code rel="Terminal" class="bash" data-noescape>
+            # install as global node module:
+            $ sudo npm install -g typescript
 
-			# check installation
-			$ tsc -v
-				Version 3.8.3
-		</code></pre>
-	</section>
-	<section style="font-size: .8em"><h3>Usage</h3>
-		<dl class="fa">
-			<dt>We can transpile TypeScript (or ES6) to ES5 using the TypeSctipt compiler</dt>
-			<dt>Let's have a valid ES6 file:</dt>
+            # check installation
+            $ tsc -v
+                Version 3.8.3
+        </code></pre>
+    </section>
+    <section style="font-size: .8em"><h3>Usage</h3>
+        <dl class="fa">
+            <dt>We can transpile TypeScript (or ES6) to ES5 using the TypeSctipt compiler</dt>
+            <dt>Let's have a valid ES6 file:</dt>
             <pre><code rel="ES6toES5.js" class="ts" style="height: 80vh;">
                 class Animal {
                     name:string
@@ -136,521 +136,533 @@
             <pre><code rel="Terminal" class="bash" data-noescape>
                 tsc ES6toES5.ts
             </code></pre>
-		</dl>
+        </dl>
 
-	</section>
-	<section><h3>TypeScript Features</h3>
-		<dl class="fa">
-			<dt>Static typing</dt>
-			<dt>Interfaces</dt>
-			<dt>Decorators</dt>
-			<dt>Transpile into old ES version</dt>
-			<dt>many others...</dt>
-		</dl>
-	</section>
-	<section><h3>Static Typing vs Dynamic typing</h3>
-		<dl class="fa">
-			<dt>In dynamically typed languages(JavaScript, Python, PHP, Ruby...) types of variables are generally not known at compile time.</dt>
-			<dt>In a statically typed language, variables, parameters, and objects members (i.e properties and methods) have types that the compiler knows at compile time.</dt>
-			<dt>The compiler use that information to perform type checks and to optimize the compiled code.</dt>
-			<dt class="note">TypeScript introduces static types into JavaScript!</dt>
-		</dl>
-	</section>
+    </section>
+    <section><h3>TypeScript Features</h3>
+        <dl class="fa">
+            <dt>Static typing</dt>
+            <dt>Interfaces</dt>
+            <dt>Decorators</dt>
+            <dt>Transpile into old ES version</dt>
+            <dt>many others...</dt>
+        </dl>
+    </section>
+    <section><h3>Static Typing vs Dynamic typing</h3>
+        <dl class="fa">
+            <dt>In dynamically typed languages(JavaScript, Python, PHP, Ruby...) types of variables are generally not known at compile time.</dt>
+            <dt>In a statically typed language, variables, parameters, and objects members (i.e properties and methods) have types that the compiler knows at compile time.</dt>
+            <dt>The compiler use that information to perform type checks and to optimize the compiled code.</dt>
+            <dt class="note">TypeScript introduces static types into JavaScript!</dt>
+        </dl>
+    </section>
 
-	<section><h3>The Benefits of Static Typing</h3>
-		<dl class="fa">
-			<dt><span class="note">Catch more errors at compile time</span> (and less bugs at run time)</dt>
-			<dt>It helps IDEs with <span class="note">code-completion (IntelliSense)</span></dt>
-			<dt>Type annotations are useful for <span class="note">documentation</span>, which helps large teams to collaborate</dt>
-			<dt>Static Typing in JavaScript makes it less "ugly" for developers coming from Java, #C, and so on.</dt>
-		</dl>
-	</section>
-	<section><h3>Early errors/bug finding</h3>
-		<dl class="fa">
-			<dt>TypeScript can help us to discover errors and bug-candidates while we write the program:</dt>
-		</dl>
-		<pre><code rel="TS" class="ts">
-			let add = function(x,y) {
-				console.log(x+y)
-			}
+    <section><h3>The Benefits of Static Typing</h3>
+        <dl class="fa">
+            <dt><span class="note">Catch more errors at compile time</span> (and less bugs at run time)</dt>
+            <dt>It helps IDEs with <span class="note">code-completion (IntelliSense)</span></dt>
+            <dt>Type annotations are useful for <span class="note">documentation</span>, which helps large teams to collaborate</dt>
+            <dt>Static Typing in JavaScript makes it less "ugly" for developers coming from Java, #C, and so on.</dt>
+        </dl>
+    </section>
+    <section><h3>Early errors/bug finding</h3>
+        <dl class="fa">
+            <dt>TypeScript can help us to discover errors and bug-candidates while we write the program:</dt>
+        </dl>
+        <pre><code rel="TS" class="ts">
+            let add = function(x,y) {
+                console.log(x+y)
+            }
 
-			// this is legal JS call, but TypScript will raise an error:
-			add(3);
+            // this is legal JS call, but TypScript will raise an error:
+            add(3);
 
-			//test.ts(5,1): error TS2554: Expected 2 arguments, but got 1.
-		</code></pre>
-		<dl class="fa">
-			<dt class="note">Note, that despite the error, the JS files is generated.</dt>
-		</dl>
-	</section>
+            //test.ts(5,1): error TS2554: Expected 2 arguments, but got 1.
+        </code></pre>
+        <dl class="fa">
+            <dt class="note">Note, that despite the error, the JS files is generated.</dt>
+        </dl>
+    </section>
 </section>
 
 <section data-min="10"><h1>Setup TypeScript Project</h1></section>
 <section><h2>Setup TypeScript Project</h2>
-	<section><h3>Prepare project folder structure</h3>
-		<p>You have to create nex folder structure for your TypeScript Demo Project:</p>
-		<pre><code rel="Folder structure" class="bash">
-			ts_demo_project/
-			├── dist
-				# the compiled JS files
-			└── src
-				# for source TS files
-		</code></pre>
-	</section>
-	<section><h3>Init the project (Create <code>package.json</code> with npm)</h3>
-		<dl class="fa">
-			<dt>The <code>package.json</code> file holds various metadata relevant to the project.</dt>
-			<dt>Reference: <a href="https://nodejs.org/en/knowledge/getting-started/npm/what-is-the-file-package-json/">What is the file `package.json`?</a></dt>
-			<dt>The command <code>npm init</code> is interactive, i.e. it will ask you question about the project providing sensible defaults.</dt>
-			<dd>If you want to skip questions, and use the defaults, you can use the -f option. I.e. <code>npm init -y</code></dd>
-		</dl>
-		<pre><code rel="Terminal" class="bash">
-			cd ts_demo_project
-			npm init
-		</code></pre>
-	</section>
-	<section><h3>Create <code>package.json</code> </h3>
-		<p>Add the next script command to <code>package.json</code></p>
-		<pre><code rel="package.json" class="bash">
-			"scripts": {
-				"build": "tsc",
-				"start": "tsc -w"
-			},
-		</code></pre>
+    <section><h3>Prepare project folder structure</h3>
+        <p>Create next folder structure for your TypeScript Demo Project:</p>
+        <pre><code rel="Folder structure" class="bash">
+            ts_demo_project/
+            ├── dist
+                # the compiled JS files
+            └── src
+                # for source TS files
+        </code></pre>
+    </section>
+    <section><h3>Init the project (Create <code>package.json</code> with npm)</h3>
+        <dl class="fa">
+            <dt>The <code>package.json</code> file holds various metadata relevant to the project.</dt>
+            <dt>Reference: <a href="https://nodejs.org/en/knowledge/getting-started/npm/what-is-the-file-package-json/">What is the file `package.json`?</a></dt>
+            <dt>The command <code>npm init</code> is interactive, i.e. it will ask you question about the project providing sensible defaults.</dt>
+            <dd>If you want to skip questions, and use the defaults, you can use the -f option. I.e. <code>npm init -y</code></dd>
+        </dl>
+        <pre><code rel="Terminal" class="bash">
+            cd ts_demo_project
+            npm init
+        </code></pre>
+    </section>
+    <section><h3>Create <code>package.json</code> </h3>
+        <p>Add the next script command to <code>package.json</code></p>
+        <pre><code rel="package.json" class="bash">
+            "scripts": {
+                "build": "tsc",
+                "start": "tsc -w"
+            },
+        </code></pre>
         <dl class="fa" style="min-width:80vw">
             <dt><code>build</code> command will compiles TypeScript files once.</dt>
             <dt><code>start</code> command will run the TypeScript compiler in watch mode, automatically recompiling on file changes..</dt>
         </dl>
-	</section>
-	<!-- <section><h3>Install project dependencies</h3>
-		<dl class="fa">
-			<dt>For the development of our project, we will use next node packages</dt>
-		</dl>
-		<pre><code rel="Terminal" class="bash">
-			npm install --save-dev webpack webpack-cli
-			npm install --save-dev typescript ts-loader source-map-loader
-		</code></pre>
-		<dl class="fa">
-			<dt><span class="note">webpack</span> is a tool that will bundle your code and optionally all of its dependencies into a single .js file.</dt>
-			<dt><span class="note">ts-loader</span> helps Webpack to compile your TypeScript code using the TypeScript’s standard configuration file (tsconfig.json)</dt>
-			<dt><span class="note">source-map-loader</span> is useful for debugging</dt>
-		</dl>
-	</section> -->
-	<section><h3>Create <code>tsconfig.json</code> file</h3>
-		<dl class="fa">
-			<dt>The tsconfig.json contains the TypeScript compiler options for our project.</dt>
-			<dt>Reference: <a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html">What is a tsconfig.json?</a></dt>
-		</dl>
-		<pre><code rel="Terminal" class="bash">
-			# make sure you are in the root project folder:
-			pwd
-			# .../ts_demo_project
+    </section>
+    <!-- <section><h3>Install project dependencies</h3>
+        <dl class="fa">
+            <dt>For the development of our project, we will use next node packages</dt>
+        </dl>
+        <pre><code rel="Terminal" class="bash">
+            npm install --save-dev webpack webpack-cli
+            npm install --save-dev typescript ts-loader source-map-loader
+        </code></pre>
+        <dl class="fa">
+            <dt><span class="note">webpack</span> is a tool that will bundle your code and optionally all of its dependencies into a single .js file.</dt>
+            <dt><span class="note">ts-loader</span> helps Webpack to compile your TypeScript code using the TypeScript’s standard configuration file (tsconfig.json)</dt>
+            <dt><span class="note">source-map-loader</span> is useful for debugging</dt>
+        </dl>
+    </section> -->
+    <section><h3>Create <code>tsconfig.json</code> file</h3>
+        <dl class="fa">
+            <dt>The tsconfig.json contains the TypeScript compiler options for our project.</dt>
+            <dt>Reference: <a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html">What is a tsconfig.json?</a></dt>
+        </dl>
+        <pre><code rel="Terminal" class="bash">
+            # make sure you are in the root project folder:
+            pwd
+            # .../ts_demo_project
 
-			# create the tsconfig.json with default settings
-			tsc --init
-		</code></pre>
-	</section>
+            # create the tsconfig.json with default settings
+            tsc --init
+        </code></pre>
+    </section>
     <section><h3>Modify <code>tsconfig.json</code> file</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>Open the generated tsconfig.json file and modify it according to your project needs. Here's a sample configuration:</dt>
             <pre><code rel="tsconfig.json" class="bash">
                 {
                     "compilerOptions": {
-                        "target": "es6",                       // Specify ECMAScript target version
-                        "module": "commonjs",                  // Specify module code generation
+                        "target": "ES6",                       // Specify ECMAScript target version
+                        "module": "ES6",                  	   // Specify module code generation
+                        "moduleResolution": "node",   		   // Resolve modules using Node.js-style resolution
+                        "esModuleInterop": true,			   // Enable compatibility with CommonJS modules
                         "outDir": "./dist",                    // Redirect output structure to the 'dist' directory
                         "rootDir": "./src",                    // Specify the root directory of input files
-                        "strict": true,                         // Enable all strict type-checking options
-                        "esModuleInterop": true,                // Enables emit interoperability between CommonJS and ES Modules
-                        "skipLibCheck": true,                   // Skip type checking of declaration files
-                        "forceConsistentCasingInFileNames": true // Disallow inconsistently-cased references to the same file
+                        "strict": true,                        // Enable all strict type-checking options
                     },
-                    "include": ["src/**/*.ts"],                // Specify files to include
+                    "include": ["src/**/*.ts"],                	// Specify files to include
                     "exclude": ["node_modules", "**/*.spec.ts"] // Specify files to exclude
                 }
             </code></pre>
 
         </dl>
     </section>
-	<section><h3>Create a simple TS file</h3>
-		<dl class="fa">
-			<dt>As we set TS compiler to look for ts files in ./src/ folder, we must have at least one, before starting the compiler. Otherwise an error: "error TS18003: No inputs were found in config file ..." will be raised.</dt>
-			<dt>Create the <code>helloUser.ts</code> in <code>src/</code> folder</dt>
-		</dl>
-		<pre><code rel="ts_demo_project/src/helloUser.ts" class="ts">
-			let userName='Ada';
-			let userAge=34;
+    <section><h3>Create a simple TS file</h3>
+        <dl class="fa">
+            <dt>As we set TS compiler to look for ts files in ./src/ folder, we must have at least one, before starting the compiler. Otherwise an error: "error TS18003: No inputs were found in config file ..." will be raised.</dt>
+            <dt>Create the <code>helloUser.ts</code> in <code>src/</code> folder</dt>
+        </dl>
+        <pre><code rel="ts_demo_project/src/helloUser.ts" class="ts">
+            let userName='Ada';
+            let userAge=34;
 
-			console.log(`Hello ${userName}, you are ${userAge} age old`);
+            console.log(`Hello ${userName}, you are ${userAge} age old`);
 
-		</code></pre>
-	</section>
-	<section><h3>start the project</h3>
-		<dl class="fa">
-			<dt>write in your terminal:</dt>
-		</dl>
-		<pre><code rel="Terminal" class="bash">
-			# make sure you're in the root project folder:
-			pwd
+        </code></pre>
+    </section>
+    <section><h3>start the project</h3>
+        <dl class="fa">
+            <dt>write in your terminal:</dt>
+        </dl>
+        <pre><code rel="Terminal" class="bash">
+            # make sure you're in the root project folder:
+            pwd
 
-			# start the project
-			npm start
-		</code></pre>
-		<dl class="fa">
-			<dt>Now ts will compile each 'ts' file in <code>src/</code> folder into respective file in <code>dist/</code> folder. And that will happen on every change.</dt>
-		</dl>
-	</section>
+            # start the project
+            npm start
+        </code></pre>
+        <dl class="fa">
+            <dt>Now ts will compile each 'ts' file in <code>src/</code> folder into respective file in <code>dist/</code> folder. And that will happen on every change.</dt>
+        </dl>
+    </section>
 </section>
 
 <section data-min="10"><h1>Basic Types in TypeScript</h1></section>
 <section data-min="10"><h2>Basic Types in TypeScript</h2>
-	<section><h3>TypeScript Types</h3>
-		<dl class="fa">
-			<dt>JavaScript have several native types, which also exist in TypeScript</dt>
-			<dd><span class="note">boolean</span> - true/false</dd>
-			<dd><span class="note">number</span> - integers, floats, Infinity and NaN</dd>
-			<dd><span class="note">[]</span> - arrays of other types</dd>
-			<dd><span class="note">{}</span> - object literal</dd>
-			<dd><span class="note">undefined</span> - for not set value</dd>
-			<dt>But TypeScript also adds:</dt>
-			<dd><span class="note">enum</span> -  enumerations like { Red, Blue, Green }</dd>
-			<dd><span class="note">any</span> -  use any type</dd>
-			<dd><span class="note">void</span> - nothing</dd>
-		</dl>
-		<p>Reference: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html">Basic Types @typescriptlang.org</a></p>
-	</section>
-	<section><h3>Typing - examples</h3>
-		<pre><code rel="TS" class="ts" style="font-size: 1em; min-height: 50vh;">
-			let start: boolean = false;
-			let age: number = 16;
-			let userName: string = "Ada";
-			let dataList: number[] = [1, 2, 3];
+    <section><h3>TypeScript Types</h3>
+        <dl class="fa">
+            <dt>JavaScript have several native types, which also exist in TypeScript</dt>
+            <dd><span class="note">boolean</span> - true/false</dd>
+            <dd><span class="note">number</span> - integers, floats, Infinity and NaN</dd>
+            <dd><span class="note">[]</span> - arrays of other types</dd>
+            <dd><span class="note">{}</span> - object literal</dd>
+            <dd><span class="note">undefined</span> - for not set value</dd>
+            <dt>But TypeScript also adds:</dt>
+            <dd><span class="note">enum</span> -  enumerations like { Red, Blue, Green }</dd>
+            <dd><span class="note">any</span> -  use any type</dd>
+            <dd><span class="note">void</span> - nothing</dd>
+        </dl>
+        <p>Reference: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html">Basic Types @typescriptlang.org</a></p>
+    </section>
+    <section><h3>Typing - examples</h3>
+        <pre><code rel="TS" class="ts" style="font-size: 1em; min-height: 70vh;" data-copy>
+            let start: boolean = false;
+            let age: number = 16;
+            let userName: string = "Ada";
+            let dataList: number[] = [1, 2, 3];
 
-			enum Color {Red, Green, Blue};
-			let c: Color = Color.Green;
+            enum Color {Red, Green, Blue};
+            let c: Color = Color.Green;
 
-			let anything: any = 42;
-			anything = "now I'm a string";
-			anything = false;
+            let anything: any = 42;
+            anything = "now I'm a string";
+            anything = false;
 
-			function showMessage(msg: string): void {
-				console.log(msg);
-			}
-			showMessage('Howdy!');
-		</code></pre>
-	</section>
-	<section><h3>Function Types</h3>
-		<dl class="fa">
-			<dt>We can add types to <span class="note">each of the parameters</span> and to the function's <span class="note">return type</span>.</dt>
-			<dt>TypeScript can figure the return type out by looking at the return statements, so we can also optionally leave this off in many cases.</dt>
-		</dl>
-		<pre><code rel="TS" class="ts">
-			function add(x: number, y: number): number {
-						return x + y;
-			}
+            function showMessage(msg: string): void {
+                console.log(msg);
+            }
+            showMessage('Howdy!');
+        </code></pre>
+    </section>
+    <section><h3>Function Types</h3>
+        <dl class="fa">
+            <dt>We can add types to <span class="note">each of the parameters</span> and to the function's <span class="note">return type</span>.</dt>
+            <dt>TypeScript can figure the return type out by looking at the return statements, so we can also optionally leave this off in many cases.</dt>
+        </dl>
+        <pre><code rel="TS" class="ts">
+            function add(x: number, y: number): number {
+                        return x + y;
+            }
 
-			console.log( add(2,3) );
-		</code></pre>
-	</section>
-	<section><h3>Function Optional Parameters</h3>
-		<pre><code rel="TS" class="ts">
-			// optional parameters:
-			function greet(firstName: string, lastName?: string) {
-				return lastName? `${firstName} ${lastName}`: firstName;
-			}
+            console.log( add(2,3) );
+        </code></pre>
+    </section>
+    <section><h3>Function Optional Parameters</h3>
+        <pre><code rel="TS" class="ts">
+            // optional parameters:
+            function greet(firstName: string, lastName?: string) {
+                return lastName? `${firstName} ${lastName}`: firstName;
+            }
 
-			console.log( greet('Ada', 'Byron') );
-			console.log( greet('Ada') );
-		</code></pre>
-	</section>
+            console.log( greet('Ada', 'Byron') );
+            console.log( greet('Ada') );
+        </code></pre>
+    </section>
 </section>
 
 <section data-min="5"><h2>Classes</h2>
-	<section><h3>Overview</h3>
-		<dl class="fa">
-			<dt>In TypeScript we define classes similarly to the ES6 class syntax.</dt>
-			<dt>But in TypeScript <span class="note">public parameters in a constructor is a shorthand to automatically create properties with that name</span>.</dt>
-		</dl>
-		<pre><code rel="TS" class="typescript">
-			class Person {
-				name:string
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>In TypeScript we define classes similarly to the ES6 class syntax.</dt>
+            <dt>But in TypeScript <span class="note">public parameters in a constructor is a shorthand to automatically create properties with that name</span>.</dt>
+        </dl>
+        <pre><code rel="TS" class="typescript">
+            class Person {
+                name:string
 
-				constructor(public firstName: string, public surName: string) {
-					// no need for: this.firstName = firstName
-					this.name = `${this.firstName} ${this.surName}`
-				}
-			}
-		</code></pre>
-	</section>
-	<section><h3>Inheritance</h3>
-		<dl class="fa">
-			<dt>All properties and methods defined in parent class are inherited from the derived class.</dt>
-			<dt>Each derived class that contains a constructor function <span class="note">must call</span> the super() constructor</dt>
-		</dl>
-		<pre><code rel="TS" class="typescript" style="font-size: .8em">
-			class Person {
-				name: string
+                constructor(public firstName: string, public surName: string) {
+                    // no need for: this.firstName = firstName
+                    this.name = `${this.firstName} ${this.surName}`
+                }
+            }
+        </code></pre>
+    </section>
+    <section><h3>Inheritance</h3>
+        <dl class="fa">
+            <dt>All properties and methods defined in parent class are inherited from the derived class.</dt>
+            <dt>Each derived class that contains a constructor function <span class="note">must call</span> the super() constructor</dt>
+        </dl>
+        <pre><code rel="TS" class="typescript" style="font-size: .8em">
+            class Person {
+                name: string
 
-				constructor(public firstName: string, public surName: string) {
-					this.name = `${this.firstName} ${this.surName}`;
-				}
+                constructor(public firstName: string, public surName: string) {
+                    this.name = `${this.firstName} ${this.surName}`;
+                }
 
-				greet(){
-					console.log(`Hello, my name is ${this.name}.`)
-				}
-			}
+                greet(){
+                    console.log(`Hello, my name is ${this.name}.`)
+                }
+            }
 
-			class Student extends Person{
-				college: string
+            class Student extends Person{
+                college: string
 
-				constructor(firstName: string, surName: string, college:string){
-					super(firstName, surName);
-					this.college=college;
-				}
+                constructor(firstName: string, surName: string, college:string){
+                    super(firstName, surName);
+                    this.college=college;
+                }
 
-				greet(){
-					// if we want we can reuse the parent's greet() method (if we want to extend it)
-					super.greet();
-					console.log(`I study in ${this.college}`)
+                greet(){
+                    // if we want we can reuse the parent's greet() method (if we want to extend it)
+                    super.greet();
+                    console.log(`I study in ${this.college}`)
 
-					// or just to overwrite it
-				}
-			}
+                    // or just to overwrite it
+                }
+            }
 
-			let maria = new Person("Maria", "Popova");
-			let ivan = new Student("Ivan", "Ivanov", 'TU-Sofia');
+            let maria = new Person("Maria", "Popova");
+            let ivan = new Student("Ivan", "Ivanov", 'TU-Sofia');
 
-			maria.greet();
-			ivan.greet();
-		</code></pre>
-	</section>
-	<section><h3>Reference: <a href="https://www.typescriptlang.org/docs/handbook/classes.html">Classes @typescriptlang.org</a></h3></section>
+            maria.greet();
+            ivan.greet();
+        </code></pre>
+    </section>
+    <section><h3>Reference: <a href="https://www.typescriptlang.org/docs/handbook/classes.html">Classes @typescriptlang.org</a></h3></section>
 </section>
 
 <section data-min="5"><h2>Interfaces</h2>
-	<section><h3>Overview</h3>
-		<dl class="fa">
-			<dt>An interface is an abstract type, i.e. it does not contain any executable code as a class does.</dt>
-			<dt>An interface is a way to define a contract on a function with respect to the arguments and their type.</dt>
-			<dt>Interface = Obligation</dt>
-			<dt>An interface can also be used with a Class to define custom types.</dt>
-		</dl>
-	</section>
-	<section><h3>An Interface did not generate code</h3>
-		<dl class="fa">
-			<dt>Next TypeScript code will note generate any JS code</dt>
-		</dl>
-		<pre><code rel="TS" class="ts">
-			interface Point{
-				x:number,
-				y:number
-			}
-		</code></pre>
-	</section>
-	<section><h3>Interface to enforce a shape of an object</h3>
-		<dl class="fa">
-			<dt>Next code has a potential bug, as we did not enforce the shape of the object being passed</dt>
-		</dl>
-		<pre><code rel="TS" class="ts">
-			function drawPoint(obj:any) {
-				console.log(obj.x, obj.y);
-			}
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>An interface is an abstract type, i.e. it does not contain any executable code as a class does.</dt>
+            <dt>An interface is a way to define a contract on a function with respect to the arguments and their type.</dt>
+            <dt>Interface = Obligation</dt>
+            <dt>An interface can also be used with a Class to define custom types.</dt>
+        </dl>
+    </section>
+    <section><h3>An Interface did not generate code</h3>
+        <dl class="fa">
+            <dt>Next TypeScript code will note generate any JS code</dt>
+        </dl>
+        <pre><code rel="TS" class="ts">
+            interface Point{
+                x:number,
+                y:number
+            }
+        </code></pre>
+    </section>
+    <section><h3>Interface to enforce a shape of an object</h3>
+        <dl class="fa">
+            <dt>Next code has a potential bug, as we did not enforce the shape of the object being passed</dt>
+        </dl>
+        <pre><code rel="TS" class="ts">
+            function drawPoint(obj:any) {
+                console.log(obj.x, obj.y);
+            }
 
-			drawPoint({
-				x:1,
-				y:2,
-				z:3
-			})
-			// 1 2
-			// no error is generated!
-		</code></pre>
-	</section>
-	<section><h3>Interface to enforce a shape of an object</h3>
-		<dl class="fa">
-			<dt>We need to enforce an object shape for the drawPoint() parameter. An Interface is useful for that.</dt>
-		</dl>
-		<pre><code rel="TS" class="ts">
-			interface Point{
-				x:number,
-				y:number
-			}
+            drawPoint({
+                x:1,
+                y:2,
+                z:3
+            })
+            // 1 2
+            // no error is generated!
+        </code></pre>
+    </section>
+    <section><h3>Interface to enforce a shape of an object</h3>
+        <dl class="fa">
+            <dt>We need to enforce an object shape for the drawPoint() parameter. An Interface is useful for that.</dt>
+        </dl>
+        <pre><code rel="TS" class="ts" style="min-height: 70vh;" data-copy>
+            interface Point{
+                x:number,
+                y:number
+            }
 
-			function drawPoint(point:Point) {
-				console.log(point.x, point.y);
-			}
+            function drawPoint(point:Point) {
+                console.log(point.x, point.y);
+            }
 
-			drawPoint({
-				x:1,
-				y:2,
-				z:3
-			})
-			// Error: Argument of type '{ x: number; y: number; z: number; }' is not assignable to parameter of type 'Point'. Object literal may only specify known properties, and 'z' does not exist in type 'Point'.
-		</code></pre>
-	</section>
-	<section><h3>A class as an interface</h3>
-		<dl class="fa">
-			<dt>A class declaration in TypeScript creates two things: <span class="note">a type</span> representing instances of the class and <span class="note">a constructor function</span></dt>
-			<dt>Consider next example and the error that throws:</dt>
-		</dl>
-		<pre><code rel="TS" class="ts">
-			class Duck{
-				constructor(public name:string) {}
-				quacks(){}
-				swim(){}
-			}
+            drawPoint({
+                x:1,
+                y:2,
+                z:3
+            })
+            // Error: Argument of type '{ x: number; y: number; z: number; }' is not assignable to parameter of type 'Point'. Object literal may only specify known properties, and 'z' does not exist in type 'Point'.
+        </code></pre>
+    </section>
+    <section><h3>A class as an interface</h3>
+        <dl class="fa">
+            <dt>A class declaration in TypeScript creates two things: <span class="note">a type</span> representing instances of the class and <span class="note">a constructor function</span></dt>
+            <dt>Consider next example and the error that throws:</dt>
+        </dl>
+        <pre><code rel="TS" class="ts" style="min-height: 90vh;" data-copy>
+            class Duck{
+                constructor(public name:string) {}
+                quacks(){}
+                swim(){}
+            }
 
-			class Cat {
-				constructor(public name:string) {}
-				quacks(){}
-			}
-
-
-			function isItDuck(obj:Duck) {
-				obj.quacks?
-					console.log(`${obj.name} is a Duck`) :
-					console.log(`Not a Duck`);
-			}
-
-			let donald = new Duck('Donald');
-			let tom = new Cat('Tom');
-
-			isItDuck(donald);
-			isItDuck(tom);
-			//Argument of type 'Cat' is not assignable to parameter of type 'Duck'.
-			Property 'swim' is missing in type 'Cat' but required in type 'Duck'.
-		</code></pre>
-	</section>
-	<section><h3 class="advanced">Duck-typing</h3>
-		<dl class="fa">
-			<dt>In dynamic taping languages, the type of the object is determined by it's  <span class="note">shape</span> (set of properties and methods) and this is called "Duck-typing"</dt>
-			<dd><q>If it looks like a duck, swims like a duck, and quacks like a duck, then it probably is a duck.</q></dd>
-			<dt>In TypeScript, interfaces can create duck-typing.</dt>
-		</dl>
-		<pre><code rel="TS" class="ts">
-			export {};
-
-			interface IDuck{
-				name: string
-				quacks():void
-			}
-
-			class Duck implements IDuck{
-				constructor(public name:string) {}
-
-				quacks(){}
-				swim(){}
-			}
-
-			class Cat {
-				constructor(public name:string) {}
-
-				quacks(){}
-			}
+            class Cat {
+                constructor(public name:string) {}
+                quacks(){}
+            }
 
 
-			function isItDuck(obj:IDuck) {
-				obj.quacks?
-					console.log(`${obj.name} is a Duck`):
-					console.log(`Not a Duck`);
-			}
+            function isItDuck(obj:Duck) {
+                obj.quacks?
+                    console.log(`${obj.name} is a Duck`) :
+                    console.log(`Not a Duck`);
+            }
 
-			let donald = new Duck('Donald');
-			let tom = new Cat('Tom');
+            let donald = new Duck('Donald');
+            let tom = new Cat('Tom');
 
-			isItDuck(donald);
-			isItDuck(tom);
-		</code></pre>
-	</section>
-	<!-- <section><h3>Interfaces - example 1</h3>
-		<pre><code rel="TS" class="ts">
-			&quot;use strict&quot;;
-			interface IDog{
-				name: string,
-				speak: ()=&gt;void
-			}
+            isItDuck(donald);
+            isItDuck(tom);
+            //Argument of type 'Cat' is not assignable to parameter of type 'Duck'.
+            Property 'swim' is missing in type 'Cat' but required in type 'Duck'.
+        </code></pre>
+    </section>
+    <section><h3 class="advanced">Duck-typing</h3>
+        <dl class="fa">
+            <dt>In dynamic taping languages, the type of the object is determined by it's  <span class="note">shape</span> (set of properties and methods) and this is called "Duck-typing"</dt>
+            <dd><q>If it looks like a duck, swims like a duck, and quacks like a duck, then it probably is a duck.</q></dd>
+            <dt>In TypeScript, interfaces can create duck-typing.</dt>
+        </dl>
+        <pre><code rel="TS" class="ts" style="min-height: 90vh;" data-copy>
+            export {};
 
-			var pluto: IDog = {
-				name:&quot;Pluto&quot;,
-				speak: ()=&gt;console.log(&quot;I&#39;m &quot;+pluto.name)
-			}
+            interface IDuck{
+                name: string
+                quacks():void
+            }
 
-			pluto.speak();
-		</code></pre>
-	</section> -->
-	<!-- <section><h3>Interfaces - example 2</h3>
-		<pre><code rel="TS" class="ts">
-			interface Callback {
-				(data: any): void;
-			}
+            class Duck implements IDuck{
+                constructor(public name:string) {}
 
-			function getData(callback: Callback) {
-				callback('Do something with data');
-			}
+                quacks(){}
+                swim(){}
+            }
 
-			getData( (data) =&gt; console.log(data) ); // OK
+            class Cat {
+                constructor(public name:string) {}
 
-			getData("Do something else with data")
-			// error TS2345: Argument of type '"Do something else with data"' is not assignable to parameter of type 'Callback'
-		</code></pre>
-	</section> -->
+                quacks(){}
+            }
+
+
+            function isItDuck(obj:IDuck) {
+                obj.quacks?
+                    console.log(`${obj.name} is a Duck`):
+                    console.log(`Not a Duck`);
+            }
+
+            let donald = new Duck('Donald');
+            let tom = new Cat('Tom');
+
+            isItDuck(donald);
+            isItDuck(tom);
+        </code></pre>
+    </section>
+    <!-- <section><h3>Interfaces - example 1</h3>
+        <pre><code rel="TS" class="ts">
+            &quot;use strict&quot;;
+            interface IDog{
+                name: string,
+                speak: ()=&gt;void
+            }
+
+            var pluto: IDog = {
+                name:&quot;Pluto&quot;,
+                speak: ()=&gt;console.log(&quot;I&#39;m &quot;+pluto.name)
+            }
+
+            pluto.speak();
+        </code></pre>
+    </section> -->
+    <!-- <section><h3>Interfaces - example 2</h3>
+        <pre><code rel="TS" class="ts">
+            interface Callback {
+                (data: any): void;
+            }
+
+            function getData(callback: Callback) {
+                callback('Do something with data');
+            }
+
+            getData( (data) =&gt; console.log(data) ); // OK
+
+            getData("Do something else with data")
+            // error TS2345: Argument of type '"Do something else with data"' is not assignable to parameter of type 'Callback'
+        </code></pre>
+    </section> -->
 </section>
 
-<!-- <section data-min="10"><h1>Decorators</h1></section>
-<section><h2>Decorators</h2>
-	<section><h3>Overview</h3>
-		<dl class="fa">
-			<dt>A Decorator <span class="note">is a function</span> which takes a <em>thing</em> and extends the behaviour of that <em>thing</em> without explicitly to modify it.</dt>
-			<dt>The <em>things</em> which can be decorated are</dt>
-			<dd>class, property, method and parameter</dd>
-		</dl>
-	</section>
-	<section><h3>How a decorator works?</h3>
-		<pre><code rel="TS" class="ts">
-			// create a decorator
-			function logDecor(f,name){
-				return function(){
-					console.log(`{{{{{{{{{{{{{{{{{{{{{{{`);
-					f(name)
-					console.log(`}}}}}}}}}}}}}}}}}}}}}}}`);
-				}
-			}
+<section data-min="5"><h2>Using ES6 Modules with TypeScript</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>TypeScript supports ES6-style modules, where we can use <code>import</code> and <code>export</code> to organize code across multiple files.</dt>
+            <dt><span class="note">The ES6 module system allows for better code organization, modularity, and reusability.</span></dt>
+            <dt>Reference: <a href="https://www.typescriptlang.org/docs/handbook/modules.html">Modules @typescriptlang.org</a></dt>
+        </dl>
+        <pre><code rel="TS" class="typescript">
+            // greet.ts
+            export function greet(name: string): string {
+                return `Hello, ${name}!`;
+            }
+        </code></pre>
+        <pre><code rel="TS" class="typescript">
+            // main.ts
+            import { greet } from './greet';
 
-			//a function, to be decorated:
-			function f(name){
-				console.log(`Howdy ${name}!`);
-			}
-			// decorate the function:
-			f = logDecor(f,"Ada")
+            const message = greet('World');
+            console.log(message);  // Output: Hello, World!
+        </code></pre>
+    </section>
+    <section><h3>Module Resolution</h3>
+        <dl class="fa">
+            <dt>TypeScript automatically resolves modules based on the file path and configuration in <code>tsconfig.json</code>.</dt>
+            <dt><span class="note">When using ES6 modules, TypeScript resolves the imports without needing file extensions.</span></dt>
+        </dl>
+        <pre><code rel="TS" class="typescript" style="font-size: .8em">
+            // tsconfig.json
+            {
+                "compilerOptions": {
+                    "target": "ES6",             // Set ECMAScript target version to ES6
+                    "module": "ES6",             // Use ES6 module system
+                    "moduleResolution": "node",  // Resolve modules using Node.js-style resolution
+                    "outDir": "./dist",          // Output directory for compiled files
+                    "rootDir": "./src",          // Input files are located in the 'src' folder
+                    "esModuleInterop": true      // Enable compatibility with CommonJS modules
+                }
+            }
+        </code></pre>
+    </section>
+    <section><h3>Importing and Exporting</h3>
+        <dl class="fa">
+            <dt><code>export</code> is used to make variables, functions, or classes available for other files to import.</dt>
+            <dt><code>import</code> allows you to access the exported members from another file.</dt>
+        </dl>
+        <pre><code rel="TS" class="typescript">
+            // math.ts
+            export function add(a: number, b: number): number {
+                return a + b;
+            }
 
-			// use the decorated function
-			f()
-		</code></pre>
-	</section>
-	<section><h3>Decorators in Angular</h3>
-		<pre><code rel="TS" class="ts">
-			import { Component } from '@angular/core';
+            // main.ts
+            import { add } from './math';
 
-			@Component({
-				selector: 'app-root',
-				templateUrl: './app.component.html',
-				styleUrls: ['./app.component.css']
-			})
-			export class AppComponent {
-				title = 'app';
-			}
-		</code></pre>
-	</section>
-</section> -->
+            console.log(add(2, 3));  // Output: 5
+        </code></pre>
+    </section>
+</section>
+
 
 
 <section data-min="1"><h1>References</h1></section>
 <section><h2>References</h2>
-	<section><h3>Readings</h3>
-		<dl class="fa">
-			<dt><a href="https://code.visualstudio.com/docs/languages/typescript">TypeScript in Visual Studio Code</a></dt>
-			<dt><a href="https://www.typescriptlang.org/docs/home.html">Documentation @typescriptlang.org</a></dt>
-		</dl>
-	</section>
+    <section><h3>Readings</h3>
+        <dl class="fa">
+            <dt><a href="https://code.visualstudio.com/docs/languages/typescript">TypeScript in Visual Studio Code</a></dt>
+            <dt><a href="https://www.typescriptlang.org/docs/home.html">Documentation @typescriptlang.org</a></dt>
+        </dl>
+    </section>
 </section>
 
 
