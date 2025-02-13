@@ -489,6 +489,39 @@
             // Error: Argument of type '{ x: number; y: number; z: number; }' is not assignable to parameter of type 'Point'. Object literal may only specify known properties, and 'z' does not exist in type 'Point'.
         </code></pre>
     </section>
+    <section><h3>Optional Properties in Interfaces</h3>
+        <dl class="fa">
+            <dt>Optional properties allow you to define a property in an interface that may or may not be present on an object.</dt>
+            <dt><span class="note">Using the `?` operator makes a property optional, meaning it is not required when creating an object of that type.</span></dt>
+        </dl>
+        <pre><code rel="TS" class="ts" style="min-height: 70vh;" data-copy>
+            interface Point {
+                x: number,
+                y: number,
+                z?: number  // Optional property
+            }
+
+            function drawPoint(point: Point) {
+                console.log(point.x, point.y);
+                if (point.z !== undefined) {
+                    console.log(point.z);  // Only log z if it's provided
+                }
+            }
+
+            drawPoint({
+                x: 1,
+                y: 2
+            })
+            // Output: 1 2 (z is not provided, so it's skipped)
+
+            drawPoint({
+                x: 1,
+                y: 2,
+                z: 3
+            })
+            // Output: 1 2 3 (z is provided)
+        </code></pre>
+    </section>
     <section><h3>A class as an interface</h3>
         <dl class="fa">
             <dt>A class declaration in TypeScript creates two things: <span class="note">a type</span> representing instances of the class and <span class="note">a constructor function</span></dt>
@@ -579,6 +612,7 @@
             pluto.speak();
         </code></pre>
     </section>
+
     <!-- <section><h3>Interfaces - example 2</h3>
         <pre><code rel="TS" class="ts">
             interface Callback {
@@ -777,7 +811,6 @@
         </ul>
     </section>
 </section>
-
 
 
 <section><h1>Type Casting in TypeScript</h1></section>
