@@ -364,6 +364,7 @@
     </section>
 </section>
 
+<section data-min="5"><h1>Classes in TS</h1></section>
 <section data-min="5"><h2>Classes</h2>
     <section><h3>Overview</h3>
         <dl class="fa">
@@ -426,6 +427,8 @@
     <section><h3>Reference: <a href="https://www.typescriptlang.org/docs/handbook/classes.html">Classes @typescriptlang.org</a></h3></section>
 </section>
 
+
+<section data-min="5"><h1>Interfaces</h1></section>
 <section data-min="5"><h2>Interfaces</h2>
     <section><h3>Overview</h3>
         <dl class="fa">
@@ -519,7 +522,7 @@
             Property 'swim' is missing in type 'Cat' but required in type 'Duck'.
         </code></pre>
     </section>
-    <section><h3 class="advanced">Duck-typing</h3>
+    <!-- <section><h3 class="advanced">Duck-typing</h3>
         <dl class="fa">
             <dt>In dynamic taping languages, the type of the object is determined by it's  <span class="note">shape</span> (set of properties and methods) and this is called "Duck-typing"</dt>
             <dd><q>If it looks like a duck, swims like a duck, and quacks like a duck, then it probably is a duck.</q></dd>
@@ -559,8 +562,8 @@
             isItDuck(donald);
             isItDuck(tom);
         </code></pre>
-    </section>
-    <!-- <section><h3>Interfaces - example 1</h3>
+    </section> -->
+    <section><h3>Interfaces - example 1</h3>
         <pre><code rel="TS" class="ts">
             &quot;use strict&quot;;
             interface IDog{
@@ -575,7 +578,7 @@
 
             pluto.speak();
         </code></pre>
-    </section> -->
+    </section>
     <!-- <section><h3>Interfaces - example 2</h3>
         <pre><code rel="TS" class="ts">
             interface Callback {
@@ -594,7 +597,8 @@
     </section> -->
 </section>
 
-<section data-min="5"><h2>Using ES6 Modules with TypeScript</h2>
+<section><h1>Using ES6 Modules with TypeScript</h1></section>
+<section><h2>Using ES6 Modules with TypeScript</h2>
     <section><h3>Overview</h3>
         <dl class="fa">
             <dt>TypeScript supports ES6-style modules, where we can use <code>import</code> and <code>export</code> to organize code across multiple files.</dt>
@@ -615,25 +619,26 @@
             console.log(message);  // Output: Hello, World!
         </code></pre>
     </section>
-    <section><h3>Module Resolution</h3>
+    <section><h3>Module Resolution in TypeScript</h3>
         <dl class="fa">
-            <dt>TypeScript automatically resolves modules based on the file path and configuration in <code>tsconfig.json</code>.</dt>
-            <dt><span class="note">When using ES6 modules, TypeScript resolves the imports without needing file extensions.</span></dt>
+            <dt>TypeScript automatically resolves modules by examining the file path and settings defined in the <code>tsconfig.json</code> configuration file.</dt>
+            <dt><span class="note">When working with ES6 modules, TypeScript can resolve imports without the need to specify file extensions, simplifying the import process.</span></dt>
+            <dt>In browsers, you generally need to include the file extensions in your imports, e.g., import { someFunc } from './utils.js'; because the browser needs to know the exact file type. TypeScript won't handle this automatically unless you use a bundler.</dt>
+            <dt>TypeScript uses different strategies for module resolution depending on the configuration in <code>tsconfig.json</code>, especially the <code>moduleResolution</code> setting.</dt>
         </dl>
-        <pre><code rel="TS" class="typescript" style="font-size: .8em">
-            // tsconfig.json
+        <pre><code rel="TS" class="typescript" style="font-size: .9em">
+            // tsconfig.json example
             {
                 "compilerOptions": {
-                    "target": "ES6",             // Set ECMAScript target version to ES6
-                    "module": "ES6",             // Use ES6 module system
-                    "moduleResolution": "node",  // Resolve modules using Node.js-style resolution
-                    "outDir": "./dist",          // Output directory for compiled files
-                    "rootDir": "./src",          // Input files are located in the 'src' folder
-                    "esModuleInterop": true      // Enable compatibility with CommonJS modules
+                    "target": "ES6",             // Specifies the ECMAScript version for the compiled output
+                    "module": "ES6",             // Tells TypeScript to use ES6 module syntax (import/export)
+                    "moduleResolution": "node",  // Resolves modules using Node.js-style resolution (useful for working with Node.js),
+                    "esModuleInterop": true      // Enables compatibility between ES6 and CommonJS modules for smoother imports
                 }
             }
         </code></pre>
     </section>
+
     <section><h3>Importing and Exporting</h3>
         <dl class="fa">
             <dt><code>export</code> is used to make variables, functions, or classes available for other files to import.</dt>
@@ -652,6 +657,135 @@
         </code></pre>
     </section>
 </section>
+
+<section><h1>Generics in TypeScript</h1></section>
+<section><h2>Generics in TypeScript</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>Generics allow you to write flexible, reusable code that can work with any data type while maintaining type safety.</dt>
+            <dt><span class="note">They enable you to create components, functions, and classes that can work with any data type, making your code more versatile and adaptable.</span></dt>
+            <dt>Reference: <a href="https://www.typescriptlang.org/docs/handbook/generics.html">Generics @typescriptlang.org</a></dt>
+        </dl>
+    </section>
+    <section><h3>Basic Usage</h3>
+        <dl class="fa">
+            <dt>Generics allow you to define a placeholder for a data type that can be specified when the function, class, or interface is used.</dt>
+        </dl>
+        <pre><code rel="TS" class="typescript">
+            // Function that takes an argument of any type and returns the same type
+            function identity<T>(arg: T): T {
+                return arg;
+            }
+
+            const output1 = identity<string>("Hello");
+            const output2 = identity<number>(42);
+        </code></pre>
+    </section>
+    <section><h3>Generic Constraints</h3>
+        <dl class="fa">
+            <dt>Generics can be constrained to specific types by using <code>extends</code>, ensuring the generic type meets certain requirements.</dt>
+        </dl>
+        <pre><code rel="TS" class="typescript">
+            // Function that accepts a type which extends { length: number }
+            function logLength<T extends { length: number }>(arg: T): void {
+                console.log(arg.length);
+            }
+
+            logLength([1, 2, 3]); // Output: 3
+            logLength("Hello!");   // Output: 6
+        </code></pre>
+    </section>
+    <!-- <section><h3>Using Generics with Interfaces</h3>
+        <dl class="fa">
+            <dt>You can use generics with interfaces to define reusable types for objects or functions.</dt>
+        </dl>
+        <pre><code rel="TS" class="typescript">
+            // Generic interface for a box that holds any type of item
+            interface Box<T> {
+                value: T;
+            }
+
+            const stringBox: Box<string> = { value: "Hello, World!" };
+            const numberBox: Box<number> = { value: 123 };
+        </code></pre>
+    </section>
+    <section><h3>Generics in Classes</h3>
+        <dl class="fa">
+            <dt>Generics can also be applied to classes to define types for properties or methods that can vary.</dt>
+        </dl>
+        <pre><code rel="TS" class="typescript">
+            // Generic class that holds a value of any type
+            class Container<T> {
+                value: T;
+                constructor(value: T) {
+                    this.value = value;
+                }
+            }
+
+            const stringContainer = new Container("Hello!");
+            const numberContainer = new Container(42);
+        </code></pre>
+    </section> -->
+</section>
+
+
+<section><h1>Type Casting in TypeScript</h1></section>
+<section><h2>Type Casting in TypeScript</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>Type casting is used to convert a variable from one type to another, either explicitly or implicitly.</dt>
+            <dt><span class="note">In TypeScript, type casting allows you to tell the compiler about the type of a value, even if the compiler cannot infer it automatically.</span></dt>
+            <dt>Reference: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html#type-assertions">Type Assertions @typescriptlang.org</a></dt>
+        </dl>
+    </section>
+    <section><h3>Implicit Type Casting</h3>
+        <dl class="fa">
+            <dt>TypeScript automatically performs type casting when the source and target types are compatible.</dt>
+        </dl>
+        <pre><code rel="TS" class="typescript">
+            let someNumber = 5;       // TypeScript infers type number
+            let someString = "Hello"; // TypeScript infers type string
+
+            let result = someNumber + 2;  // Implicitly treated as number
+            let greeting = someString + " World!"; // Implicitly treated as string
+        </code></pre>
+    </section>
+    <section><h3>Explicit Type Casting</h3>
+        <dl class="fa">
+            <dt>When TypeScript cannot automatically infer the correct type, explicit casting can be used to manually specify the type.</dt>
+        </dl>
+        <pre><code rel="TS" class="typescript">
+            let someValue: any = "This is a string!";
+            let stringLength: number = (someValue as string).length; // Using 'as' syntax
+
+            let anotherValue: any = "123";
+            let numberValue: number = <number><any>anotherValue; // Using angle-bracket syntax
+        </code></pre>
+    </section>
+    <section><h3>Type Assertions</h3>
+        <dl class="fa">
+            <dt>Type assertions are a way to tell TypeScript about the type of a value, without performing any special checking or restructuring.</dt>
+            <dt><span class="note">This does not change the type of the value at runtime, it is only for compile-time type-checking.</span></dt>
+        </dl>
+        <pre><code rel="TS" class="typescript">
+            // Type assertion with 'as' keyword
+            let someElement = document.querySelector("#my-element") as HTMLDivElement;
+            someElement.style.backgroundColor = "red";
+
+            // Type assertion with angle-bracket syntax
+            let anotherElement = <HTMLDivElement>document.querySelector("#another-element");
+            anotherElement.style.color = "blue";
+        </code></pre>
+    </section>
+    <section><h3>When to Use Type Casting</h3>
+        <dl class="fa">
+            <dt>Type casting is useful when working with values of <code>any</code> type or when TypeScript can't infer the type automatically.</dt>
+            <dt><span class="note">Be cautious, as incorrect type casting can lead to runtime errors if the actual type does not match the expected type.</span></dt>
+        </dl>
+    </section>
+</section>
+
+
 
 
 <section data-min="1"><h1>References</h1></section>
@@ -766,7 +900,6 @@
         </dl>
     </section>
 </section>
-
 
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
