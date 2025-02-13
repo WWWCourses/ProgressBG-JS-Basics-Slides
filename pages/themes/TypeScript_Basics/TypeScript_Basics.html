@@ -673,12 +673,12 @@
         </dl>
         <pre><code rel="TS" class="typescript">
             // Function that takes an argument of any type and returns the same type
-            function identity<T>(arg: T): T {
+            function identity&lt;T&gt;(arg: T): T {
                 return arg;
             }
 
-            const output1 = identity<string>("Hello");
-            const output2 = identity<number>(42);
+            const output1 = identity&lt;string&gt;(&quot;Hello&quot;);
+            const output2 = identity&lt;number&gt;(42);
         </code></pre>
     </section>
     <section><h3>Generic Constraints</h3>
@@ -687,12 +687,12 @@
         </dl>
         <pre><code rel="TS" class="typescript">
             // Function that accepts a type which extends { length: number }
-            function logLength<T extends { length: number }>(arg: T): void {
+            function logLength&lt;T extends { length: number }&gt;(arg: T): void {
                 console.log(arg.length);
             }
 
             logLength([1, 2, 3]); // Output: 3
-            logLength("Hello!");   // Output: 6
+            logLength(&quot;Hello!&quot;);   // Output: 6
         </code></pre>
     </section>
     <!-- <section><h3>Using Generics with Interfaces</h3>
@@ -727,6 +727,57 @@
         </code></pre>
     </section> -->
 </section>
+
+<section><h1>The Omit&lt;&gt; utility type</h1></section>
+<section><h2>The Omit&lt;&gt; utility type</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt><code>Omit&lt;&gt;</code> is a utility type in TypeScript that creates a new type by removing one or more properties from an existing type.</dt>
+            <dt><span class="note">It is helpful when you need to exclude properties from a type, such as in cases where you want a partial representation of an object.</span></dt>
+        </dl>
+    </section>
+
+    <section><h3>Syntax</h3>
+        <pre><code class="typescript">
+            Omit&lt;Type, Keys&gt;
+        </code></pre>
+        <dl class="fa">
+            <dt><code>Type</code> refers to the original type from which properties will be omitted.</dt>
+            <dt><code>Keys</code> is the property or properties to remove (can be a single key or a union of keys).</dt>
+        </dl>
+    </section>
+
+    <section><h3>Example</h3>
+        <pre><code class="typescript">
+            // Defining a Todo interface
+            interface Todo {
+            id: number;
+            title: string;
+            completed: boolean;
+            }
+
+            // Creating a new type that omits the 'id' property
+            type TodoWithoutId = Omit&lt;Todo, 'id'&gt;;
+
+            // Now we can create a TodoWithoutId object
+            const todo: TodoWithoutId = {
+            title: 'Learn TypeScript',
+            completed: false,
+            };
+        </code></pre>
+        <dl class="fa">
+            <dt>In this example, the type <code>TodoWithoutId</code> has the same properties as <code>Todo</code> but without the <code>id</code> property.</dt>
+        </dl>
+    </section>
+
+    <section><h3>Common Use Cases</h3>
+        <ul>
+            <li><strong>Excluding properties:</strong> When you need a type that is similar to another but without certain fields.</li>
+            <li><strong>Partial updates:</strong> When you want to update an object but not modify all its properties.</li>
+        </ul>
+    </section>
+</section>
+
 
 
 <section><h1>Type Casting in TypeScript</h1></section>
